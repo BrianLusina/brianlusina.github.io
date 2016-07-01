@@ -2,12 +2,12 @@
 
 - title: Getting Started
   url: /getting-started/
-  excerpt: "Everything you need to know to get started with Skinny Bones and Jekyll."
+  excerpt: "Everything you need to know to get started with Paper Rabbit."
   image: 400x250.gif
 
-- title: Sample Articles
+- title: Articles
   url: /articles/
-  excerpt: "Examples of long form posts."
+  excerpt: "Trust the rabbit, these are Worth a read."
   image: 400x250.gif
 
 - title: Media
@@ -17,5 +17,5 @@
 
 - title: About
   url: /about/
-  excerpt: "All about Skinny Bones for Jekyll."
+  excerpt: "All about Paper Rabbit."
   image: 400x250.gif

@@ -1,5 +1,15 @@
 # Authors
 
+brian_lusina:
+  name: Brian Lusina
+  web: http://thewhip.com
+  email: lusinabrian@gmail.com
+  bio: "I Tried learning something new today...I failed. I already know everything."
+  avatar: bio-photo.jpg
+  twitter: brianlusina
+  google:
+    plus: +BrianLusina
+
 billy_rick:
   name: Billy Rick
   web: http://thewhip.com
@@ -18,3 +28,5 @@ cornelius_fiddlebone:
   twitter: rhymeswithsackit
   google:
     plus: +CorneliusFiddlebone
+
+
