@@ -7,12 +7,12 @@
 
 - title: Articles
   url: /articles/
-  excerpt: "Trust the rabbit, these are Worth a read."
+  excerpt: "Trust the rabbit, these are worth a read."
   image: 400x250.gif
 
-- title: Media
-  url: /media/
-  excerpt: "Examples of media posts perfect for showcasing work, photographs, etc."
+- title: Projects
+  url: /projects/
+  excerpt: "Project showcase."
   image: 400x250.gif
 
 - title: About
