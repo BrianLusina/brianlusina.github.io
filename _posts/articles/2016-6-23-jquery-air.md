@@ -2,9 +2,9 @@
 layout:  article
 title:  jQuery Air
 category: articles
-tags:[jQuery, JavaScript Library, JavaScript]
-comments:true
-ads:true
+tags:  [jQuery, JavaScript Library, JavaScript]
+comments:  true
+ads:  true
 ---
 
 JQuery, as some of you may know is a feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript. This is per the [jQuery](https://jquery.com/ "More about jQuery here") website. This is very true and I have personally seen this as I continue to learn programming. jQuery is indeed feature rich and it does a lot of things in the background that the user may never see. Such as fetching data from an API and loading this data into HTML elements. Yes, you can do such things with jQuery. All you need is some knowledge on how to use it and apply it and soon you will write less code, but it will be very meaningful.

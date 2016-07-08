@@ -1,10 +1,10 @@
 ---
 layout:  articles
 title:  The Application Programming Interfaces
-categories: articles
-tags:[APIs, Program Interfaces]
-comments: true
-ads: true
+categories:  articles
+tags:  [APIs, Program Interfaces]
+comments:  true
+ads:  true
 ---
 
 An Application Programming Interface or API for short is a set of routines protocols for buidling software programs. An API simply provides the building blocks and the programmer's task is to piece it all together

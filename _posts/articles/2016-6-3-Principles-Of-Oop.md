@@ -1,10 +1,10 @@
 ---
-layout: article
-title: The 4 Principles of OOP
-categories: articles
-tags: [oop, oop principles, objects, encapsulation, abstraction, interfaces, polymorphism]
-comments: true
-ads: true
+layout:  article
+title:  The 4 Principles of OOP
+categories:  articles
+tags:  [oop, oop principles, objects, encapsulation, abstraction, interfaces, polymorphism]
+comments:  true
+ads:  true
 ---
 
 For a program to be said to be object oriented, some principles have to be followed. These principles are crucial to enable the said program to be effective in order to be able to meet the needs the program was designed for.
