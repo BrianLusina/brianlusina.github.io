@@ -7,6 +7,7 @@ categories:  articles
 ---
 
 There are several Abstract data types that are used in Java, 
+
 ## Stacks
 
 The Stack class represents a last-in-first-out (LIFO) stack of objects, The last element in will be the first one out, which is unfair if you ask me :smile:. It extends class [**Vector**](https://docs.oracle.com/javase/7/docs/api/java/util/Vector.html) with five operations that allow a vector to be treated as a stack.
@@ -25,6 +26,42 @@ A practical example, trays piled on top of each other, books laid on top of each
 
 There is no scenerio in which the stack will remain empty. There will always be data flowing in and data flowing out.
 
+A code snippet:
+
+
+```java
+public class StacksDemo {
+    public static void main(String[] args){
+        Stack stack = new Stack();
+        System.out.println("Stack is " + stack);
+        showPush(stack,52);
+        showPop(stack);
+        /*output:
+        *Stack is []
+        * push 52
+        * Stack is now: [52]
+        * Popped element is 52
+        * Stack is: []
+        * */
+    }
+
+    /**Method showing how to push elements into a stack*/
+    public static void showPush(Stack stack, int a){
+        stack.push(new Integer(a));
+        System.out.println("push " + String.valueOf(a));
+        System.out.println("Stack is now: "+ stack );
+    }
+
+    /**Method demonstrating the use of pop*/
+    public static void showPop(Stack stack){
+        Integer integer = (Integer) stack.pop();
+        System.out.println("Popped element is " + String.valueOf(integer));
+        System.out.println("Stack is: "+ stack);
+    }
+/*Class end*/
+}
+```
+> code snippet can be found [here](https://github.com/BrianLusina/Java-Playground/blob/master/Toy%20Problems/src/DataStructures/DataTypes/StacksDemo.java)
 
 ## Queue
 
