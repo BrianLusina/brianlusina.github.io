@@ -70,7 +70,7 @@ Has 2 major operations:
 + Dequeue
 + 
 
-s
+
 ## LinkedLists
 
 Data arranged in a list with the first element being the **head** having the node and a pointer. The pointer points to another node and so on and so forth until it reaches the last element with a node that is null. The last element is known as the **tail**
