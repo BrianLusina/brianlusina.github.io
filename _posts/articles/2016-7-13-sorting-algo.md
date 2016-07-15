@@ -75,3 +75,30 @@ This is obviously convenient for small data sets as we are comparing 2 elements 
 > Demonstration of a bubble sort algorithm, sorting elements in ascending order
 
 Code snippet right [here](https://github.com/BrianLusina/Java-Playground/blob/master/Toy%20Problems/src/SortingAlgorithms/BubbleSortDemo.java).
+
+# Merge Sort
+
+Uses the *divide and conquer rule* it divides a problem into smaller parts until it reaches the simplest form possible. Then it rejoins the divided elements in a sorted format until it is a full list again. This sorting algorithm is mostly used in arrays.
+
+Consider this example
+27  10  12  25  34  16  15  31
+divide it into two parts
+27  10  12  25            34  16  15  31
+divide each part into two parts
+27  10            12  25            34  16            15  31
+divide each part into two parts
+27       10       12       25       34       16       15       31
+ 
+
+merge (cleverly-!) parts
+
+10  27            12  25            16  34            15  31
+merge parts
+10  12  25  27                 15  16  31  34
+merge parts into one
+10  12  15  16  25  27  31  34
+
+
+# Insertion Sort
+
+
