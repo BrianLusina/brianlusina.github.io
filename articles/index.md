@@ -1,9 +1,9 @@
 ---
 layout: archive
-title: "Articles"
+title: "<Code/>"
 date: 2014-05-30T11:39:03-04:00
 modified:
-excerpt: "A collection of thoughts, inspiration and other minutia."
+excerpt: "A collection of bits, bytes, bugs and snippets."
 tags: []
 image:
   feature:
