@@ -1,12 +1,12 @@
 # Site navigation links
 
 - title: Techy Stuff
-  url: /money-matters/
+  url: /code-articles/
   excerpt: "Everything(almost) you need to know about code."
   image: 400x250.gif
 
 - title: Money Matters
-  url: /articles/
+  url: /money-matters/
   excerpt: "Trust the rabbit, these are worth a read."
   image: 400x250.gif
 
