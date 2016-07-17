@@ -1,11 +1,11 @@
 # Site navigation links
 
-- title: Getting Started
+- title: Techy Stuff
   url: /getting-started/
-  excerpt: "Everything you need to know to get started with Paper Rabbit."
+  excerpt: "Everything(almost) you need to know about code."
   image: 400x250.gif
 
-- title: Articles
+- title: Money Matters
   url: /articles/
   excerpt: "Trust the rabbit, these are worth a read."
   image: 400x250.gif
