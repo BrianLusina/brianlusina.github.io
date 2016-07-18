@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Money, money, money"
+title: "Money"
 date: 2014-05-30T11:39:03-04:00
 modified:
 excerpt: "My Two cents about money and other 'notes'."
