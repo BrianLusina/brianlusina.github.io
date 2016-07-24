@@ -12,19 +12,12 @@ image:
   creditlink:  https://brianlusina.github.io/Chatterbox/
 ---
 
-This is sample web chat application:
+This is sample web chat application.
 
-Technologies used:
+## Tools used
 
-HTML
-CSS
-Foundation Framework
-jQuery JavaScript framework
-FontAwesome icons
-Ionicons icons
-Features:
+This sample website is build on Hyper Text Markup Language (HTML5 to be specfic) styled with Cascading Style Sheets. It is responsive thanks to the *Foundation Framework*. Feature rich and interactive using jQuery JavaScript framework. Icons are from the FontAwesome icon library. Database is maintained by Firebase.
 
-Can submit a message which appears on the screen
-Multiple chatrooms
-Random messages from other "people" in the chatroom
-Uses Firebase to store and retrieve the messages
+## Features
+
+Some of the features inclue submit a message which appears on the screen. Ability to create multiple chatrooms and add people to the rooms. User's can sign in using Google.
