@@ -1,7 +1,7 @@
 ---
 layout: media
 title: "ChatterBox WebApp"
-categories: articles
+categories: media
 excerpt: "A simple web chatting application build on Firebase"
 ads: true
 share: true
