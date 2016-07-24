@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Divide between Entrepreneurship and Small Businesses"
-categories: articles
+categories: money
 excerpt: "Demistifying small businesses and entrepreneurship"
 tags:  [small business, entrepreneurship]
 ads: true
