@@ -12,7 +12,7 @@ image:
   creditlink: http://design-agency.bitballoon.com/
 ---
 
-A responsive HTML,CSS and JS one page website for a design agency
+A responsive HTML, CSS and JavaScript one page website for a design agency. Site was build with simplicity in mind, without eliminating important components from the site. Components such as elegant design and animations as well as allowing the user to properly interact with the website and obtaining information needed.
 
 
 ## COMPONENTS USED
