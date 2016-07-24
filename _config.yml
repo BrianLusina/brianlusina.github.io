@@ -5,7 +5,7 @@ description: "Unfold your wit"
 logo: paper_rabbit.png
 teaser: paper_rabbit.png
 locale: en_US
-url: "https://brianlusina.github.io/Paper-Rabbit/"
+url: "https://brianlusina.github.io/Paper-Rabbit"
 feed:
   path: atom.xml
 
