@@ -7,7 +7,7 @@ tags:  [Usability, User Experience, UX, Design]
 modified: 2016-7-28
 image:
 	feature: usability-design.png
-ads:true
+ads:  true
 ---
 
 reference: https://www.nngroup.com/articles/usability-101-introduction-to-usability
