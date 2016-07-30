@@ -244,4 +244,24 @@ The flasky_version() function takes up the floating point number as argument. Th
 
 > `Flasky version 1.100000`
 
-## 
+The URL rules of Flask are based on Werkzeug’s routing module. This ensures that the URLs formed are unique and based on precedents laid down by Apache.
+
+Consider the rules defined in the following script −
+```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/flask')
+def hello_flask():
+   return 'Hello Flask'
+
+@app.route('/python/')
+def hello_python():
+   return 'Hello Python'
+
+if __name__ == '__main__':
+   app.run()
+```python
+
+Both the rules appear similar but in the second rule, trailing slash (/) is used. As a result, it becomes a canonical URL. Hence, using /python or /python/ returns the same output. However, in case of the first rule, /flask/ URL results in 404 Not Found page.
+
