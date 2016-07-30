@@ -405,6 +405,21 @@ However, generating HTML content from Python code is cumbersome, especially when
 
 This is where one can take advantage of **[Jinja2](http://jinja.pocoo.org/)** template engine, on which Flask is based. Instead of returning hardcode HTML from the function, a HTML file can be rendered by the `render_template()` function.
 
+```python
+from flask import Flask
+app = Flask(__name__)
 
+@app.route('/')
+def index():
+   return render_template(‘hello.html’)
+
+if __name__ == '__main__':
+   app.run(debug = True)
+```
+Flask will try to find the HTML file in the templates folder, in the same folder in which this script is present.
+Application folder
+Hello.py
+templates
+hello.html
 
 
