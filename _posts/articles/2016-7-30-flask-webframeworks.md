@@ -1,10 +1,10 @@
 ---
 layout:  article
 title:  Flask Web Framework
+categories:  articles
 excerpt:  Some basic information about Flask web framework
-categories: articles
-tags:  [web frameworks, python frameworks,flask]
 author:  brian_lusina
+tags:  [web frameworks, python frameworks,flask]
 ads:  true
 share:  true
 image:
@@ -12,7 +12,7 @@ image:
 	teaser: flask-webframe.png
 	credit: Flask
 	creditlink:  http://flask.pocoo.org
-date: 2016-7-30
+---
 
 Web Application Framework or simply Web Framework represents a collection of libraries and modules that enables a web application developer to write applications without having to bother about low-level details such as protocols, thread management etc.
 
