@@ -374,7 +374,7 @@ Changing the method parameter to ‘GET’ in login.html and opening it again in
 Here, args is dictionary object containing a list of pairs of form parameter and its corresponding value. The value corresponding to `nm` parameter is passed on to `/success` URL as before.
 
 ``` python
-@app.route('/Login', methods=['POST', 'GET'])
+@app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
         user = request.form['nm']
@@ -383,5 +383,28 @@ def login():
         user = request.args.get('nm')
         return redirect(url_for('success', name=user))
 ```
+
+## Templates
+
+It is possible to return the output of a function bound to a certain URL in the form of HTML. For instance, in the following script, `hello()` function will render ‘Hello World’ with <h1> tag attached to it.
+
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+   return '<html><body><h1>Hello World'</h1></body></html>'
+
+if __name__ == '__main__':
+   app.run(debug = True)
+```
+
+However, generating HTML content from Python code is cumbersome, especially when variable data and Python language elements like conditionals or loops need to be put. This would require frequent escaping from HTML.
+
+This is where one can take advantage of **[Jinja2](http://jinja.pocoo.org/)** template engine, on which Flask is based. Instead of returning hardcode HTML from the function, a HTML file can be rendered by the `render_template()` function.
+
+
 
 
