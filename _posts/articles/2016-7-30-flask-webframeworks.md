@@ -211,9 +211,37 @@ if __name__ == '__main__':
    app.run(debug = True)
 ```
 
-Save the above script as hello.py and run it from Python shell. Next, open the browser and enter URL http://localhost:5000/hello/TutorialsPoint.
+Running above script from the Python shell and opening the browser with URL http://localhost:5000/flasky-say-hello/Lusina
 
 The following output will be displayed in the browser.
 
-Hello TutorialsPoint!
-##
+> `Flasky says hello Lusina!`
+
+In addition to the default string variable part, rules can be constructed using the following converters −
++ **int** accepts integer
++ **float** For floating point value
++ **path** accepts slashes used as directory separator character
+
+```python
+@app.route('/flasky-age/<int:postID>')
+def flasky_age(postID):
+    return 'Flasky just turned  %d' % postID
+
+
+@app.route('/flasky-version/<float:revNo>')
+def flasky_version(revNo):
+    return 'Flasky version %f' % revNo
+```
+
+Running the above code from Python Shell. Visit the URL http://localhost:5000/flasky-age/11 in the browser.
+The given number is used as argument to the flasky_age() function. The browser displays the following output:
+
+> `Flasky just turned 11`
+
+Enter this URL in the browser − http://localhost:5000/flasky-version/1.1
+
+The flasky_version() function takes up the floating point number as argument. The following result appears in the browser window −
+
+> `Flasky version 1.100000`
+
+## 
