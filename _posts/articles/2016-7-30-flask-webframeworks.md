@@ -334,4 +334,54 @@ The following table is a summary of the HTTP methods availaible:
 |   PUT   | Replaces all current representations of the target resource with the uploaded content
 |   DELETE| Removes all current representations of the target resouce given by URL
 
+By default, the Flask route responds to the *GET* requests. However, this preference can be altered by providing methods argument to `route()` decorator.
+
+In order to demonstrate the use of `POST` method in URL routing, first let us create an HTML form and use the POST method to send form data to a URL.
+
+Save the following script as login.html
+```html
+<html>
+   <body>
+      <form action = "http://localhost:5000/Login" method = "post">
+         <p>Enter Name:</p>
+         <p><input type = "text" name = "nm" /></p>
+         <p><input type = "submit" value = "submit" /></p>
+      </form>
+   </body>
+</html>
+```
+
+The following demonstrate HTTP requests. The first function, `success(name)` is only called when the user is successful in logging in. The `request` module has to be imported.
+
+```python
+from flask import Flask, redirect, url_for, request
+
+@app.route('/success/<name>')
+def success(name):
+    return 'welcome to Flasky! %s' % name
+```
+
+This below function redirects the user to the login page, The `app.route` decorator takes in two arguments, the /Login page url and the HTTP methods. It checks the HTTP requests, if the request is POST, http://localhost/login is mapped to the `login()` function. Since the server has received data by POST method, value of `nm` parameter obtained from the form data is obtained by −
+
+> user = request.form['nm']
+
+It is then passed to `/success` URL as variable part. The browser displays a welcome message in the window.
+
+Changing the method parameter to ‘GET’ in login.html and opening it again in the browser will cause the data recieved on server by the GET method. The value of `nm` parameter is now obtained by
+
+> User = request.args.get(‘nm’)
+
+Here, args is dictionary object containing a list of pairs of form parameter and its corresponding value. The value corresponding to `nm` parameter is passed on to `/success` URL as before.
+
+``` python
+@app.route('/Login', methods=['POST', 'GET'])
+def login():
+    if request.method == 'POST':
+        user = request.form['nm']
+        return redirect(url_for('success', name=user))
+    else:
+        user = request.args.get('nm')
+        return redirect(url_for('success', name=user))
+```
+
 
