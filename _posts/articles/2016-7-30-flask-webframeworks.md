@@ -264,3 +264,53 @@ if __name__ == '__main__':
 
 Both the rules appear similar but in the second rule, trailing slash (/) is used. As a result, it becomes a canonical URL. Hence, using /python or /python/ returns the same output. However, in case of the first rule, /flask/ URL results in 404 Not Found page.
 
+## URL Building
+
+The `url_for()` function is very useful for dynamically building a URL for a specific function. The function accepts the name of a function as first argument, and one or more keyword arguments, each corresponding to the variable part of URL.
+
+The below code is a small snippet demonstrating the same, it builds on the previous snippets.
+
+```python
+from flask import Flask, redirect, url_for
+# some code
+...
+
+"""
+using url_for and redirect to redirect the user in case they are not admin, for instance
+the flasky_admin function is the admin site
+"""
+
+
+@app.route('/admin')
+def flasky_admin():
+    return 'Hello, welcome to the admin page. Admin privileges!'
+
+"""
+below function is the guest site
+"""
+
+
+@app.route('/guest/<guest>')
+def flasky_guest(guest):
+    return 'Hello %s, You are logged in as guest in Flasky\'s world' % guest
+
+
+"""
+below function checks the user, if they are admin, they will be redirected to the admin site,
+if they are guests, they will be redirected to the guest site. t
+This function acts as a validator based on the parameter passed in, in this case, based on the url typed in,
+it will redirect to the relevant function based on the input
+"""
+
+
+@app.route('/user/<name>')
+def flasky_user(name):
+    if name == 'admin':
+        return redirect(url_for('flasky_admin'))
+    else:
+        return redirect(url_for('flasky_guest', guest=name))
+
+#  other code
+...
+```
+
