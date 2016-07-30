@@ -33,7 +33,6 @@ Jinja2 is a popular templating engine for Python. A web templating system combin
 
 Flask is often referred to as a micro framework. It aims to keep the core of an application simple yet extensible. Flask does not have built-in abstraction layer for database handling, nor does it have form a validation support. Instead, Flask supports the extensions to add such functionality to the application.
 
-
 {% include toc.html %}
 
 ## Flask Environment
@@ -194,6 +193,27 @@ def flasky_closet():
 app.add_url_rule('/', 'flasky-closet', flasky)
 ```
 
-##
+## Variable Rules
 
+It is possible to build a URL dynamically, by adding variable parts to the rule parameter. This variable part is marked as <variable-name>. It is passed as a keyword argument to the function with which the rule is associated.
+
+In the following example, the rule parameter of `route()` decorator contains `<name>` variable part attached to URL `/flasky-says-hello`. Hence, if the http://localhost:5000/flasky-says-hello/Lusina is entered as a URL in the browser, 'Lusina' will be supplied to `flasky_greet()` function as argument.
+
+```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/flasky-says-hello/<name>')
+def flaksy_greet(name):
+   return 'Flasky says hello %s!' % name
+
+if __name__ == '__main__':
+   app.run(debug = True)
+```
+
+Save the above script as hello.py and run it from Python shell. Next, open the browser and enter URL http://localhost:5000/hello/TutorialsPoint.
+
+The following output will be displayed in the browser.
+
+Hello TutorialsPoint!
 ##
