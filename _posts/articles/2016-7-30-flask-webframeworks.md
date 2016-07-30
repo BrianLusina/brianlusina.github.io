@@ -323,3 +323,15 @@ When the url is changed to http://localhost:5000/guest/Meme
 > Hello Meme, You are logged in as guest in Flasky's world
 
 
+## HTTP methods
+
+The following table is a summary of the HTTP methods availaible:
+| Method  | Description
+|---|
+|   GET   | Sends data in unencrypted form to the server. Most common method.
+|   POST  | Sends data in unencrypted form to the server. Most common method.
+|   HEAD  | Same as  GET, but without response body
+|   PUT   | Replaces all current representations of the target resource with the uploaded content
+|   DELETE| Removes all current representations of the target resouce given by URL
+
+
