@@ -314,3 +314,12 @@ def flasky_user(name):
 ...
 ```
 
+The above script has a function `flasky_user(name)` which accepts a value to its argument from the URL. This function checks if an argument received matches `admin` or not. If it matches, the application is redirected to the `flasky_admin()` function using `url_for()`, otherwise to the `flasky_guest()` function passing the received argument as guest parameter to it.
+
+On running the above code, this is the output when the url is **http://localhost:5000/admin**
+> Hello, welcome to the admin page. Admin privileges!
+
+When the url is changed to http://localhost:5000/guest/Meme
+> Hello Meme, You are logged in as guest in Flasky's world
+
+
