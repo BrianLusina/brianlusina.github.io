@@ -417,9 +417,11 @@ if __name__ == '__main__':
    app.run(debug = True)
 ```
 Flask will try to find the HTML file in the templates folder, in the same folder in which this script is present.
-Application folder
-Hello.py
-templates
-hello.html
 
+```bash
+├── App-Folder
+|    ├── flasky.py
+|    ├── templates
+|    		├── index.html
+```
 
