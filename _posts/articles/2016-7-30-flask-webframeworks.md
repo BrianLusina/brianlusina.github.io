@@ -422,6 +422,11 @@ Flask will try to find the HTML file in the templates folder, in the same folder
 ├── App-Folder
 |    ├── flasky.py
 |    ├── templates
-|    		├── index.html
+|    	    ├── index.html
 ```
+
+The term *web templating system* refers to designing an HTML script in which the variable data can be inserted dynamically. A web template system comprises of a template engine, some kind of data source and a template processor.
+
+Flask uses *Jinja2* template engine. A web template contains HTML syntax interspersed placeholders for variables and expressions (in this case Python expressions) which are replaced values when the template is rendered.
+
 
