@@ -429,4 +429,117 @@ The term *web templating system* refers to designing an HTML script in which the
 
 Flask uses *Jinja2* template engine. A web template contains HTML syntax interspersed placeholders for variables and expressions (in this case Python expressions) which are replaced values when the template is rendered.
 
+The following code is saved as hello.html in the templates folder.
+```html
+<!doctype html>
+<html>
+   <body>
+   
+      <h1>Hello {{ name }}!</h1>
+      
+   </body>
+</html>
+```
+Next, run the following script from Python shell.
+
+```python
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route('/hello/<user>')
+def hello_name(user):
+   return render_template('hello.html', name = user)
+
+if __name__ == '__main__':
+   app.run(debug = True)
+```
+
+As the development server starts running, open the browser and enter URL as − http://localhost:5000/hello/Lusina
+
+The variable part of URL is inserted at {{ name }} place holder.
+
+The Jinja2 template engine uses the following delimiters for escaping from HTML.
+
++ {% ... %} for Statements
++ {{ ... }} for Expressions to print to the template output
++ {# ... #} for Comments not included in the template output
++ # ... ## for Line Statements
+
+In the following example, use of conditional statement in the template is demonstrated. The URL rule to the hello() function accepts the integer parameter. It is passed to the hello.html template. Inside it, the value of number received (marks) is compared (greater or less than 50) and accordingly HTML is conditionally rendered.
+
+The Python Script is as follows −
+```python
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route('/hello/<int:score>')
+def hello_name(score):
+   return render_template('hello.html', marks = score)
+
+if __name__ == '__main__':
+   app.run(debug = True)
+```
+
+HTML template script of hello.html is as follows −
+
+```html
+<!doctype html>
+<html>
+   <body>
+   
+      {% if marks>50 %}
+      <h1> Your result is pass!</h1>
+      {% else %}
+      <h1>Your result is fail</h1>
+      {% endif %}
+      
+   </body>
+</html>
+```
+> Note that the conditional statements if-else and endif are enclosed in delimiter {%..%}.
+
+Run the Python script and visit URL http://localhost/hello/60 and then http://localhost/hello/30 to see the output of HTML changing conditionally.
+
+The Python loop constructs can also be employed inside the template. In the following script, the `result()` function sends a dictionary object to template results.html when URL http://localhost:5000/result is opened in the browser.
+
+The Template part of result.html employs a for loop to render key and value pairs of dictionary object result{} as cells of an HTML table.
+
+Run the following code from Python shell.
+```python
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route('/result')
+def result():
+   dict = {'phy':50,'che':60,'maths':70}
+   return render_template('result.html', result = dict)
+
+if __name__ == '__main__':
+   app.run(debug = True)
+```
+
+The results.html
+```html
+<!doctype html>
+<html>
+   <body>
+   
+      <table border = 1>
+         {% for key, value in result.iteritems() %}
+         
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+            
+         {% endfor %}
+      </table>
+      
+   </body>
+</html>
+```
+> Python statements corresponding to the For loop are enclosed in {%..%} whereas, the expressions key and value are put inside {{ }}.
+
+## Static Files
+
 
