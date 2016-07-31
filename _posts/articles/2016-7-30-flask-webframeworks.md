@@ -430,20 +430,20 @@ The term *web templating system* refers to designing an HTML script in which the
 Flask uses *Jinja2* template engine. A web template contains HTML syntax interspersed placeholders for variables and expressions (in this case Python expressions) which are replaced values when the template is rendered.
 
 The following code is saved as hello.html in the templates folder.
-```html
+``` html
 <!doctype html>
 <html>
    <body>
-   
-      <h1>Hello {{ name }}!</h1>
+      <h1>Hello {{ name }}</h1>
    </body>
 </html>
 ```
 Next, run the following script from Python shell.
 
-```python
+``` python
 from flask import Flask, render_template
-app = Flask(__name__)
+
+app = Flask (__name__)} %}
 
 @app.route('/hello/<user>')
 def hello_name(user):
@@ -455,14 +455,15 @@ if __name__ == '__main__':
 
 As the development server starts running, open the browser and enter URL as − http://localhost:5000/hello/Lusina
 
-The variable part of URL is inserted at {{ name }} place holder.
+The variable part of URL is inserted at `{{ name }}` place holder.
 
 The Jinja2 template engine uses the following delimiters for escaping from HTML.
 
-+ {% ... %} for Statements
-+ {{ ... }} for Expressions to print to the template output
-+ {# ... #} for Comments not included in the template output
-+ # ... ## for Line Statements
+
++ `{\%\ ... \%\}` for Statements
++ `{{ ... }}` for Expressions to print to the template output
++ `{# ... #}` for Comments not included in the template output
++ `# ... ##` for Line Statements
 
 In the following example, use of conditional statement in the template is demonstrated. The URL rule to the hello() function accepts the integer parameter. It is passed to the hello.html template. Inside it, the value of number received (marks) is compared (greater or less than 50) and accordingly HTML is conditionally rendered.
 
@@ -479,23 +480,23 @@ if __name__ == '__main__':
    app.run(debug = True)
 ```
 
-HTML template script of hello.html is as follows −
+HTML template script of hello.html is as follows
 
 ```html
 <!doctype html>
 <html>
    <body>
    
-      {% if marks>50 %}
+      {\%\ if marks>50 \%\}
       <h1> Your result is pass!</h1>
-      {% else %}
+      {\%\ else \%\}
       <h1>Your result is fail</h1>
-      {% endif %}
+      {\%\ endif \%\}
       
    </body>
 </html>
 ```
-> Note that the conditional statements if-else and endif are enclosed in delimiter {%..%}.
+> Note that the conditional statements if-else and endif are enclosed in delimiter {\%\..\%\}.
 
 Run the Python script and visit URL http://localhost/hello/60 and then http://localhost/hello/30 to see the output of HTML changing conditionally.
 
@@ -524,20 +525,20 @@ The results.html
    <body>
    
       <table border = 1>
-         {% for key, value in result.iteritems() %}
+         {\%\ for key, value in result.iteritems() \%\}
          
             <tr>
                <th> {{ key }} </th>
                <td> {{ value }} </td>
             </tr>
             
-         {% endfor %}
+         {\%\ endfor \%\}
       </table>
       
    </body>
 </html>
 ```
-> Python statements corresponding to the For loop are enclosed in {%..%} whereas, the expressions key and value are put inside {{ }}.
+> Python statements corresponding to the For loop are enclosed in {\%\..\%\} whereas, the expressions key and value are put inside {{ }}.
 
 ## Static Files
 
