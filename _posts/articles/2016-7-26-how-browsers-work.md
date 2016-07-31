@@ -86,7 +86,7 @@ So, what exactly are these parts of a browser that make this all possible? It su
 
 Here is an image to make it more visiually appealing
 
-![image](http://taligarsiel.com/Projects/layers.png "Components of a browser")
+<img src="http://taligarsiel.com/Projects/layers.png" alt="Components of a browser">
 
 
 So, before i sum it all up, here is the intricate flow of data from the website you requested to the display on your browser:
