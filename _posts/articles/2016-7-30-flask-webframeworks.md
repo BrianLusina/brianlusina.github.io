@@ -8,10 +8,10 @@ tags:  [web frameworks, python frameworks,flask]
 ads:  true
 share:  true
 image:
-	feature: flask-webframe.png
-	teaser: flask-webframe.png
-	credit: Flask
-	creditlink:  http://flask.pocoo.org
+ feature: flask-webframe.png
+ teaser: flask-webframe.png
+ credit: Flask
+ creditlink:  http://flask.pocoo.org
 ---
 
 Web Application Framework or simply Web Framework represents a collection of libraries and modules that enables a web application developer to write applications without having to bother about low-level details such as protocols, thread management etc.
@@ -436,7 +436,6 @@ The following code is saved as hello.html in the templates folder.
    <body>
    
       <h1>Hello {{ name }}!</h1>
-      
    </body>
 </html>
 ```
@@ -542,4 +541,43 @@ The results.html
 
 ## Static Files
 
+A web application often requires a static file such as a javascript file or a CSS file supporting the display of a web page. Usually, the web server is configured to serve them for you, but during the development, these files are served from static folder in your package or next to your module and it will be available at /static on the application.
 
+A special endpoint ‘static’ is used to generate URL for static files.
+
+In the following example, a javascript function defined in hello.js is called on OnClick event of HTML button in index.html, which is rendered on ‘/’ URL of the Flask application.
+
+from flask import Flask, render_template
+
+```python
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+   return render_template("index.html")
+
+if __name__ == '__main__':
+   app.run(debug = True)
+```
+
+The HTML script of index.html is given below.
+```html
+<html>
+
+   <head>
+      <script type = "text/javascript" 
+         src = "{{ url_for('static', filename = hello.js') }}" ></script>
+   </head>
+   
+   <body>
+      <input type = "button" onclick = "sayHello()" value = "Say Hello" />
+   </body>
+   
+</html>
+```
+Hello.js contains sayHello() function.
+```javascript
+function sayHello() {
+   alert("Hello World")
+}
+```

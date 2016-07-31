@@ -5,7 +5,7 @@ categories:  articles
 excerpt: Usability 101, a brief introduction into design
 tags:  [Usability, User Experience, UX, Design]
 image:
-	feature: usability-design.png
+ feature: usability-design.png
 ads:  true
 ---
 
