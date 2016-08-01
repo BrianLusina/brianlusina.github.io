@@ -8,23 +8,23 @@ image:
 <div class="tiles">
 
 <div class="tile">
-  <h2 class="post-title">Built to be light and quick</h2>
-  <p class="post-excerpt">Takes advantage of native Sass support and data files to make customizing your site easier.</p>
+  <h2 class="post-title">Tech</h2>
+  <p class="post-excerpt">Talks on various technology advancements happenings in the world and simple coding tips and algorithms I have come accross</p>
 </div><!-- /.tile -->
 
 <div class="tile">
-  <h2 class="post-title">Content First</h2>
-  <p class="post-excerpt">Designed to put the focus on you and your writing. Headers, navigation, sidebars, and footers have been purposely deemphasized.</p>
+  <h2 class="post-title">Money</h2>
+  <p class="post-excerpt">Money is what drives economies if not build them. Also, they buy every day items and fill they bellies, why not know more about them?</p>
 </div><!-- /.tile -->
 
 <div class="tile">
-  <h2 class="post-title">Customizable</h2>
-  <p class="post-excerpt">Packed with layouts and modules. Include Disqus comments, social sharing buttons, and table of contents on one or all pages.</p>
+  <h2 class="post-title">Projets</h2>
+  <p class="post-excerpt">Has a plethora of projects I have done and still adding. The projects done have been described as well as how the particular project was built and why.</p>
 </div><!-- /.tile -->
 
 <div class="tile">
-  <h2 class="post-title">Extensible</h2>
-  <p class="post-excerpt">Compatible with popular libraries like <a href="http://bourbon.io">Bourbon</a>, <a href="http://neat.bourbon.io/">Neat</a>, and <a href="http://github.com/octopress/octopress">Octopress</a> to help build and deploy your site with ease.</p>
+  <h2 class="post-title">Bonus</h2>
+  <p class="post-excerpt">Compatible with popular libraries like <a href="http://bourbon.io">Bourbon</a>, <a href="http://neat.bourbon.io/">Neat</a>, and <a href="http://github.com/octopress/octopress">Octopress</a>.</p>
 </div><!-- /.tile -->
 
 </div><!-- /.tiles -->

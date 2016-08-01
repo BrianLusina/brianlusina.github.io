@@ -602,3 +602,6 @@ Important attributes of request object are listed below:
 |files  | data pertaining to uploaded file.
 
 
+## Sending Form Data to Template
+
+
