@@ -18,8 +18,6 @@ Web Application Framework or simply Web Framework represents a collection of lib
 
 Flask is a web application framework written in Python. It is developed by Armin Ronacher, who leads an international group of Python enthusiasts named Pocco. Flask is based on the Werkzeug WSGI toolkit and Jinja2 template engine. Both are Pocco projects.
 
-{% include toc.html %}
-
 ### Web Server Gateway Interface (WSGI)
 
 WSGI has been adopted as a standard for Python web application development. It is a specification for a universal interface between the web server and the web applications.
@@ -35,6 +33,7 @@ Jinja2 is a popular templating engine for Python. A web templating system combin
 
 Flask is often referred to as a micro framework. It aims to keep the core of an application simple yet extensible. Flask does not have built-in abstraction layer for database handling, nor does it have form a validation support. Instead, Flask supports the extensions to add such functionality to the application.
 
+{% include toc.html %}
 
 ## Flask Environment
 
