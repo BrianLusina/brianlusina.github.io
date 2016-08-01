@@ -48,6 +48,7 @@ The output should be like this −
 ```bash
 Collecting virtualenv
   Downloading virtualenv-15.0.1-py2.py3-none-any.whl (1.8MB)
+
     100% |################################| 1.8MB 204kB/s
 Installing collected packages: virtualenv
 Successfully installed virtualenv-15.0.1
@@ -80,7 +81,7 @@ pip install Flask
 
 The output should be like this −
 
-```bash
+``` bash
 Collecting Flask
   Downloading Flask-0.10.1.tar.gz (544kB)
     100% |################################| 544kB 410kB/s
@@ -582,3 +583,5 @@ function sayHello() {
    alert("Hello World")
 }
 ```
+
+##
