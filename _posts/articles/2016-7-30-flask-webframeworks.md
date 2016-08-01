@@ -18,6 +18,8 @@ Web Application Framework or simply Web Framework represents a collection of lib
 
 Flask is a web application framework written in Python. It is developed by Armin Ronacher, who leads an international group of Python enthusiasts named Pocco. Flask is based on the Werkzeug WSGI toolkit and Jinja2 template engine. Both are Pocco projects.
 
+{% include toc.html %}
+
 ### Web Server Gateway Interface (WSGI)
 
 WSGI has been adopted as a standard for Python web application development. It is a specification for a universal interface between the web server and the web applications.
@@ -79,9 +81,10 @@ We are now ready to install Flask in this environment.
 pip install Flask
 ```
 
-The output should be like this −
+The output should be like this.
 
 ``` bash
+
 Collecting Flask
   Downloading Flask-0.10.1.tar.gz (544kB)
     100% |################################| 544kB 410kB/s
@@ -101,6 +104,7 @@ Installing collected packages: Werkzeug, MarkupSafe, Jinja2, itsdangerous, Flask
   Running setup.py install for itsdangerous
   Running setup.py install for Flask
 Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.4 itsdangerous-0.24
+
 ```
 
 The above command can be run directly, without virtual environment for system-wide installation.
