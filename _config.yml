@@ -1,3 +1,4 @@
+
 # Site wide configuration
 
 title: "Paper Rabbit"
@@ -22,20 +23,6 @@ gems:
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
-
-# Octopress configuration
-
-# Default extensions
-post_ext: md
-page_ext: md
-
-# Found in _templates/
-post_layout: article
-page_layout: article
-
-# Format titles with titlecase?
-titlecase: true
-
 
 # Site owner
 owner:
