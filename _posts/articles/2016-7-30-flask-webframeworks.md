@@ -611,6 +611,7 @@ The `results()` function collects form data present in `request.form` in a dicti
 The template dynamically renders an HTML table of form data.
 
 These are the sample html forms and tables that will be used fot this small exercise
+
 ```html
 <!--sample form for login sample-->
 <form action = "http://localhost:5000/success" method = "POST">
@@ -626,14 +627,14 @@ These are the sample html forms and tables that will be used fot this small exer
 
 ```html
 <table border = 1>
-     {% for key, value in result.iteritems() %}
+     {\%\ for key, value in result.iteritems() \%\}
          
         <tr>
            <th> {{ key }} </th>
            <td> {{ value }} </td>
         </tr>
             
-	 {% endfor %}
+	 {\%\ endfor \%\}
 </table>
 ```
 > success page
