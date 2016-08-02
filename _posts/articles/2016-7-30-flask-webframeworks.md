@@ -119,10 +119,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def flask_world():
-    return 'Welcome to Flasky!'
+return 'Welcome to Flasky!'
 
 if __name__ == '__main__':
-    app.run()
+app.run()
 
 ```
 
@@ -524,9 +524,9 @@ if __name__ == '__main__':
 
 The results.html
 ```html
-<!doctype html>
-<html>
-   <body>
+	<!doctype html>
+	<html>
+	   <body>
    
       <table border = 1>
          {\%\ for key, value in result.iteritems() \%\}
@@ -555,29 +555,27 @@ In the following example, a javascript function defined in hello.js is called on
 from flask import Flask, render_template
 
 ```python
-app = Flask(__name__)
+		app = Flask(__name__)
 
-@app.route("/")
-def index():
-   return render_template("index.html")
+		@app.route("/")
+		def index():
+		   return render_template("index.html")
 
-if __name__ == '__main__':
-   app.run(debug = True)
+		if __name__ == '__main__':
+		   app.run(debug = True)
 ```
 
 The HTML script of index.html is given below.
 
-``` html
-<html>
-   <head>
-      <script type = "text/javascript" 
-         src = "{{ url_for('static', filename = hello.js') }}" ></script>
-   </head>
-   
-   <body>
-      <input type = "button" onclick = "sayHello()" value = "Say Hello" />
-   </body>
-</html>
+```html
+		<html>
+		   <head>
+    		  <script type = "text/javascript" src = "{{ url_for('static', filename = hello.js') }}" ></script>
+		   </head>
+	   <body>
+    	  <input type = "button" onclick = "sayHello()" value = "Say Hello" />
+	   </body>
+		</html>
 ```
 
 Hello.js contains sayHello() function.
@@ -604,4 +602,59 @@ Important attributes of request object are listed below:
 
 ## Sending Form Data to Template
 
+We have seen that the http method can be specified in URL rule. The Form data received by the triggered function can collect it in the form of a *dictionary* object and forward it to a template to render it on a corresponding web page.
+
+In the following example, `/` URL renders a web page `login-sample.html` which has a form. The data filled in it is posted to the `/result` URL which triggers the `result()` function.
+
+The `results()` function collects form data present in `request.form` in a dictionary object and sends it for rendering to `success.html`
+
+The template dynamically renders an HTML table of form data.
+
+These are the sample html forms and tables that will be used fot this small exercise
+```html
+<!--sample form for login sample-->
+<form action = "http://localhost:5000/success" method = "POST">
+	<p>Name <input type = "text" name = "Name" /></p>
+     <p>Email <input type = "email" name = "Email" /></p>
+ 	<p>username <input type = "text" name = "username" /></p>
+     <p>Password <input type ="password" name = "Password" /></p>
+     <p><input type = "submit" value = "submit" /></p>
+</form>
+```
+> Login page
+
+
+```html
+<table border = 1>
+     {% for key, value in result.iteritems() %}
+         
+        <tr>
+           <th> {{ key }} </th>
+           <td> {{ value }} </td>
+        </tr>
+            
+	 {% endfor %}
+</table>
+```
+> success page
+
+The Python code
+
+```python
+@app.route('/login-sample')
+def user():
+    return render_template('login-sample.html')
+
+
+@app.route('/success', methods=['POST', 'GET'])
+def success_login():
+    if request.method == 'POST':
+        result = request.form
+        return render_template('success.html', result=result)
+    else:
+        render_template('404')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
 
