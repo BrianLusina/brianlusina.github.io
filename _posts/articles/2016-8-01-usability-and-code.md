@@ -1,6 +1,6 @@
 ---
 layout: article
-title:  Usability and Design
+title:  Usability, Design and Code
 categories:  articles
 excerpt: Usability 101, a brief introduction into design
 author: brian_lusina
@@ -8,10 +8,11 @@ tags:  [Usability, User Experience, UX, Design]
 image:
  feature: usability-design.png
  teaser: usability-design.png
+ thumbnail: usability-design.png
 share: true
 ---
 
-A lot of people associate designing stellar applications with skill alone. That it just takes one brilliant out of the blue idea to create something that everyone will suddenly realize they need. Sometimes this happen, but more often than not it does not. A lot of applications are built to fill a gap that people have craved to be filled. To find this gap you need to first know that it is there, you need to identify if people acknowledge it is a gap as well and also you need to be able to determine if said people need a complex technology to fill this gap or do they simply need a pen and paper. Not all problems need technology to get solved.
+A lot of people associate designing stellar applications with skill alone. That it just takes one brilliant out of the blue idea to create something that everyone will suddenly realize they need. Sometimes this happens, but more often than not it does not. A lot of applications are built to fill a gap that people have craved to be filled. To find this gap you need to first know that it is there, you need to identify if people acknowledge it is a gap as well and also you need to be able to determine if said people need a complex technology to fill this gap or do they simply need a pen and paper. Not all problems need technology to get solved.
 
 Now, say that you find a problem that can be solved with technology. Say, your particular software can help provide a particular solution to the problem. This is always good to identify, that it helps to solve the problem. The question breaks down to is it something the users can use with ease and can they learn easily to use it or do they need the whole documentation you used to build it?
 
@@ -60,6 +61,7 @@ User testing is different from focus groups, which are a poor way of evaluating 
 Usability plays a role in each stage of the design process. The resulting need for multiple studies is the reason individual studies should be fast and cheap. Here are the main steps:
 
 + Before starting the new design, **test the old design** to identify the good parts that you should keep or emphasize, and the bad parts that give users trouble.
+
 + **Test your competitors' designs** to get cheap data on a range of alternative interfaces that have similar features to your own.
 
 + **Conduct a field study** to see how users behave in their natural habitat.
