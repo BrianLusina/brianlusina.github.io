@@ -33,5 +33,7 @@ And if you have a big budget? Spend it on additional studies, not more users in 
 
 ## Arguments for more Test participants
 
+1. **A big website has tons of users.** Doesn't matter for the sample size, even if you were doing statistics. The variance in statistical sampling is determined by the sample size, not the size of the full population from which the sample was drawn. In user testing, we focus on a website's functionality to see which design elements are easy or difficult to use. The evaluation of a design element's quality is independent of how many people use it. (Conversely, the decision about whether to fix a design flaw should certainly consider how much use it'll get: it might not be worth the effort to improve a feature that has few users; better to spend the effort recoding something with millions of users.).
 
+2. **A big website has tons of features**
 
