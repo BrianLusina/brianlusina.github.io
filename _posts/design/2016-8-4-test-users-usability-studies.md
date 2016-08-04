@@ -1,6 +1,6 @@
 ---
 layout: article
-category: articles
+category: design
 author: brian_lusina
 title: Test Users and Usability
 excerpt: How many users do you need to test usability of your software?

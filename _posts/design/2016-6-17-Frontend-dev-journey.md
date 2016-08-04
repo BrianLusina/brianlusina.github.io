@@ -1,7 +1,8 @@
 ---
 layout:  article
 title:  The Front End Development Journey.
-categories:  articles
+categories:  design
+author: brian_lusina
 tags:  [front-end, User Experience, UX, UI, User interface]
 comments:  true
 ads:  true

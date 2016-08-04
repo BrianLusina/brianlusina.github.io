@@ -1,7 +1,7 @@
 ---
 layout: article
 title:  Usability, Design and Code
-categories:  articles
+categories:  design
 excerpt: Usability 101, a brief introduction into design
 author: brian_lusina
 tags:  [Usability, User Experience, UX, Design]
