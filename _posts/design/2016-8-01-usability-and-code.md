@@ -45,7 +45,7 @@ The first law of e-commerce is that if users cannot find the product, they canno
 
 ## Improving usability
 
-The most basic and useful is way to improve usabilyt is **user testing**, which has 3 components:
+The most basic and useful way to improve usability is **user testing**, which has 3 components:
 
 + **Get hold of some representative users**, such as customers for an e-commerce site.
 + Ask the users to **perform representative** tasks with the design.

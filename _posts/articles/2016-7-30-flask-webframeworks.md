@@ -333,7 +333,7 @@ The following table is a summary of the HTTP methods availaible:
 | Method  | Description
 |---|
 |   GET   | Sends data in unencrypted form to the server. Most common method.
-|   POST  | Sends data in unencrypted form to the server. Most common method.
+|   POST  | Used to send HTML form data to server. Data received by POST method is not cached by server.
 |   HEAD  | Same as  GET, but without response body
 |   PUT   | Replaces all current representations of the target resource with the uploaded content
 |   DELETE| Removes all current representations of the target resouce given by URL
