@@ -12,7 +12,7 @@ share: false
 ads: false
 ---
 
-Paper Rabbit is simply a collection of all my thoughts and encounters in the world of code. It has code snippets of how I came to solve some challenges with code. Most are simple and others are bigger problems. Language focus is on *Java*, *Python* and *JavaScript*. Some snippets will have *Android* code in it and others will have *HTML* and *CSS*. As these are what we interact with mostly.
+<div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="horizontal" data-theme="dark" data-vanity="brianlusina"><a class="LI-simple-link" href='https://ke.linkedin.com/in/brianlusina?trk=profile-badge'>Brian Lusina</a></div>Paper Rabbit is simply a collection of all my thoughts and encounters in the world of code. It has code snippets of how I came to solve some challenges with code. Most are simple and others are bigger problems. Language focus is on *Java*, *Python* and *JavaScript*. Some snippets will have *Android* code in it and others will have *HTML* and *CSS*. As these are what we interact with mostly.
 
 Feel free to peruse and enjoy the content.
 
