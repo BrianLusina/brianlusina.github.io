@@ -20,5 +20,5 @@ Feel free to peruse and enjoy the content, also make comments.
 	<a class="LI-simple-link" href='https://ke.linkedin.com/in/brianlusina?trk=profile-badge'>Brian Lusina</a>
 </div>
 
-.. image:: https://wakatime.com/@a3426a26-e7b4-4b98-8f41-fd87685dc883/e4541f05-d673-4aee-be8f-6037d5453b25.png
-    :target: https://wakatime.com/
+![image](https://wakatime.com/@a3426a26-e7b4-4b98-8f41-fd87685dc883/e4541f05-d673-4aee-be8f-6037d5453b25.png
+    :target: https://wakatime.com/)
