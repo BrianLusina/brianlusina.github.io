@@ -16,6 +16,9 @@ Paper Rabbit is simply a collection of all my thoughts and encounters in the wor
 
 Feel free to peruse and enjoy the content, also make comments.
 
-<div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="brianlusina"><a class="LI-simple-link" href='https://ke.linkedin.com/in/brianlusina?trk=profile-badge'>Brian Lusina</a></div>
+<div class="LI-profile-badge" data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="brianlusina">
+	<a class="LI-simple-link" href='https://ke.linkedin.com/in/brianlusina?trk=profile-badge'>Brian Lusina</a>
+</div>
 
-<figure><embed src="https://wakatime.com/@a3426a26-e7b4-4b98-8f41-fd87685dc883/adcd3901-dd83-4bd3-b7bc-33e07e52118d.svg"></embed></figure>
+.. image:: https://wakatime.com/@a3426a26-e7b4-4b98-8f41-fd87685dc883/e4541f05-d673-4aee-be8f-6037d5453b25.png
+    :target: https://wakatime.com/
