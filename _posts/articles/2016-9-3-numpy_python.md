@@ -36,8 +36,8 @@ Say for example you get the heights of each football player in England. You call
 
 ``` python
 heights = [78,45,70,80,75,84,76,84,71,72,73,84,75,88,79,...]
-m = [x * 0.0254 for x in heights]
-print(m)
+heights_m = [x * 0.0254 for x in heights]
+print(heights_m)
 ```
 > This uses a list comprehension to obtain a new list of the newly converted heights to meters.
 
@@ -47,7 +47,7 @@ NumPy on the other hand makes this process very simple and efficient. You will n
 from numpy import array
 heights = [78,45,70,80,75,84,76,84,71,72,73,84,75,88,79,...]
 
-m = array(heights) * 0.0254
+heights_m = array(heights) * 0.0254
 print(m)
 ```
 > The output will be the same. NumPy array function simply took in the list of heights and multiplied each to 0.0254. No loop used.
@@ -55,3 +55,34 @@ print(m)
 The same could apply for weights. Say we now get weight data from the BPL. Unfortunately, again, they send data in pounds. We don't use pounds, instead we decide to use *kilograms*. we could do the same for loop above instead replace the `heights` with weights and instead use `0.453592` to perform the conversion. Alternatively, you guessed it, we could use `array` function from numpy to perform the operation such that it becomes `array(weights) * 0.453592` which makes our life that much easier.
 
 Maybe you will say. 'So what, the results are the same, so why use NumPy?'. True, they are the same, so the used of NumPy seems a little too much.
+
+This is why.
+
+Say, now you want to calculate the **Body Mass Index** (BMI) of each player in the BPL, well anonymously, considering the BPL did not send names attached to the data. This would require you to perform a loop within a loop. This is because to calculate the BMI we use this formula:
+
+``` plain
+BMI = weight (in kilograms)
+  	   height (in meters)^2
+```
+
+Now, imagine performing a for loop in the two lists we now have `weights_kg` and `heights_m`. If you were to use standart Python this would be the most probable way to perform the operation:
+
+``` python
+bmi = []
+m = list(zip(weights_kg, heights_m))
+for x, y in m:
+	bmi.append(x/y**2)
+
+print(bmi)
+```
+> `zip` function creats an iterator that aggregates elements from each of the iterables.
+
+With NumPy you can easily do the same with fewer lines and with less of a headache:
+
+``` python
+bmi = weights_m / heights_m **2
+print(bmi)
+```
+> This is after the weights and heights lists have been passed as arguments to the `array` function of the NumPy module.
+
+The results are the same, but it is more intuitive with NumPy, you can not perform the same operation with standard Python. So doint this : `bmi = weights_m / heights_m **2` without passing the `weights_m` and `heights_kg` as arguments in NumPy's array function will cause an error. Go ahead and try that :).
