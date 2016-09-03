@@ -32,6 +32,8 @@ print(type(baseball))
 ```
 > The 2 types are not similar, but almost the same operations can be performed on them.
 
+## Performing simple operations
+
 Say for example you get the heights of each football player in England. You call the Barclay's Premier League and since you are a major fan and a major stakeholder in Barclays(They don't just send this data to everyone, I tried), they send you the data of 1000 players' heights as a list. Sadly, they are all in inches and you do not use inches, but rather meters. You could use a `for loop` converting each to meters and multiplying by 0.0254. This will work, but it will take quite a while to execute.
 
 ``` python
@@ -86,3 +88,62 @@ print(bmi)
 > This is after the weights and heights lists have been passed as arguments to the `array` function of the NumPy module.
 
 The results are the same, but it is more intuitive with NumPy, you can not perform the same operation with standard Python. So doint this : `bmi = weights_m / heights_m **2` without passing the `weights_m` and `heights_kg` as arguments in NumPy's array function will cause an error. Go ahead and try that :).
+
+## Subsetting
+
+Lists in Python can be *subsetted*, if that is a word at all. By subsetting a Python list this is what I mean:
+
+``` python
+x = [4 , 9 , 6, 3, 1]
+x[1]
+import numpy as np
+y = np.array(x)
+y[1]
+```
+> This is subsetting using squre brackets, this applies to both NumPy and standard Python lists
+
+But NumPy has something special about subsetting that the standard Python lists do not have.
+For Numpy specifically, you can also use boolean Numpy arrays:
+
+``` python
+high = y > 5
+y[high]
+```
+
+Now, to put it all together:
+
+``` python
+# height and weight are available as a regular lists
+
+# Import numpy
+import numpy as np
+
+# Calculate the BMI: bmi
+np_height_m = np.array(height) * 0.0254
+np_weight_kg = np.array(weight) * 0.453592
+bmi = np_weight_kg / np_height_m ** 2
+
+# Create the light array
+light = np.array(bmi) < 21
+
+# Print out light
+print(light)
+
+# Print out BMIs of all baseball players whose BMI is below 21
+print(bmi[light])
+
+```
+
+Numpy is great to do vector arithmetic. If you compare its functionality with regular Python lists, however, some things have changed.
+
+First of all, Numpy arrays cannot contain elements with different types. If you try to build such a list, some of the elments' types are changed to end up with a homogenous list. This is known as type coercion.
+
+Second, the typical arithmetic operators, such as +, -, * and / have a different meaning for regular Python lists and Numpy arrays.
+
+Have a look at this line of code:
+
+``` python
+>>>np.array([True, 1, 2]) + np.array([3, 4, False])
+array([4, 5, 2])
+```
+
