@@ -1,4 +1,3 @@
-
 ---
 layout: article
 categories: articles
@@ -15,7 +14,7 @@ image:
 ads: true
 ---
 
-NumPy is Numerical Python in full. For those who shall continue on with Data Science using Python, I suggest you have a look at the NumPy package. It is a very powerful tool that will most definitely make your life that much simpler.
+NumPy is *Numerical Python* in full. A very powerful library for performing, well you guessed it, vector arithmetic. For those who shall continue on with Data Science using Python, I suggest you have a look at the NumPy package. It is a very powerful tool that will most definitely make your life that much simpler.
 
 A basic example of the use of NumPy
 ```python
