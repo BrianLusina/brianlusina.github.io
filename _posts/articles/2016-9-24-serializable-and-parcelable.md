@@ -21,32 +21,32 @@ It is best practice to model data in a specific way using POJO as it allows clea
 Normally, typically, the model will look like this:
 
 ``` java
-public class Employee{
-	private String name;
-    private int phone;
-    private ArrayList<String> address;
+	public class Employee{
+		private String name;
+    	private int phone;
+    	private ArrayList<String> address;
 
-    public Employee(String name, int phone, ArrayList<String> address) {
-	    this.name = name;
-    	this.phone = phone;
-    	this.address = address;
-	}
+    	public Employee(String name, int phone, ArrayList<String> address) {
+	    	this.name = name;
+    		this.phone = phone;
+    		this.address = address;
+		}
 
-	public ArrayList<String> getAddress() {
-    	if (!(address == null))
-        	return address;
-    	else
-        	return new ArrayList<String>();
-	}
+		public ArrayList<String> getAddress() {
+    		if (!(address == null))
+        		return address;
+    		else
+        		return new ArrayList<String>();
+		}
 
-	public String getName() {
-    	return name;
-	}
+		public String getName() {
+    		return name;
+		}
 
-	public String getAge() {
-    	return age;
+		public String getAge() {
+    		return age;
+		}
 	}
-}
 ```
 > This is a typical POJO with *fields*, a *constructor* and *access methods*.
 
