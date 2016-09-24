@@ -79,3 +79,7 @@ These are like part of an Activity. An activity can display one or more fragment
 
 Contains information about activites, content providers, permissions. It is the configuration file for the application.
 
+## Resources
+
+External elements such as strings, constants and drawable pictures.
+
