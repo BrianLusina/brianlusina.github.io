@@ -3,8 +3,11 @@
 - title: Home
   url: /
 
-- title: Techy Stuff
+- title: Tech
   url: /articles/
+
+- title: Design
+  url: /design/
 
 - title: Money
   url: /money-matters/

@@ -1,11 +1,11 @@
 # Site wide configuration
 
-title: "Paper Rabbit"
-description: "Unfold your wit"
+title: "LJournal"
+description: "Documents and Docs"
 logo: paper_rabbit.png
 teaser: paper_rabbit.png
 locale: en_US
-url: "https://brianlusina.github.io/Paper-Rabbit"
+url: "https://brianlusina.github.io/LJournal"
 feed:
   path: atom.xml
 
@@ -27,7 +27,7 @@ gems:
 # Site owner
 owner:
   name: "Brian Lusina"
-  web: "https://brianlusina.github.io/Lu-s-Portfolio/"
+  web: "https://thelusina.netlify.com"
   twitter: "brianlusina"
   bio: "The Lusina"
   avatar: "bio-photo.jpg" # 160x160 px image for author byline
