@@ -1,10 +1,10 @@
 {
-  "name": "skinny-bones-jekyll",
-  "version": "1.0.0",
+  "name": "ljournal",
+  "version": "1.1.0",
   "private": true,
-  "description": "A Jekyll starter site",
-  "author": "Michael Rose <michael@mademistakes.com>",
-  "homepage": "http://mademistakes.com/",
+  "description": "Blog and Journal Site",
+  "author": "Brian Lusina <lusinabrian@gmail.com>",
+  "homepage": "http://thelusina.netlify.com/",
   "license": "The MIT License (MIT)",
   "devDependencies": {
     "grunt": "~0.4.2",
