@@ -23,7 +23,7 @@ image:
 </div><!-- /.tile -->
 
 <div class="tile">
-  <h2 class="post-title">Projets</h2>
+  <h2 class="post-title">Projects</h2>
   <p class="post-excerpt">Has a plethora of projects I have done and still adding. The projects done have been described as well as how the particular project was built and why.</p>
 </div><!-- /.tile -->
 

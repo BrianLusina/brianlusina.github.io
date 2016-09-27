@@ -5,7 +5,7 @@ description: "Blog and Journal"
 logo: journal.png
 teaser: journal.png
 locale: en_US
-url: "https://ljournal.netlify.com/"
+url: "https://ljournal.netlify.com"
 feed:
   path: atom.xml
 
