@@ -1,11 +1,11 @@
 # Site wide configuration
 
 title: "LJournal"
-description: "Documents and Docs"
-logo: paper_rabbit.png
-teaser: paper_rabbit.png
+description: "Blog and Journal"
+logo: journal.png
+teaser: journal.png
 locale: en_US
-url: "https://brianlusina.github.io/LJournal"
+url: "https://ljournal.netlify.com/"
 feed:
   path: atom.xml
 
