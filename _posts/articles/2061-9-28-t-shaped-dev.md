@@ -48,4 +48,3 @@ Despite these two reasons (and possibly more), there are companies that have gro
 
 This may be one of the main reasons that the T-shaped developer will be the new norm and standard. After all, aren't programming languages, frameworks and technologies here to create solutions? It will not matter whether you solve a problem in one language and someone solves it using some framework and creates a new business with some other new piece of technology. It is even better if you can do all three, or rather be able to have a wide knowledge base that lets you cut across and learn.
 
-
