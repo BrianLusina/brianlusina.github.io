@@ -3,24 +3,24 @@
 - title: Tech
   url: /articles/
   excerpt: "Everything(almost) you need to know about code."
-  image: 400x250.gif
+  image: tech-code.png
 
 - title: Design
   url: /design/
   excerpt: "Good design goes to heaven, bad design goes everywhere."
-  image: 400x250.gif
+  image: design.png
 
 - title: Money Matters
   url: /money-matters/
   excerpt: "Trust the Journal, these are worth a read."
-  image: 400x250.gif
+  image: money.png
 
 - title: Projects
   url: /projects/
-  excerpt: "Some of the work I have done."
-  image: 400x250.gif
+  excerpt: "Some of the work I have done and doing."
+  image: work.png
 
 - title: About
   url: /about/
-  excerpt: "All about LJournal."
-  image: 400x250.gif
+  excerpt: "A little bit about LJournal."
+  image: about.png
