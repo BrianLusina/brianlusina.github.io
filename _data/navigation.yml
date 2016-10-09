@@ -17,10 +17,10 @@
 
 - title: Projects
   url: /projects/
-  excerpt: "Some of the work I have done."
-  image: projects.png
+  excerpt: "Some of the work I have done and doing."
+  image: work.png
 
 - title: About
   url: /about/
-  excerpt: "All about LJournal."
+  excerpt: "A little bit about LJournal."
   image: about.png
