@@ -23,17 +23,17 @@ Of course, before delving deeper into the exceptions, we should all be on the sa
 I will not delve into details about how a program determines an error and normal flow of a program. I will dive immediately into which type of exceptions we should look out for.
 
 
-1. ####Checked Exception
+1. Checked Exception
  	
     Say, you are creating a program that requires user input, such as their name, phone number, email and such, for validation purposes. Maybe you need these inputs for authorization or for sign up to your platform. It is possible that the user will provide an invalid email address and as such you will need to validate these parameters before passing them to a function or class that will handle the authentication. Normally, if you are developing for Android it will be easy to validate this field in the XML layout, but what if you are checking with a server and you have to fetch a response in order to proceed. If the response returns *Null* then you need to be able to handle such a response.
     
      A well-written program will catch this exception and notify the user of the mistake, possibly prompting for a correct email address if the email does not exist in the system's database.
 
-2. ####Error
+2. Error
 	
     These are the kind of errors that will occur that are outside the application's scope of handling. These kind of errors may involve poor internet connection on the part of the user or maybe they are experiencing hardware failure. The application can not anticipate that it will happen as it may occur randomly. However, it should be able to catch this exception and notify the user of the failure to execute the program. In the example above, maybe in the middle of execution of request to ther server, after having validate the user credentials, the internet connection is abruptly cut and the user is not properly authenticated with the system, it is at this point that the application should notify the user of the problem, catch this expection and try again at a late time. It may make sense in some instances to print a stacktrace and exit the program.
     
-3. ####Runtime Exception
+3. Runtime Exception
 	
     These are exceptional conditions that are internal to the application, and that the application usually cannot anticipate or recover from. These type of errors are usually because of an improper use of an API or a logic error. If we use the abov example still, if a logic error causes `null` to be passed instead of a `username` then the method handling authentication will throw a **NullPointerException**. Now normally it may make sense to catch this exception and notify the user, but it makes even more sense to eliminate this bug completely and not pass null to the method or constructor of a class.
     
