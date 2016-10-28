@@ -1,0 +1,17 @@
+---
+layout: article
+categories: articles
+title: Abstraction and interfaces
+excerpt: When to use abstraction and when to use interfaces
+author: brian_lusina
+share: true
+image:
+ feature: abstract_class_interfaces.png
+ teaser: abstract_class_interfaces.png
+ thumb: abstract_class_interfaces.png
+ creditlink: http://agile-code.com
+ credit: Agile Code
+
+---
+
+
