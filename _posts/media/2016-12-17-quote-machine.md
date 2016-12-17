@@ -4,7 +4,7 @@ title: "Quote Machine"
 categories: media
 excerpt: "Simple, quote generator built on ReactJS library."
 ads: true
-share: false
+share: true
 image:
   feature: quote_machine.png
   teaser: quote_machine.png
