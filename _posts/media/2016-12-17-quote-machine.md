@@ -51,3 +51,38 @@ These are the main ones used, or rather the main technologies that enable this a
 the **package.json** file that is found in the root project structure.
 
 
+### Project structure
+
+Now onto the project structure and what is what. It is quite simple and should come as no surprise to those who are familiar with
+making JavaScript modules and packages as it is *packaged* almost like a node module.
+```
+        /Quote-Machine <- root project name
+            /public/
+                bundle.js
+                bundle.js.map
+            /src/
+                components/
+                    App.js
+                    quote-container.js
+                    share-quotes.js
+                styles/
+                    index.css
+                tests/
+                    App.test.js
+                index.js
+            app.js
+            index.html
+            package.json
+            Procfile
+            server.js
+            webpack.dev.config.js
+            webpack.prod.config.js
+            .babelrc
+            .travis.yml
+            .gitignore
+            .npmignore
+```
+> Project structure of Quote Machine
+
+Of course you can change this project structure to suit your needs, however this is what you will get when it is pulled down from the repo.
+
