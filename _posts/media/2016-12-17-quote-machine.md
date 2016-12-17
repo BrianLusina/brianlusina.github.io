@@ -57,31 +57,31 @@ Now onto the project structure and what is what. It is quite simple and should c
 making JavaScript modules and packages as it is *packaged* almost like a node module.
 
 ```
-        /Quote-Machine <- root project name
-            /public/
-                bundle.js
-                bundle.js.map
-            /src/
-                components/
-                    App.js
-                    quote-container.js
-                    share-quotes.js
-                styles/
-                    index.css
-                tests/
-                    App.test.js
-                index.js
-            app.js
-            index.html
-            package.json
-            Procfile
-            server.js
-            webpack.dev.config.js
-            webpack.prod.config.js
-            .babelrc
-            .travis.yml
-            .gitignore
-            .npmignore
+/Quote-Machine <- root project name
+    /public/
+        bundle.js
+        bundle.js.map
+    /src/
+        components/
+            App.js
+            quote-container.js
+            share-quotes.js
+        styles/
+            index.css
+        tests/
+            App.test.js
+        index.js
+    app.js
+    index.html
+    package.json
+    Procfile
+    server.js
+    webpack.dev.config.js
+    webpack.prod.config.js
+    .babelrc
+    .travis.yml
+    .gitignore
+    .npmignore
 ```
 > Project structure of Quote Machine
 
