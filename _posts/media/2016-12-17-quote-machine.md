@@ -55,6 +55,7 @@ the **package.json** file that is found in the root project structure.
 
 Now onto the project structure and what is what. It is quite simple and should come as no surprise to those who are familiar with
 making JavaScript modules and packages as it is *packaged* almost like a node module.
+
 ```
         /Quote-Machine <- root project name
             /public/
