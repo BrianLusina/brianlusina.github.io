@@ -56,9 +56,9 @@ the **package.json** file that is found in the root project structure.
 Now onto the project structure and what is what. It is quite simple and should come as no surprise to those who are familiar with
 making JavaScript modules and packages as it is *packaged* almost like a node module.
 
-```
+``` plain
 /Quote-Machine <- root project name
-    /public/
+    /public/ <- This will be seen when you build the project
         bundle.js
         bundle.js.map
     /src/
@@ -86,4 +86,70 @@ making JavaScript modules and packages as it is *packaged* almost like a node mo
 > Project structure of Quote Machine
 
 Of course you can change this project structure to suit your needs, however this is what you will get when it is pulled down from the repo.
+I will only highlight the parts that are **most** important about the project.
 
++ *package.json*
+    This basically describes the project in a more subtle way and you will find the dependencies needed to get you started. 
+    To install these dependencies:
+
+    ``` sh
+    $ npm install
+    ```
+    
+    After which you will find a *node_modules* folder in the root project with all the dependencies in the package.json
+    These will not be installed globally.
+
++ *webpack.dev.config.js* and *webpack.prod.config.js*
+    These are *configuration* files for the project for both development environment and production environment. You will notice
+    some similarities between the 2. However, they have been written to enable the application to run in both environments without
+    any more setup.
+    
+    + *webpack.dev.config.js* is specifically for development environments
+    + *webpack.prod.config.js* is for the production environment.
+
++ *app.js* and *server.js*
+    These two sort of complement each other
+    
+    + *server.js*: will create an **express** object that will direct express and tell it where to get the HTML and which path to use
+        to run the application in a server
+
+    + *app.js*: This will require the *server.js* and basically tell the application to run in production mode on a certain port.
+
++ *index.html*
+    The webpage that will be displayed. Will contain metadata, such as links to resources, meta tags, title
+    and more.
+
++ *index.js*
+    Entry point of the application. This will be the point of the application that is exposed to the DOM.
+    This will be rendered on the page after all the components have come together in harmony.
+
++ *components*
+    This is the meat of the application as it puts it altogether.
+
+    + *App.js*:
+        This makes the communication to the API fetching relevant dat and passing that to the *quote* component
+        It is a statefull component and once its states are updated, it will pass them down as props to the quote component.
+    
+    + *quote-container.js*:
+        This, obviously, is where the quotes are displayed. This is responsible for displaying the quotes to the user. It is stateless
+        and will not need to update states but rather will require to receive props from its parent and update the render function. These
+        same props will be passed down to *share-quotes* component.
+    
+    + *share-quotes.js*:
+        This enables the sharing of quotes to social media sites. It is a very simple component and only requires to handle button click
+        events on each button. This event handler simply gets the quote and the author, which are the required props and posts them to 
+        social media links.
+
+Running this application is quite straight forward and will only require the following commands:
+
+``` sh
+$ npm run build
+$ npm run start
+
+``` 
+> More commands can be found in the package.json scripts tag
+
+You will see a message in the terminal displaying the port it is listening on and with that you can go down to your browser
+and checkout the application.
+
+That is all she (he?) wrote :D.
