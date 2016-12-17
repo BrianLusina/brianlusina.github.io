@@ -1,9 +1,9 @@
 ---
 layout: archive
 title: "Project Gallery"
-date: 2014-05-30T11:40:45-04:00
+date: 2016-11-30T11:40:45-04:00
 modified:
-excerpt: "An archive of projects done so far."
+excerpt: "My archive of projects done..."
 tags: []
 image:
   feature:
