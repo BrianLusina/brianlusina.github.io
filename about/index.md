@@ -17,11 +17,14 @@ It has code snippets of how I came to solve some challenges with code, design in
 Most are simple and others are bigger problems. Language focus is on *Java*, *Python* and *JavaScript*. 
 
 Frameworks I use a lot are *Android*, *Flask*, *Django* and *ReacJS*, as you will notice these are mainly in 3 categories: 
+
 1. *Mobile*, which I consider a fundamental part to connecting to people at an individual level. I choose Android because of the large
   community support and also its very customizable API.
+
 2. *Databases* and *Servers*, we do need to store data and connect things together. Flask is highly customizable and allows one to architecture their product
 or idea the way they see fit. Django allows the first development of the same architecture. Python is a very strong language and can do so much more than just backend
 interactions.
+
 3. *User Interface*, something that looks good will always attract. ReactJS is a very powerful JavaScript library that allows easy interaction with the DOM.
 Also it is very quick and easy to learn once you have the idea of *seperation of concerns* already locked-in to the way you do things.
 
