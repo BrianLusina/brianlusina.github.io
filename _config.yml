@@ -5,7 +5,7 @@ description: "Blog and Journal"
 logo: journal.png
 teaser: journal.png
 locale: en_US
-url: "https://brianlusina.github.io/LJournal"
+url: "https://brianlusina.github.io/"
 feed:
   path: atom.xml
 
@@ -27,7 +27,7 @@ gems:
 # Site owner
 owner:
   name: "Brian Lusina"
-  web: "https://thelusina.netlify.com"
+  web: "https://thelusina.surge.sh"
   twitter: "brianlusina"
   bio: "The Lusina"
   avatar: "bio-photo.jpg" # 160x160 px image for author byline

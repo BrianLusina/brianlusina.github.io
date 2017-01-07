@@ -4,7 +4,6 @@
   "private": true,
   "description": "Blog and Journal Site",
   "author": "Brian Lusina <lusinabrian@gmail.com>",
-  "homepage": "https://brianlusina.github.io/LJournal",
   "license": "The MIT License (MIT)",
   "devDependencies": {
     "grunt": "~0.4.2",
