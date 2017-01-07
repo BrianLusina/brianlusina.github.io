@@ -10,5 +10,5 @@ image:
  teaser: stacks.png
  thumb: stacks.png
  creditlink: https://twitter.com/stacks
- credit: @stacks
+ credit: stacks
 ---
