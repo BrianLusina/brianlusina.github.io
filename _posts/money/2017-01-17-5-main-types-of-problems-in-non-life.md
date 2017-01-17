@@ -45,7 +45,7 @@ This determines what amount of risk they should retain. Which is essentially the
 
 $$Retention=(capital * risk willingness * profit margin)/unbalancness$$
 
-## 4. Risk Behavior
+### 4. Risk Behavior
 
 Companies' entrepreneurial attitude towards risk can be categorized as their behavior towards risk. This formula can be used to determine or measure how conservative or not a company ought to be given its current circumstances.
 
@@ -57,3 +57,10 @@ A company may be able to bear on its gross account a certain amount of risk give
 
 $$Unbalanceness = (Capital * Risk willingness * Profit margin) / retention$$
 
+
+## Conclusion
+As you will notice the 5 main problems are derived from the very same basic formula:
+
+$$Retention=(capital * risk willingness * profit margin)/unbalancness$$
+
+Most companies go by this formula, especially insurance companies. This is often used when governing how much they should retain on their account when they are faced with insuring a certain portfolio of risks.
