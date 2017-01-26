@@ -1,8 +1,8 @@
 ---
 layout: article
 categories: articles
-title: Binary Tree
-excerpt: A gentle introduction to binary trees
+title: Perfect Binary Tree
+excerpt: A gentle introduction to perfect binary trees
 author: brian_lusina
 share: true
 image:
@@ -99,7 +99,8 @@ Binary trees have a few interesting properties when they're perfect:
         > we have h levels in total, the last level is actually the "h−1"-th level. 
         > That means the number of nodes on the last level is 2^{h-1}.
     
-    But we can simplify. Property 2 tells us that the number of nodes on the last level is (1 more than) half of the total number of nodes, so we can just take the number of nodes on the last level, multiply it by 2, and subtract 1 to get the number of nodes overall. We know the number of nodes on the last level is 2^{h-1}, So:
+    But we can simplify. Property 2 tells us that the number of nodes on the last level is (1 more than) half of the total number of nodes, so we can just take the number of nodes on the last level, multiply it by 2, and subtract 1 to get the number of nodes overall. 
+    We know the number of nodes on the last level is 2^{h-1}, So:
     
     $$ n = 2^{h-1} * 2 - 1$$
     $$n = 2^{h−1}∗2^{1}−1$$
@@ -108,6 +109,24 @@ Binary trees have a few interesting properties when they're perfect:
     
     So that's how we can go from `h` to `n`. What about the other direction?
     
+    We need to bring the `h` down from the exponent. That's what logs are for!
     
-3. 
+    First, some quick review on Algebra. $$log_{10}(100)$$ simply means, "What power must you raise 10 to in order to get 100?". Which is 2, because $$10^2 = 100$$.
+    We can use logs in algebra to bring variables down from exponents by exploiting the fact that we can simplify $$log_{10}(10^2)$$. What power must we raise 10 to in order to get $$10^2$$?
+    That's easy — it's 2.
+    
+    So in this case we can take the $$log_{2}$$ of both sides:
+    
+    $$n = 2^{h} - 1$$
+    $$n + 1 = 2^{h}$$
+    $$log_{2}{((n+1))} = log_{2}{(2^{h})}$$
+    $$log_{2}{(n+1)} = h$$
+    
+
+### Conclusion
+
+So that's the relationship between height and total nodes in a perfect binary tree.
+I know it involved a bit of Math, which you did not want nor expect, however, this will make the programs you write faster and better and of course easier to maintain and debug.
+
+Let us plant more trees!
  
