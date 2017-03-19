@@ -1,26 +1,26 @@
 # Site navigation links
 
 - title: Tech
-  url: /articles/
+  url: articles/
   excerpt: "Everything(almost) you need to know about code."
   image: tech-code.png
 
 - title: Design
-  url: /design/
+  url: design/
   excerpt: "Good design goes to heaven, bad design goes everywhere."
   image: design.png
 
 - title: Money Matters
-  url: /money-matters/
+  url: money-matters/
   excerpt: "Trust the Journal, these are worth a read."
   image: money.png
 
 - title: Projects
-  url: /projects/
+  url: projects/
   excerpt: "Some of the work I have done and doing."
   image: work.png
 
 - title: About
-  url: /about/
+  url: about/
   excerpt: "A little bit about LJournal."
   image: about.png

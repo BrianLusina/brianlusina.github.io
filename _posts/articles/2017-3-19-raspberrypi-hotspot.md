@@ -6,11 +6,9 @@ excerpt: A small demo of configuring a hotspot for your Raspberry Pi
 author: brian_lusina
 share: true
 image:
- feature: binary_tree.png
- teaser: binary_tree.png
- thumb: binary_tree.png
- creditlink: https://www.quora.com/What-are-binary-trees-and-how-can-I-practice-implementing-them-in-Python
- credit: Quora
+ feature: raspberrypi.png
+ teaser: raspberrypi.png
+ thumb: raspberrypi.png
 ---
 
 Configuring a Raspberry Pi is fun especially when you delve into IoT and start tinkering around with making machines talk to each other. This tool is perfect for such fun. It is even better when you can get it connected to the internet and perform even more functions such as make your coffee before you wake up or turn off your lights from wherever you are.
@@ -44,21 +42,21 @@ Open a Terminal session in your Pi and update Raspbian with the latest updates b
 $ sudo apt-get update
 $ sudo apt-get upgrade
 ```
-> This will update the packages on the Rasberry Pi
+This will update the packages on the Rasberry Pi
 
 Now, install hostapd. Enter the command:
 
 ``` sh
 $ sudo apt-get install hostapd
 ```
-> enter Y when prompted.
+enter Y when prompted.
 
 Install dnsmasq with the command:
 
 ``` sh
 sudo apt-get install dnsmasq
 ```
-> enter Y when prompted
+enter Y when prompted
 
 The installers will have set up the programme so they run when the pi is started. For this setup they only need to be started if the home router is not found. So automatic startup needs to be disabled. This is done with the following commands:
 
@@ -77,7 +75,7 @@ Using a text editor edit the hostapd configuration file. This file won't exist a
 ``` sh
 sudo nano /etc/hostapd/hostapd.conf
 ```
-> This will create the hostapd.conf
+This will create the hostapd.conf
 
 enter or paste the settings:
 
@@ -312,7 +310,7 @@ if ! $connected; then
     createAdHocNetwork
 fi 
 ```
-> bootstrapper script to start up RPi hotspot on boot
+bootstrapper script to start up RPi hotspot on boot
 
 And finally save (ctrl & o) and exit (ctrl & x)
 
@@ -394,7 +392,7 @@ fi
 exit 0
 
 ```
-> final rc.local file
+final rc.local file
 
 
 ### Conclusion
@@ -406,7 +404,7 @@ Furthermore, you can open an ssh connection to the Pi using this command
 ``` sh
 $ ssh pi@192.168.40.5
 ```
-> This will prompt you for a password. This password will be for the Raspberry Pi
+This will prompt you for a password. This password will be for the Raspberry Pi
 
 That is about it! You should now have a hotspot on your Raspberry Pi. Although it is important to note that this hotspot connection will not have any internet connection and thus you can't connect to the web with it, however any other device can connect to it via an ssh connection.
 
