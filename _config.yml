@@ -5,7 +5,7 @@ description: "Blog and Journal"
 logo: journal.png
 teaser: journal.png
 locale: en_US
-url: "https://brianlusina.github.io/"
+url: "https://brianlusina.github.io"
 feed:
   path: atom.xml
 

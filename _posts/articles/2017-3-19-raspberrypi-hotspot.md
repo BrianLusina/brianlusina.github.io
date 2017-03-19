@@ -6,7 +6,6 @@ excerpt: A small demo of configuring a hotspot for your Raspberry Pi
 author: brian_lusina
 share: true
 image:
- feature: raspberrypi.png
  teaser: raspberrypi.png
  thumb: raspberrypi.png
 ---
