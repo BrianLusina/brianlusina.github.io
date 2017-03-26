@@ -7,6 +7,10 @@ author:  brian_lusina
 tags:  [complexity of algorithms, algorithms, algorithm analysis]
 comments:  true
 ads:  true
+image: 
+ feature: algorithm-analysis.jpg
+ thumb: algorithm-analysis.jpg
+ teaser: algorithm-analysis.jpg
 ---
 
 Algorithms are steps taken to solve a problem. Analysis of an algorithm helps us determine whether the algorithm is useful or not. Once we have a correct algorithm we have to determine whether the algorithm is efficient or not. Effieciency in any running system is important to achieve maximum performance within a given amount of time. Complexity should be at a minimum. Abstraction is key in this process.
