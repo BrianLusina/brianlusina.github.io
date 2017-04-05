@@ -265,7 +265,7 @@ createAdHocNetwork()
 {
     echo "Creating RPI Hotspot network"
     ifconfig wlan0 down
-    ifconfig wlan0 10.0.0.5 netmask 255.255.255.0 up
+    ifconfig wlan0 192.168.40.5 netmask 255.255.255.0 up
     service dnsmasq start
     service hostapd start
     echo " "
