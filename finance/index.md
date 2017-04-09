@@ -1,9 +1,9 @@
 ---
 layout: archive
-title: "Money"
-date: 2014-05-30
+title: "Finacne"
+date: 2017-04-9
 modified:
-excerpt: "My Two cents about money and other 'notes'."
+excerpt: "My Two cents about finance"
 tags: []
 image:
   feature:
@@ -11,7 +11,7 @@ image:
 ---
 
 <div class="tiles">
-{% for post in site.categories.money %}
+{% for post in site.categories.finance %}
   {% include post-grid.html %}
 {% endfor %}
 </div><!-- /.tiles -->

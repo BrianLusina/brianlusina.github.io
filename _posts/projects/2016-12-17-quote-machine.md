@@ -1,7 +1,7 @@
 ---
-layout: media
+layout: projects
 title: "Quote Machine"
-categories: media
+categories: projects
 excerpt: "Simple, quote generator built on ReactJS library."
 ads: true
 share: true

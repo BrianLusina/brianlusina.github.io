@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Non Life Insurance Problems in Life"
-categories: money
+categories: finance
 excerpt: "Problems in Non-Life Insurance"
 tags:  [Actuarial, Insurance, Money, business]
 ads: true

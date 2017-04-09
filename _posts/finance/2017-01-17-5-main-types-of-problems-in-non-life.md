@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "5 Main types of Non-life insurance problems"
-categories: money
+categories: finance
 excerpt: "Determining factors of capital retention in general insurance"
 tags:  [Actuarial, Insurance, Money, business]
 ads: true

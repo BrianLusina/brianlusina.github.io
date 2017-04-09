@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "The Risk Process"
-categories: money
+categories: finance
 excerpt: "A small breakdown of the risk process"
 tags:  [Actuarial, Insurance, Money, business]
 ads: true
