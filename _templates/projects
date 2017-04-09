@@ -1,0 +1,13 @@
+---
+layout: projects
+title: {{ title }}
+modified:
+categories: {{ dir }}
+excerpt:
+tags: []
+image:
+  feature:
+  teaser:
+  thumb:
+ads: false  
+---

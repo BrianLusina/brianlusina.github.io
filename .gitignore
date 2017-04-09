@@ -7,3 +7,5 @@ node_modules
 _asset_bundler_cache
 .sass-cache
 .jekyll-metadata
+getting-started/
+samples/
