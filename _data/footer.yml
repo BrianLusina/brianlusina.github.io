@@ -9,8 +9,11 @@
 - title: Design
   url: /design/
 
-- title: Money
-  url: /money-matters/
+- title: Finance
+  url: /finance/
+
+- title: Life
+  url: /life/
 
 - title: Projects
   url: /projects/
@@ -18,5 +21,3 @@
 - title: About
   url: /about/
 
-- title: Terms
-  url: /terms/
