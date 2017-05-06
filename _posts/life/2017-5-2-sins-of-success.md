@@ -29,7 +29,9 @@ You are never ready but that is not a good reason to stop. If you wait until you
 
 You need to say NO to yourself even if it is a lie. Do things that scare you. If it doesn't scare you, it is too easy.
 
-Cheat on everyone and yourself. Great vision requires a lot of focus. To turn your dream into reality, you will have to cheat on everyone and yourself. You will have to say NO to peopl who don't appreciate your time. You will have to say NO to people who don't believe in your dream. Every idea looks bad before you succeed. You will have to say NO to yourself to stay focussed.
+## Cheat on everyone and yourself. 
+
+Great vision requires a lot of focus. To turn your dream into reality, you will have to cheat on everyone and yourself. You will have to say NO to peopl who don't appreciate your time. You will have to say NO to people who don't believe in your dream. Every idea looks bad before you succeed. You will have to say NO to yourself to stay focussed.
 
 ## Steal knowledge
 
@@ -39,5 +41,16 @@ At any price, invest in yourself and gather more knowledge. Don't let anything s
 
 I think the hardest things to say is *No, I need to stop*. This signifies defeat in most cases and our human nature does not allow us to accept defeat. However, not everything will work out.
 
-You will need to have the right peopl at the right time and right place. If one of the elements is missing, it doesn't matter how good your idea is, it won't work out
+You will need to have the right peopl at the right time and right place. If one of the elements is missing, it doesn't matter how good your idea is, it won't work out.
+
+A lot of times, the opportunity cost of chasing the wrong dream is the opportunity to turn another dream into reality. You will need to know how to say NO and kil ideas/projects when you need to do it.
+
+
+Lie, cheat, steal and kill are the 4 sins of success. You need to know how to say NO in all cases.
+*Less is more*.
+Say NO a lot.
+Say NO often.
+Focus on less things and do the best you can.
+
+Cheers!
 
