@@ -2,15 +2,13 @@
 layout: article
 categories: articles
 title: Binary Trees Heights
-excerpt: Relationship between binary tree heights and number of nodes
+excerpt: Relationship between a binary tree's height and its number of nodes
 author: brian_lusina
 share: true
 image:
  teaser: binary_tree_depth.svg
  thumb: binary_tree_depth.svg
 ---
-
-## Binary Tree
 
 A binary tree is a tree where every node has two or fewer children. The children are usually called left and right.
 
