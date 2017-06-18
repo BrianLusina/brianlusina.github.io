@@ -1,7 +1,7 @@
 ---
-layout: media
+layout: projects
 title: "Emerald Designs"
-categories: media
+categories: projects
 excerpt: "Emerald Design agency, A simple mocku-up website for a design agency"
 ads: true
 share: false

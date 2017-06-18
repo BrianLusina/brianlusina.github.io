@@ -1,7 +1,7 @@
 ---
-layout: media
+layout: projects
 title: "Finance Village Application"
-categories: media
+categories: projects
 excerpt: "Simple, elegant financial market tracking application with the investor in mind."
 ads: true
 share: false

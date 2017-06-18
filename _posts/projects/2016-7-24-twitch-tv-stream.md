@@ -1,7 +1,7 @@
 ---
-layout: media
+layout: projects
 title: "TwitchTv Stream"
-categories: media
+categories: projects
 excerpt: "Simple website that retrieves data from TwitchTv Stream JSON API"
 ads: true
 share: false

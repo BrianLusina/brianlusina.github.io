@@ -1,7 +1,7 @@
 ---
-layout: media
+layout: projects
 title: "DropBox Re-imagined"
-categories: media
+categories: projects
 excerpt: "Simple website displaying an artist's re-imagination of the Dropbox User Interface"
 ads: true
 share: false

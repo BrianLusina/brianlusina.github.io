@@ -1,7 +1,7 @@
 ---
-layout: media
+layout: projects
 title: "Mini wiki"
-categories: media
+categories: projects
 excerpt: "A simple small website that displays Wikipedia search results to the user in a simple elegant format"
 ads: true
 share: false
