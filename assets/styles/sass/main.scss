@@ -1,25 +1,28 @@
 //noinspection CssInvalidHtmlTagReference
----
-sitemap: false
----
+//---
+//sitemap: false
+//---
 
 // Vendor
 // ==========================================================================
-@import "../_sass/vendor/module";
+@import "vendor/module";
+
+// vendor extensions
+@import "vendor_extensions/module";
 
 // global helpers
-@import "../_sass/helpers/module";
+@import "helpers/module";
 
 //  Global
 //========================================================================== */
 
-@import "../_sass/base/module";
+@import "base/module";
 
 //  Components
 //========================================================================== */
-@import "../_sass/components/module";
+@import "components/module";
 
 // Page specific
 // ========================================================================== */
 
-@import "../_sass/layouts/module";
+@import "layouts/module";

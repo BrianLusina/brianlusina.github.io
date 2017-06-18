@@ -12,7 +12,7 @@ feed:
 # Jekyll configuration
 
 sass:
-  sass_dir: styles/_sass
+  sass_dir: assets/styles/sass
   style: compressed
 permalink: /:categories/:title/
 kramdown:
@@ -48,6 +48,9 @@ exclude:
   - .jekyll-assets-cache
   - .sass-cache
   - .idea
+  - assets/styles/sass
+  - assets/styles/css/index.scss
+  - "*.map"
   - getting-started
   - CHANGELOG
   - Capfile

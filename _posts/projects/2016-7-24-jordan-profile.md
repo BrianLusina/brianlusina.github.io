@@ -1,7 +1,7 @@
 ---
-layout: media
+layout: projects
 title: "Jordan Profile"
-categories: media
+categories: projects
 excerpt: "Simple One Page website displaying a user profile"
 ads: true
 share: false

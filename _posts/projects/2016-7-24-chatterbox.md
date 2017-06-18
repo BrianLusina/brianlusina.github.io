@@ -1,7 +1,7 @@
 ---
-layout: media
+layout: projects
 title: "ChatterBox WebApp"
-categories: media
+categories: projects
 excerpt: "A simple web chatting application build on Firebase"
 ads: true
 share: true
