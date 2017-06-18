@@ -1,13 +1,14 @@
+//noinspection CssInvalidHtmlTagReference
 ---
 sitemap: false
 ---
 
-// global helpers
-@import "../_sass/helpers/module";
-
 // Vendor
 // ==========================================================================
 @import "../_sass/vendor/module";
+
+// global helpers
+@import "../_sass/helpers/module";
 
 //  Global
 //========================================================================== */
