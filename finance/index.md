@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Finacne"
+title: "Finance"
 date: 2017-04-9
 modified:
 excerpt: "My Two cents about finance"
