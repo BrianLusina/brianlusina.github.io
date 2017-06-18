@@ -7,6 +7,10 @@ author:  brian_lusina
 tags:  [data types, algorithms, puzzles]
 ads:  true
 share:  true
+image: 
+ feature: leap-years.jpg
+ teaser: leap-years.jpg
+ thumb: leap-years.jpg
 ---
 
 Output all the leap years for the next 20 years between begin year and end year

@@ -2,7 +2,7 @@
 
 - title: Tech
   url: /articles/
-  excerpt: "Everything(almost) you need to know about code."
+  excerpt: "Everything(almost) you need to know about technology"
   image: tech-code.png
 
 - title: Design
@@ -10,14 +10,14 @@
   excerpt: "Good design goes to heaven, bad design goes everywhere."
   image: design.png
 
-- title: Money Matters
-  url: /money-matters/
-  excerpt: "Trust the Journal, these are worth a read."
+- title: Finance
+  url: /finance/
+  excerpt: "A Financial journal."
   image: money.png
 
-- title: Projects
-  url: /projects/
-  excerpt: "Some of the work I have done and doing."
+- title: Life
+  url: /life/
+  excerpt: "Life is simple, if we let it."
   image: work.png
 
 - title: About

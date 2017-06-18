@@ -3,6 +3,10 @@ layout:  article
 categories:  articles
 tags:  [alogorithms, sorting algorithms, array]
 title:  Sorting Algorithms
+image:
+ feature: sorting-algorithms.png
+ thumb: sorting-algorithms.png
+ teaser: sorting-algorithms.png
 ---
 
 Algorithms are set to achieve a certain outcome. The

@@ -5,6 +5,10 @@ categories:  articles
 tags:  [complexity of algorithms, algorithms]
 comments:  true
 ads:  true
+image:
+ feature: algorithm-complexity.jpg
+ thumb: algorithm-complexity.jpg
+ teaser: algorithm-complexity.jpg
 ---
 
 The whole point of the big-O/Ω/Θ stuff was to be able to say something useful about algorithms.

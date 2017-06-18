@@ -5,6 +5,10 @@ categories:  articles
 tags:  [oop, oop principles, objects, encapsulation, abstraction, interfaces, polymorphism]
 comments:  true
 ads:  true
+image:
+ feature: principles-of-oop.jpg
+ teaser: principles-of-oop.jpg
+ thumb: principles-of-oop.jpg
 ---
 
 For a program to be said to be object oriented, some principles have to be followed. These principles are crucial to enable the said program to be effective in order to be able to meet the needs the program was designed for.

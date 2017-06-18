@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: "Code"
-date: 2014-05-30T11:39:03-04:00
+date: 2016-05-30
 modified:
 excerpt: "A collection of bits, bytes, bugs and snippets."
 tags: []

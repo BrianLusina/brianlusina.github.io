@@ -5,14 +5,14 @@ description: "Blog and Journal"
 logo: journal.png
 teaser: journal.png
 locale: en_US
-url: "https://brianlusina.github.io/"
+url: "https://brianlusina.github.io"
 feed:
   path: atom.xml
 
 # Jekyll configuration
 
 sass:
-  sass_dir: _sass
+  sass_dir: styles/_sass
   style: compressed
 permalink: /:categories/:title/
 kramdown:
@@ -23,19 +23,19 @@ gems:
   - jekyll-gist
   - jekyll-feed
 
+
 # Site owner
 owner:
   name: "Brian Lusina"
   web: "https://thelusina.surge.sh"
   twitter: "brianlusina"
   bio: "The Lusina"
-  avatar: "bio-photo.jpg" # 160x160 px image for author byline
+  avatar: "bio-photo.jpg"
   google:
     plus: 102302755150765254402
     ad-client: ""
-    ad-slot: 
+    ad-slot:
   disqus-shortname:
-
 
 include:
   - .htaccess
@@ -47,6 +47,8 @@ exclude:
   - .bundle
   - .jekyll-assets-cache
   - .sass-cache
+  - .idea
+  - getting-started
   - CHANGELOG
   - Capfile
   - Gemfile
@@ -62,3 +64,4 @@ exclude:
   - package.json
   - spec
   - tmp
+  - samples

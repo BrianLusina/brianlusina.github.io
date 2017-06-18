@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Video Post Test"
-date: 2014-05-31T23:14:02-04:00
+date: 2014-05-31
 modified:
 categories: articles
 excerpt: "A post with a YouTube video."

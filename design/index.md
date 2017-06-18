@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: "Design"
-date: 2016-05-30T11:39:03-04:00
+date: 2016-05-30
 modified:
 excerpt: "Good art is a taste. Good design is an opinion"
 tags: []

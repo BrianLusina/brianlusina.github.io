@@ -1,9 +1,9 @@
 ---
 layout: article
 title: "About"
-date: 2016-06-02T09:44:20-04:00
-modified: 2016-08-27T14:56:44-04:00
-excerpt: "About Paper Rabbit"
+date: 2016-06-02
+modified: 2016-08-27
+excerpt: "About LJournal"
 image:
   feature:
   teaser:

@@ -5,6 +5,10 @@ categories:  articles
 tags:  [Command Line, CLI, Command Line Interface]
 comments:  true
 ads:  true
+image:
+  feature: command-line-terminal.jpg
+  thumb: command-line-terminal.jpg
+  teaser: command-line-terminal.jpg
 ---
 
 Whenever one hears the term *Command Line*, they shudder and instantly think one has to memorize and remember strange words and code that could possibly only be understood by a machine. True, the command line is quite a hurdle to master, but when truly understood, it not only becomes easier navigating your machine, but it becomes your superpower. First and foremost, what is the Command Line?
