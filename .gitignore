@@ -9,3 +9,4 @@ _asset_bundler_cache
 .jekyll-metadata
 getting-started/
 samples/
+.idea/
