@@ -1,9 +1,9 @@
 ---
 layout: archive
-title: "Code"
+title: "Technology Journal"
 date: 2016-05-30
 modified:
-excerpt: "A collection of bits, bytes, bugs and snippets."
+excerpt: "A collection of bits, bytes, bugs, snippets and code"
 tags: []
 image:
   feature:

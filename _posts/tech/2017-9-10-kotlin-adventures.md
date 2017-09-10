@@ -5,8 +5,7 @@ title: My Journey in Kotlin thus far
 excerpt: Kotlin adventures
 author: brian_lusina
 share: true
-ads: true
-tags:  [Android, Java, language, kotlin]
+tags: [Android, Java, language, kotlin]
 image:
  feature: kotlin_feature.png
  teaser: kotlin_thumb.jpg
