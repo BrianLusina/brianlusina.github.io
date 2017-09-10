@@ -9,7 +9,6 @@ image:
  feature: binary_tree.png
  teaser: binary_tree.png
  thumb: binary_tree.png
- creditlink: https://www.quora.com/What-are-binary-trees-and-how-can-I-practice-implementing-them-in-Python
  credit: Quora
 ---
 
