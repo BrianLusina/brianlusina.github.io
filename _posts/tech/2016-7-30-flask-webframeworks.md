@@ -449,7 +449,7 @@ from flask import Flask, render_template
 
 app = Flask (__name__)} %}
 
-@app.route('/hello/<user>')
+@app.route("/hello/<user>")
 def hello_name(user):
    return render_template('hello.html', name = user)
 
@@ -523,7 +523,7 @@ if __name__ == '__main__':
 ```
 
 The results.html
-```html
+``` html
 	<!doctype html>
 	<html>
 	   <body>
