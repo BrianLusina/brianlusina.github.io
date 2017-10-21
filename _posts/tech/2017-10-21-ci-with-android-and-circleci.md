@@ -56,8 +56,62 @@ RELEASE_TRACK=beta
 ```
 > A typical generic `gradle.properties` file with secret keys and what not.
 
-This
+These configurations assume you have such values in your application. The only values that will really be essential to your build environment are `VERSION_CODE`, `VERSION_NAME` and `RELEASE_TRACK`.
 
+Version code and name are used as unique identifiers for your application when deploying on playstore while release track is used to identify which track your current release will be published on(either beta, alpha or production).
+
+I prefer setting the track to beta, so as to enable the current release to be first pushed to beta testers before it is upgraded to production. Also beta track is what I use when building from `develop` or `staging` branch, which ensures that the master branch will only be used for `production` releases.
+
+Here is how we can generate the `RELEASE_TRACK` value dynamically:
+
+```properties
+/**
+ * Gets the release track to use for deployment
+ * Release tracks are either "alpha", "beta", "production", "rollout"
+ * */
+def getReleaseTrack = { ->
+    try{
+        Properties properties = new Properties()
+        properties.load(new FileInputStream("gradle.properties"))
+        return Integer.parseInt(properties.getProperty("RELEASE_TRACK"))
+    }catch (ignored){
+        return "alpha"
+    }
+}
+```
+> This will get the release track from the properties file and if it can not get that from the file, then the default is alpha release track. This ensure that we do not touch the production/rollout tracks and leave that up to the CI to handle when the build and tests succeeds.
+
+And to even make it more dynamic we can create a shell script that the CI handles before building the application
+
+```bash
+# updates the version code based on the current branch
+function updateVersionCodeAndTrack(){
+    versionCode=$(git rev-list --first-parent --count origin/${CIRCLE_BRANCH})
+    versionName=$(git describe --dirty)
+
+#    if ["${versionName}" == "fatal: No names found, cannot describe anything."]; then
+#        major=$(expr ${CIRCLE_BUILD_NUM} - ${CIRCLE_PREVIOUS_BUILD_NUM})
+#        versionName=${major}.0.0
+#    fi
+
+    if ["${versionName}" == "fatal: No names found, cannot describe anything."]; then
+        versionName=1.0.0
+    fi
+
+    if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+    	echo "VERSION_NAME=${versionName}" >> ${GRADLE_PROPERTIES}
+	    echo "VERSION_CODE=${versionCode}" >> ${GRADLE_PROPERTIES}
+	    echo "RELEASE_TRACK=\"beta\"" >> ${GRADLE_PROPERTIES}
+
+	elif [ "${CIRCLE_BRANCH}" == "master" ] ; then
+    	echo "VERSION_NAME=${versionName}" >> ${GRADLE_PROPERTIES}
+	    echo "VERSION_CODE=${versionCode}" >> ${GRADLE_PROPERTIES}
+        echo "RELEASE_TRACK=\"production\"" >> ${GRADLE_PROPERTIES}
+	fi
+}
+
+```
+> As you can see, the release track is updated according to the branch the CI is running on. ${GRADLE_PROPERTIES} is simply the location of the `gradle.properties` file.
 
 2. **KeyStore**
 
@@ -133,7 +187,7 @@ def getVersionName = { ->
 
 
 /**
- * Gets the Moja service account email gradle.properties file, Ensure that you have a
+ * Gets the  service account email gradle.properties file, Ensure that you have a
  * gradle.properties file in root project directory
  * */
 def getServiceAccountKey = { ->
@@ -286,3 +340,366 @@ android {
     }
 ```
 > Notice the `rootProject.ext.<VALUE>. This is referencing the values we set in the ext block in our gradle.properties file at the root level of the project`. This will be used to setup the signing of the apk when creating a release build.
+
+3. **Github Triplet Plugin**
+
+This plugin automates the deplyoment to PlayStore when CI tests pass. This includes release notes, screenshots, whats new section, version name, icons etc.
+One caveat is that you will have to manually upload the APK to PlayStore the first time, but after that this plugin will handle the automation so that all you have to do is focus on the code and features you create. More on this plugin can be found [here](https://github.com/Triple-T/gradle-play-publisher). This includes setup and how to use it. I advice you read through it and understand before proceeding.
+
+
+### CI configuration
+
+Once we have all this configured, we can then configure Circle CI config file to automate the process. This will run the build, test the application and deploy to PlayStore based on your configuration settings above.
+
+There are a couple of scripts that may need to be included to make it much easier for deployment of the application. Remember how I mentioned that it is not good practice for the `jks` file to be pushed to Github or any VCS you use? Yes, these scripts ensure that the automation is seamless as if it were running on your development machine. I will start off with a couple of things you will need to setup.
+
++ **Circle CI environment variables**
+
+Start off by setting Circle CI environment variables, These will be used to setup values that are specific for the project and also that will be used by the scripts we will write up. Some of the environment variables you may need to setup:
+
+```plain
+DEV_API_BASE_URL=<YOUR_DEV_BASE_URL>
+API_BASE_URL=<YOUR_BASE_URL>
+API_KEY=<YOUR_API_KEY>
+GITHUB_TOKEN=<YOUR_GITHUB_TOKEN>
+SERVICE_ACCOUNT_EMAIL=<YOUR_SERVICE_ACCOUNT_EMAIL>
+VERSION_NAME=1.0.0
+VERSION_CODE=1
+RELEASE_TRACK=beta
+PUBLISH_JSON_KEY=<JSON_FILE>
+KEY_STORE_URI=<KEY_STORE_URI>
+STORE_FILE=<STORE_FILE>
+```
+> You may notice that the values are somewhat the same as the ones in your `gradle.properties` file, with 3 new additions.
+
+`PUBLISH_JSON_KEY`, this is a unique key that you will use to verify you are the authorized account when publishing to PlayStore. Refer to [this](https://github.com/codepath/android_guides/wiki/Automating-Publishing-to-the-Play-Store) for more information on this.
+
+Once you have your JSON file, copy and paste that information as an env variable.
+
+`KEY_STORE_URI` is, as the suffix suggests, uri location of your keystore file. Considering that you can not (and should not) push this to Github, you should be able to still access this somehow right?
+
+There is an easy way to do this using DropBox, yes, DropBox. A very simple hack is to upload your keystore file there and create a shareable link for the keystore file. With this, then you should be able to use that link to download the file and create a key store on your CI.
+
+
+```bash
+export STORE_FILE_LOCATION=$HOME"/app-dir/app.jks"
+
+# download key store file from remote location
+# keystore URI will be the location uri for the *.jks file for signing application
+function downloadKeyStoreFile {
+    # use curl to download a keystore from $KEYSTORE_URI, if set,
+    # to the path/filename set in $KEYSTORE.
+    echo "Looking for $STORE_FILE_LOCATION ..."
+
+    if [ ! -f ${STORE_FILE_LOCATION} ] ; then
+        echo "Keystore file is missing, performing download"
+        # we're using curl instead of wget because it will not
+        # expose the sensitive uri in the build logs:
+        curl -L -o ${STORE_FILE} ${KEY_STORE_URI}
+    else
+            echo "Keystore uri not set.  .APK artifact will not be signed."
+    fi
+}
+```
+> This is a sample of the function you can use to download the keystore file in your project root and set up for successful builds.
+
++ **Circle CI config.yml file**
+
+Configuring the `config.yml` file should be painless and easy, considering all the workload will be done by the scripts (will include in a few minutes).
+
+Some of the scripts you can use for deployment:
+
+```bash
+#!/usr/bin/env bash
+
+# 1. http://deathstartup.com/?p=81
+# 2. https://gist.github.com/KioKrofovitch/716e6a681acb33859d16
+# 3. https://stackoverflow.com/questions/35440907/can-circle-ci-reference-gradle-properties-credentials
+
+export GRADLE_PROPERTIES=$HOME"/app-dir/gradle.properties"
+export KEYSTORE_PROPERTIES=$HOME"/app-dir/keystores/keystore.properties"
+export PUBLISH_KEY_FILE=$HOME"/app-dir/keystores/publish_key.json"
+export STORE_FILE_LOCATION=$HOME"/app-dir/app.jks"
+
+function copyEnvVarsToProperties {
+
+    echo "Gradle Properties should exist at $GRADLE_PROPERTIES"
+    echo "Keystore Properties should exist at $KEYSTORE_PROPERTIES"
+
+    if [ ! -f "$KEYSTORE_PROPERTIES" ]
+    then
+        echo "${KEYSTORE_PROPERTIES} does not exist...Creating file"
+
+        touch ${KEYSTORE_PROPERTIES}
+
+        echo "keyAlias=$KEY_ALIAS" >> ${KEYSTORE_PROPERTIES}
+        echo "keyPassword=$KEY_PASSWORD" >> ${KEYSTORE_PROPERTIES}
+        echo "storeFile=$STORE_FILE" >> ${KEYSTORE_PROPERTIES}
+        echo "storePassword=$STORE_PASSWORD" >> ${KEYSTORE_PROPERTIES}
+    fi
+
+    if [ ! -f "$GRADLE_PROPERTIES" ]
+    then
+        echo "${GRADLE_PROPERTIES} does not exist...Creating Properties file"
+
+	echo "API_BASE_URL=$API_BASE_URL" >> ${GRADLE_PROPERTIES}
+	echo "DEV_API_BASE_URL=$DEV_API_BASE_URL" >> ${GRADLE_PROPERTIES}
+	echo "API_KEY=$API_KEY" >> ${GRADLE_PROPERTIES}
+	echo "SERVICE_ACCOUNT_EMAIL=$SERVICE_ACCOUNT_EMAIL" >> ${GRADLE_PROPERTIES}
+
+    fi
+
+    if [ ! -f "$PUBLISH_KEY_FILE" ]
+    then
+        echo "${PUBLISH_KEY_FILE} does not exist...creating properties file"
+
+        touch ${PUBLISH_KEY_FILE}
+
+        echo "$PUBLISH_JSON_KEY" >> ${PUBLISH_KEY_FILE}
+    fi
+}
+
+
+# download key store file from remote location
+# keystore URI will be the location uri for the *.jks file for signing application
+function downloadKeyStoreFile {
+    # use curl to download a keystore from $KEYSTORE_URI, if set,
+    # to the path/filename set in $KEYSTORE.
+    echo "Looking for $STORE_FILE_LOCATION ..."
+
+    if [ ! -f ${STORE_FILE_LOCATION} ] ; then
+        echo "Keystore file is missing, performing download"
+        # we're using curl instead of wget because it will not
+        # expose the sensitive uri in the build logs:
+        curl -L -o ${STORE_FILE} ${KEY_STORE_URI}
+    else
+            echo "Keystore uri not set.  .APK artifact will not be signed."
+    fi
+}
+
+# updates the version code based on the current branch
+function updateVersionCodeAndTrack(){
+    versionCode=$(git rev-list --first-parent --count origin/${CIRCLE_BRANCH})
+    versionName=$(git describe --dirty)
+
+#    if ["${versionName}" == "fatal: No names found, cannot describe anything."]; then
+#        major=$(expr ${CIRCLE_BUILD_NUM} - ${CIRCLE_PREVIOUS_BUILD_NUM})
+#        versionName=${major}.0.0
+#    fi
+
+    if ["${versionName}" == "fatal: No names found, cannot describe anything."]; then
+        versionName=1.0.0
+    fi
+
+    if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+    	echo "VERSION_NAME=${versionName}" >> ${GRADLE_PROPERTIES}
+	    echo "VERSION_CODE=${versionCode}" >> ${GRADLE_PROPERTIES}
+	    echo "RELEASE_TRACK=\"beta\"" >> ${GRADLE_PROPERTIES}
+
+	elif [ "${CIRCLE_BRANCH}" == "master" ] ; then
+    	echo "VERSION_NAME=${versionName}" >> ${GRADLE_PROPERTIES}
+	    echo "VERSION_CODE=${versionCode}" >> ${GRADLE_PROPERTIES}
+        echo "RELEASE_TRACK=\"production\"" >> ${GRADLE_PROPERTIES}
+	fi
+}
+
+# execute functions
+copyEnvVarsToProperties
+downloadKeyStoreFile
+updateVersionCodeAndTrack
+```
+> A sample script for CircleCI to use in build and deployment circleci_env_setup.sh
+
+Now onto the part where magic happens! The `config.yml` file!
+
+CircleCI made version 2.0 of their build tool easy and intuitive to use, making creating a proper workflow easy. Here is a sample `config.yml` file with all the bells and whistles that allow for continuous integration and deployment of and Android application.
+
+```yaml
+version: 2
+jobs:
+       build:
+                working_directory: ~/appp-dir
+                docker:
+                        - image: circleci/android:api-26-alpha
+                environment:
+                        # Customize the JVM maximum heap limit
+                        _JAVA_OPTIONS: "-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
+                        JVM_OPTS: -Xmx3200m
+                        TERM: dumb
+                
+                steps:
+                        # checkout onto repo
+                        - checkout
+
+                        # setup environment for downloading necessary assets to use for deployment
+                        - run:
+                                name: Setup environment
+                                command: ./scripts/circleci_env_setup.sh
+
+                        # Download and cache dependencies
+                        - restore_cache:
+                                key: App-{{ checksum "build.gradle" }}-{{ .Branch }}
+                                keys:
+                                      - app-{{ checksum "app/build.gradle" }}
+
+                        # download dependencies
+                        - run:
+                               name: Download dependencies
+                               command: ./gradlew androidDependencies
+                        
+                        - save_cache:
+                                key: App-{{ checksum "build.gradle" }}-{{ .Branch }}
+                                paths: ~/.gradle
+                                keys:
+                                      - app-{{ checksum "app/build.gradle" }}
+ 
+                        - persist_to_workspace:
+                                root: .
+                                paths: .
+
+       test:
+               docker:
+                       - image: circleci/android:api-26-alpha
+               working_directory: ~/moja-dir
+               steps:
+                       - attach_workspace:
+                              at: .
+
+                       - restore_cache:
+                              key: App-{{ checksum "build.gradle" }}-{{ .Branch }}
+                              keys:
+                                      - app-{{ checksum "app/build.gradle" }}
+
+                       - run:
+                               name: Run Tests
+                               command: ./gradlew test
+
+                       - store_test_results:
+                               path: ~/app-dir/app/build/test-results/
+
+                       - store_artifacts:
+                               path: ~/app-dir/app/build/reports/tests/
+                               destination: /app/reports/
+
+                       - persist_to_workspace:
+                               root: .
+                               paths: .
+
+       deployBeta:
+               docker:
+                       - image: circleci/android:api-26-alpha
+
+               working_directory: ~/app-dir
+               steps:
+                       - attach_workspace:
+                              at: .
+
+                       - restore_cache:
+                              key: App-{{ checksum "build.gradle" }}-{{ .Branch }}
+                              keys:
+                                      - app-{{ checksum "app/build.gradle" }}
+
+                       - run:
+                              name: Assemble APKs and distribute to Beta Testing
+                              command: ./scripts/circleci_beta_setup.sh
+
+                       - store_artifacts:
+                               path: ~/app-dir/app/build/outputs/apk/
+                               destination: /app/apks/
+
+                       - deploy:
+                               name: Deploy to Play Store
+                               command: ./gradlew :app:publishApkRelease
+
+       deployProd:
+               docker:
+                       - image: circleci/android:api-26-alpha
+
+               working_directory: ~/app-dir
+               steps:
+                       - attach_workspace:
+                              at: .
+
+                       - restore_cache:
+                              key: App-{{ checksum "build.gradle" }}-{{ .Branch }}
+                              keys:
+                                      - app-{{ checksum "app/build.gradle" }}
+
+                       - run:
+                               name: Create Apk(s)
+                               command: ./gradlew :app:assembleRelease
+
+                       - store_artifacts:
+                               path: ~/app-dir/app/build/outputs/apk/release/
+                               destination: /app/apks/
+
+                       - store_artifacts:
+                               path: ~/app-dir/app/build/outputs/mapping/
+                               destination: /app/mapping/
+
+                       - deploy:
+                               name: Deploy to Play Store
+                               command: ./gradlew :app:publishApkRelease
+
+# define work flows
+workflows:
+        version: 2
+        build-test-distribute-deploy:
+                jobs:
+                        - build
+
+                        - test:
+                                requires:
+                                        - build
+
+                        # deploys to Beta
+                        - deployBeta:
+                                requires:
+                                        - test
+                                filters:
+                                        branches:
+                                                only:
+                                                        - staging
+                                                ignore:
+                                                        - /^dev-.*/
+                                                        - develop
+                                                        - master
+                                                        - /^feature-.*/
+                                                        - /^feature/.*/
+                                                        - /^bugfix-.*/
+                                                        - /^bugfix/.*/
+                                                        - /^hotfix/.*/
+
+                        # will only deploy if on master and release branches
+                        - deployProd:
+                                requires:
+                                        - test
+                                filters:
+                                        branches:
+                                                only: 
+                                                        - master
+                                                ignore: 
+                                                        - /^dev-.*/
+                                                        - develop
+                                                        - staging
+                                                        - /^feature-.*/
+                                                        - /^feature/.*/
+                                                        - /^bugfix-.*/
+                                                        - /^bugfix/.*/
+                                                        - /^hotfix/.*/
+
+```
+> `config.yml` file for building, tesing and deploying to PlayStore.
+
+That pretty much wraps it up for CI and CD with CircleCI for Android. Give it a try and automate the process, the only thing that you will need to do is:
+
++ write tests
++ write code to pass tests
++ git add .
++ git commit
++ git push
++ Deploy
++ Pray (just kidding)
++ Win
+
+Hope this is helpful, until next time Droids!
