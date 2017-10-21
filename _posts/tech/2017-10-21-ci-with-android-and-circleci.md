@@ -703,6 +703,7 @@ That pretty much wraps it up for CI and CD with CircleCI for Android. Give it a 
 + git push
 + Deploy
 + Pray (just kidding)
++ No, really. Pray!
 + Win
 
 Hope this is helpful, until next time Droids!
