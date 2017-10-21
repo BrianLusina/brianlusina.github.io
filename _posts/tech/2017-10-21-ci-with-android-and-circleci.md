@@ -339,7 +339,10 @@ android {
         }       
     }
 ```
-> Notice the `rootProject.ext.<VALUE>. This is referencing the values we set in the ext block in our gradle.properties file at the root level of the project`. This will be used to setup the signing of the apk when creating a release build.
+> Notice the `rootProject.ext.<VALUE>.` 
+This is referencing the values we set in the ext block in our gradle.properties file at the root
+ level of the project. 
+ This will be used to setup the signing of the apk when creating a release build.
 
 3. **Github Triplet Plugin**
 
