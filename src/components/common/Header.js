@@ -1,27 +1,36 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 /**
  * Header stateless component
  */
-const Header = ({}) => {
+const Header = () => {
   function createLinks() {
     const socialLinks = [
       {
         name: "Twitter",
-        link: "",
+        link: "https://twitter.com/BrianLusina",
         className: "icon fa-twitter"
       },
       {
         name: "Facebook",
-        link: "",
+        link: "https://www.facebook.com/brianlusina",
         className: "icon fa-facebook"
       },
       {
         name: "Medium",
-        link: "",
+        link: "https://medium.com/@lusinabrian",
         className: "icon fa-medium"
       },
+      {
+        name: "LinkedIn",
+        link: "https://www.linkedin.com/in/brianlusina/",
+        className: "icon fa-linkedin"
+      },
+      {
+        name: "Github",
+        link: "https://github.com/BrianLusina",
+        className:"icon fa-github"
+      }
     ];
 
     return socialLinks.map((item, index) => {

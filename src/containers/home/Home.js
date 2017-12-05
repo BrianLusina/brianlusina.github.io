@@ -1,23 +1,22 @@
 /**
- * @author lusinabrian on 12/11/17.
- * @notes: App container
+ * @author lusinabrian on 05/12/17.
+ * @notes: Home Container
  */
 
-import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import Header from "./components/common/Header";
+import Header from "../components/common/Header";
 import Feature from "./components/feature/Feature";
 import SideBar from "./containers/sidebar/Sidebar"
 import Blog from "./containers/blog/BlogContainer";
 
 /**
- * App container component
+ * Home container component
  * export keyword here is used to import this module as a named import
  * useful when running tests
  */
-export class App extends Component {
+export class Home extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -28,30 +27,22 @@ export class App extends Component {
      */
     render() {
         return (
-          <div id="wrapper">
-            <div id="main">
-              <div className="inner">
-                <Header/>
-                <Feature/>
-                <Blog/>
-              </div>
-            </div>
-            <SideBar/>
+            <div>
 
-          </div>
+            </div>
         );
     }
 }
 
 /**
- * Validates App prop types
+ * Validates Home prop types
  */
-App.propTypes = {};
+Home.propTypes = {};
 
 /**
- * maps the state of the redux store to the App props
+ * maps the state of the redux store to the Home props
  * @param {Object} state of redux store
- * @param {Object} ownProps App properties
+ * @param {Object} ownProps Home properties
  * @returns {Object} new state of redux store
  */
 function mapStateToProps(state, ownProps) {
@@ -68,13 +59,13 @@ function mapStateToProps(state, ownProps) {
  */
 function mapDispatchToProps(dispatch) {
     return {
-        // actions: bindActionCreators(actions, dispatch)
+        actions: bindActionCreators(actions, dispatch)
     };
 }
 
 /**
- * Connect App container to redux store and map
+ * Connect Home container to redux store and map
  * actions to the store and props of this container to
  * state of store
  */
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)

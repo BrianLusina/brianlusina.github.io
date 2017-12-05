@@ -7,8 +7,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import Footer from "../../common/Footer";
-import Search from "../../common/Search"
+import Footer from "../../components/common/Footer";
+import Search from "../../components/common/Search"
 import Menu from "../../components/Menu";
 import Contact from "../../components/Contact";
 
