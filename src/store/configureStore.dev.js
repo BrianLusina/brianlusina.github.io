@@ -11,8 +11,13 @@ import thunk from 'redux-thunk';
 import createHistory from "history/createBrowserHistory";
 import {routerMiddleware} from "react-router-redux";
 
-// create history
-const history = createHistory();
+export const history = createHistory();
+
+const middlware = [
+  thunk,
+  routerMiddleware(history),
+  reduxImmutableStateInvariant()
+];
 
 /**
  * Configures the application store
@@ -20,7 +25,6 @@ const history = createHistory();
 export default function configureStore(initialState) {
   return createStore(
     rootReducer, initialState,
-    composeWithDevTools(applyMiddleware(thunk, routerMiddleware(history),
-      reduxImmutableStateInvariant()))
+    composeWithDevTools(applyMiddleware(...middlware))
   );
 }

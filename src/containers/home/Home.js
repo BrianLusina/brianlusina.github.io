@@ -2,14 +2,14 @@
  * @author lusinabrian on 05/12/17.
  * @notes: Home Container
  */
-
+import React, {Component} from "react";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import Header from "../components/common/Header";
-import Feature from "./components/feature/Feature";
-import SideBar from "./containers/sidebar/Sidebar"
-import Blog from "./containers/blog/BlogContainer";
+import Header from "../../components/common/Header";
+import Feature from "../../components/feature/Feature";
+import SideBar from "../sidebar/Sidebar"
+import Blog from "../blog/BlogContainer";
 
 /**
  * Home container component
@@ -27,9 +27,14 @@ export class Home extends Component {
      */
     render() {
         return (
-            <div>
-
-            </div>
+          <div>
+            <Feature 
+                featureTitle={"Welcome to the jungle"} 
+                subtitle={"Jungle Fever"} 
+                postId={"someHash"} 
+                shortDescription={"The Jungle is full of terrors and nightmares"}/>
+            <Blog limit={6}/>
+          </div>
         );
     }
 }
@@ -59,7 +64,7 @@ function mapStateToProps(state, ownProps) {
  */
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(actions, dispatch)
+        //actions: bindActionCreators(actions, dispatch)
     };
 }
 

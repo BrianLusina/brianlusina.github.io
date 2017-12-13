@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
  * @param {String} shortDescription Short description of the article
  * @returns {Object} React Element JSX element to render
  */
-const Feature = ({ featureTitle, subtitle, shortDescription }) => {
+const Feature = ({ featureTitle, subtitle, shortDescription, postId }) => {
   return (
     <section id="banner">
       <div className="content">
@@ -38,6 +38,7 @@ const Feature = ({ featureTitle, subtitle, shortDescription }) => {
 Feature.propTypes = {
   featureTitle: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
+  postId: PropTypes.string,
   shortDescription: PropTypes.string.isRequired
 };
 

@@ -9,6 +9,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test:cover": "npm run test -- --coverage",
     "eject": "react-scripts eject"
   },
   "dependencies": {
@@ -16,6 +17,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
+    "react-markdown": "^3.1.0",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
@@ -27,6 +29,7 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "codecov": "^3.0.0",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
     "expect": "^21.2.1"

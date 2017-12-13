@@ -3,44 +3,51 @@
  * @notes: App container
  */
 
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import Header from "./components/common/Header";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import AppError from "./components/errors/AppError";
 import Feature from "./components/feature/Feature";
-import SideBar from "./containers/sidebar/Sidebar"
+import SideBar from "./containers/sidebar/Sidebar";
 import Blog from "./containers/blog/BlogContainer";
-
+import BlogPage from "./components/BlogPage";
+import Home from "./containers/home/Home";
+import routes from "./routes/routes";
+import Header from "./components/common/Header";
 /**
  * App container component
  * export keyword here is used to import this module as a named import
  * useful when running tests
  */
 export class App extends Component {
-    constructor(props, context) {
-        super(props, context);
+  constructor(props, context) {
+    super(props, context);
+  }
 
-    }
-
-    /**
-     * Render container component
-     */
-    render() {
-        return (
+  /**
+   * Render container component
+   */
+  render() {
+    return (
+      <AppError>
+        <Router>
           <div id="wrapper">
             <div id="main">
               <div className="inner">
                 <Header/>
-                <Feature/>
-                <Blog/>
+                <Route exact path={routes.INDEX_ROUTE} component={Home} />
+                <Route path={routes.BLOG_ROUTE} component={Blog} />
+                <Route path={routes.BLOG_PAGE_ROUTE} component={BlogPage}/>
               </div>
             </div>
             <SideBar/>
-
           </div>
-        );
-    }
+        </Router>
+      </AppError>
+    );
+  }
 }
 
 /**
@@ -55,9 +62,9 @@ App.propTypes = {};
  * @returns {Object} new state of redux store
  */
 function mapStateToProps(state, ownProps) {
-    return {
-        state: state
-    };
+  return {
+    state: state
+  };
 }
 
 /**
@@ -67,9 +74,9 @@ function mapStateToProps(state, ownProps) {
  * @returns {Object} actions object
  */
 function mapDispatchToProps(dispatch) {
-    return {
-        // actions: bindActionCreators(actions, dispatch)
-    };
+  return {
+    // actions: bindActionCreators(actions, dispatch)
+  };
 }
 
 /**
@@ -77,4 +84,4 @@ function mapDispatchToProps(dispatch) {
  * actions to the store and props of this container to
  * state of store
  */
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);

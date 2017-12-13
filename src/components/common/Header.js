@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link } from "react-router-dom";
 
 /**
  * Header stateless component
@@ -36,7 +37,7 @@ const Header = () => {
     return socialLinks.map((item, index) => {
       return (
         <li key={index}>
-          <a href={item.link} className={item.className}>
+          <a href={item.link} className={item.className} target="_blank">
             <span className="label">{item.name}</span>
           </a>
         </li>
@@ -46,9 +47,9 @@ const Header = () => {
 
   return (
     <header id="header">
-      <a href="#" className="logo">
+      <Link to="/" className="logo">
         <strong>LJournal</strong>
-      </a>
+      </Link>
       <ul className="icons">
         {createLinks()}
       </ul>

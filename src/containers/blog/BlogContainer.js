@@ -7,6 +7,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import BlogItem from "./BlogItem";
 
 /**
  * BlogContainer container component
@@ -20,20 +21,16 @@ export class BlogContainer extends Component {
   }
 
   renderBlogPosts(){
+    // limit these items to most 6 recent posts
     return this.props.posts.map((item, key) => {
-      return (
-        <article key={key}>
-          <a href={item.link} className="image">
-            <img src={item.imgSrc} alt={item.imgAlt} /></a>
-          <h3>{item.title}</h3>
-          <p>{item.excerpt}</p>
-          <ul className="actions">
-            <li>
-              <a href={item.link} className="button">More</a>
-            </li>
-          </ul>
-        </article>
-      )
+      return <BlogItem 
+        key={key}
+        link={item.link}
+        imgSrc={item.imgSrc}
+        imgAlt={item.imgAlt}
+        title={item.title}
+        excerpt={item.excerpt}
+      />
     })
   }
 
@@ -56,8 +53,11 @@ export class BlogContainer extends Component {
 
 /**
  * Validates BlogContainer prop types
+ * @property {Number} limit The number of posts to limit to
  */
-BlogContainer.propTypes = {};
+BlogContainer.propTypes = {
+  limit : PropTypes.number
+};
 
 /**
  * maps the state of the redux store to the BlogContainer props

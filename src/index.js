@@ -5,13 +5,17 @@ import "./styles/css/main.css";
 import {Provider} from "react-redux";
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from "./store/configureStore";
+import createHistory from "history/createBrowserHistory";
+import {syncHistoryWithStore} from 'react-router-redux'
+import { ConnectedRouter } from "react-router-redux";
 import App from './App';
 
 const store = configureStore();
+const history = createHistory();
 
 render(
   <Provider store={store}>
-    <App/>
+      <App/>
   </Provider>,
   document.getElementById('root')
 );
