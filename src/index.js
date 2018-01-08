@@ -11,7 +11,7 @@ import { ConnectedRouter } from "react-router-redux";
 import App from './App';
 
 const store = configureStore();
-const history = createHistory();
+//const history = createHistory();
 
 render(
   <Provider store={store}>
