@@ -1,64 +1,51 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
+import React from "react";
+import PropTypes from "prop-types";
+import Link from "gatsby-link";
+import Helmet from "react-helmet";
+import AppError from "../components/errors/AppError";
+import Header from "../components/common/Header";
+import SideBar from "../containers/sidebar/Sidebar";
 
-import './index.css'
-
-const Header = () => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Gatsby
-        </Link>
-      </h1>
-    </div>
-  </div>
-)
-
-const TemplateWrapper = ({ children }) => (
-  <div>
+const TemplateWrapper = ({ children, data }) => (
+  <AppError>
     <Helmet
-      title="Gatsby Default Starter"
+      title={data.site.siteMetaData.title}
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: "description", content: "LJournal is a simple blog" },
+        { name: "keywords", content: "data, Lusina, Brian Lusina, code, bugs, algorithms" }
       ]}
     />
-    <Header />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
-      {children()}
+    <div id="wrapper">
+      <div id="main">
+        <div className="inner">
+          <Header />
+          {children()}
+        </div>
+      </div>
+      <SideBar />
     </div>
-  </div>
-)
+  </AppError>
+);
 
+/**
+ * Prop Type validation
+ */
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
-}
+  data: PropTypes.object
+};
 
-export default TemplateWrapper
+/**
+ * GraphQl query
+ */
+export const query = graphql`
+query RootLayoutQuery{
+  site {
+    siteMetadata {
+      title
+    }
+  }
+}
+`
+
+export default TemplateWrapper;
