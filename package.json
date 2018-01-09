@@ -6,6 +6,10 @@
   "author": "Brian Lusina <lusinabrian@gmail.com>",
   "license": "The MIT License (MIT)",
   "scripts": {
+    "gatsby-new": "gatsby new --",
+    "gatsby-build": "gatsby build",
+    "gatsby-develop": "gatsby develop",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -13,6 +17,9 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "gatsby": "^1.9.150",
+    "gatsby-link": "^1.6.33",
+    "gatsby-plugin-react-helmet": "^2.0.3",
     "history": "^4.7.2",
     "prop-types": "^15.6.0",
     "react": "^16.1.0",
@@ -32,6 +39,8 @@
     "codecov": "^3.0.0",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
-    "expect": "^21.2.1"
+    "expect": "^21.2.1",
+    "gatsby-cli": "^1.1.28",
+    "prettier": "^1.9.2"
   }
 }
