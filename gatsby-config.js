@@ -3,4 +3,4 @@ module.exports = {
     title: `LJournal`,
   },
   plugins: [`gatsby-plugin-react-helmet`],
-}
+};
