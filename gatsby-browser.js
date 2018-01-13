@@ -7,7 +7,7 @@ const store = configureStore();
 exports.wrapRootComponent = Root => {
   return () => (
     <Provider store={store}>
-      <Root />
+      Root
     </Provider>
   );
 };
