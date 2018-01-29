@@ -17,7 +17,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "gatsby": "^1.9.154",
+    "gatsby": "^1.9.173",
     "gatsby-link": "^1.6.33",
     "gatsby-plugin-react-helmet": "^2.0.3",
     "prop-types": "^15.6.0",
