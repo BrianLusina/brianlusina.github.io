@@ -1,37 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 /**
  * Contact stateless component
  */
-const Contact = ({}) => {
+const Contact = () => {
   return (
     <section>
       <header className="major">
         <h2>Get in touch</h2>
       </header>
       <p>
-        Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper
-        dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.
+        Do get in touch to work on a project, create something new or even talk about the universe. :)
       </p>
       <ul className="contact">
         <li className="fa-envelope-o">
-          <a href="#">information@untitled.tld</a>
+          <a href="mailto:chiefsdome@gmail.com">blusina@ljournal.com</a>
         </li>
-        <li className="fa-phone">(000) 000-0000</li>
+        {/* <li className="fa-phone">(000) 000-0000</li> */}
         <li className="fa-home">Nairobi, Kenya<br/>
         </li>
       </ul>
     </section>
 
   );
-};
-
-/**
- * Prop validation
- */
-Contact.propTypes = {
-  // myProps: PropTypes.string.isRequired
 };
 
 export default Contact;

@@ -1,6 +1,6 @@
 /**
  * @author lusinabrian on 12/11/17.
- * @notes:
+ * @notes: Sidebar component
  */
 
 import React, {Component} from 'react';
@@ -11,6 +11,8 @@ import Footer from "../../components/common/Footer";
 import Search from "../../components/common/Search"
 import Menu from "../../components/Menu";
 import Contact from "../../components/Contact";
+import Link from "gatsby-link";
+
 
 /**
  * SidebarV container component
@@ -43,7 +45,7 @@ export class Sidebar extends Component {
 
             <ul className="actions">
               <li>
-                <a href="#" className="button">More</a>
+                <Link to="#" className="button">More</Link>
               </li>
             </ul>
           </section>
