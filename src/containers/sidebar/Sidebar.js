@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Footer from "../../components/common/Footer";
 import Search from "../../components/common/Search"
-import Menu from "../../components/Menu";
+import Menu from "../../components/menu/Menu";
 import Contact from "../../components/Contact";
 import Link from "gatsby-link";
 
