@@ -57,11 +57,11 @@ const Header = () => {
   );
 };
 
-/**
- * Prop validation
- */
-Header.propTypes = {
-  // myProps: PropTypes.string.isRequired
-};
+// /**
+//  * Prop validation
+//  */
+// Header.propTypes = {
+//   // myProps: PropTypes.string.isRequired
+// };
 
 export default Header;

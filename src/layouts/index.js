@@ -5,6 +5,7 @@ import Helmet from "react-helmet";
 //import AppError from "../components/errors/AppError";
 import Header from "../components/common/Header";
 import SideBar from "../containers/sidebar/Sidebar";
+import "../styles/scss/main.scss";
 
 const TemplateWrapper = ({ children, data }) => (
   <div>
