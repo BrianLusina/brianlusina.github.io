@@ -15,40 +15,40 @@ import BlogItem from "./BlogItem";
  * useful when running tests
  */
 export class BlogContainer extends Component {
-  constructor(props, context) {
-    super(props, context);
+	constructor(props, context) {
+		super(props, context);
 
-  }
+	}
 
-  renderBlogPosts(){
-    // limit these items to most 6 recent posts
-    return this.props.posts.map((item, key) => {
-      return <BlogItem 
-        key={key}
-        link={item.link}
-        imgSrc={item.imgSrc}
-        imgAlt={item.imgAlt}
-        title={item.title}
-        excerpt={item.excerpt}
-      />
-    })
-  }
+	renderBlogPosts(){
+		// limit these items to most 6 recent posts
+		return this.props.posts.map((item, key) => {
+			return <BlogItem 
+				key={key}
+				link={item.link}
+				imgSrc={item.imgSrc}
+				imgAlt={item.imgAlt}
+				title={item.title}
+				excerpt={item.excerpt}
+			/>
+		})
+	}
 
-  /**
+	/**
    * Render container component
    */
-  render() {
-    return (
-      <section>
-        <header className="major">
-          <h2>Recent</h2>
-        </header>
-        <div className="posts">
-          {this.renderBlogPosts()}
-        </div>
-      </section>
-    );
-  }
+	render() {
+		return (
+			<section>
+				<header className="major">
+					<h2>Recent</h2>
+				</header>
+				<div className="posts">
+					{this.renderBlogPosts()}
+				</div>
+			</section>
+		);
+	}
 }
 
 /**
@@ -56,7 +56,7 @@ export class BlogContainer extends Component {
  * @property {Number} limit The number of posts to limit to
  */
 BlogContainer.propTypes = {
-  limit : PropTypes.number
+	limit : PropTypes.number
 };
 
 /**
@@ -66,9 +66,9 @@ BlogContainer.propTypes = {
  * @returns {Object} new state of redux store
  */
 function mapStateToProps(state, ownProps) {
-  return {
-    posts: state.blog.blogPosts
-  };
+	return {
+		posts: state.blog.blogPosts
+	};
 }
 
 /**
@@ -78,9 +78,9 @@ function mapStateToProps(state, ownProps) {
  * @returns {Object} actions object
  */
 function mapDispatchToProps(dispatch) {
-  return {
-    //actions: bindActionCreators(actions, dispatch)
-  };
+	return {
+		//actions: bindActionCreators(actions, dispatch)
+	};
 }
 
 /**

@@ -4,9 +4,9 @@ import { renderToString } from "react-dom/server";
 import configureStore from "./src/store/configureStore";
 
 exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
-  const store = configureStore();
+	const store = configureStore();
 
-  replaceBodyHTMLString(
-    renderToString(<Provider store={store}>{bodyComponent}</Provider>)
-  );
+	replaceBodyHTMLString(
+		renderToString(<Provider store={store}>{bodyComponent}</Provider>)
+	);
 };

@@ -22,32 +22,32 @@ import Header from "./components/common/Header";
  * useful when running tests
  */
 export class App extends Component {
-  constructor(props, context) {
-    super(props, context);
-  }
+	constructor(props, context) {
+		super(props, context);
+	}
 
-  /**
+	/**
    * Render container component
    */
-  render() {
-    return (
-      <AppError>
-        <Router>
-          <div id="wrapper">
-            <div id="main">
-              <div className="inner">
-                <Header/>
-                <Route exact path={routes.INDEX_ROUTE} component={Home} />
-                <Route path={routes.BLOG_ROUTE} component={Blog} />
-                <Route path={routes.BLOG_PAGE_ROUTE} component={BlogPage}/>
-              </div>
-            </div>
-            <SideBar/>
-          </div>
-        </Router>
-      </AppError>
-    );
-  }
+	render() {
+		return (
+			<AppError>
+				<Router>
+					<div id="wrapper">
+						<div id="main">
+							<div className="inner">
+								<Header/>
+								<Route exact path={routes.INDEX_ROUTE} component={Home} />
+								<Route path={routes.BLOG_ROUTE} component={Blog} />
+								<Route path={routes.BLOG_PAGE_ROUTE} component={BlogPage}/>
+							</div>
+						</div>
+						<SideBar/>
+					</div>
+				</Router>
+			</AppError>
+		);
+	}
 }
 
 /**
@@ -62,9 +62,9 @@ App.propTypes = {};
  * @returns {Object} new state of redux store
  */
 function mapStateToProps(state, ownProps) {
-  return {
-    state: state
-  };
+	return {
+		state: state
+	};
 }
 
 /**
@@ -74,9 +74,9 @@ function mapStateToProps(state, ownProps) {
  * @returns {Object} actions object
  */
 function mapDispatchToProps(dispatch) {
-  return {
-    // actions: bindActionCreators(actions, dispatch)
-  };
+	return {
+		// actions: bindActionCreators(actions, dispatch)
+	};
 }
 
 /**

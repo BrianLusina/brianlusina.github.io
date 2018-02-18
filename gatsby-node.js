@@ -1,11 +1,11 @@
 exports.modifyWebpackConfig = ({ config, stage }) => {
-  // if (stage === "build-html") {
-  //   config.loader("null", {
-  //     test: /babel-loader/,
-  //     loader: "null-loader",
-  //   });
-  // }
+	// if (stage === "build-html") {
+	//   config.loader("null", {
+	//     test: /babel-loader/,
+	//     loader: "null-loader",
+	//   });
+	// }
 
-  return config;
+	return config;
 };
 
