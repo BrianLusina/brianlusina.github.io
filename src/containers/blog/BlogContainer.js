@@ -17,21 +17,26 @@ import BlogItem from "./BlogItem";
 export class BlogContainer extends Component {
 	constructor(props, context) {
 		super(props, context);
-
+		this.state = {};
 	}
 
 	renderBlogPosts(){
-		// limit these items to most 6 recent posts
-		return this.props.posts.map((item, key) => {
-			return <BlogItem 
-				key={key}
-				link={item.link}
-				imgSrc={item.imgSrc}
-				imgAlt={item.imgAlt}
-				title={item.title}
-				excerpt={item.excerpt}
-			/>
-		})
+        //
+		// // limit these items to most 6 recent posts
+		// return this.props.blogPosts.map(({ node }, index) => {
+		// 	return <BlogItem
+		// 		key={index}
+		// 		link={node.link}
+		// 		imgSrc={node.imgSrc}
+		// 		imgAlt={node.imgAlt}
+		// 		title={node.title}
+		// 		excerpt={node.excerpt}
+		// 	/>
+		// })
+	}
+
+	componentWillReceiveProps(nextProps){
+		// console.log(nextProps.data);
 	}
 
 	/**
@@ -56,7 +61,9 @@ export class BlogContainer extends Component {
  * @property {Number} limit The number of posts to limit to
  */
 BlogContainer.propTypes = {
-	limit : PropTypes.number
+	limit : PropTypes.number,
+	blogPosts: PropTypes.object,
+	data: PropTypes.object,
 };
 
 /**
@@ -84,6 +91,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 /**
+    at NodePath._call (/home/lusinabrian/Projects/Portfolio/brianlusina
  * Connect BlogContainer container to redux store and map
  * actions to the store and props of this container to
  * state of store

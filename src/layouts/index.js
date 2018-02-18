@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Link from "gatsby-link";
 import Helmet from "react-helmet";
 //import AppError from "../components/errors/AppError";
 import Header from "../components/Header";
@@ -42,6 +41,7 @@ TemplateWrapper.propTypes = {
 /**
  * GraphQl query
  */
+// eslint-disable-next-line no-undef
 export const query = graphql`
 	query RootLayoutQuery {
 		site {

@@ -3,6 +3,8 @@
  */
 import React from "react";
 import PropTypes from "prop-types";
+import Link from "gatsby-link";
+
 
 /**
  * Blog Item stateless component
@@ -17,18 +19,22 @@ const BlogItem = ({link, imgSrc, imgAlt, title, excerpt}) => {
 			<p>{excerpt}</p>
 			<ul className="actions">
 				<li>
-					<a href={link} className="button">More</a>
+					<Link to={link} className="button">More</Link>
 				</li>
 			</ul>
 		</article>
 	)
-}
+};
 
 /**
  * Prop Validation
  */
 BlogItem.propTypes = {
-
+	link: PropTypes.string,
+	imgSrc: PropTypes.string,
+	imgAlt: PropTypes.string,
+	title: PropTypes.string.isRequired,
+	excerpt: PropTypes.string,
 };
 
 export default BlogItem;
