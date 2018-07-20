@@ -1,4 +1,7 @@
-exports.modifyWebpackConfig = ({ config, stage }) => {
+exports.modifyWebpackConfig = ({
+	config,
+	stage
+}) => {
 	// if (stage === "build-html") {
 	//   config.loader("null", {
 	//     test: /babel-loader/,
@@ -8,4 +11,3 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
 
 	return config;
 };
-

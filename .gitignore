@@ -11,6 +11,9 @@ _asset_bundler_cache
 getting-started/
 samples/
 .idea/
+.vagrant/
+.vscode/
+*.log
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 node_modules
 .cache/
