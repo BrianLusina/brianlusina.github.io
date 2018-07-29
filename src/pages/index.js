@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import FeaturePost from '../components/feature/Feature'
-// import BlogContainer from "../containers/blog/BlogContainer";
 import { connect } from 'react-redux'
 import { object } from 'prop-types'
-import BlogItem from '../containers/blog/BlogItem'
+import PostItem from '../components/posts/PostItem'
 
 export class IndexPage extends Component {
 	constructor(props, context) {
@@ -32,12 +30,21 @@ export class IndexPage extends Component {
 				index
 			) => {
 				return (
-					<BlogItem
+					<PostItem
 						key={index}
 						link={path}
-						imgSrc={node.imgSrc}
-						imgAlt={node.base}
+						img={{
+							src: '',
+							alt: '',
+						}}
+						author={{
+							name: '',
+							avatar: '',
+							link: '',
+						}}
 						title={title}
+						subtitle={''}
+						date={''}
 						excerpt={excerpt}
 					/>
 				)
@@ -63,22 +70,7 @@ export class IndexPage extends Component {
 	}
 
 	render() {
-		return (
-			<div>
-				<FeaturePost
-					featureTitle={'Feature Post'}
-					shortDescription={'Short feature description'}
-					subtitle={'Short subtitle post'}
-					postLink={'page-2'}
-				/>
-				<section>
-					<header className="major">
-						<h2>Recent</h2>
-					</header>
-					<div className="posts">{this.renderBlogPosts()}</div>
-				</section>
-			</div>
-		)
+		return <section>{this.renderBlogPosts()}</section>
 	}
 }
 

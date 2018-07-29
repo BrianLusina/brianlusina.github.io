@@ -1,42 +1,52 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
-//import AppError from "../components/errors/AppError";
-import Header from "../components/Header";
-import SideBar from "../containers/sidebar/Sidebar";
-import "../styles/scss/main.scss";
+import React from 'react'
+import { func, shape, string } from 'prop-types'
+import Helmet from 'react-helmet'
+import Header from '../components/Header'
+import Menu from '../components/menu/Menu'
+import Sidebar from '../components/Sidebar'
+import '../styles/scss/main.scss'
 
-const TemplateWrapper = ({ children, data }) => (
+const TemplateWrapper = ({
+	children,
+	data: {
+		site: {
+			siteMetadata: { title },
+		},
+	},
+}) => (
 	<div>
 		<Helmet
-			title={data.site.siteMetadata.title}
+			title={title}
 			meta={[
-				{ name: "description", content: "LJournal is a simple blog" },
+				{ name: 'description', content: 'LJournal, a simple blog' },
 				{
-					name: "keywords",
-					content: "data, Lusina, Brian Lusina, code, bugs, algorithms"
-				}
+					name: 'keywords',
+					content: 'data, Lusina, Brian Lusina, code, bugs, algorithms',
+				},
 			]}
 		/>
 		<div id="wrapper">
-			<div id="main">
-				<div className="inner">
-					<Header />
-					{children()}
-				</div>
-			</div>
-			<SideBar />
+			<Header />
+			<Menu />
+			<div id="main">{children()}</div>
+			<Sidebar />
 		</div>
 	</div>
-);
+)
 
 /**
  * Prop Type validation
  */
 TemplateWrapper.propTypes = {
-	children: PropTypes.func,
-	data: PropTypes.object
-};
+	children: func,
+	data: shape({
+		site: {
+			siteMetadata: {
+				title: string,
+			},
+		},
+	}),
+}
 
 /**
  * GraphQl query
@@ -50,6 +60,6 @@ export const query = graphql`
 			}
 		}
 	}
-`;
+`
 
-export default TemplateWrapper;
+export default TemplateWrapper

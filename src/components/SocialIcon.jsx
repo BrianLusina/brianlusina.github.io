@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import { string } from 'prop-types'
 
 /**
  * SocialIcon Component to display a single social icon
@@ -8,12 +8,17 @@ import PropTypes from "prop-types";
 const SocialIcon = ({ socialIconClass, socialLink, socialName }) => {
 	return (
 		<li>
-			<a href={socialLink} className={socialIconClass} target="_blank">
+			<a
+				href={socialLink}
+				className={socialIconClass}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
 				<span className="label">{socialName}</span>
 			</a>
 		</li>
-	);
-};
+	)
+}
 
 /**
  * Social icon prop Types validation.
@@ -22,9 +27,9 @@ const SocialIcon = ({ socialIconClass, socialLink, socialName }) => {
  * @property socialName Social site name
  */
 SocialIcon.propTypes = {
-	socialIconClass: PropTypes.string,
-	socialLink: PropTypes.string,
-	socialName: PropTypes.string
-};
+	socialIconClass: string,
+	socialLink: string,
+	socialName: string,
+}
 
-export default SocialIcon;
+export default SocialIcon
