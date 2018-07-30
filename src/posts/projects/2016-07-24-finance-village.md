@@ -1,5 +1,5 @@
 ---
-layout: projects
+path: "/projects"
 title: "Finance Village Application"
 categories: projects
 excerpt: "Simple, elegant financial market tracking application with the investor in mind."
@@ -16,8 +16,4 @@ This is a simple yet sophisticated Android application with the Kenya investor i
 
 ## Project Description
 
-
-
 ## Tools Used
-
-

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { object } from 'prop-types'
+import { object, shape, arrayOf } from 'prop-types'
 import PostItem from '../components/posts/PostItem'
+import Link from 'gatsby-link'
 
 export class IndexPage extends Component {
 	constructor(props, context) {
@@ -13,9 +14,7 @@ export class IndexPage extends Component {
 
 	renderBlogPosts() {
 		const {
-			data: {
-				allMarkdownRemark: { edges: posts },
-			},
+			pathContext: { group: posts },
 		} = this.props
 
 		// limit these items to most 6 recent posts
@@ -23,8 +22,7 @@ export class IndexPage extends Component {
 			(
 				{
 					node: {
-						excerpt,
-						frontmatter: { title, path },
+						frontmatter: { title, path, excerpt },
 					},
 				},
 				index
@@ -70,7 +68,39 @@ export class IndexPage extends Component {
 	}
 
 	render() {
-		return <section>{this.renderBlogPosts()}</section>
+		const {
+			pathContext: { index, pageCount },
+		} = this.props
+		const previousUrl = index - 1 == 1 ? '' : (index - 1).toString()
+		const nextUrl = (index + 1).toString()
+
+		return (
+			<section>
+				{this.renderBlogPosts()}
+				<ul className="actions pagination">
+					<li>
+						<Link
+							to={previousUrl}
+							className={`${
+								previousUrl === '0' ? 'disabled' : ''
+							} button large previous`}
+						>
+							Previous Page
+						</Link>
+					</li>
+					<li>
+						<Link
+							to={nextUrl}
+							className={`${
+								nextUrl === (pageCount + 1).toString() ? 'disabled' : ''
+							} button large next`}
+						>
+							Next Page
+						</Link>
+					</li>
+				</ul>
+			</section>
+		)
 	}
 }
 
@@ -97,7 +127,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 IndexPage.propTypes = {
-	data: object.isRequired,
+	data: object,
+	pathContext: shape({
+		group: arrayOf(object),
+	}),
 }
 
 export default connect(

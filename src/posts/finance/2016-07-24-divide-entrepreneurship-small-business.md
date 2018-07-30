@@ -1,4 +1,5 @@
 ---
+path: "/finance"
 layout: article
 title: "Divide between Entrepreneurship and Small Businesses"
 categories: finance

@@ -1,5 +1,5 @@
 ---
-layout: article
+path: "/life"
 categories: life
 title: The sins of success
 excerpt: What are the sins of success?
@@ -14,11 +14,11 @@ We all crave success and that is what we wake up to each morning. No one wants t
 
 Well, it is a little known fact that if you think and act like the 99%, you will never become the 1%. The 1% control a major share of economies and companies and we all want a share of that. They are human like we are, but they seem to be succeeding a whole lot more, why?
 
-*You live in a box*
-*You drive in a box*
-*One day you will be buried in a box*
-*Don't live your life in a box*
-*CRUSH THE BOX!*
+_You live in a box_
+_You drive in a box_
+_One day you will be buried in a box_
+_Don't live your life in a box_
+_CRUSH THE BOX!_
 
 These people stepped out of the box a long time ago and that is why they just keep pushing the boundaries.
 They discovered the sins to success. Some of which I shall now disclose.
@@ -29,7 +29,7 @@ You are never ready but that is not a good reason to stop. If you wait until you
 
 You need to say NO to yourself even if it is a lie. Do things that scare you. If it doesn't scare you, it is too easy.
 
-## Cheat on everyone and yourself. 
+## Cheat on everyone and yourself.
 
 Great vision requires a lot of focus. To turn your dream into reality, you will have to cheat on everyone and yourself. You will have to say NO to peopl who don't appreciate your time. You will have to say NO to people who don't believe in your dream. Every idea looks bad before you succeed. You will have to say NO to yourself to stay focussed.
 
@@ -39,18 +39,16 @@ At any price, invest in yourself and gather more knowledge. Don't let anything s
 
 ## Kill your own ideas
 
-I think the hardest things to say is *No, I need to stop*. This signifies defeat in most cases and our human nature does not allow us to accept defeat. However, not everything will work out.
+I think the hardest things to say is _No, I need to stop_. This signifies defeat in most cases and our human nature does not allow us to accept defeat. However, not everything will work out.
 
 You will need to have the right peopl at the right time and right place. If one of the elements is missing, it doesn't matter how good your idea is, it won't work out.
 
 A lot of times, the opportunity cost of chasing the wrong dream is the opportunity to turn another dream into reality. You will need to know how to say NO and kil ideas/projects when you need to do it.
 
-
 Lie, cheat, steal and kill are the 4 sins of success. You need to know how to say NO in all cases.
-*Less is more*.
+_Less is more_.
 Say NO a lot.
 Say NO often.
 Focus on less things and do the best you can.
 
 Cheers!
-

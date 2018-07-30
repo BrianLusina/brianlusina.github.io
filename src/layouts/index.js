@@ -34,6 +34,16 @@ const TemplateWrapper = ({
 	</div>
 )
 
+TemplateWrapper.defaultProps = {
+	data: {
+		site: {
+			siteMetadata: {
+				title: 'LJournal',
+			},
+		},
+	},
+}
+
 /**
  * Prop Type validation
  */

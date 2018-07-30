@@ -1,5 +1,5 @@
 ---
-layout: article
+path: "/life"
 title: "Live Life!"
 categories: life
 excerpt: "live life to the fullest"
@@ -19,4 +19,4 @@ Forget what you have done for your friends and remember what they have done for 
 
 When you are faced with a decision, make that decision as wisely as possible - then forget about it. The moment of absoulte certainty never arrives. Above all, remember that God helps those who help themselts. Act as if everything depended on you and pray as if everything dependend on God.
 
-*Author unknown*
+_Author unknown_

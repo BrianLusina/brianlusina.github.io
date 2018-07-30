@@ -1,5 +1,5 @@
 ---
-layout: article
+path: "/life"
 categories: life
 title: Of education and academics
 excerpt: Academia and education

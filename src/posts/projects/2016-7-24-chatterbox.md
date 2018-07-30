@@ -1,4 +1,5 @@
 ---
+path: "/projects"
 layout: projects
 title: "ChatterBox WebApp"
 categories: projects
@@ -16,7 +17,7 @@ This is sample web chat application.
 
 ## Tools used
 
-This sample website is build on Hyper Text Markup Language (HTML5 to be specfic) styled with Cascading Style Sheets. It is responsive thanks to the *Foundation Framework*. Feature rich and interactive using jQuery JavaScript framework. Icons are from the FontAwesome icon library. Database is maintained by Firebase.
+This sample website is build on Hyper Text Markup Language (HTML5 to be specfic) styled with Cascading Style Sheets. It is responsive thanks to the _Foundation Framework_. Feature rich and interactive using jQuery JavaScript framework. Icons are from the FontAwesome icon library. Database is maintained by Firebase.
 
 ## Features
 

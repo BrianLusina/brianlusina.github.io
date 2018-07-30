@@ -1,5 +1,5 @@
 ---
-layout: projects
+path: "/projects"
 title: "DropBox Re-imagined"
 categories: projects
 excerpt: "Simple website displaying an artist's re-imagination of the Dropbox User Interface"
