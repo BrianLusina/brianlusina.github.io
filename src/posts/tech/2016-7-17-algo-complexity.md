@@ -1,5 +1,5 @@
 ---
-layout:  article
+path:  "/tech"
 title:  Complexity of Algorithms
 categories:  tech
 tags:  [complexity of algorithms, algorithms]
@@ -15,10 +15,10 @@ The whole point of the big-O/Ω/Θ stuff was to be able to say something useful 
 So, let's return to some algorithms and see if we learned anything.
 Consider this simple procedure that sums a list (of numbers, we assume):
 procedure sum(list)
-    total = 0
-    for i from 0 to length(list)-1
-        total += list[i]
-    return total
+total = 0
+for i from 0 to length(list)-1
+total += list[i]
+return total
 First: is the algorithm correct? Does it solve the problem specified?
 Second: is it fast?
 To evaluate the running time of an algorithm, we will simply ask how many “steps” it takes.
@@ -47,12 +47,12 @@ The big-Θ notation hides all of the details we can't figure out anyway.
 Another example: print out the sum of each two numbers in a list.
 That is, given the list [1,2,3,4,5], we want to find 1+2, 1+3, 1+4, 1+5, 2+3, 2+4,….
 Pseudocode:
-procedure sum_pairs(list)
-    for i from 0 to length(list)-2
-        for j from i+1 to length(list)-1
-            print list[i] + list[j]
+procedure sum*pairs(list)
+for i from 0 to length(list)-2
+for j from i+1 to length(list)-1
+print list[i] + list[j]
 For a list with \(n\) elements, the for j loop iterates \(n-1\) times when it is called with i==0, then \(n-2\) times, then \(n-3\) times,…
-So, the total number of times the print step runs is \[\begin{align*} (n-1)+(n-2)+\cdots+2+1 &= \sum_{k=1}^{n-1} k\\ &= \frac{n(n-1)}{2}\\ &= \frac{n^2}{2}-\frac{n}{2}\,. \end{align*}\]
+So, the total number of times the print step runs is \[\begin{align\*} (n-1)+(n-2)+\cdots+2+1 &= \sum*{k=1}^{n-1} k\\ &= \frac{n(n-1)}{2}\\ &= \frac{n^2}{2}-\frac{n}{2}\,. \end{align\*}\]
 If we had counted the initialization of the for loops, counter incrementing, etc, we might have come up with something more like \(\frac{3}{2}n^2 + \frac{1}{2}n + 1\).
 Either way, the answer we give is that it takes \(\Theta(n^2)\) steps.
 Or, the algorithm “has time complexity \(\Theta(n^2)\)” or “has \(\Theta(n^2)\) running time” or “has quadratic running time”.
@@ -63,10 +63,10 @@ Average and Worst Case
 
 Consider a linear search: we want to find an element in a list and return its (first) position, or -1 if it's not there.
 procedure linear_search(list, value)
-    for i from 0 to length(list)-1
-        if list[i] == value
-            return i
-    return -1
+for i from 0 to length(list)-1
+if list[i] == value
+return i
+return -1
 How many steps there?
 The answer is: it depends.
 If the thing we're looking for is in the first position, it takes \(\Theta(1)\) steps.
@@ -79,11 +79,11 @@ That is either \(n\) or \(2n+1\) steps, so \(\Theta(n)\) complexity.
 The other useful option is the average case: what is the average steps required over all inputs of size \(n\)?
 Much harder to calculate, since you need to consider every possible input to the algorithm.
 Even if we assume the element is found, the possible number of comparisons are:
-Found in position	Comparisons
-1	2
-2	4
-⋮	⋮
-\(n\)	\(2n\)
+Found in position Comparisons
+1 2
+2 4
+⋮ ⋮
+\(n\) \(2n\)
 On average, the number of comparisons is: \[\frac{2+4+\cdots+2n}{n} = n+1\,.\]
 Again, we have \(\Theta(n)\) complexity.
 … but it's a good thing we checked. Some algorithms are different.
@@ -94,11 +94,11 @@ But we are throwing away a lot of information when we look only at big-O/Ω/Θ.
 The lower-order terms must mean something.
 The leading constants definitely do.
 Assuming one million operations per second, this is the approximate running time of an algorithm given running time, with an input of size \(n\):
-\(n\)	\(\log_2 n\)	\(n\)	\(n\log_2 n\)	\(n^2\)	\(n^{3}\)	\(2^n\)
-\(10\)	3.3 μs	10 μs	33 μs	100 μs	1 ms	1 ms
-\(10^2\)	6.6 μs	100 μs	664 μs	10 ms	1 s	\(4\times 10^{16}\) years
-\(10^4\)	13 μs	10 ms	133 ms	1.7 minutes	11.6 days	\(10^{2997}\) years
-\(10^6\)	20 μs	1 s	20 s	11.6 days	32000 years	\(10^{300000}\) years
+\(n\) \(\log_2 n\) \(n\) \(n\log_2 n\) \(n^2\) \(n^{3}\) \(2^n\)
+\(10\) 3.3 μs 10 μs 33 μs 100 μs 1 ms 1 ms
+\(10^2\) 6.6 μs 100 μs 664 μs 10 ms 1 s \(4\times 10^{16}\) years
+\(10^4\) 13 μs 10 ms 133 ms 1.7 minutes 11.6 days \(10^{2997}\) years
+\(10^6\) 20 μs 1 s 20 s 11.6 days 32000 years \(10^{300000}\) years
 Maybe that gives a little idea why we'll only worry about complexity
 … at least at first.
 A summary:

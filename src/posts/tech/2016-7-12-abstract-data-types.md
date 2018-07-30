@@ -1,5 +1,5 @@
 ---
-layout: article
+path:  "/tech"
 title: Abstract Data Types
 excerpt: All about abstract data types
 tags: [data, arrays, lists, stacks, queues]
@@ -10,7 +10,7 @@ image:
  thumb: abstract-data-type.jpg
 ---
 
-There are several Abstract data types that are used in Java, 
+There are several Abstract data types that are used in Java,
 
 ## Stacks
 
@@ -20,18 +20,17 @@ The usual push and pop operations are provided, as well as a method to peek at t
 
 When a stack is first created, it contains no items.
 
-+ **push** adds an item to the top of the stack. This will always be the last one in, but the first one out.
-+ **pop** removes an element from the top of the stack and returns it.
-+ **peek** look at the object at the top of the stack without removing it
-+ **empty**  tests if the stack is empty
-+ **search** if the object being sought is in the stack, it returns the 1-based position of the object, which is the distance from the top.
+- **push** adds an item to the top of the stack. This will always be the last one in, but the first one out.
+- **pop** removes an element from the top of the stack and returns it.
+- **peek** look at the object at the top of the stack without removing it
+- **empty** tests if the stack is empty
+- **search** if the object being sought is in the stack, it returns the 1-based position of the object, which is the distance from the top.
 
 A practical example, trays piled on top of each other, books laid on top of each other, plates laid on top of each other.
 
 There is no scenerio in which the stack will remain empty. There will always be data flowing in and data flowing out.
 
 A code snippet:
-
 
 ```java
 public class StacksDemo {
@@ -65,15 +64,16 @@ public class StacksDemo {
 /*Class end*/
 }
 ```
+
 > code snippet can be found [here](https://github.com/BrianLusina/Java-Playground/blob/master/Toy%20Problems/src/DataStructures/DataTypes/StacksDemo.java)
 
 ## Queue
 
 Resembles a normal queue on a bus station, the first in line will be the first one to board the bus, the last will obviously be the last. It is based on a first come first serve
 Has 2 major operations:
-+ Dequeue
-+ 
 
+- Dequeue
+-
 
 ## LinkedLists
 

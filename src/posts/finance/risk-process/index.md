@@ -1,13 +1,14 @@
 ---
-path: "/finance"
-layout: article
+path: "/finance/risk-process"
 title: "The Risk Process"
-categories: finance
+subtitle: "A small breakdown of the risk process"
 excerpt: "A small breakdown of the risk process"
 tags:  [Actuarial, Insurance, Money, business]
-ads: true
-share: true
-comments: true
+date: '2017-01-18T12:00:00+00:00'
+author:
+  name: Brian Lusina
+  link: "/brian_lusina"
+  avatar: brian_lusina.jpg
 image:
   feature: ruintheory.JPG
   teaser: ruintheory.JPG

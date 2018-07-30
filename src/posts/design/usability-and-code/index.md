@@ -1,9 +1,13 @@
 ---
-path: "/design"
+path: "/design/usability-and-code"
 title:  Usability, Design and Code
-categories:  design
+subtitle: Usability 101, a brief introduction into design  
 excerpt: Usability 101, a brief introduction into design
-author: brian_lusina
+author: 
+  name: Brian Lusina
+  link: "/brian_lusina"
+  avatar: "brian_lusina.jpg"
+date: '2016-08-01T12:00:00+00:00'
 tags:  [Usability, User Experience, UX, Design]
 image:
  feature: usability-design.png

@@ -1,5 +1,5 @@
 ---
-layout: article
+path:  "/tech"
 categories:  tech
 title: Vigenere Cipher
 excerpt: The Vigenere Cipher Broken down in Python
@@ -17,7 +17,6 @@ ads: true
 The Vigenere cipher is likely the the most secure ciphers out there. It builds on the principle of the Caesar cipher yet provides a decent way to avoid the easy to solve shift problems. The basic gist of this cipher is we have both a message and a key. The key can be any length, but you must repeat the key for the length of our message to get this to work. This can be seen here:
 
 ```plain
-
 alpha = ABCDEFGHIJKLMNOPQRSTUVWXYZ
 message  = IAMTHEWALRUS
 key  = HELLOHELLOHE
@@ -25,7 +24,7 @@ key  = HELLOHELLOHE
 
 Our key is actually "HELLO", but we expanded it to the length of our message giving us the repeated nature we see. Once we have these defined, we go character by character performing a pseudo-Caesar cipher.
 
-``` plain
+```plain
 m1 = I = 9
 k1 = H = 8
 9 + 8 = 17 % 26 = 17 = Q
@@ -49,7 +48,7 @@ On relatively short messages, this is harder to crack (as with any short ciphert
 
 Now let's code this up in Python and see how how we can automate this:
 
-``` python
+```python
 from itertools import cycle
 
 ALPHA = 'abcdefghijklmnopqrstuvwxyz'
@@ -92,21 +91,22 @@ def show_result(plaintext, key):
 
 ## Step One
 
-Import the `cycle()` function from the `itertools` library. 
+Import the `cycle()` function from the `itertools` library.
 
 Define our alphabet in order to get character indexes correctly, this can be done with the `string` module in Python, which enables us to get all the letters in the alphabet we need. This avoids the issue of forgetting a letter in case you hardcode the alphabet.
 
 The function `encrypt(key, plaintext)` takes in a key and a plain text, I build a tuple with the `zip()` function which is a terminating function. Which means it will stop as soon as the shorter string is exhausted.
 
 An example
-``` python
+
+```python
 # in
 list(zip(string.ascii_lowercase, string.ascii_uppercase))
 
 # out
 [('a', 'A'), ('b', 'B'), ('c', 'C'), ('d', 'D'), ('e', 'E'), ('f', 'F'), ('g', 'G'), ('h', 'H'), ('i', 'I'), ('j', 'J'), ('k', 'K'), ('l', 'L'), ('m', 'M'), ('n', 'N'), ('o', 'O'), ('p', 'P'), ('q', 'Q'), ('r', 'R'), ('s', 'S'), ('t', 'T'), ('u', 'U'), ('v', 'V'), ('w', 'W'), ('x', 'X'), ('y', 'Y'), ('z', 'Z')]
-
 ```
+
 `cycle` is used to repeat the letters of the key for the entirety of the plaintext, note that this can repeat indefinately.
 
 Perform a loop in each of the pairs reducing them to a single value with `reduce` function from functools library. The `reduce` function takes in a function and an iterable object.

@@ -1,5 +1,5 @@
 ---
-layout: article
+path:  "/tech"
 categories:  tech
 title: Concept of Memoize
 excerpt: A gentle introduction to memoize
@@ -14,7 +14,7 @@ Memoization ensures that a function doesn't run for the same inputs more than on
 
 For example, a simple recursive function for computing the n<sup>th</sup> fibonacci number:
 
-``` python
+```python
 def fib_recursive(n):
 	if n < 0:
 	    raise IndexError('Index was negative. No such thing as a negative index in a series.')
@@ -29,7 +29,7 @@ def fib_recursive(n):
 
 This will run the same input a couple of times
 
-``` bash
+```bash
 >>> fib_recursive(8)
 computing fib_recursive(8)
 computing fib_recursive(7)
@@ -73,10 +73,10 @@ We can imagine the recursive calls of this function as a tree, where the two chi
 
 To avoid the duplicate work caused by the branching, we can wrap the function in a class that stores an instance variable, memo, that maps inputs to outputs. Then we simply:
 
-1. Check memo to see if we can avoid computing the answer for any given input, and
-2. Save the results of any calculations to memo.
+1.  Check memo to see if we can avoid computing the answer for any given input, and
+2.  Save the results of any calculations to memo.
 
-``` python
+```python
 class Fibber:
 	def __init__(self):
         self.memo = {}
@@ -106,7 +106,7 @@ class Fibber:
 
 We save a bunch of calls by checking the memo:
 
-``` python
+```python
 >>> Fibber().fib(8)
 computing fib(8)
 computing fib(7)
@@ -128,5 +128,3 @@ Now in our recurrence tree, no node appears more than twice:
 ![](https://www.interviewcake.com/images/svgs/fibonacci__binary_tree_memoized.svg?bust=145)
 
 Memoization is a common strategy for dynamic programming problems, which are problems where the solution is composed of solutions to the same problem with smaller inputs (as with the fibonacci problem, above). The other common strategy for dynamic programming problems is going bottom-up, which is usually cleaner and often more efficient.
-
-

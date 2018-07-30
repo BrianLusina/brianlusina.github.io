@@ -1,5 +1,5 @@
 ---
-layout: article
+path:  "/tech"
 categories:  tech
 title: Continuous Integration and Deployment with Android, the right way.
 excerpt: Continuous Deployment in Android
@@ -22,7 +22,7 @@ You will find a lot of these tools used for web projects, OS images servers, but
 
 ### A couple of things
 
-There are a couple of things that I need to mention before I proceed. 
+There are a couple of things that I need to mention before I proceed.
 
 First, the examples I shall use will be referencing [CircleCI](https://circleci.com/), but does not mean that they can only be used with CircleCI, any CI provider will do the trick.
 
@@ -32,17 +32,15 @@ Third, I also assume that you have a PlayStore developer account where you will 
 
 Whether you have these setup or not, the following will prove to be helpful for you down the line.
 
-
 ### Getting started and setting up.
 
 Assuming you already have a working Android project with which you need to automate the boring stuff of testing and deployment, there are a couple of things you will need to have to make the process even smoother.
 
-
-1. **Gradle properties file**
+1.  **Gradle properties file**
 
 Think of this as a file you, your team and your CI should only know about. This is normally labelled as `gradle.properties` file and contains API keys, Secret Keys and Base URls that your application uses when communicating with a service provider.
 
-This file should not be checked into a VCS(Github, Gitlab, Bitbucket, etc) as you do not want to expose these secret keys to the public. But if they are not checked into a VCS, then how will your CI know how to build your application properly? 
+This file should not be checked into a VCS(Github, Gitlab, Bitbucket, etc) as you do not want to expose these secret keys to the public. But if they are not checked into a VCS, then how will your CI know how to build your application properly?
 
 ```properties
 DEV_API_BASE_URL=<YOUR_DEV_BASE_URL>
@@ -54,6 +52,7 @@ VERSION_NAME=1.0.0
 VERSION_CODE=1
 RELEASE_TRACK=beta
 ```
+
 > A typical generic `gradle.properties` file with secret keys and what not.
 
 These configurations assume you have such values in your application. The only values that will really be essential to your build environment are `VERSION_CODE`, `VERSION_NAME` and `RELEASE_TRACK`.
@@ -79,6 +78,7 @@ def getReleaseTrack = { ->
     }
 }
 ```
+
 > This will get the release track from the properties file and if it can not get that from the file, then the default is alpha release track. This ensure that we do not touch the production/rollout tracks and leave that up to the CI to handle when the build and tests succeeds.
 
 And to even make it more dynamic we can create a shell script that the CI handles before building the application
@@ -109,15 +109,15 @@ function updateVersionCodeAndTrack(){
         echo "RELEASE_TRACK=\"production\"" >> ${GRADLE_PROPERTIES}
 	fi
 }
-
 ```
+
 > As you can see, the release track is updated according to the branch the CI is running on. ${GRADLE_PROPERTIES} is simply the location of the `gradle.properties` file.
 
-2. **KeyStore**
+2.  **KeyStore**
 
-Android applications have to be signed in order for PlayStore to accept your release APK. This is a simple file (with a .jks extension) that authenticates your application with PlayStore. It is a MUST have when creating releases, otherwise PlayStore will not let your application into the *Pearly Gates* that is Google PlayStore.
+Android applications have to be signed in order for PlayStore to accept your release APK. This is a simple file (with a .jks extension) that authenticates your application with PlayStore. It is a MUST have when creating releases, otherwise PlayStore will not let your application into the _Pearly Gates_ that is Google PlayStore.
 
-To create a KeyStore file, simply follow instructions outlined [here](https://developer.android.com/studio/publish/app-signing.html#generate-key) and when you are done, come back here with your new shiny keystore file and we can proceed. 
+To create a KeyStore file, simply follow instructions outlined [here](https://developer.android.com/studio/publish/app-signing.html#generate-key) and when you are done, come back here with your new shiny keystore file and we can proceed.
 
 Once you have your File in place, we can now automate the signing of the application easily.
 
@@ -131,16 +131,16 @@ keyPassword=<KEY_PASSWORD>
 storeFile=<STORE_FILE>
 storePassword=<STORE_PASSWORD>
 ```
+
 > keystore.properties file contents, note the <> brackets are where you place your values you used when creating your keystore file.
 
-This file can be placed anywhere in your project tree, but, I advice placing this file at the root of your project tree for easier retrieval. 
+This file can be placed anywhere in your project tree, but, I advice placing this file at the root of your project tree for easier retrieval.
 
-*NB: This file is not pushed to Github* as it contains your sensitive information for creating your keystore file.
+_NB: This file is not pushed to Github_ as it contains your sensitive information for creating your keystore file.
 
 Once that is in place we can now update your project level `build.gradle` file. This will be found at the root of your project tree. The update we make will be used to extract information from your `keystore.properties` file and be used to sign your application
 
 ```properties
-
 /**
  * Get version code from git history
  * This will dynamically increase the version code
@@ -213,16 +213,16 @@ ext {
     keystorePropertiesFile = rootProject.file("keystores/keystore.properties")
     keystoreProperties = new Properties()
     keystoreProperties.load(new FileInputStream(ext.keystorePropertiesFile))
-    
+
     // ...........
 }
-
 ```
+
 > A section of project level `build.gradle` file
 
 A couple of new things you have probably noticed.
 
-+ **getVersionCode** function
+- **getVersionCode** function
 
 This, as the name suggests, builds a version code number for your application. This makes sure that you do not have to manually update it every single time you want to upload a new release of your application to PlayStore.
 
@@ -254,10 +254,11 @@ def getVersionCode = { ->
         return Integer.parseInt(properties.getProperty("VERSION_CODE"))
     }
 }
-``` 
+```
+
 > This randomizes the version code to ensure that it is unique on every build. This removes the pain point of having to update the version code every single time.
 
-+ **getVersionName** function
+- **getVersionName** function
 
 This is used to get the version name, nothing fancy about this, but what is unique about it is how it gets the version name.
 
@@ -281,10 +282,10 @@ def getVersionName = { ->
     }
 }
 ```
+
 > This will get the version name from the tags you have pushed to Github. Check [here](https://git-scm.com/book/en/v2/Git-Basics-Tagging) for how to create tags on Github. This will then build a unique version name for you to use when identifying to users the version they are downloading or updating.
 
-
-+ **getServiceAccountKey** Function
+- **getServiceAccountKey** Function
 
 ```properties
 /**
@@ -300,10 +301,9 @@ def getServiceAccountKey = { ->
         return ""
     }
 }
-
 ```
-> This gets the service account email that you will have to create on Google Play Services account to enable automated deployment of your application. Check [here](https://github.com/codepath/android_guides/wiki/Automating-Publishing-to-the-Play-Store) for more information on that
 
+> This gets the service account email that you will have to create on Google Play Services account to enable automated deployment of your application. Check [here](https://github.com/codepath/android_guides/wiki/Automating-Publishing-to-the-Play-Store) for more information on that
 
 Once that is setup, we add the following lines in your `app` module `build.gradle` file:
 
@@ -336,19 +336,19 @@ android {
             minifyEnabled false
             applicationIdSuffix ".debug"
             testCoverageEnabled true
-        }       
+        }
     }
 ```
-> Notice the `rootProject.ext.<VALUE>.` 
-This is referencing the values we set in the ext block in our gradle.properties file at the root
- level of the project. 
- This will be used to setup the signing of the apk when creating a release build.
 
-3. **Github Triplet Plugin**
+> Notice the `rootProject.ext.<VALUE>.`
+> This is referencing the values we set in the ext block in our gradle.properties file at the root
+> level of the project.
+> This will be used to setup the signing of the apk when creating a release build.
+
+3.  **Github Triplet Plugin**
 
 This plugin automates the deplyoment to PlayStore when CI tests pass. This includes release notes, screenshots, whats new section, version name, icons etc.
 One caveat is that you will have to manually upload the APK to PlayStore the first time, but after that this plugin will handle the automation so that all you have to do is focus on the code and features you create. More on this plugin can be found [here](https://github.com/Triple-T/gradle-play-publisher). This includes setup and how to use it. I advice you read through it and understand before proceeding.
-
 
 ### CI configuration
 
@@ -356,7 +356,7 @@ Once we have all this configured, we can then configure Circle CI config file to
 
 There are a couple of scripts that may need to be included to make it much easier for deployment of the application. Remember how I mentioned that it is not good practice for the `jks` file to be pushed to Github or any VCS you use? Yes, these scripts ensure that the automation is seamless as if it were running on your development machine. I will start off with a couple of things you will need to setup.
 
-+ **Circle CI environment variables**
+- **Circle CI environment variables**
 
 Start off by setting Circle CI environment variables, These will be used to setup values that are specific for the project and also that will be used by the scripts we will write up. Some of the environment variables you may need to setup:
 
@@ -373,6 +373,7 @@ PUBLISH_JSON_KEY=<JSON_FILE>
 KEY_STORE_URI=<KEY_STORE_URI>
 STORE_FILE=<STORE_FILE>
 ```
+
 > You may notice that the values are somewhat the same as the ones in your `gradle.properties` file, with 3 new additions.
 
 `PUBLISH_JSON_KEY`, this is a unique key that you will use to verify you are the authorized account when publishing to PlayStore. Refer to [this](https://github.com/codepath/android_guides/wiki/Automating-Publishing-to-the-Play-Store) for more information on this.
@@ -382,7 +383,6 @@ Once you have your JSON file, copy and paste that information as an env variable
 `KEY_STORE_URI` is, as the suffix suggests, uri location of your keystore file. Considering that you can not (and should not) push this to Github, you should be able to still access this somehow right?
 
 There is an easy way to do this using DropBox, yes, DropBox. A very simple hack is to upload your keystore file there and create a shareable link for the keystore file. With this, then you should be able to use that link to download the file and create a key store on your CI.
-
 
 ```bash
 export STORE_FILE_LOCATION=$HOME"/app-dir/app.jks"
@@ -404,9 +404,10 @@ function downloadKeyStoreFile {
     fi
 }
 ```
+
 > This is a sample of the function you can use to download the keystore file in your project root and set up for successful builds.
 
-+ **Circle CI config.yml file**
+- **Circle CI config.yml file**
 
 Configuring the `config.yml` file should be painless and easy, considering all the workload will be done by the scripts (will include in a few minutes).
 
@@ -511,6 +512,7 @@ copyEnvVarsToProperties
 downloadKeyStoreFile
 updateVersionCodeAndTrack
 ```
+
 > A sample script for CircleCI to use in build and deployment circleci_env_setup.sh
 
 Now onto the part where magic happens! The `config.yml` file!
@@ -529,7 +531,7 @@ jobs:
                         _JAVA_OPTIONS: "-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
                         JVM_OPTS: -Xmx3200m
                         TERM: dumb
-                
+
                 steps:
                         # checkout onto repo
                         - checkout
@@ -549,13 +551,13 @@ jobs:
                         - run:
                                name: Download dependencies
                                command: ./gradlew androidDependencies
-                        
+
                         - save_cache:
                                 key: App-{{ checksum "build.gradle" }}-{{ .Branch }}
                                 paths: ~/.gradle
                                 keys:
                                       - app-{{ checksum "app/build.gradle" }}
- 
+
                         - persist_to_workspace:
                                 root: .
                                 paths: .
@@ -679,9 +681,9 @@ workflows:
                                         - test
                                 filters:
                                         branches:
-                                                only: 
+                                                only:
                                                         - master
-                                                ignore: 
+                                                ignore:
                                                         - /^dev-.*/
                                                         - develop
                                                         - staging
@@ -690,20 +692,20 @@ workflows:
                                                         - /^bugfix-.*/
                                                         - /^bugfix/.*/
                                                         - /^hotfix/.*/
-
 ```
+
 > `config.yml` file for building, tesing and deploying to PlayStore.
 
 That pretty much wraps it up for CI and CD with CircleCI for Android. Give it a try and automate the process, the only thing that you will need to do is:
 
-+ write tests
-+ write code to pass tests
-+ git add .
-+ git commit
-+ git push
-+ Deploy
-+ Pray (just kidding)
-+ No, really. Pray!
-+ Win
+- write tests
+- write code to pass tests
+- git add .
+- git commit
+- git push
+- Deploy
+- Pray (just kidding)
+- No, really. Pray!
+- Win
 
 Hope this is helpful, until next time Droids!

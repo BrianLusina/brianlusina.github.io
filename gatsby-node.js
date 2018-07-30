@@ -20,8 +20,22 @@ exports.createPages = ({
 							id,
 							frontmatter {
 								title,
+								subtitle,
 								excerpt,
 								path,
+								date(formatString: "MMMM DD, YYYY")
+								author {
+									name,
+									link,
+									avatar						
+								},
+								image {
+									feature,
+									thumbnail,
+									teaser,
+									credit,
+									creditlink						
+								},
 								tags
 							}
 						}

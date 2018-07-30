@@ -1,5 +1,5 @@
 ---
-layout:  article
+path:  "/tech"
 title:  Flask Web Framework
 categories:  tech
 excerpt:  Some basic information about Flask web framework
@@ -30,7 +30,6 @@ It is a WSGI toolkit, which implements requests, response objects, and other uti
 
 Jinja2 is a popular templating engine for Python. A web templating system combines a template with a certain data source to render dynamic web pages.
 
-
 Flask is often referred to as a micro framework. It aims to keep the core of an application simple yet extensible. Flask does not have built-in abstraction layer for database handling, nor does it have form a validation support. Instead, Flask supports the extensions to add such functionality to the application.
 
 {% include toc.html %}
@@ -46,6 +45,7 @@ pip install virtualenv
 ```
 
 The output should be like this −
+
 ```bash
 Collecting virtualenv
   Downloading virtualenv-15.0.1-py2.py3-none-any.whl (1.8MB)
@@ -74,6 +74,7 @@ To activate corresponding environment, on Linux/OS X, use the following −
 ```bash
 venv/bin/activate
 ```
+
 We are now ready to install Flask in this environment.
 
 ```bash
@@ -82,8 +83,7 @@ pip install Flask
 
 The output should be like this.
 
-``` bash
-
+```bash
 Collecting Flask
   Downloading Flask-0.10.1.tar.gz (544kB)
     100% |################################| 544kB 410kB/s
@@ -103,14 +103,14 @@ Installing collected packages: Werkzeug, MarkupSafe, Jinja2, itsdangerous, Flask
   Running setup.py install for itsdangerous
   Running setup.py install for Flask
 Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.4 itsdangerous-0.24
-
 ```
 
 The above command can be run directly, without virtual environment for system-wide installation.
 
 ## Application
 
-In order to test Flaks installation install, you could type the following code in your Python editor as name.py. Here *name* could be any word. I called mine flasky.
+In order to test Flaks installation install, you could type the following code in your Python editor as name.py. Here _name_ could be any word. I called mine flasky.
+
 ```python
 from flask import Flask
 
@@ -123,43 +123,44 @@ return 'Welcome to Flasky!'
 
 if __name__ == '__main__':
 app.run()
-
 ```
 
 A couple of things to note from the above snippet:
 
-+ Importing `flask` module is necessary and important. The object Flask class is our WSGI application.
-+ Flask constructor takes the name of current module (__name__) as argument.
-+ The `route()` function of the Flask class is a *decorator*, which tells the application which URL should call the associated function.
-+ Finally the `run()` method of Flask class runs the application on the local development server.
+- Importing `flask` module is necessary and important. The object Flask class is our WSGI application.
+- Flask constructor takes the name of current module (**name**) as argument.
+- The `route()` function of the Flask class is a _decorator_, which tells the application which URL should call the associated function.
+- Finally the `run()` method of Flask class runs the application on the local development server.
 
 ### Functions to note
 
 > `app.route(rule, options)`
 
-+ The rule parameter represents the URL for the function to open
-+ The options parameter is a list of parameters to be forwarded to the underlying Rule object
-In the above example, **‘/’** URL is bound with **flask_world()** function. Hence, when the home page of web server is opened in browser, the output of this function will be rendered. This will be a simple text "Welcome to Flasky!".
-
+- The rule parameter represents the URL for the function to open
+- The options parameter is a list of parameters to be forwarded to the underlying Rule object
+  In the above example, **‘/’** URL is bound with **flask_world()** function. Hence, when the home page of web server is opened in browser, the output of this function will be rendered. This will be a simple text "Welcome to Flasky!".
 
 > `app.run(host, port, debug, options)`
 
 All these parameters are optional
 
-+ **host**: Hostname to listen on. Defaults to 127.0.0.1 (localhost). Set to ‘0.0.0.0’ to have server available externally.
-+ **port**: Defaults to 5000.
-+ **debug**: Defaults to false. If set to true, provides a debug information.
-+ **options**: To be forwarded to underlying Werkzeug server.
+- **host**: Hostname to listen on. Defaults to 127.0.0.1 (localhost). Set to ‘0.0.0.0’ to have server available externally.
+- **port**: Defaults to 5000.
+- **debug**: Defaults to false. If set to true, provides a debug information.
+- **options**: To be forwarded to underlying Werkzeug server.
 
 To execute the above snippet simply go to your terminal and go to the directory that holds the project and type in
+
 ```bash
 python flasky.py
 ```
 
 You will recieve the following information
+
 ```bash
 * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
+
 Open the above URL (localhost:5000) in the browser. ‘Welcome to Flasky!’ message will be displayed on it.
 
 ### Debug mode
@@ -167,6 +168,7 @@ Open the above URL (localhost:5000) in the browser. ‘Welcome to Flasky!’ mes
 A Flask application is started by calling the run() method. However, while the application is under development, it should be restarted manually for each change in the code. To avoid this inconvenience, enable debug support. The server will then reload itself if the code changes. It will also provide a useful debugger to track the errors if any, in the application.
 
 The Debug mode is enabled by setting the debug property of the application object to True before running or passing the debug parameter to the run() method.
+
 ```python
 app.debug = True
 app.run()
@@ -183,7 +185,8 @@ The `route()` decorator in Flask is used to bind URL to a function. For example 
 @app.route('/flasky-closet')
 def flasky_closet():
    return 'This is what flasky likes to wear.'
-```   
+```
+
 Here, URL `'/flasky-closet'` rule is bound to the `flasky_closet()` function. As a result, if a user visits http://localhost:5000/flasky-closet URL, the output of the `flasky_closet()` function will be rendered in the browser. In this case a text `This is what flasky likes to wear.`
 
 Alternatively, the `add_url_rule()` function of an application object is also available to bind a URL with a function as in the above example, `route()` is used.
@@ -221,9 +224,10 @@ The following output will be displayed in the browser.
 > `Flasky says hello Lusina!`
 
 In addition to the default string variable part, rules can be constructed using the following converters −
-+ **int** accepts integer
-+ **float** For floating point value
-+ **path** accepts slashes used as directory separator character
+
+- **int** accepts integer
+- **float** For floating point value
+- **path** accepts slashes used as directory separator character
 
 ```python
 @app.route('/flasky-age/<int:postID>')
@@ -250,7 +254,8 @@ The flasky_version() function takes up the floating point number as argument. Th
 The URL rules of Flask are based on Werkzeug’s routing module. This ensures that the URLs formed are unique and based on precedents laid down by Apache.
 
 Consider the rules defined in the following script −
-```python
+
+````python
 from flask import Flask
 app = Flask(__name__)
 
@@ -316,33 +321,35 @@ def flasky_user(name):
 
 #  other code
 ...
-```
+````
 
 The above script has a function `flasky_user(name)` which accepts a value to its argument from the URL. This function checks if an argument received matches `admin` or not. If it matches, the application is redirected to the `flasky_admin()` function using `url_for()`, otherwise to the `flasky_guest()` function passing the received argument as guest parameter to it.
 
 On running the above code, this is the output when the url is **http://localhost:5000/admin**
+
 > Hello, welcome to the admin page. Admin privileges!
 
 When the url is changed to http://localhost:5000/guest/Meme
-> Hello Meme, You are logged in as guest in Flasky's world
 
+> Hello Meme, You are logged in as guest in Flasky's world
 
 ## HTTP methods
 
 The following table is a summary of the HTTP methods availaible:
-| Method  | Description
+| Method | Description
 |---|
-|   GET   | Sends data in unencrypted form to the server. Most common method.
-|   POST  | Used to send HTML form data to server. Data received by POST method is not cached by server.
-|   HEAD  | Same as  GET, but without response body
-|   PUT   | Replaces all current representations of the target resource with the uploaded content
-|   DELETE| Removes all current representations of the target resouce given by URL
+| GET | Sends data in unencrypted form to the server. Most common method.
+| POST | Used to send HTML form data to server. Data received by POST method is not cached by server.
+| HEAD | Same as GET, but without response body
+| PUT | Replaces all current representations of the target resource with the uploaded content
+| DELETE| Removes all current representations of the target resouce given by URL
 
-By default, the Flask route responds to the *GET* requests. However, this preference can be altered by providing methods argument to `route()` decorator.
+By default, the Flask route responds to the _GET_ requests. However, this preference can be altered by providing methods argument to `route()` decorator.
 
 In order to demonstrate the use of `POST` method in URL routing, first let us create an HTML form and use the POST method to send form data to a URL.
 
 Save the following script as login.html
+
 ```html
 <html>
    <body>
@@ -377,7 +384,7 @@ Changing the method parameter to ‘GET’ in login.html and opening it again in
 
 Here, args is dictionary object containing a list of pairs of form parameter and its corresponding value. The value corresponding to `nm` parameter is passed on to `/success` URL as before.
 
-``` python
+```python
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
@@ -420,6 +427,7 @@ def index():
 if __name__ == '__main__':
    app.run(debug = True)
 ```
+
 Flask will try to find the HTML file in the templates folder, in the same folder in which this script is present.
 
 ```bash
@@ -429,12 +437,13 @@ Flask will try to find the HTML file in the templates folder, in the same folder
 |    	    ├── index.html
 ```
 
-The term *web templating system* refers to designing an HTML script in which the variable data can be inserted dynamically. A web template system comprises of a template engine, some kind of data source and a template processor.
+The term _web templating system_ refers to designing an HTML script in which the variable data can be inserted dynamically. A web template system comprises of a template engine, some kind of data source and a template processor.
 
-Flask uses *Jinja2* template engine. A web template contains HTML syntax interspersed placeholders for variables and expressions (in this case Python expressions) which are replaced values when the template is rendered.
+Flask uses _Jinja2_ template engine. A web template contains HTML syntax interspersed placeholders for variables and expressions (in this case Python expressions) which are replaced values when the template is rendered.
 
 The following code is saved as hello.html in the templates folder.
-``` html
+
+```html
 <!doctype html>
 <html>
    <body>
@@ -442,9 +451,10 @@ The following code is saved as hello.html in the templates folder.
    </body>
 </html>
 ```
+
 Next, run the following script from Python shell.
 
-``` python
+```python
 from flask import Flask, render_template
 
 app = Flask (__name__)} %}
@@ -463,15 +473,15 @@ The variable part of URL is inserted at `{{ name }}` place holder.
 
 The Jinja2 template engine uses the following delimiters for escaping from HTML.
 
-
-+ `{\%\ ... \%\}` for Statements
-+ `{{ ... }}` for Expressions to print to the template output
-+ `{# ... #}` for Comments not included in the template output
-+ `# ... ##` for Line Statements
+- `{\%\ ... \%\}` for Statements
+- `{{ ... }}` for Expressions to print to the template output
+- `{# ... #}` for Comments not included in the template output
+- `# ... ##` for Line Statements
 
 In the following example, use of conditional statement in the template is demonstrated. The URL rule to the hello() function accepts the integer parameter. It is passed to the hello.html template. Inside it, the value of number received (marks) is compared (greater or less than 50) and accordingly HTML is conditionally rendered.
 
 The Python Script is as follows −
+
 ```python
 from flask import Flask, render_template
 app = Flask(__name__)
@@ -490,16 +500,17 @@ HTML template script of hello.html is as follows
 <!doctype html>
 <html>
    <body>
-   
+
       {\%\ if marks>50 \%\}
       <h1> Your result is pass!</h1>
       {\%\ else \%\}
       <h1>Your result is fail</h1>
       {\%\ endif \%\}
-      
+
    </body>
 </html>
 ```
+
 > Note that the conditional statements if-else and endif are enclosed in delimiter {\%\..\%\}.
 
 Run the Python script and visit URL http://localhost/hello/60 and then http://localhost/hello/30 to see the output of HTML changing conditionally.
@@ -509,6 +520,7 @@ The Python loop constructs can also be employed inside the template. In the foll
 The Template part of result.html employs a for loop to render key and value pairs of dictionary object result{} as cells of an HTML table.
 
 Run the following code from Python shell.
+
 ```python
 from flask import Flask, render_template
 app = Flask(__name__)
@@ -523,25 +535,27 @@ if __name__ == '__main__':
 ```
 
 The results.html
-``` html
+
+```html
 	<!doctype html>
 	<html>
 	   <body>
-   
+
       <table border = 1>
          {\%\ for key, value in result.iteritems() \%\}
-         
+
             <tr>
                <th> {{ key }} </th>
                <td> {{ value }} </td>
             </tr>
-            
+
          {\%\ endfor \%\}
       </table>
-      
+
    </body>
 </html>
 ```
+
 > Python statements corresponding to the For loop are enclosed in {\%\..\%\} whereas, the expressions key and value are put inside {{ }}.
 
 ## Static Files
@@ -582,7 +596,7 @@ Hello.js contains sayHello() function.
 
 ```javascript
 function sayHello() {
-   alert("Hello World")
+  alert('Hello World')
 }
 ```
 
@@ -592,17 +606,16 @@ The data from a client’s web page is sent to the server as a global request ob
 
 Important attributes of request object are listed below:
 
-| Request Object  | Description
-|---|
-| Form  | It is a dictionary object containing key and value pairs of form parameters and their values.
-| args  | parsed contents of query string which is part of URL after question mark (?).
-|Cookies| dictionary object holding Cookie names and values.
-|files  | data pertaining to uploaded file.
-
+| Request Object | Description                                                                                   |
+| -------------- | --------------------------------------------------------------------------------------------- |
+| Form           | It is a dictionary object containing key and value pairs of form parameters and their values. |
+| args           | parsed contents of query string which is part of URL after question mark (?).                 |
+| Cookies        | dictionary object holding Cookie names and values.                                            |
+| files          | data pertaining to uploaded file.                                                             |
 
 ## Sending Form Data to Template
 
-We have seen that the http method can be specified in URL rule. The Form data received by the triggered function can collect it in the form of a *dictionary* object and forward it to a template to render it on a corresponding web page.
+We have seen that the http method can be specified in URL rule. The Form data received by the triggered function can collect it in the form of a _dictionary_ object and forward it to a template to render it on a corresponding web page.
 
 In the following example, `/` URL renders a web page `login-sample.html` which has a form. The data filled in it is posted to the `/result` URL which triggers the `result()` function.
 
@@ -622,21 +635,22 @@ These are the sample html forms and tables that will be used fot this small exer
      <p><input type = "submit" value = "submit" /></p>
 </form>
 ```
-> Login page
 
+> Login page
 
 ```html
 <table border = 1>
      {\%\ for key, value in result.iteritems() \%\}
-         
+
         <tr>
            <th> {{ key }} </th>
            <td> {{ value }} </td>
         </tr>
-            
+
 	 {\%\ endfor \%\}
 </table>
 ```
+
 > success page
 
 The Python code
@@ -658,4 +672,3 @@ def success_login():
 if __name__ == '__main__':
     app.run(debug=True)
 ```
-

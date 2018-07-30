@@ -93,6 +93,11 @@ BlogPost.propTypes = {
 				date: string,
 				path: string,
 				tags: arrayOf(string),
+				author: {
+					name: string,
+					link: string,
+					avatar: string,
+				},
 				excerpt: string,
 			},
 		},
@@ -114,13 +119,27 @@ BlogPost.propTypes = {
 	}),
 }
 
+// eslint-disable-next-line no-undef
 export const pageQuery = graphql`
 	query BlogPostQuery($path: String!) {
 		markdownRemark(frontmatter: { path: { eq: $path } }) {
 			html
 			frontmatter {
 				title
+				subtitle
 				date(formatString: "MMMM, DD, YYYY")
+				author {
+					name
+					link
+					avatar
+				}
+				image {
+					feature
+					thumbnail
+					teaser
+					credit
+					creditlink
+				}
 				path
 				tags
 				excerpt

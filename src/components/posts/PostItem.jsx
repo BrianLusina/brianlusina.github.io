@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import { string, shape } from 'prop-types'
+import { string, shape, arrayOf } from 'prop-types'
 
 const PostItem = ({
 	title,
@@ -10,6 +10,7 @@ const PostItem = ({
 	excerpt,
 	img: { src, alt },
 	author: { name, avatar, link: authorLink },
+	tags,
 }) => (
 	<article className="post">
 		<header>
@@ -46,7 +47,11 @@ const PostItem = ({
 			</ul>
 			<ul className="stats">
 				<li>
-					<Link href="#">General</Link>
+					{tags.map(tag => (
+						<Link key={tag} to="#">
+							{tag}
+						</Link>
+					))}
 				</li>
 				<li>
 					<a href="#" className="icon fa-heart">
@@ -73,6 +78,7 @@ PostItem.propTypes = {
 		src: string,
 		alt: string,
 	}),
+	tags: arrayOf(string),
 	author: shape({
 		avatar: string,
 		name: string,

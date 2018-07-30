@@ -1,5 +1,5 @@
 ---
-layout:  article
+path:  "/tech"
 categories:  tech
 tags:  [algorithms, sorting algorithms, array]
 title:  Sorting Algorithms
@@ -15,17 +15,17 @@ Sorting algoritms follow numerical order and usually has random access to an arr
 # Bubble Sort
 
 Convinient for small data sets. Consider an array of elements such that:
-		int[] arr = new int[]{14,33,27,10,33,19,42,44};
+int[] arr = new int[]{14,33,27,10,33,19,42,44};
 The array is not sorted. To sort this array, we compare 2 values at a time.
 Steps:
 
-+ compare 14 and 33, since 14 is less than 33, it remains in place
-+ next we compare 33 and 27, 27 is less than 33, hence we have to swap postions such that;
-	`arr[1]` = 33 takes the place of `arr[2]` and vice versa.
-	The array now becomes:
-		{14,27,33,10,33,19,48,44}
-+ The next comparison is now between 33 and 10. 10 is less than 33, so we swap positions as before.
-+ The process continues until all the elements in the array follow natural ordering.
+- compare 14 and 33, since 14 is less than 33, it remains in place
+- next we compare 33 and 27, 27 is less than 33, hence we have to swap postions such that;
+  `arr[1]` = 33 takes the place of `arr[2]` and vice versa.
+  The array now becomes:
+  {14,27,33,10,33,19,48,44}
+- The next comparison is now between 33 and 10. 10 is less than 33, so we swap positions as before.
+- The process continues until all the elements in the array follow natural ordering.
 
 This is obviously convenient for small data sets as we are comparing 2 elements at a time. If the array was of length 50, it would take much longer to complete and would be inefficient. This is not what an ideal algorithm should achieve.
 
@@ -74,35 +74,31 @@ This is obviously convenient for small data sets as we are comparing 2 elements 
 		9 steps taken
 		[16, 21, 33, 48, 60, 80, 100]*/
     }
-
 ```
+
 > Demonstration of a bubble sort algorithm, sorting elements in ascending order
 
 Code snippet right [here](https://github.com/BrianLusina/Java-Playground/blob/master/Toy%20Problems/src/SortingAlgorithms/BubbleSortDemo.java).
 
 # Merge Sort
 
-Uses the *divide and conquer rule* it divides a problem into smaller parts until it reaches the simplest form possible. Then it rejoins the divided elements in a sorted format until it is a full list again. This sorting algorithm is mostly used in arrays.
+Uses the _divide and conquer rule_ it divides a problem into smaller parts until it reaches the simplest form possible. Then it rejoins the divided elements in a sorted format until it is a full list again. This sorting algorithm is mostly used in arrays.
 
 Consider this example
-27  10  12  25  34  16  15  31
+27 10 12 25 34 16 15 31
 divide it into two parts
-27  10  12  25            34  16  15  31
+27 10 12 25 34 16 15 31
 divide each part into two parts
-27  10            12  25            34  16            15  31
+27 10 12 25 34 16 15 31
 divide each part into two parts
-27       10       12       25       34       16       15       31
- 
+27 10 12 25 34 16 15 31
 
 merge (cleverly-!) parts
 
-10  27            12  25            16  34            15  31
+10 27 12 25 16 34 15 31
 merge parts
-10  12  25  27                 15  16  31  34
+10 12 25 27 15 16 31 34
 merge parts into one
-10  12  15  16  25  27  31  34
-
+10 12 15 16 25 27 31 34
 
 # Insertion Sort
-
-

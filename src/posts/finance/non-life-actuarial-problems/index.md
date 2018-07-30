@@ -1,13 +1,15 @@
 ---
-layout: article
-path: "/finance"
+path: "/finance/non-life-actuarial-problems"
 title: "Non Life Insurance Problems in Life"
+subtitle: "Problems in Non-Life Insurance"
 categories: finance
 excerpt: "Problems in Non-Life Insurance"
 tags:  [Actuarial, Insurance, Money, business]
-ads: true
-share: true
-comments: true
+date: '2017-01-16T12:00:00+00:00'
+author:
+  name: Brian Lusina
+  link: "/brian_lusina"
+  avatar: brian_lusina.jpg
 image:
   feature: nonlife-insurance-problems.jpg
   teaser: nonlife-insurance-problems.jpg

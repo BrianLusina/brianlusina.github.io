@@ -1,13 +1,19 @@
 ---
-path: "/life"
-categories: life
+path: "/life/education-and-academics"
 title: Of education and academics
+subtitle: Academia and education
 excerpt: Academia and education
-author: brian_lusina
-share: true
+date: '2017-05-06T12:00:00+00:00'
+author:
+  name: Brian Lusina
+  link: "/brian_lusina"
+  avatar: brian_lusina.jpg
 image:
- teaser: 
- thumb: 
+  feature:
+  teaser:
+  thumbnail:
+  credit:
+  creditlink:
 ---
 
 Academic excellence is overrated! There I said it. Being top of your class does not necessarily guarantee that you will be at the top of life. You could graduate as the best student in finace but it doesn't mean you will make more money thatn everybody else. The best graduating law student does not necessarily make the best lawyer.

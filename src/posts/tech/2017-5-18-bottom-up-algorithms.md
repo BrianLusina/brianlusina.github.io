@@ -1,5 +1,5 @@
 ---
-layout: article
+path:  "/tech"
 categories:  tech
 title: Bottom up algorithms
 excerpt: A short description on bottom up algorithms
@@ -16,7 +16,7 @@ Put simply, a bottom-up algorithm "starts from the beginning," while a recursive
 
 For example, if we wanted to multiply all the numbers in the range 1...n1...n, we could use this cute, top-down, recursive one-liner:
 
-``` python
+```python
 def product_1_to_n(n):
     # we assume n >= 1
     return n * product_1_to_n(n-1) if n > 1 else 1
@@ -26,7 +26,7 @@ This approach has a problem: it builds up a call stack of size O(n)O(n), which m
 
 To avoid this, we can instead go bottom-up:
 
-``` python
+```python
 def product_1_to_n(n):
 	# we assume n >= 1
 

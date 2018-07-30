@@ -1,10 +1,13 @@
 ---
-path: "/life"
-categories: life
+path: "/life/sins-of-success"
 title: The sins of success
+subtitle: What are the sins of success?
 excerpt: What are the sins of success?
-author: brian_lusina
-share: true
+date: '2017-05-02T12:00:00+00:00'
+author:
+  name: Brian Lusina
+  link: "/brian_lusina"
+  avatar: brian_lusina.jpg
 image:
  teaser: 
  thumb: 

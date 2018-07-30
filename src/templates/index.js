@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { object, shape, arrayOf } from 'prop-types'
 import PostItem from '../components/posts/PostItem'
 import Link from 'gatsby-link'
+import moment from 'moment'
 
 export class IndexPage extends Component {
 	constructor(props, context) {
@@ -22,11 +23,20 @@ export class IndexPage extends Component {
 			(
 				{
 					node: {
-						frontmatter: { title, path, excerpt },
+						frontmatter: {
+							title,
+							subtitle,
+							path,
+							excerpt,
+							author: { avatar, link, name },
+							date,
+							tags,
+						},
 					},
 				},
 				index
 			) => {
+				const time = moment(date).format('MMMM DD, YYYY')
 				return (
 					<PostItem
 						key={index}
@@ -36,14 +46,15 @@ export class IndexPage extends Component {
 							alt: '',
 						}}
 						author={{
-							name: '',
-							avatar: '',
-							link: '',
+							name,
+							avatar,
+							link,
 						}}
 						title={title}
-						subtitle={''}
-						date={''}
+						subtitle={subtitle}
+						date={time}
 						excerpt={excerpt}
+						tags={tags}
 					/>
 				)
 			}
@@ -146,10 +157,23 @@ export const query = graphql`
 				node {
 					frontmatter {
 						title
+						subtitle
 						categories
 						excerpt
-						author
-						category
+						date(formatString: "MMMM DD, YYYY")
+						author {
+							name
+							link
+							avatar
+						}
+						image {
+							feature
+							thumbnail
+							teaser
+							credit
+							creditlink
+						}
+						tags
 					}
 					excerpt
 					timeToRead

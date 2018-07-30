@@ -24,6 +24,7 @@
     "gatsby-plugin-sass": "^1.0.26",
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-remark": "^1.7.44",
+    "moment": "^2.22.2",
     "prop-types": "^15.6.1",
     "react-helmet": "^5.2.0",
     "react-markdown": "^3.3.4",

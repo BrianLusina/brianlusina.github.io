@@ -1,16 +1,20 @@
 ---
-path: "/finance"
-layout: article
+path: "/finance/want-to-be-rich"
 title: "5 Attributes of billionaires"
-categories: finance
+subtitle: "5 attributes you should probably start adopting."
 excerpt: "5 attributes you should probably start adopting."
 tags:  [Finance, Wealth, Money, business]
-ads: true
-share: true
-comments: true
+date: '2017-05-06T12:00:00+00:00'
+author:
+  name: Brian Lusina
+  link: "/brian_lusina"
+  avatar: brian_lusina.jpg
 image:
   feature:
   teaser:
+  thumbnail:
+  credit:
+  creditlink:
 ---
 
 Have you ever wondered just how billionaires think? I know I have. How do you even acquire the clout & clamor of a billionaire? Do you learn it over time? Is it natural? Is it passed down through induction? Or is it just for the select few gifted people?

@@ -1,16 +1,18 @@
 ---
-path: "/design"
-category: design
-author: brian_lusina
+path: "/design/test-users-usabilty-studies"
+author: 
+ name: Brian Lusina
+ link: "/brian_lusina"
+ avatar: "brian_lusina.jpg"
 title: Test Users and Usability
+subtitle: How many users do you need to test usability of your software?
+date: '2016-08-04T12:00:00+00:00'
 excerpt: How many users do you need to test usability of your software?
 tags:  [Usability, User Experience, UX, Design]
 image:
  feature: test-users-and-usability.jpg
  thumbnail: test-users-and-usability.jpg
  teaser: test-users-and-usability.jpg
-share: true
-ads: true
 ---
 
 Following my [previous](https://brianlusina.github.io/Paper-Rabbit/articles/usability-and-code/) article, I think it best to write about how many users are the optimal number to conduct a usability test with. Most would argue that you need hundreds to come up with an optimal number, say, 100? However, this would be wrong, very wrong. In fact, based on my own personal research the number is 5, except when it is not. This means the optimal number is 5, but then again depends on a couple of factors.

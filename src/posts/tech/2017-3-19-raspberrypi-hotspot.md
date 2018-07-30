@@ -1,5 +1,5 @@
 ---
-layout: article
+path:  "/tech"
 categories:  tech
 title: Raspberry Pi Hotspot configuration
 excerpt: A small demo of configuring a hotspot for your Raspberry Pi 
@@ -26,10 +26,9 @@ If the router is not found then it creates a hotspot so tablets, phones and comp
 
 For this, all you will need:
 
-+ Raspberry Pi 3 or other Raspberry Pi set up with a WiFi dongle
-+ Internet connection
-+ WiFi connection set up on your router
-
+- Raspberry Pi 3 or other Raspberry Pi set up with a WiFi dongle
+- Internet connection
+- WiFi connection set up on your router
 
 ### Step 1
 
@@ -37,29 +36,32 @@ This step will mostly be for settin up tools we need for the Pi. To start off ho
 
 Open a Terminal session in your Pi and update Raspbian with the latest updates by entering the commands:
 
-``` sh
+```sh
 $ sudo apt-get update
 $ sudo apt-get upgrade
 ```
+
 This will update the packages on the Rasberry Pi
 
 Now, install hostapd. Enter the command:
 
-``` sh
+```sh
 $ sudo apt-get install hostapd
 ```
+
 enter Y when prompted.
 
 Install dnsmasq with the command:
 
-``` sh
+```sh
 sudo apt-get install dnsmasq
 ```
+
 enter Y when prompted
 
 The installers will have set up the programme so they run when the pi is started. For this setup they only need to be started if the home router is not found. So automatic startup needs to be disabled. This is done with the following commands:
 
-``` sh
+```sh
 sudo systemctl disable hostapd
 
 sudo systemctl disable dnsmasq
@@ -71,14 +73,15 @@ Now the hostspot configuration file can be setup. This contains the name of the 
 
 Using a text editor edit the hostapd configuration file. This file won't exist at this stage so it will be blank.
 
-``` sh
+```sh
 sudo nano /etc/hostapd/hostapd.conf
 ```
+
 This will create the hostapd.conf
 
 enter or paste the settings:
 
-``` plain
+```plain
 interface=wlan0
 driver=nl80211
 ssid=RPI3WiFi
@@ -97,16 +100,16 @@ rsn_pairwise=CCMP
 
 A brief breakdown of what the above means:
 
-+ interface will be wlan0
-+ driver nl80211 works with the Raspberry Pi 3 onboard WiFi but you will need to check that your wifi dongle is compatable and can use AP mode.
+- interface will be wlan0
+- driver nl80211 works with the Raspberry Pi 3 onboard WiFi but you will need to check that your wifi dongle is compatable and can use AP mode.
 
 For more information on wifi dongles check [here](elinux.org/RPi_USB_Wi-Fi_Adapters)
 
-+ The SSID is the name of the WiFi signal broadcast from the RPi, which you will connect to with your Tablet or phones WiFi settings.
+- The SSID is the name of the WiFi signal broadcast from the RPi, which you will connect to with your Tablet or phones WiFi settings.
 
-+ channel can be set between 1 and 13. If you are having trouble connection because of to many wifi signals in your area are using channel 6 then try another channel.
+- channel can be set between 1 and 13. If you are having trouble connection because of to many wifi signals in your area are using channel 6 then try another channel.
 
-+ wpa_passphrase is the password you will need to enter when you first connect a device to your Raspberry Pi's hotspot. This should be at least 8 characters and a bit more difficult to guess than my example.
+- wpa_passphrase is the password you will need to enter when you first connect a device to your Raspberry Pi's hotspot. This should be at least 8 characters and a bit more difficult to guess than my example.
 
 To save the config file press ctrl & o and to exit nano press Ctrl & x
 
@@ -114,35 +117,35 @@ Now the default file for hostapd needs to be updated to point to where the confi
 
 In terminal enter the command
 
-``` sh
+```sh
 sudo nano /etc/default/hostapd
 ```
 
 Change:
-``` plain
+
+```plain
 #demon_conf=""
 ```
 
 to
 
-``` plain
+```plain
 demon_conf="/etc/hostapd/hostapd.conf"
 ```
 
 And save.
 
-
 #### dnsmasq configuration
 
 Next dnsmasq need to be configured to allow the PI to act as a router and issue IP addresses.
 
-``` sh
+```sh
 $ sudo nano /etc/dnsmasq.conf
 ```
 
 Go to the bottom of the file and add the following lines
 
-``` plain
+```plain
 #Pi3Hotspot Config
 #stop DNSmasq from using resolv.conf
 no-resolv
@@ -158,17 +161,17 @@ And then save (ctrl & o) and exit (ctrl & x)
 
 Now that **hostapd** and **dnsmasq** are configured we now need to make some changes to the interfaces file and then add a script that will detect if you are at home or not.
 
-Next we need to edit the interfaces file. There will be several entries already in the file. Look for references to *wlan0* and alter them as below. Any reference to *wpa_conf* for wlan0 should be disabled by putting a # at the start of the line.
+Next we need to edit the interfaces file. There will be several entries already in the file. Look for references to _wlan0_ and alter them as below. Any reference to _wpa_conf_ for wlan0 should be disabled by putting a # at the start of the line.
 
 Open the interfaces file with the command
 
-``` sh
+```sh
 $ sudo nano /etc/network/interfaces
 ```
 
 edit the following lines as below
 
-``` plain
+```plain
 auto lo wlan0
 iface lo inet loopback
 
@@ -183,7 +186,7 @@ Note: Due to the constants updates to Linux the Wifi login details have moved, i
 
 You will need to put a # infront of each line
 
-``` plain
+```plain
 #iface wlan0 inet dhcp
 #       wpa-ssid "mySSID"
 #       wpa-psk "Router Pasword"
@@ -191,15 +194,15 @@ You will need to put a # infront of each line
 
 These details need to be in the **wpa_supplicant.conf** file to work with this setup.
 
-Add your router details to the wpa_supplicant.conf file with 
+Add your router details to the wpa_supplicant.conf file with
 
-``` sh
+```sh
 $ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
 ```
 
 and add the following commands to the bottom of the file.
 
-``` plain
+```plain
 network={
         ssid="mySSID"
         psk="Router Password"
@@ -213,16 +216,16 @@ This is the final setup where we write the script that will start up when the RP
 
 This is an altered version of the "Rpi Network conf Bootstrapper" script by Lasse Christiansen
 
-This script will check what routers are available when the RPi is started in the order of `mySSID1`, `mySSID2` etc. 
+This script will check what routers are available when the RPi is started in the order of `mySSID1`, `mySSID2` etc.
 The first router found in the list will be connected to using existing configured WiFi settings. If none of the listed SSIDs are in range then a WiFi hotspot is created.
 
-``` sh
+```sh
 $ sudo nano /etc/rc.local
 ```
 
 Your rc.local file will look like this if it has not previously been edited.
 
-``` sh
+```sh
 #!/bin/sh
 # rc.local
 # This script is executed at the end of each multiuser runlevel.
@@ -243,24 +246,23 @@ First of all change the top line from `#!/bin/sh` to `#!/bin/bash`
 
 The line "exit 0" need to be at the bottom of the file so add the bootstrapper script between
 
-``` plain
+```plain
 printf "My IP address is %s\n" "$_IP"
 Fi
 ```
 
 and
 
-``` plain
+```plain
 exit 0
 ```
 
 The script to add is this:
 
-``` sh
-
+```sh
 #Wifi config - if no prefered Wifi generate a hotspot
 #RPi Network Conf Bootstrapper
- 
+
 createAdHocNetwork()
 {
     echo "Creating RPI Hotspot network"
@@ -272,7 +274,7 @@ createAdHocNetwork()
     echo "Hotspot network created"
     echo " "
 }
- 
+
 echo "================================="
 echo "RPi Network Conf Bootstrapper"
 echo "================================="
@@ -304,11 +306,12 @@ do
         echo "Not in range, WiFi with SSID:" $ssid
     fi
 done
- 
+
 if ! $connected; then
     createAdHocNetwork
-fi 
+fi
 ```
+
 bootstrapper script to start up RPi hotspot on boot
 
 And finally save (ctrl & o) and exit (ctrl & x)
@@ -322,7 +325,7 @@ You should now be able to reboot and if all has gone ok your Raspberry Pi will s
 
 The final `rc.local` file should look like this
 
-``` sh
+```sh
 #!/bin/bash
 # rc.local
 # This script is executed at the end of each multiuser runlevel.
@@ -339,7 +342,7 @@ Fi
 
 #Wifi config - if no prefered Wifi generate a hotspot
 #RPi Network Conf Bootstrapper
- 
+
 createAdHocNetwork()
 {
     echo "Creating RPI Hotspot network"
@@ -351,7 +354,7 @@ createAdHocNetwork()
     echo "Hotspot network created"
     echo " "
 }
- 
+
 echo "================================="
 echo "RPi Network Conf Bootstrapper"
 echo "================================="
@@ -383,16 +386,15 @@ do
         echo "Not in range, WiFi with SSID:" $ssid
     fi
 done
- 
+
 if ! $connected; then
     createAdHocNetwork
-fi 
+fi
 
 exit 0
-
 ```
-final rc.local file
 
+final rc.local file
 
 ### Conclusion
 
@@ -400,10 +402,10 @@ If all has gone well you should still be able to connect the Pi to your home rou
 
 Furthermore, you can open an ssh connection to the Pi using this command
 
-``` sh
+```sh
 $ ssh pi@192.168.40.5
 ```
+
 This will prompt you for a password. This password will be for the Raspberry Pi
 
 That is about it! You should now have a hotspot on your Raspberry Pi. Although it is important to note that this hotspot connection will not have any internet connection and thus you can't connect to the web with it, however any other device can connect to it via an ssh connection.
-
