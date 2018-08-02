@@ -1,6 +1,8 @@
 import React from 'react'
 import Link, { withPrefix } from 'gatsby-link'
 import { string, shape, arrayOf } from 'prop-types'
+import defaultAvatar from '../../assets/images/avatar.jpg'
+import defaultFeature from '../../assets/images/default_feature_pic.jpg'
 
 const PostItem = ({
 	title,
@@ -26,13 +28,21 @@ const PostItem = ({
 				</time>
 				<Link to={authorLink} className="author">
 					<span className="name">{name}</span>
-					<img src={withPrefix(`images/authors/${avatar}`)} alt={name} />
+					<img
+						src={
+							avatar ? withPrefix(`images/authors/${avatar}`) : defaultAvatar
+						}
+						alt={name}
+					/>
 				</Link>
 			</div>
 		</header>
 
 		<Link to={link} className="image featured">
-			<img src={withPrefix(`images/posts/${src}`)} alt={alt} />
+			<img
+				src={src ? withPrefix(`images/posts/${src}`) : defaultFeature}
+				alt={alt}
+			/>
 		</Link>
 
 		<p>{excerpt}</p>

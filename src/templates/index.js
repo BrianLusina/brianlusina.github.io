@@ -44,7 +44,7 @@ export class IndexPage extends Component {
 						link={path}
 						img={{
 							src: feature,
-							alt: '',
+							alt: feature,
 						}}
 						author={{
 							name,
