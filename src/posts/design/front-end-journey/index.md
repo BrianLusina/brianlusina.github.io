@@ -2,13 +2,17 @@
 path: "/design/front-end-journey"
 title:  The Front End Development Journey.
 subtitle: The long and winding front-end development journey. 
+excerpt: The front end development journey is a long one and it involves a lot of work. Requires effort, perserverence and sweat. Also, coffee, lack of sleep and frustrating arguments with your computer. Either way, it is still an exciting journey 
 author: 
  name: Brian Lusina
  link: "/brian_lusina"
  avatar: brian_lusina.png
 date: '2016-06-17T12:34:00+00:00'
+image:
+ feature: 
+ thumbnail: 
+ teaser: 
 tags:  [front-end, User Experience, UX, UI, User interface, design]
-execept: The front end development journey is a long one and it involves a lot of work. Requires effort, perserverence and sweat. Also, coffee, lack of sleep and frustrating arguments with your computer. Either way, it is still an exciting journey 
 ---
 
 The front end development journey is a long one and it involves a lot of work. Requires effort, perserverence and sweat. Also, coffee, lack of sleep and frustrating arguments with your computer. Either way, it is still an exciting journey that teaches you a lot of things, whether you are an expert or starting out. To truly become an expert or proficient in your skill, you need to practice it every single day. The 10,000 hour rule applies everywhere and thus is no exception to this.

@@ -1,22 +1,26 @@
 import React from 'react'
+import Link from 'gatsby-link'
 
 const Navbar = () => (
 	<nav className="links">
 		<ul>
 			<li>
-				<a href="#">Lorem</a>
+				<Link to="/tech">Tech</Link>
 			</li>
 			<li>
-				<a href="#">Ipsum</a>
+				<Link to="/design">Design</Link>
 			</li>
 			<li>
-				<a href="#">Feugiat</a>
+				<Link to="/finance">Finance</Link>
 			</li>
 			<li>
-				<a href="#">Tempus</a>
+				<Link to="/life">Life</Link>
 			</li>
 			<li>
-				<a href="#">Adipiscing</a>
+				<Link to="/projects">Projects</Link>
+			</li>
+			<li>
+				<Link to="/about">About</Link>
 			</li>
 		</ul>
 	</nav>

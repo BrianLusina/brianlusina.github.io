@@ -6,6 +6,7 @@ module.exports = {
 		"gatsby-plugin-react-helmet",
 		"gatsby-plugin-sass",
 		"gatsby-plugin-offline",
+		"gatsby-transformer-remark",
 		{
 			resolve: "gatsby-source-filesystem",
 			options: {
@@ -13,6 +14,12 @@ module.exports = {
 				path: `${__dirname}/src/posts/`
 			},
 		},
-		"gatsby-transformer-remark",
+		{
+			resolve: "gatsby-source-filesystem",
+			options: {
+				name: "posts-tech",
+				path: `${__dirname}/src/posts/tech`
+			},
+		},
 	],
 };
