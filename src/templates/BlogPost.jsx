@@ -1,20 +1,20 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import Link, { withPrefix } from 'gatsby-link'
 import Helmet from 'react-helmet'
 import { object, shape, string, arrayOf } from 'prop-types'
 import Footer from '../components/Footer'
+import defaultFeature from '../assets/images/default_feature_pic.jpg'
+import defaultAvatar from '../assets/images/avatar.jpg'
 
-const BlogPost = ({ data, location, pathContext: { next, prev } }) => {
-	const {
-		markdownRemark: post,
-		author: { name, link: authorLink, avatar },
-	} = data
+const BlogPost = ({ data, pathContext: { next, prev } }) => {
+	const { markdownRemark: post } = data
 	const {
 		frontmatter: {
 			title,
 			subtitle,
 			date,
-			img: { src, alt },
+			image: { feature: src },
+			author: { name, link: authorLink, avatar },
 		},
 		html,
 	} = post
@@ -36,13 +36,23 @@ const BlogPost = ({ data, location, pathContext: { next, prev } }) => {
 						</time>
 						<Link to={authorLink} className="author">
 							<span className="name">{name}</span>
-							<img src={avatar} alt={name} />
+							<img
+								src={
+									avatar
+										? withPrefix(`images/authors/${avatar}`)
+										: defaultAvatar
+								}
+								alt={name}
+							/>
 						</Link>
 					</div>
 				</header>
 
 				<span className="image featured">
-					<img src={src} alt={alt} />
+					<img
+						src={src ? withPrefix(`images/posts/${src}`) : defaultFeature}
+						alt={title}
+					/>
 				</span>
 
 				<div dangerouslySetInnerHTML={{ __html: html }} />
@@ -93,6 +103,13 @@ BlogPost.propTypes = {
 				date: string,
 				path: string,
 				tags: arrayOf(string),
+				image: {
+					feature: string,
+					thumbnail: string,
+					teaser: string,
+					credit: string,
+					creditlink: string,
+				},
 				author: {
 					name: string,
 					link: string,
