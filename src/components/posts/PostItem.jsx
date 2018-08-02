@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import Link, { withPrefix } from 'gatsby-link'
 import { string, shape, arrayOf } from 'prop-types'
 
 const PostItem = ({
@@ -26,13 +26,13 @@ const PostItem = ({
 				</time>
 				<Link to={authorLink} className="author">
 					<span className="name">{name}</span>
-					<img src={avatar} alt={name} />
+					<img src={withPrefix(`images/authors/${avatar}`)} alt={name} />
 				</Link>
 			</div>
 		</header>
 
 		<Link to={link} className="image featured">
-			<img src={src} alt={alt} />
+			<img src={withPrefix(`images/posts/${src}`)} alt={alt} />
 		</Link>
 
 		<p>{excerpt}</p>

@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import Header from '../components/Header'
 import Menu from '../components/menu/Menu'
 import Sidebar from '../components/Sidebar'
+import favicon from '../assets/favicon.ico'
 import '../styles/scss/main.scss'
 
 const TemplateWrapper = ({
@@ -24,6 +25,7 @@ const TemplateWrapper = ({
 					content: 'data, Lusina, Brian Lusina, code, bugs, algorithms',
 				},
 			]}
+			link={[{ rel: 'shortcut icon', type: 'image/png', href: `${favicon}` }]}
 		/>
 		<div id="wrapper">
 			<Header />

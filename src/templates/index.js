@@ -29,6 +29,7 @@ export class IndexPage extends Component {
 							path,
 							excerpt,
 							author: { avatar, link, name },
+							image: { feature },
 							date,
 							tags,
 						},
@@ -42,7 +43,7 @@ export class IndexPage extends Component {
 						key={index}
 						link={path}
 						img={{
-							src: '',
+							src: feature,
 							alt: '',
 						}}
 						author={{
