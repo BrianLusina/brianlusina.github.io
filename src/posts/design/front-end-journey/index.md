@@ -6,7 +6,7 @@ excerpt: The front end development journey is a long one and it involves a lot o
 author: 
  name: Brian Lusina
  link: "/brian_lusina"
- avatar: brian_lusina.png
+ avatar: brian_lusina.jpg
 date: '2016-06-17T12:34:00+00:00'
 image:
  feature: 
