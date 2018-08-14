@@ -1,14 +1,19 @@
 const path = require('path')
 const createPaginatedPages = require('gatsby-paginate')
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-	const { createPage } = boundActionCreators
+exports.createPages = ({
+	boundActionCreators,
+	graphql
+}) => {
+	const {
+		createPage
+	} = boundActionCreators
 	const blogPostTemplate = path.resolve(`src/templates/BlogPost.jsx`)
 	return new Promise((resolve, reject) => {
 		graphql(
 			`
 				{
-					allMarkdownRemark {
+					allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
 						edges {
 							node {
 								html
@@ -40,7 +45,13 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 				}
 			`
 		)
-			.then(({ data: { allMarkdownRemark: { edges: posts } } }) => {
+			.then(({
+				data: {
+					allMarkdownRemark: {
+						edges: posts
+					}
+				}
+			}) => {
 				createPaginatedPages({
 					edges: posts,
 					createPage,
@@ -50,7 +61,13 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 					pathPrefix: '',
 				})
 
-				posts.map(({ node: { frontmatter: { path } } }, index) => {
+				posts.map(({
+					node: {
+						frontmatter: {
+							path
+						}
+					}
+				}, index) => {
 					createPage({
 						path,
 						component: blogPostTemplate,
@@ -60,7 +77,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 						},
 					})
 				})
-				resolve()
+				resolve();
+				return;
 			})
 			.catch(error => {
 				// eslint ignore next line

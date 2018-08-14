@@ -1,5 +1,5 @@
 import React from 'react'
-import { func, shape, string } from 'prop-types'
+import { func, shape, string, number, arrayOf } from 'prop-types'
 import Helmet from 'react-helmet'
 import Header from '../components/Header'
 import Menu from '../components/menu/Menu'
@@ -13,6 +13,7 @@ const TemplateWrapper = ({
 		site: {
 			siteMetadata: { title },
 		},
+		allMarkdownRemark: { edges: miniPosts },
 	},
 }) => (
 	<div>
@@ -31,7 +32,7 @@ const TemplateWrapper = ({
 			<Header />
 			<Menu />
 			<div id="main">{children()}</div>
-			<Sidebar />
+			<Sidebar miniPosts={miniPosts} />
 		</div>
 	</div>
 )
@@ -57,18 +58,65 @@ TemplateWrapper.propTypes = {
 				title: string,
 			},
 		},
+		allMarkdownRemark: shape({
+			edges: shape({
+				node: shape({
+					timeToRead: number,
+					frontmatter: shape({
+						title: string,
+						path: string,
+						date: string,
+						author: shape({
+							name: string,
+							link: string,
+							avatar: string,
+						}),
+						image: shape({
+							feature: string,
+							thumbnail: string,
+							teaser: string,
+						}),
+						tags: arrayOf(string),
+					}),
+				}),
+			}),
+		}),
 	}),
 }
 
-/**
- * GraphQl query
- */
 // eslint-disable-next-line no-undef
 export const query = graphql`
 	query RootLayoutQuery {
 		site {
 			siteMetadata {
 				title
+			}
+		}
+
+		allMarkdownRemark(
+			sort: { fields: [frontmatter___date], order: DESC }
+			limit: 5
+		) {
+			edges {
+				node {
+					timeToRead
+					frontmatter {
+						title
+						path
+						date(formatString: "MMMM DD, YYYY")
+						author {
+							name
+							link
+							avatar
+						}
+						image {
+							feature
+							thumbnail
+							teaser
+						}
+						tags
+					}
+				}
 			}
 		}
 	}

@@ -1,6 +1,8 @@
 import React from 'react'
 import { string, shape } from 'prop-types'
-import Link from 'gatsby-link'
+import Link, { withPrefix } from 'gatsby-link'
+import defaultAvatar from '../../assets/images/avatar.jpg'
+import defaultMiniPic from '../../assets/images/default_mini_pic.jpg'
 
 const MiniPostItem = ({
 	link,
@@ -18,11 +20,17 @@ const MiniPostItem = ({
 				{time}
 			</time>
 			<Link to={authorLink} className="author">
-				<img src={avatar} alt={name} />
+				<img
+					src={avatar ? withPrefix(`images/authors/${avatar}`) : defaultAvatar}
+					alt={name}
+				/>
 			</Link>
 		</header>
 		<Link to={link} className="image">
-			<img src={img} alt={title} />
+			<img
+				src={img ? withPrefix(`images/posts/${img}`) : defaultMiniPic}
+				alt={title}
+			/>
 		</Link>
 	</article>
 )
