@@ -4,6 +4,7 @@ title: Raspberry Pi Hotspot configuration
 subtitle: A small demo of configuring a hotspot for your Raspberry Pi 
 excerpt: Configuring a Raspberry Pi is fun especially when you delve into IoT and start tinkering around with making machines talk to each other. This tool is perfect for such fun. It is even better when you can get it connected to the internet and perform even more functions such as make your coffee before you wake up or turn off your lights from wherever you are.
 tags: [iot, raspberry-pi, wifi]
+category: tech
 date: "2017-03-19T12:00:00+00:00"
 author:
   name: Brian Lusina

@@ -4,6 +4,7 @@ title:  Sorting Algorithms
 subtitle: Brief overview of some sorting algorithms
 excerpt: Algorithms are set to achieve a certain outcome. Sorting algoritms follow numerical order and usually has random access to an array. This means that it can access random indexes of an array to perform a sort.
 tags:  [algorithms, sorting algorithms, array]
+category: tech
 date: "2016-07-12T12:00:00+00:00"
 author:
   name: Brian Lusina

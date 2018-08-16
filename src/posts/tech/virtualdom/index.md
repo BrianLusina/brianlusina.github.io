@@ -4,6 +4,7 @@ title: The Virtual DOM with React
 subtitle: virtual DOM manipulation with ReactJS
 excerpt: JavaScript is one of the most powerful languages in the current era and it is quickly gaining ground. What makes it powerful is its dynamic nature and ability to manipulate the DOM. This manipulation is at the heart of the modern, interactive web. Unfortunately, it is also a lot slower than most JavaScript operations.
 tags: [virtualdom, reactjs, javascript]
+category: tech
 date: "2016-10-09T12:00:00+00:00"
 author:
   name: Brian Lusina

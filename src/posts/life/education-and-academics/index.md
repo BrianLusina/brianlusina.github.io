@@ -5,6 +5,7 @@ subtitle: Academia and education
 excerpt: Academia and education
 date: '2017-05-06T12:00:00+00:00'
 tags: [eduction, academics, life]
+category: life
 author:
   name: Brian Lusina
   link: "/brian_lusina"

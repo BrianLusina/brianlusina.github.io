@@ -5,6 +5,7 @@ subtitle: "Problems in Non-Life Insurance"
 categories: finance
 excerpt: "Problems in Non-Life Insurance"
 tags:  [Actuarial, Insurance, Money, business]
+category: finance
 date: '2017-01-16T12:00:00+00:00'
 author:
   name: Brian Lusina

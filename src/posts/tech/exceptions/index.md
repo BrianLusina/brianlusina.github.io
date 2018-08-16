@@ -5,6 +5,7 @@ title: Exception Handling and why you should care.
 subtitle: Try and catch that exception, keeping your user happy
 excerpt: No one likes errors, especially when they occur frequently and unchecked. As developers we constantly check for errors and not that the program is running as expected, but rather it is handling the errors as it should. There is not perfect program that will never encounter errors, the best programs are the ones that handle **exceptions** really well and keep the user happy and oblivous of the errors being handled
 tags: [exceptions, error-handling]
+category: tech
 date: "2016-10-26T12:00:00+00:00"
 author:
   name: Brian Lusina

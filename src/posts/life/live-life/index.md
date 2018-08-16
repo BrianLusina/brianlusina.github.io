@@ -4,6 +4,7 @@ title: "Live Life!"
 subtitle: live life to the fullest
 excerpt: "live life to the fullest"
 tags:  [Live, Love, Laugh, Life]
+category: life
 date: '2017-05-07T12:00:00+00:00'
 author:
   name: Brian Lusina

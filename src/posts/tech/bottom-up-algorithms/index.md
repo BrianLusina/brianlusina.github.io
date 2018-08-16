@@ -4,6 +4,7 @@ title: Bottom up algorithms
 subtitle: A short description on bottom up algorithms
 excerpt: Going bottom-up is a way to avoid recursion, saving the memory cost that recursion incurs when it builds up the call stack.
 tags: [data-structures, algorithms]
+category: tech
 date: "2017-05-18T12:00:00+00:00"
 author:
   name: Brian Lusina

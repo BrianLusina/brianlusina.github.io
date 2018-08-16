@@ -4,6 +4,7 @@ title: Serializable and Parcelable
 subtitle: Difference between Serializable Java interface and Android Parcelable interface
 excerpt: When creating Plain Old Java Objects (POJOs) in eith Android or Java, more specifically Java, the aim is to be able to _model_ our data in a certain way. To enable easier addition to an Adapter or a database, even easier retrieval from a database using **Jackson** library (what Firebase uses to be able to store and retrieve data).
 tags: [Android, Serializable, Parcelable]
+category: tech
 date: "2016-09-24T12:00:00+00:00"
 author:
   name: Brian Lusina

@@ -4,6 +4,7 @@ title:  Accessors and Modifiers
 subtitle: subtle introduction to getters and setters
 except: This topic will simply _extend_ from the [Objective of OOP](https://brianlusina.github.io/Object-Oriented-Programming/) and [4 principles of OOP](https://brianlusina.github.io/Principles-Of-Oop/) and will majorly focus only on accessors and modifiers, i.e. _getters_ and _setters_
 tags:  [OOP, getters and setters, accessors, modifiers]
+category: tech
 date: "2016-07-05T12:00:00+00:00"
 author:
   name: Brian Lusina

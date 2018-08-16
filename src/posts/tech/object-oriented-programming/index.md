@@ -5,6 +5,7 @@ subtitle: "Objected oriented programming"
 excerpt: "Object Oriented Programming, or as is popularly known in the programming realm OOP is a style of programming that is organized around objects rather than actions."
 date: '2016-06-02T12:00:00+00:00'
 tags:  [OOP, Objects]
+category: tech
 author:
   name: Brian Lusina
   link: "/brian_lusina"

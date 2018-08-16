@@ -4,6 +4,7 @@ title: Big-O-Notation
 subtitle: The Big Deal with the Big-O Notation and algorithms
 excerpt: Big O notation is used in Computer Science to describe the performance or complexity of an algorithm. Big O specifically describes the worst-case scenario, and can be used to describe the execution time required or the space used (e.g. in memory or on disk) by an algorithm.
 tags:  [algorithms]
+category: tech
 date: "2016-08-02T12:00:00+00:00"
 author:
   name: Brian Lusina

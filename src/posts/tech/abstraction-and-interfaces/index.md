@@ -4,6 +4,7 @@ title: Abstraction and interfaces
 subtitle: When to use abstraction and when to use interfaces
 excerpt: Abstraction and interfaces are common words that most programmers will come across when desigining systems and platforms. They are very useful concepts that any programmer who knows about Object Oriented Programming (OOP) should grasp and know like the back of their hand. They not only make code readable and testable, but also make your life a hell of a lot easier.
 tags: [abstraction, interfaces, oop]
+category: tech
 date: "2016-10-28T12:00:00+00:00"
 author:
   name: Brian Lusina

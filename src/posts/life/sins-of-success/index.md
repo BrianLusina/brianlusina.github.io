@@ -5,6 +5,7 @@ subtitle: What are the sins of success?
 excerpt: What are the sins of success?
 date: '2017-05-02T12:00:00+00:00'
 tags: [life, success]
+category: life
 author:
   name: Brian Lusina
   link: "/brian_lusina"

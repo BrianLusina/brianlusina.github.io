@@ -4,6 +4,7 @@ title: Concept of Memoize
 subtitle: A gentle introduction to memoize
 excerpt: Memoization ensures that a function doesn't run for the same inputs more than once by keeping a record of the results for given inputs (usually in a dictionary).
 tags: [data-structures, python, algorithms, memoize]
+category: tech
 date: "2017-05-17T12:00:00+00:00"
 author:
   name: Brian Lusina
