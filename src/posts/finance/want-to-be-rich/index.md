@@ -4,6 +4,7 @@ title: "5 Attributes of billionaires"
 subtitle: "5 attributes you should probably start adopting."
 excerpt: "5 attributes you should probably start adopting."
 tags:  [Finance, Wealth, Money, business]
+category: finance
 date: '2017-05-06T12:00:00+00:00'
 author:
   name: Brian Lusina

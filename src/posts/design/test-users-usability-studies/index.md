@@ -9,6 +9,7 @@ subtitle: How many users do you need to test usability of your software?
 date: '2016-08-04T12:00:00+00:00'
 excerpt: How many users do you need to test usability of your software?
 tags:  [Usability, User Experience, UX, Design]
+category: design
 image:
  feature: test-users-and-usability.jpg
  thumbnail: test-users-and-usability.jpg

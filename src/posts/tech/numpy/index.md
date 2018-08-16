@@ -4,6 +4,7 @@ title: NumPy
 subtitle: NumPy Arrays and Python Lists
 excerpt: NumPy is _Numerical Python_ in full. A very powerful library for performing, well you guessed it, vector arithmetic. For those who shall continue on with Data Science using Python, I suggest you have a look at the NumPy package. It is a very powerful tool that will most definitely make your life that much simpler.
 tags:  [Python, Numpy, data]
+category: tech
 date: "2016-09-03T12:00:00+00:00"
 author:
   name: Brian Lusina

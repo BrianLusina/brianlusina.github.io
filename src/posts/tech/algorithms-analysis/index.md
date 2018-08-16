@@ -4,6 +4,7 @@ title:  Algorithm Analysis
 subtitle:  What is algorithm analysis
 excerpt:  Algorithms are steps taken to solve a problem. Analysis of an algorithm helps us determine whether the algorithm is useful or not. Once we have a correct algorithm we have to determine whether the algorithm is efficient or not. Effieciency in any running system is important to achieve maximum performance within a given amount of time. Complexity should be at a minimum. Abstraction is key in this process.
 tags:  [complexity of algorithms, algorithms, algorithm analysis]
+category: tech
 date: "2016-07-18T12:00:00+00:00"
 author:
   name: Brian Lusina

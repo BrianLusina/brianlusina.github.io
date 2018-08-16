@@ -4,6 +4,7 @@ title: "A Practical example of Abstraction"
 subtitle: A more practical approach to abstraction in OOP
 excerpt: "Abstraction in the real world."
 tags: [encapsulation, objects,object oriented programming, abstraction]
+category: tech
 date: "2016-07-11T12:00:00+00:00"
 image: 
  feature: abstraction.jpg

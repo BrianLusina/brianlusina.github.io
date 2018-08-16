@@ -4,6 +4,7 @@ title:  Version Control and Git
 subtitle: Version control and git control
 excerpt: Version control and its subtle benefits
 date: "2016-06-25T12:00:00+00:00"
+category: tech
 tags:  [git, version control, VCS, versioning]
 author:
   name: Brian Lusina

@@ -4,6 +4,7 @@ title:  Difference between Post increment and pre increment of a variable
 subtitle: x++ and ++x
 excerpt: This post is a demonstration of the difference between post increment and pre increment of variables in Java. Post increment is usually denoted as `x++`, where the x is the variable in question, usually an integer, double or float. While pre-increment is addition denoted as `++x`.
 tags:  [Post-increment, pre-increment]
+category: tech
 date: "2016-07-06T12:00:00+00:00"
 author:
   name: Brian Lusina

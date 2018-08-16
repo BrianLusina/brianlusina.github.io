@@ -4,6 +4,7 @@ title:  The 4 Principles of OOP
 subtitle: Principles governing OOP
 excerpt: For a program to be said to be object oriented, some principles have to be followed. These principles are crucial to enable the said program to be effective in order to be able to meet the needs the program was designed for.
 tags:  [oop, oop principles, objects, encapsulation, abstraction, interfaces, polymorphism]
+category: tech
 date: '2016-06-03T12:00:00+00:00'
 author:
   name: Brian Lusina

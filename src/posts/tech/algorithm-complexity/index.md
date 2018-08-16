@@ -4,6 +4,7 @@ title:  Complexity of Algorithms
 subtitle: Are algorithms that complex?
 excerpt: The whole point of the big-O/Ω/Θ stuff was to be able to say something useful about algorithms.
 tags:  [complexity of algorithms, algorithms]
+category: tech
 date: "2016-07-17T12:00:00+00:00"
 author:
   name: Brian Lusina

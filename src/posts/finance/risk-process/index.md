@@ -4,6 +4,7 @@ title: "The Risk Process"
 subtitle: "A small breakdown of the risk process"
 excerpt: "A small breakdown of the risk process"
 tags:  [Actuarial, Insurance, Money, business]
+category: finance
 date: '2017-01-18T12:00:00+00:00'
 author:
   name: Brian Lusina

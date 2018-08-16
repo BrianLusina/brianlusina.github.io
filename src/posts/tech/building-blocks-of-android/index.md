@@ -4,6 +4,7 @@ title: Android Building Blocks
 subtitle: Android components and building Blocks
 excerpt: Android component is simply a piece of code that has a well defined life cycle. e.g. Activity, Reciever, Service. The core building blocks or fundamental components of Android
 tags: [Android, Serializable, Parcelable]
+category: tech
 date: "2016-09-25T12:00:00+00:00"
 author:
   name: Brian Lusina

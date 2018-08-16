@@ -4,6 +4,7 @@ title: Abstract Data Types
 subtitle: All about abstract data types
 excerpt: There are several Abstract data types that are used in Java, this is a brief overview of some of them
 tags: [data, arrays, lists, stacks, queues]
+category: tech
 date: "2016-07-12T12:00:00+00:00"
 author:
   name: Brian Lusina

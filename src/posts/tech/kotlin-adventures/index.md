@@ -4,6 +4,7 @@ title: My Journey in Kotlin thus far
 subtitle: Kotlin adventures
 excerpt: It has been a while since my last blog post. And since my last blog post I set out on a journey to learn and grow in learning new technologies and understanding how they work. What really made my adventure exciting was when I discovered a little jewel called Kotlin.
 tags: [Android, Java, language, kotlin]
+category: tech
 date: "2017-09-10T12:00:00+00:00"
 author:
   name: Brian Lusina

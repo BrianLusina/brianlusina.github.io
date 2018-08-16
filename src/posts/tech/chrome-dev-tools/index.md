@@ -9,6 +9,7 @@ author:
   link: "/brian_lusina"
   avatar: brian_lusina.jpg
 tags: [chrome, DevTools, browser tools]
+category: tech
 image:
    feature:   chrome-dev-tools.png
    teaser:   chrome-dev-tools.png

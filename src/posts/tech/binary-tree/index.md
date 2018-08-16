@@ -4,6 +4,7 @@ title: Perfect Binary Tree
 subtitle: A gentle introduction to perfect binary trees
 excerpt: Binary trees are part of a data structure known as `Trees`, yeah, I know, the forefathers of computer science and software engineering were quite creative. They were quite observant. Trees, more or less, look like trees, like the literal trees in nature. Now, that we have the most basic and almost worst analogy out there, what are binary trees?
 tags: [algorithms, data-structures, binary-tree]
+category: tech
 date: "2017-01-26T12:00:00+00:00"
 author:
   name: Brian Lusina

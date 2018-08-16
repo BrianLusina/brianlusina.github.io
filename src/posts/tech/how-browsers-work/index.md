@@ -4,6 +4,7 @@ title:  How Browsers Work
 subtitle: Some basic information about how a browser works
 excerpt: Browsers are essential tools that help in transfering information from one computer to another over the world wide web. Without these browsers we would not be able to dynamically interact with people from all over the world at a click of a button.
 tags:  [how browsers work, browsers]
+category: tech
 date: "2016-07-31T12:00:00+00:00"
 author:
   name: Brian Lusina

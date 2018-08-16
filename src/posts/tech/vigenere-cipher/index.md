@@ -4,6 +4,7 @@ title: Vigenere Cipher
 subtitle: The Vigenere Cipher Broken down in Python
 excerpt: The Vigenere cipher is likely the the most secure ciphers out there. It builds on the principle of the Caesar cipher yet provides a decent way to avoid the easy to solve shift problems. The basic gist of this cipher is we have both a message and a key. The key can be any length, but you must repeat the key for the length of our message to get this to work
 tags: [algorithms, puzzles, ciphers]
+category: tech
 date: "2016-09-07T12:00:00+00:00"
 author:
   name: Brian Lusina

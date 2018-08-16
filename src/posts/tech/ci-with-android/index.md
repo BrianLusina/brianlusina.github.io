@@ -4,6 +4,7 @@ title: Continuous Integration and Deployment with Android, the right way.
 subtitle: Continuous Deployment in Android
 excerpt: Continuous Integration has become an essential part of any software project in recent times. With how fast technology keeps changing and how quickly libraries and dependencies get re-written, it becomes essential for your application code to be maintained, tested and delivered to users quickly and efficiently. This will usually involve you re-writing some old code, testing your new feature and then deploying to users for them to enjoy your new feature in your application.
 tags: [Android, kotlin, CI, Continuous Integration, Continuous Deployment]
+category: tech
 date: "2017-10-21T12:00:00+00:00"
 author:
   name: Brian Lusina
