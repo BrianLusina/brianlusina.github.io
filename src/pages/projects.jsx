@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { shape, arrayOf, string, number } from 'prop-types'
 import PostItem from '../components/posts/PostItem'
 import moment from 'moment'
+import { blogPropType } from '../propTypes';
 
 class ProjectsPage extends Component {
 	constructor(props) {
@@ -84,42 +84,18 @@ class ProjectsPage extends Component {
 }
 
 ProjectsPage.propTypes = {
-	data: shape({
-		allMarkdownRemark: shape({
-			edges: arrayOf(
-				shape({
-					node: shape({
-						frontmatter: shape({
-							title: string,
-							subtitle: string,
-							excerpt: string,
-							date: string,
-							author: shape({
-								name: string,
-								link: string,
-								avatar: string,
-							}),
-							image: shape({
-								feature: string,
-								thumbnail: string,
-								teaser: string,
-								credit: string,
-								creditlink: string,
-							}),
-							tags: arrayOf(string),
-						}),
-						timeToRead: number,
-						html: string,
-					}),
-				})
-			),
-		}),
-	}),
+	data: blogPropType
+}
+
+ProjectsPage.defaultProps = {
+	data: {
+		allMarkdownRemark: { edges : [] },
+	},
 }
 
 // eslint-disable-next-line no-undef
 export const query = graphql`
-	query TechPageQuery {
+	query ProjectsPageQuery {
 		allMarkdownRemark(
 			filter: { frontmatter: { category: { eq: "projects" } } }
 			sort: { fields: [frontmatter___date], order: DESC }
