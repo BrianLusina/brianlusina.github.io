@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { object, shape, arrayOf } from 'prop-types'
 import PostItem from '../components/posts/PostItem'
-import Link from 'gatsby-link'
 import moment from 'moment'
+import Pagination from '../components/Pagination'
 
 export class IndexPage extends Component {
 	constructor(props, context) {
@@ -89,28 +89,11 @@ export class IndexPage extends Component {
 		return (
 			<section>
 				{this.renderBlogPosts()}
-				<ul className="actions pagination">
-					<li>
-						<Link
-							to={previousUrl}
-							className={`${
-								previousUrl === '0' ? 'disabled' : ''
-							} button large previous`}
-						>
-							Previous Page
-						</Link>
-					</li>
-					<li>
-						<Link
-							to={nextUrl}
-							className={`${
-								nextUrl === (pageCount + 1).toString() ? 'disabled' : ''
-							} button large next`}
-						>
-							Next Page
-						</Link>
-					</li>
-				</ul>
+				<Pagination
+					previousUrl={previousUrl}
+					nextUrl={nextUrl}
+					pageCount={pageCount}
+				/>
 			</section>
 		)
 	}
