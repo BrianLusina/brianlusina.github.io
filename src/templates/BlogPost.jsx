@@ -75,8 +75,6 @@ const BlogPost = ({ data, pathContext: { next, prev } }) => {
 				</footer>
 			</article>
 
-			<Footer />
-
 			<p>
 				{prev && (
 					<Link to={prev.frontmatter.path}>
@@ -89,6 +87,8 @@ const BlogPost = ({ data, pathContext: { next, prev } }) => {
 					<Link to={next.frontmatter.path}>Next: {next.frontmatter.title}</Link>
 				)}
 			</p>
+			
+			<Footer />
 		</div>
 	)
 }
