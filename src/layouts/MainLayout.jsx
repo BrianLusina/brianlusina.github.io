@@ -1,5 +1,5 @@
 import React from 'react'
-import { object } from 'prop-types'
+import { object, string, } from 'prop-types'
 import Helmet from 'react-helmet'
 import Header from '../components/Header'
 import Menu from '../components/menu/Menu'
@@ -8,7 +8,7 @@ import favicon from '../assets/favicon.ico'
 import { StaticQuery, graphql } from "gatsby"
 import '../styles/scss/main.scss'
 
-const MainLayoutWrapper = ({children}) => (
+const MainLayoutWrapper = ({children, pathname}) => (
 	<StaticQuery
 		query={graphql`
 			query RootLayoutQuery {
@@ -63,9 +63,8 @@ const MainLayoutWrapper = ({children}) => (
 					<Header />
 					<Menu />
 					<div id="main">{children}</div>
-					{ window.location.pathname === '/' ? <Sidebar miniPosts={miniPosts} /> : null}
+					{ pathname === '/' ? <Sidebar miniPosts={miniPosts} /> : null}
 				</div>
-				}
 			</>
 		)}
 	/>
@@ -76,6 +75,7 @@ const MainLayoutWrapper = ({children}) => (
  */
 MainLayoutWrapper.propTypes = {
 	children: object,
+	pathname: string,
 }
 
 export default MainLayoutWrapper

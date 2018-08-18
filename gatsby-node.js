@@ -1,14 +1,24 @@
 const path = require('path')
-const createPaginatedPages = require('gatsby-paginate')
+const times = require('lodash/times');
+
+const paginationPath = (path, page, totalPages) => {
+	if (page === 0) {
+		return path
+	} else if (page < 0 || page >= totalPages) {
+		return ''
+	} else {
+		return `${path}/${page + 1}`
+	}
+}
 
 exports.createPages = ({
-	boundActionCreators,
+	actions,
 	graphql
 }) => {
 	const {
 		createPage
-	} = boundActionCreators
-	const blogPostTemplate = path.resolve(`src/templates/BlogPost.jsx`)
+	} = actions
+	const blogPostTemplate = path.resolve(`src/templates/BlogPost.jsx`);
 	return new Promise((resolve, reject) => {
 		graphql(
 			`
@@ -52,13 +62,22 @@ exports.createPages = ({
 					}
 				}
 			}) => {
-				createPaginatedPages({
-					edges: posts,
-					createPage,
-					pageTemplate: 'src/templates/index.js',
-					pageLength: 5,
-					context: {},
-					pathPrefix: '',
+				const blogPostsCount = posts.length;
+				const blogPostsPerPage = 5;
+				const paginatedPagesCount = Math.ceil(blogPostsCount / blogPostsPerPage);
+
+				times(paginatedPagesCount, index => {
+					createPage({
+						path: paginationPath('/', index, paginatedPagesCount),
+						component: path.resolve('src/templates/Home.jsx'),
+						context: {
+							skip: index * blogPostsPerPage,
+							limit: blogPostsPerPage,
+							paginatedPagesCount,
+							prevPath: paginationPath('', index - 1, paginatedPagesCount),
+							nextPath: paginationPath('', index + 1, paginatedPagesCount),
+						}
+					})
 				})
 
 				posts.map(({

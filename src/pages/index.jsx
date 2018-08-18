@@ -1,9 +1,59 @@
 import React from "react"
 import Layout from "../layouts/MainLayout";
-import Home from "../templates";
+import Home from "../templates/Home";
+import {graphql } from 'gatsby'
+import { shape, arrayOf, object } from 'prop-types'
+import {locationPropType} from '../propTypes';
 
-export default () => (
-	<Layout>
-		<Home />
-	</Layout>
-)
+const RootPage = ({ data: { allMarkdownRemark : {edges: posts}}, location }) => {
+	return (
+		<Layout pathname={location.pathname}>
+			<Home posts={posts}/>
+		</Layout>
+	)
+}
+
+RootPage.propTypes = {
+	data: shape({
+		allMarkdownRemark: shape({
+			edges: arrayOf(object)
+		})
+	}),
+	location: locationPropType
+}
+
+export const query = graphql`
+	query BlogPostsQuery {
+		allMarkdownRemark {
+			edges {
+				node {
+					frontmatter {
+						title
+						subtitle
+						category
+						excerpt
+						date(formatString: "MMMM DD, YYYY")
+						author {
+							name
+							link
+							avatar
+						}
+						image {
+							feature
+							thumbnail
+							teaser
+							credit
+							creditlink
+						}
+						tags
+					}
+					excerpt
+					timeToRead
+					html
+				}
+			}
+		}
+	}
+`
+
+export default RootPage;

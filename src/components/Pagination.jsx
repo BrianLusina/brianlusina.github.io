@@ -1,6 +1,6 @@
 import React from 'react'
 import { string, number } from 'prop-types'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 
 const Pagination = ({ previousUrl, nextUrl, pageCount }) => {
 	return (
@@ -30,9 +30,9 @@ const Pagination = ({ previousUrl, nextUrl, pageCount }) => {
 }
 
 Pagination.propTypes = {
-	previousUrl: string,
-	nextUrl: string,
-	pageCount: number,
+	previousUrl: string.isRequired,
+	nextUrl: string.isRequired,
+	pageCount: number.isRequired,
 }
 
 export default Pagination

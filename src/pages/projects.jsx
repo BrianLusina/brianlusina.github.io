@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PostItem from '../components/posts/PostItem'
 import moment from 'moment'
 import { blogPropType } from '../propTypes';
+import { graphql } from "gatsby"
 
 class ProjectsPage extends Component {
 	constructor(props) {
@@ -106,6 +107,7 @@ export const query = graphql`
 						title
 						subtitle
 						excerpt
+						path
 						date(formatString: "MMMM DD, YYYY")
 						author {
 							name

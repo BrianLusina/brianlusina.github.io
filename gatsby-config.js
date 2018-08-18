@@ -13,13 +13,6 @@ module.exports = {
 				name: "posts",
 				path: `${__dirname}/src/posts/`
 			},
-		},
-		{
-			resolve: "gatsby-source-filesystem",
-			options: {
-				name: "posts-tech",
-				path: `${__dirname}/src/posts/tech/`
-			},
-		},
+		}
 	],
 };

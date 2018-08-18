@@ -2,7 +2,9 @@ import {
 	shape,
 	arrayOf,
 	string,
-	number
+	number,
+	object,
+	func
 } from 'prop-types'
 
 export const blogPropType = shape({
@@ -15,6 +17,7 @@ export const blogPropType = shape({
 						subtitle: string,
 						excerpt: string,
 						date: string,
+						path: string,
 						category: string,
 						author: shape({
 							name: string,
@@ -36,4 +39,23 @@ export const blogPropType = shape({
 			})
 		),
 	}),
+})
+
+export const locationPropType = shape({
+	ancestorOrigins: object,
+	assign: func,
+	hash: string,
+	host: string,
+	hostname: string,
+	href: string,
+	key: string,
+	origin: string,
+	pathname: string,
+	port: string,
+	protocol: string,
+	reload: func,
+	replace: func,
+	search: string,
+	state: object,
+	toString: func,
 })

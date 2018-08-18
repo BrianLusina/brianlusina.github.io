@@ -1,12 +1,14 @@
 import React from 'react'
-import Link, { withPrefix } from 'gatsby-link'
+import { Link, withPrefix } from 'gatsby'
 import Helmet from 'react-helmet'
 import { object, shape, string, arrayOf } from 'prop-types'
 import Footer from '../components/Footer'
 import defaultFeature from '../assets/images/default_feature_pic.jpg'
 import defaultAvatar from '../assets/images/avatar.jpg'
+import { graphql } from "gatsby"
 
-const BlogPost = ({ data, pathContext: { next, prev } }) => {
+
+const BlogPost = ({ data, pageContext: { next, prev } }) => {
 	const { markdownRemark: post } = data
 	const {
 		frontmatter: {
@@ -20,7 +22,7 @@ const BlogPost = ({ data, pathContext: { next, prev } }) => {
 	} = post
 
 	return (
-		<div>
+		<>
 			<Helmet title={`${title} - LJournal`} />
 			<article className="post">
 				<header>
@@ -89,7 +91,7 @@ const BlogPost = ({ data, pathContext: { next, prev } }) => {
 			</p>
 			
 			<Footer />
-		</div>
+		</>
 	)
 }
 
@@ -120,7 +122,7 @@ BlogPost.propTypes = {
 		}),
 	}),
 	location: object,
-	pathContext: shape({
+	pageContext: shape({
 		next: shape({
 			frontmatter: shape({
 				path: string,

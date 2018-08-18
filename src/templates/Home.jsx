@@ -1,25 +1,22 @@
 import React, { Component } from 'react'
 // import { connect } from 'react-redux'
-import { object, shape, arrayOf } from 'prop-types'
+import { object, shape, arrayOf, string, number } from 'prop-types'
 import PostItem from '../components/posts/PostItem'
 import moment from 'moment'
 import Pagination from '../components/Pagination'
 
-export class IndexPage extends Component {
+export class HomePageTemplate extends Component {
 	constructor(props, context) {
 		super(props, context)
 		this.state = {
 			posts: [],
+			blogPostsPerPage: 5,
+			paginatedPagesCount: 10
 		}
 	}
 
 	renderBlogPosts() {
-		const {
-			pathContext: { group: posts },
-		} = this.props
-
-		// limit these items to most 6 recent posts
-		return posts.map(
+		return this.state.posts.map(
 			(
 				{
 					node: {
@@ -62,17 +59,28 @@ export class IndexPage extends Component {
 		)
 	}
 
+	paginationPath(path, page, totalPages){
+		if (page === 0) {
+			return path
+		} else if (page < 0 || page >= totalPages) {
+			return ''
+		} else {
+			return `${path}/${page + 1}`
+		}
+	}
+	
 	static getDerivedStateFromProps(nextProps, prevState) {
-		const {
-			data: {
-				allMarkdownRemark: { edges: posts },
-			},
-		} = nextProps
+		const { posts } = nextProps
 
+		const blogPostsCount = posts.length;
+		const paginatedPagesCount = Math.ceil(blogPostsCount / prevState.blogPostsPerPage)
+	
 		if (posts !== prevState.posts) {
 			return {
 				...prevState,
 				posts,
+				blogPostsCount,
+				paginatedPagesCount
 			}
 		} else {
 			return null
@@ -80,19 +88,19 @@ export class IndexPage extends Component {
 	}
 
 	render() {
-		const {
-			pathContext: { index, pageCount },
-		} = this.props
-		const previousUrl = index - 1 == 1 ? '' : (index - 1).toString()
-		const nextUrl = (index + 1).toString()
+		// const {
+		// 	pageContext: { index, pageCount },
+		// } = this.props
+		// const previousUrl = index - 1 == 1 ? '' : (index - 1).toString()
+		// const nextUrl = (index + 1).toString()
 
 		return (
 			<section>
 				{this.renderBlogPosts()}
 				<Pagination
-					previousUrl={previousUrl}
-					nextUrl={nextUrl}
-					pageCount={pageCount}
+					previousUrl={''} //previousUrl}
+					nextUrl={''} //nextUrl}
+					pageCount={5} //pageCount}
 				/>
 			</section>
 		)
@@ -121,9 +129,35 @@ export class IndexPage extends Component {
 // 	}
 // }
 
-IndexPage.propTypes = {
-	data: object,
-	pathContext: shape({
+HomePageTemplate.propTypes = {
+	posts: arrayOf(
+		shape({
+			node: shape({
+				excerpt: string,
+				html: string,
+				timeToRead: number,
+				frontmatter: shape({
+					author: shape({
+						avatar: string,
+						link: string,
+						name: string
+					}),
+					date: string,
+					excerpt: string,
+					image: shape({
+						credit: string,
+						creditLink: string,
+						feature: string,
+						teaser: string,
+						thumbnail: string
+					}),
+					subtitle: string,
+					title: string,
+				})
+			})
+		})
+	),
+	pageContext: shape({
 		group: arrayOf(object),
 	}),
 }
@@ -132,39 +166,4 @@ IndexPage.propTypes = {
 // 	mapStateToProps,
 // 	mapDispatchToProps
 // )(IndexPage)
-export default IndexPage;
-
-// eslint-disable-next-line no-undef
-export const query = graphql`
-	query BlogPostsQuery {
-		allMarkdownRemark {
-			edges {
-				node {
-					frontmatter {
-						title
-						subtitle
-						categories
-						excerpt
-						date(formatString: "MMMM DD, YYYY")
-						author {
-							name
-							link
-							avatar
-						}
-						image {
-							feature
-							thumbnail
-							teaser
-							credit
-							creditlink
-						}
-						tags
-					}
-					excerpt
-					timeToRead
-					html
-				}
-			}
-		}
-	}
-`
+export default HomePageTemplate
