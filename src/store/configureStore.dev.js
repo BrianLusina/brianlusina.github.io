@@ -3,24 +3,29 @@
  * @notes: Redux Store
  */
 
-import {applyMiddleware, createStore} from 'redux';
+import {
+	applyMiddleware,
+	createStore
+} from 'redux';
 import rootReducer from '../reducers/rootReducer';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
-import {composeWithDevTools} from 'redux-devtools-extension';
+import {
+	composeWithDevTools
+} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import createHistory from "history/createBrowserHistory";
 
 const middlware = [
-  thunk,
-  reduxImmutableStateInvariant()
+	thunk,
+	reduxImmutableStateInvariant()
 ];
 
 /**
  * Configures the application store
  * */
 export default function configureStore(initialState) {
-  return createStore(
-    rootReducer, initialState,
-    composeWithDevTools(applyMiddleware(...middlware))
-  );
+	return createStore(
+		rootReducer, initialState,
+		composeWithDevTools(applyMiddleware(...middlware))
+	);
 }

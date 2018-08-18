@@ -4,7 +4,7 @@ import configureStore from "./src/store/configureStore";
 import { Router } from "react-router-dom"
 
 
-exports.replaceRouterComponent = ({ history }) => {
+export default ({ history }) => {
 	const store = configureStore();
 
 	const ConnectedRouterWrapper = ({ children }) => (

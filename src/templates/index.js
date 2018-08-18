@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import { object, shape, arrayOf } from 'prop-types'
 import PostItem from '../components/posts/PostItem'
 import moment from 'moment'
@@ -99,27 +99,27 @@ export class IndexPage extends Component {
 	}
 }
 
-/**
- * maps the state of the redux store to the BlogContainer props
- * @param {Object} state of redux store
- * @param {Object} ownProps BlogContainer properties
- * @returns {Object} new state of redux store
- */
-function mapStateToProps(state, ownProps) {
-	return {}
-}
+// /**
+//  * maps the state of the redux store to the BlogContainer props
+//  * @param {Object} state of redux store
+//  * @param {Object} ownProps BlogContainer properties
+//  * @returns {Object} new state of redux store
+//  */
+// function mapStateToProps(state, ownProps) {
+// 	return {}
+// }
 
-/**
- * maps dispatch actions to props in this container
- * component
- * @param {Object} dispatch
- * @returns {Object} actions object
- */
-function mapDispatchToProps(dispatch) {
-	return {
-		//actions: bindActionCreators(actions, dispatch)
-	}
-}
+// /**
+//  * maps dispatch actions to props in this container
+//  * component
+//  * @param {Object} dispatch
+//  * @returns {Object} actions object
+//  */
+// function mapDispatchToProps(dispatch) {
+// 	return {
+// 		//actions: bindActionCreators(actions, dispatch)
+// 	}
+// }
 
 IndexPage.propTypes = {
 	data: object,
@@ -128,10 +128,11 @@ IndexPage.propTypes = {
 	}),
 }
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(IndexPage)
+// export default connect(
+// 	mapStateToProps,
+// 	mapDispatchToProps
+// )(IndexPage)
+export default IndexPage;
 
 // eslint-disable-next-line no-undef
 export const query = graphql`
