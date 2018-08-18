@@ -32,7 +32,7 @@ const TemplateWrapper = ({
 			<Header />
 			<Menu />
 			<div id="main">{children()}</div>
-			<Sidebar miniPosts={miniPosts} />
+			{ window.location.pathname === '/' ? <Sidebar miniPosts={miniPosts} /> : null}
 		</div>
 	</div>
 )
