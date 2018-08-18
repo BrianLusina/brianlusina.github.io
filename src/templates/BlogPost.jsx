@@ -94,8 +94,8 @@ const BlogPost = ({ data, pathContext: { next, prev } }) => {
 }
 
 BlogPost.propTypes = {
-	data: {
-		markdownRemark: {
+	data: shape({
+		markdownRemark: shape({
 			html: string,
 			frontmatter: {
 				title: string,
@@ -117,22 +117,22 @@ BlogPost.propTypes = {
 				},
 				excerpt: string,
 			},
-		},
-	},
+		}),
+	}),
 	location: object,
 	pathContext: shape({
-		next: {
-			frontmatter: {
+		next: shape({
+			frontmatter: shape({
 				path: string,
 				title: string,
-			},
-		},
-		prev: {
-			frontmatter: {
+			}),
+		}),
+		prev: shape({
+			frontmatter: shape({
 				path: string,
 				title: string,
-			},
-		},
+			}),
+		}),
 	}),
 }
 
