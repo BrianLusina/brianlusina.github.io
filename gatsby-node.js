@@ -1,5 +1,5 @@
 const path = require('path')
-const times = require('lodash/times');
+const times = require('lodash/times')
 
 const paginationPath = (path, page, totalPages) => {
 	if (page === 0) {
@@ -11,19 +11,16 @@ const paginationPath = (path, page, totalPages) => {
 	}
 }
 
-exports.createPages = ({
-	actions,
-	graphql
-}) => {
-	const {
-		createPage
-	} = actions
-	const blogPostTemplate = path.resolve(`src/templates/BlogPost.jsx`);
+exports.createPages = ({ actions, graphql }) => {
+	const { createPage } = actions
+	const blogPostTemplate = path.resolve(`src/templates/BlogPost.jsx`)
 	return new Promise((resolve, reject) => {
 		graphql(
 			`
 				{
-					allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+					allMarkdownRemark(
+						sort: { fields: [frontmatter___date], order: DESC }
+					) {
 						edges {
 							node {
 								html
@@ -34,6 +31,7 @@ exports.createPages = ({
 									subtitle
 									excerpt
 									path
+									category
 									date(formatString: "MMMM DD, YYYY")
 									author {
 										name
@@ -55,16 +53,10 @@ exports.createPages = ({
 				}
 			`
 		)
-			.then(({
-				data: {
-					allMarkdownRemark: {
-						edges: posts
-					}
-				}
-			}) => {
-				const blogPostsCount = posts.length;
-				const blogPostsPerPage = 5;
-				const paginatedPagesCount = Math.ceil(blogPostsCount / blogPostsPerPage);
+			.then(({ data: { allMarkdownRemark: { edges: posts } } }) => {
+				const blogPostsCount = posts.length
+				const blogPostsPerPage = 5
+				const paginatedPagesCount = Math.ceil(blogPostsCount / blogPostsPerPage)
 
 				times(paginatedPagesCount, index => {
 					createPage({
@@ -76,17 +68,11 @@ exports.createPages = ({
 							paginatedPagesCount,
 							prevPath: paginationPath('', index - 1, paginatedPagesCount),
 							nextPath: paginationPath('', index + 1, paginatedPagesCount),
-						}
+						},
 					})
 				})
 
-				posts.map(({
-					node: {
-						frontmatter: {
-							path
-						}
-					}
-				}, index) => {
+				posts.map(({ node: { frontmatter: { path } } }, index) => {
 					createPage({
 						path,
 						component: blogPostTemplate,
@@ -96,8 +82,8 @@ exports.createPages = ({
 						},
 					})
 				})
-				resolve();
-				return;
+				resolve()
+				return
 			})
 			.catch(error => {
 				// eslint ignore next line

@@ -5,9 +5,9 @@ import {graphql } from 'gatsby'
 import { shape, arrayOf, object } from 'prop-types'
 import {locationPropType} from '../propTypes';
 
-const RootPage = ({ data: { allMarkdownRemark : {edges: posts}}, location }) => {
+const RootPage = ({ data: { allMarkdownRemark : {edges: posts}}}) => {
 	return (
-		<Layout pathname={location.pathname}>
+		<Layout>
 			<Home posts={posts}/>
 		</Layout>
 	)
@@ -32,6 +32,7 @@ export const query = graphql`
 						subtitle
 						category
 						excerpt
+						path
 						date(formatString: "MMMM DD, YYYY")
 						author {
 							name

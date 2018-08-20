@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import defaultFeature from '../assets/images/default_feature_pic.jpg'
 import defaultAvatar from '../assets/images/avatar.jpg'
 import { graphql } from "gatsby"
+import MainLayoutWrapper from '../layouts/MainLayout';
 
 
 const BlogPost = ({ data, pageContext: { next, prev } }) => {
@@ -23,74 +24,75 @@ const BlogPost = ({ data, pageContext: { next, prev } }) => {
 
 	return (
 		<>
-			<Helmet title={`${title} - LJournal`} />
-			<article className="post">
-				<header>
-					<div className="title">
-						<h2>
-							<Link to="#">{title}</Link>
-						</h2>
-						<p>{subtitle}</p>
-					</div>
-					<div className="meta">
-						<time className="published" dateTime={date}>
-							{date}
-						</time>
-						<Link to={authorLink} className="author">
-							<span className="name">{name}</span>
-							<img
-								src={
-									avatar
-										? withPrefix(`images/authors/${avatar}`)
-										: defaultAvatar
-								}
-								alt={name}
-							/>
+			<MainLayoutWrapper pageTitle={title} displaySidebar={false}>
+				<article className="post">
+					<header>
+						<div className="title">
+							<h2>
+								<Link to="#">{title}</Link>
+							</h2>
+							<p>{subtitle}</p>
+						</div>
+						<div className="meta">
+							<time className="published" dateTime={date}>
+								{date}
+							</time>
+							<Link to={authorLink} className="author">
+								<span className="name">{name}</span>
+								<img
+									src={
+										avatar
+											? withPrefix(`images/authors/${avatar}`)
+											: defaultAvatar
+									}
+									alt={name}
+								/>
+							</Link>
+						</div>
+					</header>
+
+					<span className="image featured">
+						<img
+							src={src ? withPrefix(`images/posts/${src}`) : defaultFeature}
+							alt={title}
+						/>
+					</span>
+
+					<div dangerouslySetInnerHTML={{ __html: html }} />
+					<footer>
+						<ul className="stats">
+							<li>
+								<a href="#">General</a>
+							</li>
+							<li>
+								<a href="#" className="icon fa-heart">
+									28
+								</a>
+							</li>
+							<li>
+								<a href="#" className="icon fa-comment">
+									128
+								</a>
+							</li>
+						</ul>
+					</footer>
+				</article>
+
+				<p>
+					{prev && (
+						<Link to={prev.frontmatter.path}>
+							Previous: {prev.frontmatter.title}
 						</Link>
-					</div>
-				</header>
-
-				<span className="image featured">
-					<img
-						src={src ? withPrefix(`images/posts/${src}`) : defaultFeature}
-						alt={title}
-					/>
-				</span>
-
-				<div dangerouslySetInnerHTML={{ __html: html }} />
-				<footer>
-					<ul className="stats">
-						<li>
-							<a href="#">General</a>
-						</li>
-						<li>
-							<a href="#" className="icon fa-heart">
-								28
-							</a>
-						</li>
-						<li>
-							<a href="#" className="icon fa-comment">
-								128
-							</a>
-						</li>
-					</ul>
-				</footer>
-			</article>
-
-			<p>
-				{prev && (
-					<Link to={prev.frontmatter.path}>
-						Previous: {prev.frontmatter.title}
-					</Link>
-				)}
-			</p>
-			<p>
-				{next && (
-					<Link to={next.frontmatter.path}>Next: {next.frontmatter.title}</Link>
-				)}
-			</p>
-			
-			<Footer />
+					)}
+				</p>
+				<p>
+					{next && (
+						<Link to={next.frontmatter.path}>Next: {next.frontmatter.title}</Link>
+					)}
+				</p>
+				
+				<Footer />
+			</MainLayoutWrapper>
 		</>
 	)
 }

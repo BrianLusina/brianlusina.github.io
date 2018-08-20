@@ -3,6 +3,7 @@ import PostItem from '../components/posts/PostItem'
 import moment from 'moment'
 import { blogPropType } from '../propTypes';
 import { graphql } from "gatsby"
+import MainLayoutWrapper from '../layouts/MainLayout';
 
 class ProjectsPage extends Component {
 	constructor(props) {
@@ -80,7 +81,11 @@ class ProjectsPage extends Component {
 	}
 
 	render() {
-		return <section>{this.renderPosts()}</section>
+		return (
+			<MainLayoutWrapper>
+				<section>{this.renderPosts()}</section>
+			</MainLayoutWrapper>
+		)
 	}
 }
 

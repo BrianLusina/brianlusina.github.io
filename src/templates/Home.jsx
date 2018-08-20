@@ -137,6 +137,7 @@ HomePageTemplate.propTypes = {
 				html: string,
 				timeToRead: number,
 				frontmatter: shape({
+					path: string,
 					author: shape({
 						avatar: string,
 						link: string,

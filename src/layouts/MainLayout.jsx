@@ -1,5 +1,5 @@
 import React from 'react'
-import { object, string, } from 'prop-types'
+import { object, string, bool } from 'prop-types'
 import Helmet from 'react-helmet'
 import Header from '../components/Header'
 import Menu from '../components/menu/Menu'
@@ -8,7 +8,7 @@ import favicon from '../assets/favicon.ico'
 import { StaticQuery, graphql } from "gatsby"
 import '../styles/scss/main.scss'
 
-const MainLayoutWrapper = ({children, pathname}) => (
+const MainLayoutWrapper = ({children, displaySidebar, pageTitle}) => (
 	<StaticQuery
 		query={graphql`
 			query RootLayoutQuery {
@@ -49,7 +49,7 @@ const MainLayoutWrapper = ({children, pathname}) => (
 		render={({ site: { siteMetadata: { title } }, allMarkdownRemark: { edges: miniPosts }}) => (
 			<>
 				<Helmet
-					title={title}
+					title={pageTitle ? `${title} - ${pageTitle}` : title}
 					meta={[
 						{ name: 'description', content: 'LJournal, a simple blog' },
 						{
@@ -63,19 +63,24 @@ const MainLayoutWrapper = ({children, pathname}) => (
 					<Header />
 					<Menu />
 					<div id="main">{children}</div>
-					{ pathname === '/' ? <Sidebar miniPosts={miniPosts} /> : null}
+					{ displaySidebar && <Sidebar miniPosts={miniPosts} /> }
 				</div>
 			</>
 		)}
 	/>
 )
 
+MainLayoutWrapper.defaultProps = {
+	displaySidebar: true
+}
+
 /**
  * Prop Type validation
  */
 MainLayoutWrapper.propTypes = {
 	children: object,
-	pathname: string,
+	displaySidebar: bool,
+	pageTitle: string,
 }
 
 export default MainLayoutWrapper
