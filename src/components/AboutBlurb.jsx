@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from "gatsby";
 
 const AboutBlurb = () => (
 	<section className="blurb">
@@ -9,9 +10,9 @@ const AboutBlurb = () => (
 		</p>
 		<ul className="actions">
 			<li>
-				<a href="#" className="button">
+				<Link to="/about" className="button">
 					Learn More
-				</a>
+				</Link>
 			</li>
 		</ul>
 	</section>
