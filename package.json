@@ -21,6 +21,7 @@
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sass": "next",
     "gatsby-source-filesystem": "^1.5.39",
+    "gatsby-transformer-json": "^1.0.20",
     "gatsby-transformer-remark": "^1.7.44",
     "history": "^4.7.2",
     "lodash": "^4.17.10",
