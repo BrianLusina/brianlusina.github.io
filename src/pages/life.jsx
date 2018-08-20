@@ -82,7 +82,7 @@ class LifePage extends Component {
 
 	render() {
 		return (
-			<MainLayoutWrapper>
+			<MainLayoutWrapper pageTitle={"Life"}>
 				<section>{this.renderPosts()}</section>
 			</MainLayoutWrapper>
 		)

@@ -1,15 +1,5 @@
 const path = require('path')
-const times = require('lodash/times')
-
-const paginationPath = (path, page, totalPages) => {
-	if (page === 0) {
-		return path
-	} else if (page < 0 || page >= totalPages) {
-		return ''
-	} else {
-		return `${path}/${page + 1}`
-	}
-}
+const chunk = require('lodash/chunk')
 
 exports.createPages = ({ actions, graphql }) => {
 	const { createPage } = actions
@@ -53,24 +43,11 @@ exports.createPages = ({ actions, graphql }) => {
 				}
 			`
 		)
-			.then(({ data: { allMarkdownRemark: { edges: posts } } }) => {
-				const blogPostsCount = posts.length
-				const blogPostsPerPage = 5
-				const paginatedPagesCount = Math.ceil(blogPostsCount / blogPostsPerPage)
-
-				times(paginatedPagesCount, index => {
-					createPage({
-						path: paginationPath('/', index, paginatedPagesCount),
-						component: path.resolve('src/templates/Home.jsx'),
-						context: {
-							skip: index * blogPostsPerPage,
-							limit: blogPostsPerPage,
-							paginatedPagesCount,
-							prevPath: paginationPath('', index - 1, paginatedPagesCount),
-							nextPath: paginationPath('', index + 1, paginatedPagesCount),
-						},
-					})
-				})
+			.then(({ data: { allMarkdownRemark: { edges: posts } }, errors }) => {
+				if (errors) {
+					errors.forEach(e => console.error(e.toString()))
+					return reject(errors)
+				}
 
 				posts.map(({ node: { frontmatter: { path } } }, index) => {
 					createPage({
@@ -82,6 +59,25 @@ exports.createPages = ({ actions, graphql }) => {
 						},
 					})
 				})
+
+				const PAGE_SIZE = 5
+
+				let chunks = chunk(posts, PAGE_SIZE)
+
+				chunks.forEach((chunk, index) => {
+					createPage({
+						path: `/${index + 1}`,
+						component: path.resolve('src/templates/Home.jsx'),
+						context: {
+							skip: index * PAGE_SIZE,
+							limit: PAGE_SIZE,
+							pageNumber: index + 1,
+							hasNextPage: index != chunks.length - 1,
+							nextPageLink: `/${index + 2}`,
+						},
+					})
+				})
+
 				resolve()
 				return
 			})

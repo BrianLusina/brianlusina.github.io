@@ -4,6 +4,7 @@ import { object, shape, arrayOf, string, number } from 'prop-types'
 import PostItem from '../components/posts/PostItem'
 import moment from 'moment'
 import Pagination from '../components/Pagination'
+import { graphql } from "gatsby";
 
 export class HomePageTemplate extends Component {
 	constructor(props, context) {
@@ -162,6 +163,45 @@ HomePageTemplate.propTypes = {
 		group: arrayOf(object),
 	}),
 }
+
+export const query = graphql`
+	query HomePageQuery($skip: Int, $limit: Int) {
+		allMarkdownRemark(
+			sort: { fields: [frontmatter___date], order: DESC },
+			skip: $skip,
+			limit: $limit,
+			){
+			edges {
+				node {
+					frontmatter {
+						title
+						subtitle
+						category
+						excerpt
+						path
+						date(formatString: "MMMM DD, YYYY")
+						author {
+							name
+							link
+							avatar
+						}
+						image {
+							feature
+							thumbnail
+							teaser
+							credit
+							creditlink
+						}
+						tags
+					}
+					excerpt
+					timeToRead
+					html
+				}
+			}
+		}
+	}
+`
 
 // export default connect(
 // 	mapStateToProps,

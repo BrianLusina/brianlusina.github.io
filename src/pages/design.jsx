@@ -82,7 +82,7 @@ class DesignPage extends Component {
 
 	render() {
 		return (
-			<MainLayoutWrapper>
+			<MainLayoutWrapper pageTitle={"Design"}>
 				<section>{this.renderPosts()}</section>
 			</MainLayoutWrapper>
 		)

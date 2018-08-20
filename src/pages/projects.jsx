@@ -82,7 +82,7 @@ class ProjectsPage extends Component {
 
 	render() {
 		return (
-			<MainLayoutWrapper>
+			<MainLayoutWrapper pageTitle={"Projects"}>
 				<section>{this.renderPosts()}</section>
 			</MainLayoutWrapper>
 		)

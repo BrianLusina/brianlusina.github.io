@@ -82,7 +82,7 @@ class FinancePage extends Component {
 
 	render() {
 		return (
-			<MainLayoutWrapper>
+			<MainLayoutWrapper pageTitle={"Finance"}>
 				<section>{this.renderPosts()}</section>
 			</MainLayoutWrapper>
 		)

@@ -82,7 +82,7 @@ class TechPage extends Component {
 
 	render() {
 		return (
-			<MainLayoutWrapper>
+			<MainLayoutWrapper pageTitle="Tech">
 				<section>{this.renderPosts()}</section>
 			</MainLayoutWrapper>
 		)
