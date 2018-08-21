@@ -1,6 +1,6 @@
 import React from 'react'
 import { string, shape } from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
+import { Link, withPrefix} from 'gatsby'
 import defaultAvatar from '../../assets/images/avatar.jpg'
 import defaultMiniPic from '../../assets/images/default_mini_pic.jpg'
 
