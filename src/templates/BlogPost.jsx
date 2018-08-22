@@ -1,11 +1,8 @@
 import React from 'react'
-import { Link, withPrefix } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Link, withPrefix, graphql } from 'gatsby'
 import { object, shape, string, arrayOf } from 'prop-types'
-import Footer from '../components/Footer'
 import defaultFeature from '../assets/images/default_feature_pic.jpg'
 import defaultAvatar from '../assets/images/avatar.jpg'
-import { graphql } from "gatsby"
 import MainLayoutWrapper from '../layouts/MainLayout';
 
 
@@ -37,7 +34,7 @@ const BlogPost = ({ data, pageContext: { next, prev } }) => {
 							<time className="published" dateTime={date}>
 								{date}
 							</time>
-							<Link to={authorLink} className="author">
+							<Link to={`/about/#${authorLink}`} className="author">
 								<span className="name">{name}</span>
 								<img
 									src={
@@ -90,8 +87,6 @@ const BlogPost = ({ data, pageContext: { next, prev } }) => {
 						<Link to={next.frontmatter.path}>Next: {next.frontmatter.title}</Link>
 					)}
 				</p>
-				
-				<Footer />
 			</MainLayoutWrapper>
 		</>
 	)

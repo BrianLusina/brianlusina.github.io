@@ -26,7 +26,7 @@ const PostItem = ({
 				<time className="published" dateTime={date}>
 					{date}
 				</time>
-				<Link to={authorLink} className="author">
+				<Link to={`about/#${authorLink}`} className="author">
 					<span className="name">{name}</span>
 					<img
 						src={

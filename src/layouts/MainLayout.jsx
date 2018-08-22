@@ -15,6 +15,7 @@ const MainLayoutWrapper = ({children, displaySidebar, pageTitle}) => (
 				site {
 					siteMetadata {
 						title
+						about
 					}
 				}
 		
@@ -44,9 +45,37 @@ const MainLayoutWrapper = ({children, displaySidebar, pageTitle}) => (
 						}
 					}
 				}
+
+				authorsJson {
+					social {
+						name
+						link
+					}
+				}
+
+				dataJson{
+					location {
+						town
+						country
+					}
+					email
+				}				
 			}
 		`}
-		render={({ site: { siteMetadata: { title } }, allMarkdownRemark: { edges: miniPosts }}) => (
+		render={({ 
+			site: { 
+				siteMetadata: { title, about } 
+			}, 
+			allMarkdownRemark: { edges: miniPosts }, 
+			authorsJson: { social },
+			dataJson: {
+				location : {
+					town,
+					country
+				},
+				email	
+			}
+		}) => (
 			<>
 				<Helmet
 					title={pageTitle ? `${title} - ${pageTitle}` : title}
@@ -63,7 +92,19 @@ const MainLayoutWrapper = ({children, displaySidebar, pageTitle}) => (
 					<Header />
 					<Menu />
 					<div id="main">{children}</div>
-					{ displaySidebar && <Sidebar miniPosts={miniPosts} /> }
+					{ 
+						displaySidebar && 
+						<Sidebar 
+							miniPosts={miniPosts} 
+							about={about} 
+							socialLinks={social}
+							contact={{
+								town, 
+								country,
+								email
+							}}
+						/>
+					}
 				</div>
 			</>
 		)}

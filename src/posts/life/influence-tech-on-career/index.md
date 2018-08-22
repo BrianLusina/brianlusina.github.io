@@ -5,7 +5,7 @@ subtitle: Learning technology and its impact on my life and career
 excerpt: Technology has been a part of my life for a very long time, not only making it better and easier, but also giving me an opportunity to learn new things. Being able to create, build and innovate using technology makes it have an even bigger impact on my life and career.
 tags:  [Career, Technology, Life]
 category: life
-date: 2018-021-08
+date: 2018-08-21
 author:
   name: Brian Lusina
   link: "/brian_lusina"
@@ -31,3 +31,13 @@ So, I dove into Google and typed in _how to build a computer program_, and waite
 Fast forward 3 weeks later, after a lot of trial and error and the first program I built was a simple Trivia which was basically a bunch of *if else* statements that checked for your answer. I didn't care that it was horrible, looked bad or was slow, I just wanted to build something, to see it used and to understand what it took to build a program that did something and made someone's life better (in this case help you become better at trivia questions). It worked! My first ever program! Too bad there was no way of sharing it with the world (because I had no idea how to). So I explored further into how do people share what they create and how do other people then download and install these programs and that lead me to networking and how the internet works(for some reason also lead me to how viruses work, go figure).
 
 All this digging around for information made me realize how technology had the potential to change my life as well. I was learning, growing, hungry...for knowledge. I simply wanted to understand, I wanted to know the __why__ of it all.
+
+Technology has had a major positive impact ever since. Being part of teams that build highly scalable applications has not only brought out the best in me, but has also shown me what I still need to learn and what I still need to do to get better.
+
+A couple of things that I have learned along the way:
+
+1. __Have zero tolerance for the victim mentality__. I have learned to become deliberate about regularly upskiling myself through reading books, learning new skills, meeting and interacting with new people in different fields and industry.
+
+2. __Be very deliberate about where you are and understant the opportunity cost of where you are__. Understand your true value including your weaknesses. Focus on up-scaling yourself.
+
+3. __Where you work has a major impact on your work-life harmony__. If you work for a company that re-inforces you and you konow your work will create value, you will remain satisfied and extremely motivated that you hardly feel burn out. This is important especially in a tech field, where there is an ever changing need for how products serve customers, you need to be in a place that gives you the opportunity to balance your work and life ina way that does not sacrfice one for the other.

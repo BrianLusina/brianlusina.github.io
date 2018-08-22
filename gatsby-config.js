@@ -1,6 +1,7 @@
 module.exports = {
 	siteMetadata: {
 		title: "LJournal",
+		about: "LJournal is a collection of snippets, ideas and posts about various things ranging from technology, business, money to life."
 	},
 	plugins: [
 		"gatsby-plugin-react-helmet",
