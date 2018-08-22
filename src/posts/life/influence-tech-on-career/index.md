@@ -5,7 +5,7 @@ subtitle: Learning technology and its impact on my life and career
 excerpt: Technology has been a part of my life for a very long time, not only making it better and easier, but also giving me an opportunity to learn new things. Being able to create, build and innovate using technology makes it have an even bigger impact on my life and career.
 tags:  [Career, Technology, Life]
 category: life
-date: 2018-021-08
+date: 2018-08-21
 author:
   name: Brian Lusina
   link: "/brian_lusina"

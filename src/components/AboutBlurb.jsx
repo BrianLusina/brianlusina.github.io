@@ -1,12 +1,12 @@
 import React from 'react'
 import {Link} from "gatsby";
+import { string } from "prop-types";
 
-const AboutBlurb = () => (
+const AboutBlurb = ({ about }) => (
 	<section className="blurb">
 		<h2>About</h2>
 		<p>
-			LJournal is a collection of snippets, ideas and posts about various things
-			ranging from technology, business, money to life.
+			{about}
 		</p>
 		<ul className="actions">
 			<li>
@@ -17,5 +17,9 @@ const AboutBlurb = () => (
 		</ul>
 	</section>
 )
+
+AboutBlurb.propTypes = {
+	about: string,
+}
 
 export default AboutBlurb

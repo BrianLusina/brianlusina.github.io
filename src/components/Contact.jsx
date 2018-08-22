@@ -1,9 +1,10 @@
 import React from 'react'
+import { string } from "prop-types";
 
 /**
  * Contact stateless component
  */
-const Contact = () => {
+const Contact = ({ town, country, email }) => {
 	return (
 		<section>
 			<header className="major">
@@ -15,14 +16,20 @@ const Contact = () => {
 			</p>
 			<ul className="contact">
 				<li className="fa fa-envelope-o">
-					<a href="mailto:chiefsdome@gmail.com">blusina@ljournal.com</a>
+					<a href={`mailto:${email}`}>blusina@ljournal.com</a>
 				</li>
 				<li className="fa fa-home">
-					Nairobi, Kenya<br />
+					{town}, {country}<br />
 				</li>
 			</ul>
 		</section>
 	)
+}
+
+Contact.propTypes = {
+	town: string,
+	country: string,
+	email: string
 }
 
 export default Contact

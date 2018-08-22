@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import MainLayoutWrapper from '../layouts/MainLayout';
 import { graphql, withPrefix } from 'gatsby';
 import { string, shape,arrayOf} from "prop-types";
+import Footer from '../components/Footer';
 
 const AboutPage = ({ data: { allAuthorsJson: { edges: authors } }}) => {
 	return (
@@ -12,16 +13,18 @@ const AboutPage = ({ data: { allAuthorsJson: { edges: authors } }}) => {
 					LJournal is a collection of thoughts, ideas, inspiration and encounters in the world of technolog, design, business and finance. 
 				</p>
 				{
-					authors.map(({ node: {id, name, web, email, bio, avatar_, link, twitter, google: { plus } }}) => {
+					authors.map(({ node: {id, name, email, bio, avatar_, tagline, link, social}}) => {
 						return (
-							<>
-								<h4>About {name}</h4>
-								<p key={id}>
-									<span className="image left">
-										<img src={withPrefix(`images/authors/${avatar_}`)} alt={name}/>
-									</span>
-									{bio}
-								</p>
+							<Fragment key={id}>
+								<h4 id={id}>About {name}</h4>
+								<span className="image left">
+									<img src={withPrefix(`images/authors/${avatar_}`)} alt={name}/>
+								</span>
+								<p dangerouslySetInnerHTML={{ __html: bio}}/>
+								<i>{tagline}</i>
+								<br/>
+								<br/>
+								<Footer hasCopyright={false} socialLinks={social}/>
 								{/* <div 
 									className="LI-profile-badge" data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" 
 									data-theme="light" data-vanity="brianlusina">
@@ -31,7 +34,7 @@ const AboutPage = ({ data: { allAuthorsJson: { edges: authors } }}) => {
 								{/* <a href="https://wakatime.com">
 									<img src="https://wakatime.com/@a3426a26-e7b4-4b98-8f41-fd87685dc883/e4541f05-d673-4aee-be8f-6037d5453b25.png" />
 								</a> */}
-							</>
+							</Fragment>
 						)
 					})
 				}
@@ -47,15 +50,15 @@ AboutPage.propTypes = {
 				node: shape({
 					id: string,
 					name: string,
-					web: string,
 					email: string,
+					tagline: string,
 					bio: string,
 					avatar_: string,
 					link: string,
-					twitter: string,
-					google: shape({
-						plus: string
-					})	
+					social: arrayOf(shape({
+						name: string,
+						link: string,
+					}))
 				})
 			}))
 		})
@@ -69,14 +72,14 @@ export const query = graphql`
 				node {
 					id
 					name
-					web
 					email
+					tagline
 					bio
 					avatar_
 					link
-					twitter
-					google {
-						plus
+					social {
+						name
+						link
 					}
 				}
 			}
