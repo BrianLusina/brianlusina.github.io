@@ -13,7 +13,6 @@ import {
 	composeWithDevTools
 } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import createHistory from "history/createBrowserHistory";
 
 const middlware = [
 	thunk,

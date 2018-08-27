@@ -62,7 +62,7 @@ jobs:
 
                         - run:
                                 name: Run tests
-                                command: yarn test
+                                command: yarn publish:staging
         
         deployProd:
                 working_directory: ~/ljournal
@@ -79,7 +79,7 @@ jobs:
 
                         - run:
                                 name: Run tests
-                                command: yarn test
+                                command: yarn publish:prod
 
 workflows:
         version: 2

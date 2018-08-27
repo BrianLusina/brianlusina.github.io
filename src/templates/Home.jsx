@@ -71,7 +71,7 @@ export class HomePageTemplate extends Component {
 	}
 	
 	static getDerivedStateFromProps(nextProps, prevState) {
-		const { posts } = nextProps
+		const { posts = [] } = nextProps
 
 		const blogPostsCount = posts.length;
 		const paginatedPagesCount = Math.ceil(blogPostsCount / prevState.blogPostsPerPage)
