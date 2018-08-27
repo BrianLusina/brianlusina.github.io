@@ -45,5 +45,78 @@ jobs:
 
                         - run:
                                 name: Run tests
-                                command:
-                                        yarn test
+                                command: yarn test
+
+        deployStaging:
+                working_directory: ~/ljournal
+                docker:
+                        image: circleci/node:7.10
+                steps:
+                        - attach_workspace:
+                                at: .
+                        
+                        - restore_cache:
+                                key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
+                                keys:
+                                        - v1-dependencies-{{ checksum "package.json" }}
+
+                        - run:
+                                name: Run tests
+                                command: yarn test
+        
+        deployProd:
+                working_directory: ~/ljournal
+                docker:
+                        image: circleci/node:7.10
+                steps:
+                        - attach_workspace:
+                                at: .
+                        
+                        - restore_cache:
+                                key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
+                                keys:
+                                        - v1-dependencies-{{ checksum "package.json" }}
+
+                        - run:
+                                name: Run tests
+                                command: yarn test
+
+workflows:
+        version: 2
+        build-test-deploy:
+                jobs:
+                        - build
+                        - test:
+                                requires:
+                                        - build
+                        - deployStaging:
+                                requires:
+                                        - test
+                                filters:
+                                        branches:
+                                                only:
+                                                        - develop
+                                                ignore:
+                                                        - master
+                                                        - /^feature/.*/
+                                                        - /^bugfix/.*/
+                                                        - /^hotfix/.*/
+                                                        - /^release/.*/
+                        - deployProd:
+                                requires:
+                                        - test
+                                filters:
+                                        branches:
+                                                only:
+                                                        - master
+                                                ignore:
+                                                        - develop
+                                                        - staging
+                                                        - /^feature/.*/
+                                                        - /^bugfix/.*/
+                                                        - /^hotfix/.*/
+                                                        - /^release/.*/
+
+
+
+
