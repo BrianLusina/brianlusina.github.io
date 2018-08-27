@@ -116,7 +116,3 @@ workflows:
                                                         - /^bugfix/.*/
                                                         - /^hotfix/.*/
                                                         - /^release/.*/
-
-
-
-
