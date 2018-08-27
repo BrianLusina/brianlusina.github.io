@@ -1,99 +1,18 @@
-import React, { Component } from 'react'
-import PostItem from '../components/posts/PostItem'
-import moment from 'moment'
+import React from 'react'
 import { blogPropType } from '../propTypes';
+import { func } from "prop-types";
 import { graphql } from "gatsby"
-import MainLayoutWrapper from '../layouts/MainLayout';
+import {withGraphQLSubscription} from '../components/hoc/withGraphQLPostData';
 
-class DesignPage extends Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			posts: [],
-		}
-	}
-
-	static getDerivedStateFromProps(nextProps, prevState) {
-		const {
-			data: {
-				allMarkdownRemark: { edges: posts },
-			},
-		} = nextProps
-
-		if (posts !== prevState.posts) {
-			return {
-				...prevState,
-				posts,
-			}
-		} else {
-			return null
-		}
-	}
-
-	renderPosts(){
-		const {
-			data: {
-				allMarkdownRemark: { edges: posts },
-			},
-		} = this.props
-		// limit these items to most 6 recent posts
-		return posts.map(
-			(
-				{
-					node: {
-						frontmatter: {
-							title,
-							subtitle,
-							path,
-							excerpt,
-							author: { avatar, link, name },
-							image: { feature },
-							date,
-							tags,
-						},
-					},
-				},
-				index
-			) => {
-				const time = moment(date).format('MMMM DD, YYYY')
-				return (
-					<PostItem
-						key={index}
-						link={path}
-						img={{
-							src: feature,
-							alt: feature,
-						}}
-						author={{
-							name,
-							avatar,
-							link,
-						}}
-						title={title}
-						subtitle={subtitle}
-						date={time}
-						excerpt={excerpt}
-						tags={tags}
-					/>
-				)
-			}
-		)
-	}
-
-	render() {
-		return (
-			<MainLayoutWrapper pageTitle={"Design"}>
-				<section>{this.renderPosts()}</section>
-			</MainLayoutWrapper>
-		)
-	}
-}
+const DesignPage = ({ data, renderPosts }) => (
+	<section>{renderPosts(data)}</section>
+)
 
 DesignPage.propTypes = {
-	data: blogPropType
+	data: blogPropType,
+	renderPosts: func,
 }
 
-// eslint-disable-next-line no-undef
 export const query = graphql`
 	query DesignPageQuery {
 		allMarkdownRemark(
@@ -131,4 +50,9 @@ export const query = graphql`
 	}
 `
 
-export default DesignPage
+const page = {
+	title: "Design", 
+	description: "Good design goes to heaven and bad design goes everywhere." 
+};
+
+export default withGraphQLSubscription(DesignPage, page);

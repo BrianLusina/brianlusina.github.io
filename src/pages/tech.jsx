@@ -1,96 +1,16 @@
-import React, { Component } from 'react'
-import PostItem from '../components/posts/PostItem'
-import moment from 'moment'
+import React from 'react'
 import { blogPropType } from '../propTypes';
+import { func } from "prop-types";
 import { graphql } from "gatsby"
-import MainLayoutWrapper from '../layouts/MainLayout';
+import {withGraphQLSubscription} from '../components/hoc/withGraphQLPostData';
 
-class TechPage extends Component {
-	constructor(props) {
-		super(props)
-		this.state = {
-			posts: [],
-		}
-	}
-
-	static getDerivedStateFromProps(nextProps, prevState) {
-		const {
-			data: {
-				allMarkdownRemark: { edges: posts },
-			},
-		} = nextProps
-
-		if (posts !== prevState.posts) {
-			return {
-				...prevState,
-				posts,
-			}
-		} else {
-			return null
-		}
-	}
-
-	renderPosts(){
-		const {
-			data: {
-				allMarkdownRemark: { edges: posts },
-			},
-		} = this.props
-		// limit these items to most 6 recent posts
-		return posts.map(
-			(
-				{
-					node: {
-						frontmatter: {
-							title,
-							subtitle,
-							path,
-							excerpt,
-							author: { avatar, link, name },
-							image: { feature },
-							date,
-							tags,
-						},
-					},
-				},
-				index
-			) => {
-				const time = moment(date).format('MMMM DD, YYYY')
-				return (
-					<PostItem
-						key={index}
-						link={path}
-						img={{
-							src: feature,
-							alt: feature,
-						}}
-						author={{
-							name,
-							avatar,
-							link,
-						}}
-						title={title}
-						subtitle={subtitle}
-						date={time}
-						excerpt={excerpt}
-						tags={tags}
-					/>
-				)
-			}
-		)
-	}
-
-	render() {
-		return (
-			<MainLayoutWrapper pageTitle="Tech">
-				<section>{this.renderPosts()}</section>
-			</MainLayoutWrapper>
-		)
-	}
-}
+const TechPage =({data, renderPosts }) => (
+	<section>{renderPosts(data)}</section>
+)
 
 TechPage.propTypes = {
-	data: blogPropType
+	data: blogPropType,
+	renderPosts: func,
 }
 
 // eslint-disable-next-line no-undef
@@ -131,4 +51,9 @@ export const query = graphql`
 	}
 `
 
-export default TechPage
+const page = {
+	title: "Tech",
+	description: "The technology keeps moving forward, which makes it easier for the artists to tell their stories and paint the pictures they want."
+};
+
+export default withGraphQLSubscription(TechPage, page);
