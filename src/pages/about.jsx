@@ -13,7 +13,7 @@ const AboutPage = ({ data: { allAuthorsJson: { edges: authors } }}) => {
 					LJournal is a collection of thoughts, ideas, inspiration and encounters in the world of technolog, design, business and finance. 
 				</p>
 				{
-					authors.map(({ node: {id, name, email, bio, avatar_, tagline, link, social}}) => {
+					authors.map(({ node: {id, name,bio, avatar_, tagline, social}}) => {
 						return (
 							<Fragment key={id}>
 								<h4 id={id}>About {name}</h4>

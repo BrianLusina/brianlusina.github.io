@@ -6,15 +6,19 @@ import Intro from './Intro'
 import MiniPosts from './posts/MiniPosts'
 import AboutBlurb from './AboutBlurb'
 
-const Sidebar = ({ miniPosts, about, socialLinks, contact : { town, country, email }}) => (
+const Sidebar = ({ miniPosts, about, socialLinks, pageDesc, contact : { town, country, email }}) => (
 	<section id="sidebar">
-		<Intro />
+		<Intro pageDesc={pageDesc}/>
 		<MiniPosts posts={miniPosts} />
 		<AboutBlurb about={about}/>
 		<Contact town={town} country={country} email={email}/>
 		<Footer socialLinks={socialLinks}/>
 	</section>
 )
+
+Sidebar.defaultProps = {
+	pageDesc: null,
+}
 
 Sidebar.propTypes = {
 	miniPosts: arrayOf(object),
@@ -27,7 +31,8 @@ Sidebar.propTypes = {
 	socialLinks: shape({
 		name: string,
 		link: string
-	})
+	}),
+	pageDesc: string,
 }
 
 export default Sidebar

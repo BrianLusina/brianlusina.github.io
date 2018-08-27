@@ -1,5 +1,5 @@
 import React from 'react'
-import { object, string, bool } from 'prop-types'
+import { object, string, bool, shape } from 'prop-types'
 import Helmet from 'react-helmet'
 import Header from '../components/Header'
 import Menu from '../components/menu/Menu'
@@ -8,7 +8,7 @@ import favicon from '../assets/favicon.ico'
 import { StaticQuery, graphql } from "gatsby"
 import '../styles/scss/main.scss'
 
-const MainLayoutWrapper = ({children, displaySidebar, pageTitle}) => (
+const MainLayoutWrapper = ({children, displaySidebar, page: { title, description }}) => (
 	<StaticQuery
 		query={graphql`
 			query RootLayoutQuery {
@@ -21,7 +21,7 @@ const MainLayoutWrapper = ({children, displaySidebar, pageTitle}) => (
 		
 				allMarkdownRemark(
 					sort: { fields: [frontmatter___date], order: DESC }
-					limit: 5
+					limit: 7
 				) {
 					edges {
 						node {
@@ -78,7 +78,7 @@ const MainLayoutWrapper = ({children, displaySidebar, pageTitle}) => (
 		}) => (
 			<>
 				<Helmet
-					title={pageTitle ? `${title} - ${pageTitle}` : title}
+					title={title ? `${title} - ${title}` : title}
 					meta={[
 						{ name: 'description', content: 'LJournal, a simple blog' },
 						{
@@ -103,6 +103,7 @@ const MainLayoutWrapper = ({children, displaySidebar, pageTitle}) => (
 								country,
 								email
 							}}
+							pageDesc={description}
 						/>
 					}
 				</div>
@@ -112,7 +113,11 @@ const MainLayoutWrapper = ({children, displaySidebar, pageTitle}) => (
 )
 
 MainLayoutWrapper.defaultProps = {
-	displaySidebar: true
+	displaySidebar: true,
+	page: {
+		title: null,
+		description: null
+	}
 }
 
 /**
@@ -121,7 +126,10 @@ MainLayoutWrapper.defaultProps = {
 MainLayoutWrapper.propTypes = {
 	children: object,
 	displaySidebar: bool,
-	pageTitle: string,
+	page: shape({
+		title: string,
+		description: string,
+	}),
 }
 
 export default MainLayoutWrapper
