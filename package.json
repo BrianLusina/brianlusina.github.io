@@ -5,6 +5,7 @@
   "description": "Blog and Journal Site",
   "author": "Brian Lusina <lusinabrian@gmail.com>",
   "license": "The MIT License (MIT)",
+  "homepage": "https://brianlusina.github.io",
   "scripts": {
     "gatsby-new": "gatsby new --",
     "build:gatsby": "gatsby build",
@@ -17,7 +18,7 @@
     "prepublish:prod": "npm run build:gatsby",
     "publish:prod": "gh-pages -d public",
     "prepublish:staging": "npm run build:gatsby",
-    "publish:staging": "surge ./public --domain ljournal.surge.sh"
+    "publish:staging": "surge --project ./public --domain ljournal.surge.sh"
   },
   "dependencies": {
     "gatsby": "next",
@@ -29,7 +30,6 @@
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-json": "^1.0.20",
     "gatsby-transformer-remark": "^1.7.44",
-    "history": "^4.7.2",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "prop-types": "^15.6.1",
