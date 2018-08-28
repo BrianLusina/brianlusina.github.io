@@ -17,7 +17,7 @@ FROM nginx:latest
 # remove default nginx config
 RUN rm -rf /etc/nginx/conf.d
 
-# copy build env from builder 
+COPY nginx/conf.d /etc/nginx
 COPY --from=builder /usr/share/app/public /usr/share/nginx/html
 
 # test that nginx is running as expected
