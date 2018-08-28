@@ -8,8 +8,8 @@ WORKDIR /usr/share/app
 ENV PATH /usr/share/app/node_modules/.bin:$PATH
 
 COPY . /usr/share/app
-RUN npm install
-RUN npm run build:gatsby
+RUN yarn install
+RUN yarn build:gatsby
 
 # production
 FROM nginx:latest
