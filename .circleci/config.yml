@@ -60,7 +60,7 @@ jobs:
                                         - v1-dependencies-{{ checksum "package.json" }}
 
                         - run:
-                                name: Run tests
+                                name: Publish to staging environment
                                 command: yarn publish:staging
         
         deployProd:
@@ -77,7 +77,7 @@ jobs:
                                         - v1-dependencies-{{ checksum "package.json" }}
 
                         - run:
-                                name: Run tests
+                                name: Publish to production
                                 command: yarn publish:prod
 
 workflows:
