@@ -29,7 +29,9 @@ module.exports = {
 	],
 	testMatch: [
 		"<rootDir>/__tests__/**/*.{js,jsx,mjs}",
-		"<rootDir>/?(*.)(spec|test).{js,jsx,mjs}"
+		"<rootDir>/?(*.)(spec|test).{js,jsx,mjs}",
+		"<rootDir>/src/__tests__/**/*.{js,jsx,mjs}",
+		"<rootDir>/src/**/*.test.{js,jsx,mjs}",
 	],
 	testEnvironment: "node",
 	testURL: "http://localhost",
@@ -53,5 +55,5 @@ module.exports = {
 		// "\\.(css)$": "<rootDir>/node_modules/",
 		// "\\.(png|jpg|svg)$": "<rootDir>/src/assets/images",
 	},
-	// setupTestFrameworkScriptFile: "<rootDir>/config/setupTests.js"
+	setupTestFrameworkScriptFile: "<rootDir>/config/setupTests.js"
 }

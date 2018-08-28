@@ -43,5 +43,16 @@
       }
     ],
     "transform-object-rest-spread"
-  ]
+  ], 
+  "env": {
+    "test": {
+      "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+      ],
+      "plugins": [
+          "transform-class-properties"
+      ]
+    }
+  }
 }

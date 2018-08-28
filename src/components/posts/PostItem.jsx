@@ -63,7 +63,7 @@ const PostItem = ({
 						</Link>
 					))}
 				</li>
-				<li>
+				{/* <li>
 					<a href="#" className="icon fa-heart">
 						28
 					</a>
@@ -72,7 +72,7 @@ const PostItem = ({
 					<a href="#" className="icon fa-comment">
 						128
 					</a>
-				</li>
+				</li> */}
 			</ul>
 		</footer>
 	</article>

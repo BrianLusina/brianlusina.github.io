@@ -56,7 +56,7 @@ const BlogPost = ({ data, pageContext: { next, prev } }) => {
 					</span>
 
 					<div dangerouslySetInnerHTML={{ __html: html }} />
-					<footer>
+					{/* <footer>
 						<ul className="stats">
 							<li>
 								<a href="#">General</a>
@@ -72,7 +72,7 @@ const BlogPost = ({ data, pageContext: { next, prev } }) => {
 								</a>
 							</li>
 						</ul>
-					</footer>
+					</footer> */}
 				</article>
 
 				<p>
