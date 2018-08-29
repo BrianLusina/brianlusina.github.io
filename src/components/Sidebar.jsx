@@ -4,7 +4,7 @@ import Footer from './Footer'
 import Contact from './Contact'
 import Intro from './Intro'
 import MiniPosts from './posts/MiniPosts'
-import AboutBlurb from './AboutBlurb'
+import AboutBlurb from './AboutBlurb/AboutBlurb'
 
 const Sidebar = ({ miniPosts, about, socialLinks, pageDesc, contact : { town, country, email }}) => (
 	<section id="sidebar">

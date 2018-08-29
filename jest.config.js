@@ -42,11 +42,16 @@ module.exports = {
 	},
 	// TODO: transform ignore patterns 
 	transformIgnorePatterns: [
+		"node_modules/(?!(gatsby)/)",
 		"[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$",
 		// "<rootDir>/src/assets/",
 		// "<rootDir>/node_modules/",
-		// "node_modules/(?!(redux-persist|react-loader)/)"
+		// "node_modules/(?!(redux-persist|react-loader)/)",
 	],
+	testPathIgnorePatterns: ['/node_modules/', '<rootDir>/.cache/'],
+	globals: {
+		__PATH_PREFIX__: '',
+	},
 	// TODO: add module mappers for stylsheets
 	moduleNameMapper: {
 		"^react-native$": "react-native-web",
