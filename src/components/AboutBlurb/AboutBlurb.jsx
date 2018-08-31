@@ -1,6 +1,6 @@
 import React from 'react'
 import { string } from "prop-types";
-import {Link} from "gatsby";
+import { Link } from "gatsby";
 
 const AboutBlurb = ({ about }) => (
 	<section className="blurb">
