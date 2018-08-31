@@ -59,6 +59,7 @@ const MainLayoutWrapper = ({children, displaySidebar, page: { title, description
 						country
 					}
 					email
+					emailAlias
 				}				
 			}
 		`}
@@ -73,7 +74,8 @@ const MainLayoutWrapper = ({children, displaySidebar, page: { title, description
 					town,
 					country
 				},
-				email	
+				email,
+				emailAlias,
 			}
 		}) => (
 			<>
@@ -101,7 +103,8 @@ const MainLayoutWrapper = ({children, displaySidebar, page: { title, description
 							contact={{
 								town, 
 								country,
-								email
+								email,
+								emailAlias,
 							}}
 							pageDesc={description}
 						/>

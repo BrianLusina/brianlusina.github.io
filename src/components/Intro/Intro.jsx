@@ -9,17 +9,11 @@ const Intro = ({ pageDesc }) => (
 		</a>
 		<header>
 			<h2>LJournal</h2>
-			{ 
-				pageDesc ? 
-				(
-					<p>{pageDesc}</p>
-				) : 
-				(
-					<p>
-						A simple Journal by <a href="https://github.com/BrianLusina">L</a>
-					</p>
-				)
-			}
+			<p>
+				{
+					pageDesc ? pageDesc : `A simple Journal by ${<a href="https://github.com/BrianLusina">L</a>}`
+				}
+			</p>
 		</header>
 	</section>
 )
