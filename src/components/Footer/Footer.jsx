@@ -1,6 +1,6 @@
 import React from 'react'
 import { bool, string, arrayOf, shape } from "prop-types";
-import SocialIcon from './SocialIcon'
+import SocialIcon from '../SocialIcon/SocialIcon'
 
 /**
  * Footer stateless component

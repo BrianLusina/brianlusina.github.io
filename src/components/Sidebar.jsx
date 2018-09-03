@@ -1,17 +1,17 @@
 import React from 'react'
 import { arrayOf, object, string, shape } from 'prop-types'
-import Footer from './Footer'
-import Contact from './Contact'
-import Intro from './Intro'
+import Footer from './Footer/Footer'
+import Contact from './contact/Contact'
+import Intro from './Intro/Intro'
 import MiniPosts from './posts/MiniPosts'
-import AboutBlurb from './AboutBlurb'
+import AboutBlurb from './AboutBlurb/AboutBlurb'
 
-const Sidebar = ({ miniPosts, about, socialLinks, pageDesc, contact : { town, country, email }}) => (
+const Sidebar = ({ miniPosts, about, socialLinks, pageDesc, contact : { town, country, email, emailAlias }}) => (
 	<section id="sidebar">
 		<Intro pageDesc={pageDesc}/>
 		<MiniPosts posts={miniPosts} />
 		<AboutBlurb about={about}/>
-		<Contact town={town} country={country} email={email}/>
+		<Contact town={town} country={country} email={email} emailAlias={emailAlias}/>
 		<Footer socialLinks={socialLinks}/>
 	</section>
 )
@@ -26,7 +26,8 @@ Sidebar.propTypes = {
 	contact: shape({
 		town: string,
 		country: string,
-		email: string	
+		email: string,
+		emailAlias: string,
 	}),
 	socialLinks: shape({
 		name: string,

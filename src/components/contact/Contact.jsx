@@ -4,7 +4,7 @@ import { string } from "prop-types";
 /**
  * Contact stateless component
  */
-const Contact = ({ town, country, email }) => {
+const Contact = ({ town, country, email, emailAlias}) => {
 	return (
 		<section>
 			<header className="major">
@@ -16,7 +16,7 @@ const Contact = ({ town, country, email }) => {
 			</p>
 			<ul className="contact">
 				<li className="fa fa-envelope-o">
-					<a href={`mailto:${email}`}>blusina@ljournal.com</a>
+					<a href={`mailto:${email}`}>{emailAlias}</a>
 				</li>
 				<li className="fa fa-home">
 					{town}, {country}<br />
@@ -29,7 +29,8 @@ const Contact = ({ town, country, email }) => {
 Contact.propTypes = {
 	town: string,
 	country: string,
-	email: string
+	email: string,
+	emailAlias: string,
 }
 
 export default Contact

@@ -25,7 +25,7 @@ module.exports = {
 	],
 	setupFiles: [
 		"<rootDir>/config/polyfills.js",
-		// "<rootDir>/config/setupTests.js"
+		"<rootDir>/config/setupTests.js"
 	],
 	testMatch: [
 		"<rootDir>/__tests__/**/*.{js,jsx,mjs}",
@@ -40,16 +40,17 @@ module.exports = {
 		"^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
 		"^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
 	},
-	// TODO: transform ignore patterns 
 	transformIgnorePatterns: [
+		"/node_modules/(?!(gatsby)/)",
 		"[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$",
-		// "<rootDir>/src/assets/",
-		// "<rootDir>/node_modules/",
-		// "node_modules/(?!(redux-persist|react-loader)/)"
+		// "node_modules/(?!(redux-persist|react-loader)/)",
 	],
-	// TODO: add module mappers for stylsheets
+	globals: {
+		__PATH_PREFIX__: '',
+	},
 	moduleNameMapper: {
-		"^react-native$": "react-native-web",
+		".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+		".+\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
 		// "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
 		// "\\.(css|less|scss)$": "<rootDir>/src/assets/styles",
 		// "\\.(css)$": "<rootDir>/node_modules/",

@@ -4,7 +4,7 @@ import { func } from "prop-types";
 import { graphql } from "gatsby"
 import {withGraphQLSubscription} from '../components/hoc/withGraphQLPostData';
 
-const FinancePage = ({data, renderPosts}) => (
+export const FinancePage = ({data, renderPosts}) => (
 	<section>{renderPosts(data)}</section>
 )
 

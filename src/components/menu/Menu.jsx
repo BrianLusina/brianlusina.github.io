@@ -46,11 +46,4 @@ const Menu = () => {
 	)
 }
 
-/**
- * Prop validation
- */
-Menu.propTypes = {
-	// myProps: PropTypes.string.isRequired
-}
-
 export default Menu
