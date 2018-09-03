@@ -40,12 +40,9 @@ module.exports = {
 		"^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
 		"^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
 	},
-	testPathIgnorePatterns: ['/node_modules/', '.cache/'],	
 	transformIgnorePatterns: [
-		"node_modules/(?!(gatsby)/)",
+		"/node_modules/(?!(gatsby)/)",
 		"[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$",
-		// "<rootDir>/src/assets/",
-		// "<rootDir>/node_modules/",
 		// "node_modules/(?!(redux-persist|react-loader)/)",
 	],
 	globals: {
