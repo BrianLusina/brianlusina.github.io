@@ -13,7 +13,7 @@ exports.createPages = ({
 		createPage
 	} = actions
 	const blogPostTemplate = path.resolve(`src/templates/BlogPost.jsx`)
-	const tagTemplate = path.resolve(`src/templates/Tags.jsx`);
+	const tagTemplate = path.resolve(`src/templates/tags/Tags.jsx`);
 	const homeTemplate = path.resolve(`src/templates/Home.jsx`);
 
 	return new Promise((resolve, reject) => {

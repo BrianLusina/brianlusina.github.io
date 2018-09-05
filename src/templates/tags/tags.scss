@@ -1,0 +1,13 @@
+.tag {
+    display: block;
+    text-align: center;
+
+    &__title {
+
+    }
+
+    &__name{
+        @extend .tag;
+        border-bottom: dotted 1px rgba(160, 160, 160, 0.65);
+    }
+}
