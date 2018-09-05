@@ -1,5 +1,5 @@
 import React from 'react'
-import { object, string, bool, shape } from 'prop-types'
+import { object, string, bool, shape, oneOfType, array } from 'prop-types'
 import Helmet from 'react-helmet'
 import Header from '../components/Header/Header'
 import Menu from '../components/menu/Menu'
@@ -127,7 +127,7 @@ MainLayoutWrapper.defaultProps = {
  * Prop Type validation
  */
 MainLayoutWrapper.propTypes = {
-	children: object,
+	children: oneOfType([object, array]),
 	displaySidebar: bool,
 	page: shape({
 		title: string,
