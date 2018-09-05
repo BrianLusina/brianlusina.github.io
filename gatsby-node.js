@@ -48,6 +48,7 @@ exports.createPages = ({
 										creditlink
 									}
 									tags
+									published
 								}
 							}
 						}
