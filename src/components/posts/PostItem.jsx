@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, withPrefix } from 'gatsby'
 import { string, shape, arrayOf } from 'prop-types'
+import kebabCase from "lodash/kebabCase";
 import defaultAvatar from '../../assets/images/avatar.jpg'
 import defaultFeature from '../../assets/images/default_feature_pic.jpg'
 
@@ -58,7 +59,7 @@ const PostItem = ({
 			<ul className="stats">
 				<li>
 					{tags.map(tag => (
-						<Link key={tag} to="#">
+						<Link key={tag} to={`tags/${kebabCase(tag)}`}>
 							{tag}
 						</Link>
 					))}
