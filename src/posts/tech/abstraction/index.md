@@ -14,6 +14,7 @@ author:
   name: Brian Lusina
   link: "/brian_lusina"
   avatar: brian_lusina.jpg
+published: true
 ---
 
 Abstraction is one of the principles of Object Oriented Programming where a programmer hides/reduces information of an object and only reveals the relevant information at the time. It works alongside _inheritance_ and _encapsulation_. This is done in order to reduce complexity and ensure efficiency.

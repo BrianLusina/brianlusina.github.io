@@ -13,6 +13,7 @@ author:
 image:
  teaser: binary_tree_depth.svg
  thumbnail: binary_tree_depth.svg
+published: true
 ---
 
 A binary tree is a tree where every node has two or fewer children. The children are usually called left and right.

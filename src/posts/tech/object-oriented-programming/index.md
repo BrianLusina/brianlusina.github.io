@@ -16,6 +16,7 @@ image:
  thumbnail: object-oriented-programming.png
  credit:
  creditlink:
+published: true
 ---
 
 Object Oriented Programming, or as is popularly known in the programming realm OOP is a style of programming that is organized around objects rather than actions. It takes the view that what we really care about are the objects we want to manipulate rather than the logic required to manipulate them. It is a concept that has been widely adopted and is recommended for every software developer. It not only makes life easier for you as a developer but also aids other developers in collaborating easily with your project, as it is lighter as compared to precedural programming.

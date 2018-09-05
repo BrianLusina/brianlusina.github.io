@@ -14,6 +14,7 @@ image:
  teaser: 
 tags:  [front-end, User Experience, UX, UI, User interface, design]
 category: design
+published: true
 ---
 
 The front end development journey is a long one and it involves a lot of work. Requires effort, perserverence and sweat. Also, coffee, lack of sleep and frustrating arguments with your computer. Either way, it is still an exciting journey that teaches you a lot of things, whether you are an expert or starting out. To truly become an expert or proficient in your skill, you need to practice it every single day. The 10,000 hour rule applies everywhere and thus is no exception to this.

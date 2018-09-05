@@ -15,6 +15,7 @@ image:
   teaser: zenith-screenshot.png
   credit: Brian Lusina
   creditlink: 
+published: true
 ---
 
 Zenith is the official introductory site into the Zenith project. Zenith project's have main focuses on app and websites creation. This Organization's focus is to create stellar IDEs and applications that meet user needs and demands.

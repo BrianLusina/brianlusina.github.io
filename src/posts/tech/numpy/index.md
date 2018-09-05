@@ -16,6 +16,7 @@ image:
  thumbnail: numpy.jpg
  creditlink: http://www.numpy.org/
  credit: NumPy
+published: true
 ---
 
 NumPy is _Numerical Python_ in full. A very powerful library for performing, well you guessed it, vector arithmetic. For those who shall continue on with Data Science using Python, I suggest you have a look at the NumPy package. It is a very powerful tool that will most definitely make your life that much simpler.

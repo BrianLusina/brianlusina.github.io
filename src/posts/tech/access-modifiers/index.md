@@ -14,6 +14,7 @@ image:
  feature: 
  thumbnail: 
  teaser: 
+published: true
 ---
 
 This topic will simply _extend_ from the [Objective of OOP](https://brianlusina.github.io/Object-Oriented-Programming/) and [4 principles of OOP](https://brianlusina.github.io/Principles-Of-Oop/) and will majorly focus only on accessors and modifiers, i.e. _getters_ and _setters_.

@@ -14,6 +14,7 @@ image:
  feature: parcelable_vs_serializable.jpg
  teaser: parcelable_vs_serializable.jpg
  thumbnail: parcelable_vs_serializable.jpg
+published: true
 ---
 
 When creating Plain Old Java Objects (POJOs) in eith Android or Java, more specifically Java, the aim is to be able to _model_ our data in a certain way. To enable easier addition to an Adapter or a database, even easier retrieval from a database using **Jackson** library (what Firebase uses to be able to store and retrieve data).

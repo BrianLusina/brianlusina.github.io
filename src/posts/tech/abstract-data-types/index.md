@@ -14,6 +14,7 @@ image:
  feature: abstract-data-type.jpg
  teaser: abstract-data-type.jpg
  thumbnail: abstract-data-type.jpg
+published: true
 ---
 
 There are several Abstract data types that are used in Java,

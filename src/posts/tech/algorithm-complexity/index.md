@@ -14,6 +14,7 @@ image:
  feature: algorithm-complexity.jpg
  thumbnail: algorithm-complexity.jpg
  teaser: algorithm-complexity.jpg
+published: true
 ---
 
 The whole point of the big-O/Ω/Θ stuff was to be able to say something useful about algorithms.

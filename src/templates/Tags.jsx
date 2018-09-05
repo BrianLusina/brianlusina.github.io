@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, graphql } from "gatsby";
 import { shape, string, arrayOf, number} from "prop-types";
-
+import MainLayoutWrapper from '../layouts/MainLayout';
+import PostItem from '../components/posts/PostItem';
 
 export const TagsTemplate = ({ pageContext, data }) => {
 	const { tag } = pageContext;
@@ -9,26 +10,42 @@ export const TagsTemplate = ({ pageContext, data }) => {
 	const tagHeader = `${totalCount} post${
 		totalCount === 1 ? "" : "s"
 	} tagged with "${tag}"`
-    
+
 	return (
-		<div>
-			<h1>{tagHeader}</h1>
+		<MainLayoutWrapper>
+			<h1>Category: {tagHeader}</h1>
 			<ul>
-				{edges.map(({ node }) => {
-					const { path, title } = node.frontmatter
-					return (
-						<li key={path}>
-							<Link to={path}>{title}</Link>
-						</li>
-					)
-				})}
+				{
+					edges.map(({ node }) => {
+						const { path, title, subtitle, excerpt, date, tags, image, author } = node.frontmatter;
+						const { feature } = image;
+						const { avatar, link, name } = author;
+                    
+						return (
+							<PostItem 
+								key={path}
+								title={title}
+								subtitle={subtitle}
+								excerpt={excerpt}
+								link={path}
+								date={date}
+								img={{
+									alt:feature,
+									src:feature
+								}}
+								tags={tags}
+								author={{
+									avatar,
+									name,
+									link
+								}}
+							/>
+						)
+					})
+				}
 			</ul>
-			{/*
-                This links to a page that does not yet exist.
-                We'll come back to it!
-              */}
 			<Link to="/tags">All tags</Link>
-		</div>
+		</MainLayoutWrapper>
 	)
 }
 

@@ -16,6 +16,7 @@ image:
  thumbnail: vigenere_cipher.jpg
  creditlink: www.cs.mtu.edu
  credit: MTU
+published: true
 ---
 
 The Vigenere cipher is likely the the most secure ciphers out there. It builds on the principle of the Caesar cipher yet provides a decent way to avoid the easy to solve shift problems. The basic gist of this cipher is we have both a message and a key. The key can be any length, but you must repeat the key for the length of our message to get this to work. This can be seen here:

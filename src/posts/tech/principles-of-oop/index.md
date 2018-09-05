@@ -14,6 +14,7 @@ image:
  feature: principles-of-oop.jpg
  teaser: principles-of-oop.jpg
  thumbnail: principles-of-oop.jpg
+published: true
 ---
 
 For a program to be said to be object oriented, some principles have to be followed. These principles are crucial to enable the said program to be effective in order to be able to meet the needs the program was designed for.

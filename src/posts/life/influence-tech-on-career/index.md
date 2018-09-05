@@ -16,6 +16,7 @@ image:
   thumbnail: 
   credit: Unsplash
   creditlink: https://unsplash.com/@alesnesetril
+published: true  
 ---
 
 Learning to code is never an easy endevour, especially in the world of technology, where there always seems to be something new that you must learn or know in order to keep up with the trends of the 21st century. It is such a fluid and ever changing world that you can find yourself lost in the pursuit of knowledge.

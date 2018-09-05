@@ -13,6 +13,7 @@ author:
 image:
  teaser: bottom-up.png
  thumbnail: bottom-up.png
+published: true
 ---
 
 Going bottom-up is a way to avoid recursion, saving the memory cost that recursion incurs when it builds up the call stack.
