@@ -15,6 +15,7 @@ image:
   teaser: ruintheory.JPG
   credit: Wikipedia
   creditlink: https://en.wikipedia.org/wiki/Ruin_theory
+published: true
 ---
 
 The **Ruin Theory** or _surplus process_ or _risk process_ defines when a company is most likely to go bankrupt given a constant flow of income and random outflow of cash. This is used in most businesses to determine for how long the company can be expected to be in operation before their wallet does not allow them to continue.

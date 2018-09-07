@@ -1,45 +1,68 @@
 import React from 'react'
 import MiniPostItem from './MiniPostItem'
-import { arrayOf, shape, string, number } from 'prop-types'
+import { arrayOf, shape, string, number } from 'prop-types';
+import includes from "lodash/includes";
 
-const MiniPosts = ({ posts }) => {
+const MiniPosts = ({ posts, currentTag }) => {
 	return (
 		<section>
 			<div className="mini-posts">
-				{posts.map(
-					(
-						{
-							node: {
-								frontmatter: {
-									title,
-									path,
-									date,
-									author: { avatar, link, name },
-									image: { teaser },
+				{
+					posts.map(
+						(
+							{
+								node: {
+									frontmatter: {
+										title,
+										path,
+										date,
+										author: { avatar, link, name },
+										image: { teaser },
+										tags
+									},
 								},
 							},
-						},
-						index
-					) => {
-						return (
-							<MiniPostItem
-								key={index}
-								link={path}
-								title={title}
-								author={{
-									link,
-									name,
-									avatar,
-								}}
-								time={date}
-								img={teaser}
-							/>
-						)
-					}
-				)}
+						) => {
+							if (currentTag && includes(tags, currentTag)) {
+								return (
+									<MiniPostItem
+										key={path}
+										link={path}
+										title={title}
+										author={{
+											link,
+											name,
+											avatar,
+										}}
+										time={date}
+										img={teaser}
+									/>
+								)	
+							}
+							return (
+								<MiniPostItem
+									key={path}
+									link={path}
+									title={title}
+									author={{
+										link,
+										name,
+										avatar,
+									}}
+									time={date}
+									img={teaser}
+								/>
+							)
+						}
+					)
+				}
 			</div>
 		</section>
 	)
+}
+
+MiniPosts.defaultProps = { 
+	currentTag: null
 }
 
 MiniPosts.propTypes = {
@@ -66,6 +89,7 @@ MiniPosts.propTypes = {
 			}),
 		})
 	),
+	currentTag: string,
 }
 
 export default MiniPosts

@@ -1,5 +1,5 @@
 import React from 'react'
-import { object, string, bool, shape } from 'prop-types'
+import { object, string, bool, shape, oneOfType, array } from 'prop-types'
 import Helmet from 'react-helmet'
 import Header from '../components/Header/Header'
 import Menu from '../components/menu/Menu'
@@ -8,7 +8,7 @@ import favicon from '../assets/favicon.ico'
 import { StaticQuery, graphql } from "gatsby"
 import '../styles/scss/main.scss'
 
-const MainLayoutWrapper = ({children, displaySidebar, page: { title, description }}) => (
+const MainLayoutWrapper = ({children, displaySidebar, page: { title, description }, tag}) => (
 	<StaticQuery
 		query={graphql`
 			query RootLayoutQuery {
@@ -21,7 +21,7 @@ const MainLayoutWrapper = ({children, displaySidebar, page: { title, description
 		
 				allMarkdownRemark(
 					sort: { fields: [frontmatter___date], order: DESC }
-					limit: 7
+					limit: 10
 				) {
 					edges {
 						node {
@@ -65,7 +65,7 @@ const MainLayoutWrapper = ({children, displaySidebar, page: { title, description
 		`}
 		render={({ 
 			site: { 
-				siteMetadata: { title, about } 
+				siteMetadata: { title: siteTitle, about } 
 			}, 
 			allMarkdownRemark: { edges: miniPosts }, 
 			authorsJson: { social },
@@ -80,7 +80,7 @@ const MainLayoutWrapper = ({children, displaySidebar, page: { title, description
 		}) => (
 			<>
 				<Helmet
-					title={title ? `${title} - ${title}` : title}
+					title={title ? `${title} | ${siteTitle}` : siteTitle}
 					meta={[
 						{ name: 'description', content: 'LJournal, a simple blog' },
 						{
@@ -107,6 +107,7 @@ const MainLayoutWrapper = ({children, displaySidebar, page: { title, description
 								emailAlias,
 							}}
 							pageDesc={description}
+							tag={tag}
 						/>
 					}
 				</div>
@@ -120,19 +121,18 @@ MainLayoutWrapper.defaultProps = {
 	page: {
 		title: null,
 		description: null
-	}
+	},
+	tag: null
 }
 
-/**
- * Prop Type validation
- */
 MainLayoutWrapper.propTypes = {
-	children: object,
+	children: oneOfType([object, array]),
 	displaySidebar: bool,
 	page: shape({
 		title: string,
 		description: string,
 	}),
+	tag: string,
 }
 
-export default MainLayoutWrapper
+export default MainLayoutWrapper;

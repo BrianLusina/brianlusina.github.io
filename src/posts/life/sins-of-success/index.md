@@ -13,6 +13,7 @@ author:
 image:
  teaser: 
  thumbnail: 
+published: true 
 ---
 
 We all crave success and that is what we wake up to each morning. No one wants to wak up each morning and go to bed having failed at certain tasks. Of course we do not always get what we want and that would often mean that we will fail and fall sometimes. Have you ever wondered though how some people seem to always be succeeding every single day and in life itsef?

@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link, withPrefix } from 'gatsby'
 import { string, shape, arrayOf } from 'prop-types'
+import kebabCase from "lodash/kebabCase";
 import defaultAvatar from '../../assets/images/avatar.jpg'
 import defaultFeature from '../../assets/images/default_feature_pic.jpg'
+import ButtonLink from '../buttons/ButtonLink';
 
 const PostItem = ({
 	title,
@@ -50,15 +52,15 @@ const PostItem = ({
 		<footer>
 			<ul className="actions">
 				<li>
-					<Link to={link} className="button large">
-						Continue Reading
-					</Link>
+					<ButtonLink 
+						link={link}
+						text="Continue Reading"/>
 				</li>
 			</ul>
 			<ul className="stats">
 				<li>
 					{tags.map(tag => (
-						<Link key={tag} to="#">
+						<Link key={tag} to={`tags/${kebabCase(tag)}`}>
 							{tag}
 						</Link>
 					))}

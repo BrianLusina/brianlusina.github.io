@@ -16,6 +16,7 @@ image:
   thumbnail:
   credit:
   creditlink:
+published: true  
 ---
 
 Live each day to the fullest. Get the most from each hour, each day and for each age of your life. Then you can look forward with confidence and back without regrets. Be yourself, but be your best self. Dare to be different and to follow your start and don't be afraid to be happy.

@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../layouts/MainLayout";
-import Home from "../templates/Home";
+import Home from "../templates/home/Home";
 import {graphql } from 'gatsby'
 import { shape, arrayOf, object } from 'prop-types'
 import {locationPropType} from '../propTypes';

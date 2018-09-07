@@ -16,6 +16,7 @@ image:
   teaser: nonlife-insurance-problems.jpg
   credit: Life Marketers
   creditlink: http://www.lifemarketers.com/life-insurance-general-agency/non-med-life-insurance
+published: true  
 ---
 
 The title may not be as intuitive or as smart as it should be, but I assure that the title is the least of concerns. This may be a very common topic when it comes to the insurance sector, but, hey, why not shed some more light on it anyway.

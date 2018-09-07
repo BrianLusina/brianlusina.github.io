@@ -16,6 +16,7 @@ image:
  thumbnail: abstract_class_interfaces.png
  creditlink: http://agile-code.com
  credit: Agile Code
+published: true
 ---
 
 Abstraction and interfaces are common words that most programmers will come across when desigining systems and platforms. They are very useful concepts that any programmer who knows about Object Oriented Programming (OOP) should grasp and know like the back of their hand. They not only make code readable and testable, but also make your life a hell of a lot easier.

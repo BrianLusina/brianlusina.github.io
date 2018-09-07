@@ -14,6 +14,7 @@ image:
  feature: t-shaped.jpg
  teaser: t-shaped.jpg
  thumbnail: t-shaped.jpg
+published: true
 ---
 
 Gone are the days of clear definitions of responsibility, at least in terms of technology and developing software. These are not the times when companies and businesses have clearly defined roles for their employees such that everyone is only closed to the skill set that they deem to be the most proficient in. These are the times when one role for an employee is never going to be enough, or rather is never going to be the case, especially not with how the world is evolving.

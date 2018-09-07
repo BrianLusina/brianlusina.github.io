@@ -16,6 +16,7 @@ image:
   thumbnail:
   credit:
   creditlink:
+published: true
 ---
 
 Have you ever wondered just how billionaires think? I know I have. How do you even acquire the clout & clamor of a billionaire? Do you learn it over time? Is it natural? Is it passed down through induction? Or is it just for the select few gifted people?

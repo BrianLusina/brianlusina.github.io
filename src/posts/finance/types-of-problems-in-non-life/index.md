@@ -1,5 +1,5 @@
 ---
-path: "/finance/types-of-problems-in-non-life"
+path: /finance/types-of-problems-in-non-life
 title: "5 Main types of Non-life insurance problems"
 subtitle: "Determining factors of capital retention in general insurance"
 excerpt: "Determining factors of capital retention in general insurance"
@@ -15,6 +15,7 @@ image:
   teaser: capital-retention-insurance.jpg
   credit: Shine.com
   creditlink: http://info.shine.com/article/talent-retention-is-a-big-challenge-for-insurance-firms/8814.html
+published: true
 ---
 
 Following what I wrote about last [time](https://brianlusina.github.io//money/non-life-actuarial-problems/)(feel free to check it out), I will follow up with that and mention briefly the problems General insurance companies usually face when it comes to retaining risk especially when dealing with a portfolio.

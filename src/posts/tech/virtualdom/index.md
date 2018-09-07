@@ -16,6 +16,7 @@ image:
  thumbnail: virtualdom.png
  creditlink: http://slides.com/brandonkonkle/exploring-virtual-dom/
  credit: Slides.com
+published: true
 ---
 
 JavaScript is one of the most powerful languages in the current era and it is quickly gaining ground. What makes it powerful is its dynamic nature and ability to manipulate the DOM. This manipulation is at the heart of the modern, interactive web. Unfortunately, it is also a lot slower than most JavaScript operations.

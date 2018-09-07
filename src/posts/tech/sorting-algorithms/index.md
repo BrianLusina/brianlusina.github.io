@@ -14,6 +14,7 @@ image:
  feature: sorting-algorithms.png
  thumbnail: sorting-algorithms.png
  teaser: sorting-algorithms.png
+published: true
 ---
 
 Algorithms are set to achieve a certain outcome. Sorting algoritms follow numerical order and usually has random access to an array. This means that it can access random indexes of an array to perform a sort.

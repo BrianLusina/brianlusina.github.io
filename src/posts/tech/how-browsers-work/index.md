@@ -16,6 +16,7 @@ image:
  thumbnail: 
  credit: Taligarsiel
  creditlink:  http://www.taligarsiel.com
+published: true
 ---
 
 Browsers are essential tools that help in transfering information from one computer to another over the world wide web. Without these browsers we would not be able to dynamically interact with people from all over the world at a click of a button.

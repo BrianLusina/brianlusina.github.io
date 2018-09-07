@@ -1,29 +1,27 @@
 import React from 'react'
 import { string, number } from 'prop-types'
-import { Link } from 'gatsby'
+import ButtonLink from './buttons/ButtonLink';
 
 const Pagination = ({ previousUrl, nextUrl, pageCount }) => {
 	return (
 		<ul className="actions pagination">
 			<li>
-				<Link
-					to={previousUrl}
+				<ButtonLink 
+					link={previousUrl} 
+					text={"Previous Page"}
 					className={`${
 						previousUrl === '0' ? 'disabled' : ''
 					} button large previous`}
-				>
-					Previous Page
-				</Link>
+				/>
 			</li>
 			<li>
-				<Link
-					to={nextUrl}
+				<ButtonLink
+					link={nextUrl}
+					text="Next Page"
 					className={`${
 						nextUrl === (pageCount + 1).toString() ? 'disabled' : ''
 					} button large next`}
-				>
-					Next Page
-				</Link>
+				/>
 			</li>
 		</ul>
 	)

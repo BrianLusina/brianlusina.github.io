@@ -15,6 +15,7 @@ image:
  teaser: binary_tree.png
  thumbnail: binary_tree.png
  credit: Quora
+published: true
 ---
 
 Binary trees are part of a data structure known as `Trees`, yeah, I know, the forefathers of computer science and software engineering were quite creative. They were quite observant. Trees, more or less, look like trees, like the literal trees in nature. Now, that we have the most basic and almost worst analogy out there, what are binary trees?

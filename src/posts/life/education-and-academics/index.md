@@ -16,6 +16,7 @@ image:
   thumbnail:
   credit:
   creditlink:
+published: true
 ---
 
 Academic excellence is overrated! There I said it. Being top of your class does not necessarily guarantee that you will be at the top of life. You could graduate as the best student in finace but it doesn't mean you will make more money thatn everybody else. The best graduating law student does not necessarily make the best lawyer.

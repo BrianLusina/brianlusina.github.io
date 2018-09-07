@@ -15,6 +15,7 @@ image:
  teaser: kotlin_thumb.jpg
  thumbnail: kotlin_thumb.jpg
  credit: Kotlinlang.org
+published: true
 ---
 
 It has been a while since my last blog post. And since my last blog post I set out on a journey to learn and grow in learning new technologies and understanding how they work. What really made my adventure exciting was when I discovered a little jewel called Kotlin.

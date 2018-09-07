@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, withPrefix, graphql } from 'gatsby'
 import { object, shape, string, arrayOf } from 'prop-types'
-import defaultFeature from '../assets/images/default_feature_pic.jpg'
-import defaultAvatar from '../assets/images/avatar.jpg'
-import MainLayoutWrapper from '../layouts/MainLayout';
+import defaultFeature from '../../assets/images/default_feature_pic.jpg'
+import defaultAvatar from '../../assets/images/avatar.jpg'
+import MainLayoutWrapper from '../../layouts/MainLayout';
 
 
 const BlogPost = ({ data, pageContext: { next, prev } }) => {

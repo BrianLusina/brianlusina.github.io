@@ -14,6 +14,7 @@ image:
  feature: usability-design.png
  teaser: usability-design.png
  thumbnail: usability-design.png
+published: true
 ---
 
 A lot of people associate designing stellar applications with skill alone. That it just takes one brilliant out of the blue idea to create something that everyone will suddenly realize they need. Sometimes this happens, but more often than not it does not. A lot of applications are built to fill a gap that people have craved to be filled. To find this gap you need to first know that it is there, you need to identify if people acknowledge it is a gap as well and also you need to be able to determine if said people need a complex technology to fill this gap or do they simply need a pen and paper. Not all problems need technology to get solved.

@@ -14,6 +14,7 @@ image:
  feature:  version-contol-system.png
  thumbnail:  version-contol-system.png
  teaser:  version-contol-system.png
+published: true
 ---
 
 The very first time I encountered Git, I was confused, I did not understand anything about it. Racked my head constantly trying to figure out what it was all about. Frankly, I was getting frustrated. I simply thought it was one of those cloud backups. So, I questioned what everyone was saying about Distributed Version Control System. Did not quite grasp the concept, until finally it started making sense when I went over a tutorial and read some books and started using it. It finally meant sense, A door was opened in my mind, which unlocked tons of other ones.

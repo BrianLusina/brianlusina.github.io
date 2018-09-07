@@ -13,6 +13,7 @@ author:
 image:
  teaser: raspberrypi.png
  thumbnail: raspberrypi.png
+published: true
 ---
 
 Configuring a Raspberry Pi is fun especially when you delve into IoT and start tinkering around with making machines talk to each other. This tool is perfect for such fun. It is even better when you can get it connected to the internet and perform even more functions such as make your coffee before you wake up or turn off your lights from wherever you are.

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 // import { connect } from 'react-redux'
 import { object, shape, arrayOf, string, number } from 'prop-types'
-import PostItem from '../components/posts/PostItem'
+import PostItem from '../../components/posts/PostItem'
 import moment from 'moment'
-import Pagination from '../components/Pagination'
+import Pagination from '../../components/Pagination'
 import { graphql } from "gatsby";
 
 export class HomePageTemplate extends Component {
