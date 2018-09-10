@@ -11,8 +11,6 @@ export class HomePageTemplate extends Component {
 		super(props, context)
 		this.state = {
 			posts: [],
-			blogPostsPerPage: 5,
-			paginatedPagesCount: 10
 		}
 	}
 
@@ -60,28 +58,13 @@ export class HomePageTemplate extends Component {
 		)
 	}
 
-	paginationPath(path, page, totalPages){
-		if (page === 0) {
-			return path
-		} else if (page < 0 || page >= totalPages) {
-			return ''
-		} else {
-			return `${path}/${page + 1}`
-		}
-	}
-	
 	static getDerivedStateFromProps(nextProps, prevState) {
 		const { posts = [] } = nextProps
-
-		const blogPostsCount = posts.length;
-		const paginatedPagesCount = Math.ceil(blogPostsCount / prevState.blogPostsPerPage)
 	
 		if (posts !== prevState.posts) {
 			return {
 				...prevState,
 				posts,
-				blogPostsCount,
-				paginatedPagesCount
 			}
 		} else {
 			return null
@@ -89,19 +72,13 @@ export class HomePageTemplate extends Component {
 	}
 
 	render() {
-		// const {
-		// 	pageContext: { index, pageCount },
-		// } = this.props
-		// const previousUrl = index - 1 == 1 ? '' : (index - 1).toString()
-		// const nextUrl = (index + 1).toString()
-
 		return (
 			<section>
 				{this.renderBlogPosts()}
 				<Pagination
-					previousUrl={''} //previousUrl}
-					nextUrl={''} //nextUrl}
-					pageCount={5} //pageCount}
+					previousUrl={''}
+					nextUrl={'/page/2'}
+					pageCount={5}
 				/>
 			</section>
 		)

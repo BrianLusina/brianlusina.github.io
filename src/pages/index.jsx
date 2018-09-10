@@ -24,7 +24,11 @@ RootPage.propTypes = {
 
 export const query = graphql`
 	query BlogPostsQuery {
-		allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }){
+		allMarkdownRemark(
+			sort: { fields: [frontmatter___date], order: DESC }
+			limit: 10
+			filter: {frontmatter: {published: {eq: true}}}
+		){
 			edges {
 				node {
 					frontmatter {
