@@ -41,6 +41,60 @@ module.exports = {
 			options: {
 				trackingId: ""
 			}
+		},
+		{
+			resolve: `gatsby-plugin-paginate`,
+			options: {
+				sources: [{
+					path: `/page`,
+					pageSize: 5,
+					template: `${__dirname}/src/templates/page/page.jsx`,
+					serialize: results => results.allMarkdownRemark.edges,
+					query: `{
+							allMarkdownRemark(
+								sort: { fields: [frontmatter___date], order: DESC }
+								limit: 1000
+								filter: {frontmatter: {published: {eq: true}}}
+							){
+								edges {
+									next {
+										frontmatter {
+										  path
+										}
+									}
+									node {
+										html
+										id
+										timeToRead
+										frontmatter {
+											title
+											subtitle
+											excerpt
+											path
+											category
+											date(formatString: "MMMM DD, YYYY")
+											author {
+												name
+												link
+												avatar
+											}
+											image {
+												feature
+												thumbnail
+												teaser
+												credit
+												creditlink
+											}
+											tags
+											published
+										}
+									}
+								}
+							}
+						}
+					`
+				}]
+			}
 		}
 	],
 };

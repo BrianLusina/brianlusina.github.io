@@ -1,13 +1,13 @@
 import React from 'react'
 import { object, string, bool, shape, oneOfType, array } from 'prop-types'
 import { StaticQuery, graphql } from "gatsby"
-import '../styles/scss/main.scss'
-import LayoutWrapper from './LayoutWrapper';
+import '../../styles/scss/main.scss'
+import LayoutWrapper from '../LayoutWrapper';
 
-const MainLayout = ({children, displaySidebar, page: { title, description }, tag}) => (
+const PageLayout = ({children, displaySidebar, page: { title, description }, tag}) => (
 	<StaticQuery
 		query={graphql`
-			query MainLayoutQuery {
+			query PageLayoutQuery {
 				site {
 					siteMetadata {
 						title
@@ -15,33 +15,6 @@ const MainLayout = ({children, displaySidebar, page: { title, description }, tag
 					}
 				}
 		
-				allMarkdownRemark(
-					sort: { fields: [frontmatter___date], order: DESC }
-					limit: 10
-				) {
-					edges {
-						node {
-							timeToRead
-							frontmatter {
-								title
-								path
-								date(formatString: "MMMM DD, YYYY")
-								author {
-									name
-									link
-									avatar
-								}
-								image {
-									feature
-									thumbnail
-									teaser
-								}
-								tags
-							}
-						}
-					}
-				}
-
 				authorsJson {
 					social {
 						name
@@ -62,8 +35,7 @@ const MainLayout = ({children, displaySidebar, page: { title, description }, tag
 		render={({ 
 			site: { 
 				siteMetadata: { title: siteTitle, about } 
-			}, 
-			allMarkdownRemark: { edges: miniPosts }, 
+			},
 			authorsJson: { social },
 			dataJson: {
 				location : {
@@ -86,7 +58,7 @@ const MainLayout = ({children, displaySidebar, page: { title, description }, tag
 				emailAlias={emailAlias}
 				pageDesc={description}
 				tag={tag}
-				miniPosts={miniPosts}
+				miniPosts={[]}
 			>
 				{children}
 			</LayoutWrapper>
@@ -94,7 +66,7 @@ const MainLayout = ({children, displaySidebar, page: { title, description }, tag
 	/>
 )
 
-MainLayout.defaultProps = {
+PageLayout.defaultProps = {
 	displaySidebar: true,
 	page: {
 		title: null,
@@ -103,7 +75,7 @@ MainLayout.defaultProps = {
 	tag: null
 }
 
-MainLayout.propTypes = {
+PageLayout.propTypes = {
 	children: oneOfType([object, array]),
 	displaySidebar: bool,
 	page: shape({
@@ -113,4 +85,4 @@ MainLayout.propTypes = {
 	tag: string,
 }
 
-export default MainLayout;
+export default PageLayout;

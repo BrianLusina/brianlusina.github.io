@@ -1,5 +1,4 @@
 const path = require('path')
-const chunk = require('lodash/chunk')
 const each = require('lodash/each');
 const get = require("lodash/get");
 const uniq = require("lodash/uniq");
@@ -14,7 +13,6 @@ exports.createPages = ({
 	} = actions
 	const blogPostTemplate = path.resolve(`src/templates/blogs/BlogPost.jsx`)
 	const tagTemplate = path.resolve(`src/templates/tags/Tags.jsx`);
-	const homeTemplate = path.resolve(`src/templates/home/Home.jsx`);
 
 	return new Promise((resolve, reject) => {
 		graphql(
@@ -107,24 +105,6 @@ exports.createPages = ({
 						}
 					})
 				});
-
-				const PAGE_SIZE = 5
-
-				let chunks = chunk(posts, PAGE_SIZE)
-
-				chunks.forEach((chunk, index) => {
-					createPage({
-						path: `/${index + 1}`,
-						component: homeTemplate,
-						context: {
-							skip: index * PAGE_SIZE,
-							limit: PAGE_SIZE,
-							pageNumber: index + 1,
-							hasNextPage: index != chunks.length - 1,
-							nextPageLink: `/${index + 2}`,
-						},
-					})
-				})
 
 				resolve()
 				return

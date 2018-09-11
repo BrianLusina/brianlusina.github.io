@@ -4,7 +4,8 @@
 + [x] Update Readme
 + [x] Tags on posts
   + [x] Miniposts Tags on sidebar when a tag is selected
-+ [ ] Paginate Home page
++ [x] Paginate Home page
++ [ ] Miniposts on pages
 + [ ] Integrate [Github GraphQL API](https://developer.github.com/v4/) to allow querying of projects worked on and currently working on
 + [ ] Integrate Search functionality to allow for searching for tags and blogs.
     References:
@@ -21,3 +22,4 @@
     1. [React with nginx](https://mherman.org/blog/2017/12/07/dockerizing-a-react-app/#react-router-and-nginx)
 + [ ] Setup deployment process to deploy to Docker registry
 + [ ] Domain registration for hosting
++ [ ] Styles and animations for transitions between pages
