@@ -4,7 +4,8 @@
 + [x] Update Readme
 + [x] Tags on posts
   + [x] Miniposts Tags on sidebar when a tag is selected
-+ [ ] Paginate Home page
++ [x] Paginate Home page
++ [ ] Miniposts on pages
 + [ ] Integrate [Github GraphQL API](https://developer.github.com/v4/) to allow querying of projects worked on and currently working on
 + [ ] Integrate Search functionality to allow for searching for tags and blogs.
     References:
