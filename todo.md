@@ -22,3 +22,4 @@
     1. [React with nginx](https://mherman.org/blog/2017/12/07/dockerizing-a-react-app/#react-router-and-nginx)
 + [ ] Setup deployment process to deploy to Docker registry
 + [ ] Domain registration for hosting
++ [ ] Styles and animations for transitions between pages
