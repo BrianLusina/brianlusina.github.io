@@ -17,7 +17,7 @@ const MainLayout = ({children, displaySidebar, page: { title, description }, tag
 		
 				allMarkdownRemark(
 					sort: { fields: [frontmatter___date], order: DESC }
-					limit: 10
+					limit: 5
 				) {
 					edges {
 						node {

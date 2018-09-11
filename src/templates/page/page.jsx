@@ -58,6 +58,7 @@ const PageTemplate = ({ pageContext }) => {
 					previousUrl={prevPath}
 					nextUrl={nextPath}
 					pageCount={pagesSum}
+					currentPage={page}
 				/>
 			</section>
 		</PageLayout>

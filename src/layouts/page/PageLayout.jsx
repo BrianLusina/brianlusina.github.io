@@ -14,6 +14,33 @@ const PageLayout = ({children, displaySidebar, page: { title, description }, tag
 						about
 					}
 				}
+
+                allMarkdownRemark(
+					sort: { fields: [frontmatter___date], order: DESC }
+					limit: 5
+				) {
+					edges {
+						node {
+							timeToRead
+							frontmatter {
+								title
+								path
+								date(formatString: "MMMM DD, YYYY")
+								author {
+									name
+									link
+									avatar
+								}
+								image {
+									feature
+									thumbnail
+									teaser
+								}
+								tags
+							}
+						}
+					}
+				}
 		
 				authorsJson {
 					social {
@@ -37,6 +64,7 @@ const PageLayout = ({children, displaySidebar, page: { title, description }, tag
 				siteMetadata: { title: siteTitle, about } 
 			},
 			authorsJson: { social },
+			allMarkdownRemark: { edges: miniPosts },
 			dataJson: {
 				location : {
 					town,
@@ -58,7 +86,7 @@ const PageLayout = ({children, displaySidebar, page: { title, description }, tag
 				emailAlias={emailAlias}
 				pageDesc={description}
 				tag={tag}
-				miniPosts={[]}
+				miniPosts={miniPosts}
 			>
 				{children}
 			</LayoutWrapper>
