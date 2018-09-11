@@ -47,13 +47,13 @@ module.exports = {
 			options: {
 				sources: [{
 					path: `/page`,
-					pageSize: 10,
+					pageSize: 5,
 					template: `${__dirname}/src/templates/page/page.jsx`,
 					serialize: results => results.allMarkdownRemark.edges,
 					query: `{
 							allMarkdownRemark(
 								sort: { fields: [frontmatter___date], order: DESC }
-								limit: 10
+								limit: 1000
 								filter: {frontmatter: {published: {eq: true}}}
 							){
 								edges {

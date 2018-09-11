@@ -1,22 +1,102 @@
 import React from "react"
-import Layout from "../layouts/MainLayout";
-import Home from "../templates/home/Home";
+import MainLayout from "../layouts/MainLayout";
 import {graphql } from 'gatsby'
-import { shape, arrayOf, object } from 'prop-types'
+import { shape, arrayOf, string, number } from 'prop-types'
 import {locationPropType} from '../propTypes';
+import PostItem from '../components/posts/PostItem';
+import moment from 'moment';
+import ButtonLink from '../components/buttons/ButtonLink';
 
-const RootPage = ({ data: { allMarkdownRemark : {edges: posts}}}) => {
+const IndexPage = ({ data: { allMarkdownRemark : {edges: posts}}}) => {
+	
+	const renderBlogPosts = () => {
+		return posts.map(
+			(
+				{
+					node: {
+						frontmatter: {
+							title,
+							subtitle,
+							path,
+							excerpt,
+							author: { avatar, link, name },
+							image: { feature },
+							date,
+							tags,
+						},
+					},
+				}
+			) => {
+				const time = moment(date).format('MMMM DD, YYYY')
+				return (
+					<PostItem
+						key={path}
+						link={path}
+						img={{
+							src: feature,
+							alt: feature,
+						}}
+						author={{
+							name,
+							avatar,
+							link,
+						}}
+						title={title}
+						subtitle={subtitle}
+						date={time}
+						excerpt={excerpt}
+						tags={tags}
+					/>
+				)
+			}
+		)
+	}
+
 	return (
-		<Layout>
-			<Home posts={posts}/>
-		</Layout>
+		<MainLayout>
+			<section>
+				{renderBlogPosts()}
+				<ButtonLink
+					link="/page/2"
+					text="Next Page"
+					className="button large next"
+				/>
+			</section>
+		</MainLayout>
 	)
 }
 
-RootPage.propTypes = {
+IndexPage.propTypes = {
 	data: shape({
 		allMarkdownRemark: shape({
-			edges: arrayOf(object)
+			edges: arrayOf(
+				shape({
+					node: shape({
+						excerpt: string,
+						html: string,
+						timeToRead: number,
+						frontmatter: shape({
+							path: string,
+							author: shape({
+								avatar: string,
+								link: string,
+								name: string
+							}),
+							date: string,
+							excerpt: string,
+							image: shape({
+								credit: string,
+								creditLink: string,
+								feature: string,
+								teaser: string,
+								thumbnail: string
+							}),
+							subtitle: string,
+							title: string,
+						})
+					})
+				})
+			)
 		})
 	}),
 	location: locationPropType
@@ -26,7 +106,7 @@ export const query = graphql`
 	query BlogPostsQuery {
 		allMarkdownRemark(
 			sort: { fields: [frontmatter___date], order: DESC }
-			limit: 10
+			limit: 5
 			filter: {frontmatter: {published: {eq: true}}}
 		){
 			edges {
@@ -61,4 +141,4 @@ export const query = graphql`
 	}
 `
 
-export default RootPage;
+export default IndexPage;
