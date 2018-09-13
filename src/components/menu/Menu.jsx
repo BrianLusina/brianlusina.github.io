@@ -1,6 +1,6 @@
 import React from 'react'
 import MenuItem from './MenuItem'
-import Search from '../Search'
+import Search from '../search/Search'
 
 /**
  * Menu stateless component
@@ -27,7 +27,9 @@ const Menu = () => {
 
 	return (
 		<section id="menu">
-			<Search />
+			<section>
+				<Search />
+			</section>
 
 			<section>
 				<ul className="links">{createMenuItems()}</ul>

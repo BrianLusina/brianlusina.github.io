@@ -21,6 +21,8 @@
     "publish:staging": "surge --project ./public --domain ljournal.surge.sh"
   },
   "dependencies": {
+    "@material-ui/core": "^3.0.3",
+    "@material-ui/icons": "^3.0.1",
     "gatsby": "next",
     "gatsby-plugin-google-analytics": "next",
     "gatsby-plugin-manifest": "next",
