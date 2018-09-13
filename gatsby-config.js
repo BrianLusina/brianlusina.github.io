@@ -1,3 +1,5 @@
+const isNil = require("lodash/isNil");
+
 module.exports = {
 	siteMetadata: {
 		title: "LJournal",
@@ -94,6 +96,75 @@ module.exports = {
 						}
 					`
 				}]
+			}
+		},
+		// Until this PR (https://github.com/andrew-codes/gatsby-plugin-elasticlunr-search/pull/14) is closed
+		// this shall be a pending feature until there is support for Gatsby v2
+		// {
+		// 	resolve: `@andrew-codes/gatsby-plugin-elasticlunr-search`,
+		// 	options: {
+		// 		fields: [
+		// 			'title',
+		// 			'tags',
+		// 			'category'
+		// 		],
+		// 		resolvers: {
+		// 			// For any node of type MarkdownRemark, list how to resolve the fields' values
+		// 			MarkdownRemark: {
+		// 				title: node => node.frontmatter.title,
+		// 				tags: node => node.frontmatter.tags,
+		// 				category: node => node.frontmatter.category
+		// 			},
+		// 		}
+		// 	}
+		// }
+		{
+			resolve: "gatsby-plugin-lunr",
+			options: {
+				languages: ["en"],
+				fields: [{
+					name: 'title',
+					store: true,
+					attributes: {
+						boost: 20
+					}
+				},
+				{
+					name: 'subtitle',
+					store: true,
+				},
+				{
+					name: "tags",
+					store: true,
+				},
+				{
+					name: "category",
+					store: true,
+				},
+				{
+					name: 'excerpt',
+					store: true
+				},
+				{
+					name: 'content',
+					store: true
+				},
+				{
+					name: 'url',
+					store: true
+				},
+				],
+				filterNodes: node => !isNil(node.frontmatter),
+				resolvers: {
+					MarkdownRemark: {
+						title: node => node.frontmatter.title,
+						tags: node => node.frontmatter.tags,
+						category: node => node.frontmatter.category,
+						excerpt: node => node.frontmatter.excerpt,
+						content: node => node.rawMarkdownBody,
+						url: (node) => node.frontmatter.path,
+					}
+				}
 			}
 		}
 	],
