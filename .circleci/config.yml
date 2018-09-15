@@ -99,7 +99,6 @@ workflows:
                                         branches:
                                                 only:
                                                         - staging
-                                                        - develop
                                                 ignore:
                                                         - production
                                                         - master
@@ -117,7 +116,6 @@ workflows:
                                                         - production
                                                 ignore:
                                                         - master
-                                                        - develop
                                                         - staging
                                                         - gh-pages
                                                         - /^feature/.*/
