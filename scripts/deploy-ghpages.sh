@@ -8,7 +8,7 @@ set -e
 pwd
 remote=$(git config remote.origin.url)
 
-#make directoryto put gh-pages branch in
+# make directoryto put gh-pages branch in
 
 echo "Creating gh-pages-branch..."
 mkdir gh-pages-branch
@@ -33,14 +33,15 @@ else
 	git checkout --orphan gh-pages
 fi
 
-# copy over the new site
-cd ..
-cp -a public/. gh-pages-branch
+cd .. && cd ..
+
+# copy over or recompile the new site
+cp -a public/. scripts/gh-pages.branch .
 
 # copying over circleci config to gh-pages branch ensures that once deployed to gh-pages, the build will not start again on circleci
 echo "Copying over CircleCi config file"
-mkdir -p gh-pages-branch/.circleci && cp -a .circleci/ gh-pages-branch/.circleci/
-cd gh-pages
+mkdir -p scripts/gh-pages-branch/.circleci && cp -a .circleci/ scripts/gh-pages-branch/.circleci/
+cd scripts/gh-pages-branch
 
 # stage any new changes and new files
 git add -A
@@ -54,4 +55,3 @@ cd ..
 rm -rf gh-pages-branch
 
 echo "Finished Deployment :D"
-
