@@ -1,7 +1,7 @@
 #!/bin/sh
 
 TARGET_BRANCH=master
-DIR_NAME=master-branch
+DIR_NAME=deploy-dir
 
 # abort the script if there is a non-zero error
 set -e
@@ -38,16 +38,16 @@ else
 	git checkout --orphan $TARGET_BRANCH
 fi
 
-cd .. && cd ..
+cd ..
 
 echo ">> Copying over new site ..."
-cp -a public/. scripts/$DIR_NAME/
+cp -a public/. $DIR_NAME/
 
 #Copying over circleci config to deploy branch ensures that once deployed to deploy, the build will not start again on circleci
 
 echo ">> Copying over CircleCi config file ..."
-mkdir -p scripts/$DIR_NAME/.circleci && cp -a .circleci/ scripts/$DIR_NAME/.circleci/
-cd scripts/$DIR_NAME/
+mkdir -p $DIR_NAME/.circleci && cp -a .circleci/ $DIR_NAME/.circleci/
+cd $DIR_NAME/
 
 # stage any new changes and new files
 git add -A
