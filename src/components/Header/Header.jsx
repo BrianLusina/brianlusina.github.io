@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link }from 'gatsby'
-import Navbar from '../Navbar'
+import Navbar from '../navbar/Navbar'
+import Search from '../search/Search';
+// import "./header.scss";
 
 const Header = () => {
 	return (
@@ -11,13 +13,8 @@ const Header = () => {
 			<Navbar />
 			<nav className="main">
 				<ul>
-					<li className="search">
-						<a className="fa-search" href="#search">
-							Search
-						</a>
-						<form id="search" method="get" action="#">
-							<input type="text" name="query" placeholder="Search" />
-						</form>
+					<li className="header-search">
+						<Search className='visible'/>
 					</li>
 					<li className="menu">
 						<a className="fa-bars" href="#menu">

@@ -4,7 +4,6 @@
  */
 
 import {combineReducers} from 'redux';
-import blog from "../containers/blog/blogReducer";
 import ajax from "./ajaxReducer"
 
 /**
@@ -12,7 +11,7 @@ import ajax from "./ajaxReducer"
  * Uses short hand property names from ES6
  * */
 const rootReducer = combineReducers({
-  blog, ajax
+  ajax
 });
 
 export default rootReducer;
