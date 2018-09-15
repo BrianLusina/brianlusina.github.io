@@ -1,0 +1,117 @@
+version: 2
+jobs:
+        build:
+                working_directory: ~/ljournal
+                environment:
+                        GA_ANALYTICS: $GA_ANALYTICS
+                docker:
+                        - image: node:10
+                steps:
+                        - checkout
+                        - restore_cache:
+                                key: LJournal-{{ checksum "package.json"  }}-{{ .Branch }}
+                                keys:
+                                        - v1-dependencies-{{ checksum "package.json" }}
+                                        # fallback to using the latest cache if no exact match is found 
+                                        - v1-dependencies-
+                        - run: 
+                                name: Download dependencies
+                                command: yarn install
+
+                        - save_cache:
+                                key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
+                                paths:
+                                        - node_modules
+                                keys:
+                                        - v1-dependencies-{{ checksum "package.json" }}
+
+                        - persist_to_workspace:
+                                root: .
+                                paths: .
+
+        test:
+                working_directory: ~/ljournal
+                docker:
+                        - image: node:10
+                steps:
+                        - attach_workspace:
+                                at: .
+                        
+                        - restore_cache:
+                                key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
+                                keys:
+                                        - v1-dependencies-{{ checksum "package.json" }}
+
+                        - run:
+                                name: Run tests
+                                command: yarn test
+
+        deployStaging:
+                working_directory: ~/ljournal
+                docker:
+                        - image: node:10
+                steps:
+                        - attach_workspace:
+                                at: .
+                        
+                        - restore_cache:
+                                key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
+                                keys:
+                                        - v1-dependencies-{{ checksum "package.json" }}
+
+                        - run:
+                                name: Publish to staging environment
+                                command: yarn publish:staging
+        
+        deployProd:
+                working_directory: ~/ljournal
+                docker:
+                        - image: node:10
+                steps:
+                        - attach_workspace:
+                                at: .
+                        
+                        - restore_cache:
+                                key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
+                                keys:
+                                        - v1-dependencies-{{ checksum "package.json" }}
+
+                        - run:
+                                name: Publish to production
+                                command: yarn publish:prod
+
+workflows:
+        version: 2
+        build-test-deploy:
+                jobs:
+                        - build
+                        - test:
+                                requires:
+                                        - build
+                        - deployStaging:
+                                requires:
+                                        - test
+                                filters:
+                                        branches:
+                                                only:
+                                                        - develop
+                                                ignore:
+                                                        - master
+                                                        - /^feature/.*/
+                                                        - /^bugfix/.*/
+                                                        - /^hotfix/.*/
+                                                        - /^release/.*/
+                        - deployProd:
+                                requires:
+                                        - test
+                                filters:
+                                        branches:
+                                                only:
+                                                        - master
+                                                ignore:
+                                                        - develop
+                                                        - staging
+                                                        - /^feature/.*/
+                                                        - /^bugfix/.*/
+                                                        - /^hotfix/.*/
+                                                        - /^release/.*/
