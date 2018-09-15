@@ -23,7 +23,6 @@
   "dependencies": {
     "gatsby": "next",
     "gatsby-plugin-google-analytics": "next",
-    "gatsby-plugin-lunr": "^1.1.0",
     "gatsby-plugin-manifest": "next",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-paginate": "^1.12.0",
