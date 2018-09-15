@@ -22,8 +22,6 @@ git config --global user.name "$GITHUB_USER_NAME" > /dev/null 2>&1
 git config --global user.email "$GITHUB_USER_EMAIL" > /dev/null 2>&1
 git init
 
-# mkdir ~/.ssh/ && echo -e "Host github.com\n\t\StringHostKeyChecking no\n" > ~/.ssh/config
-
 git remote add --fetch origin "$remote"
 
 echo ">> Switching into $TARGET_BRANCH branch ..."
@@ -51,7 +49,7 @@ cd $DIR_NAME/
 
 # stage any new changes and new files
 git add -A
-git commit --allow-empty -m "Deploy to Github Pages [commit: $CIRCLECI_SHA1] [build: $CIRCLECI_BUILD_NUM] [ci-skip]"
+git commit --allow-empty -m "Deploy to Github Pages [commit: $CIRCLE_SHA1] [build: $CIRCLE_BUILD_NUM] [ci-skip]"
 
 # push, but sending any output to /dev/null to hide sensitive information
 git push --force --quiet origin $TARGET_BRANCH > /dev/null 2>&1
