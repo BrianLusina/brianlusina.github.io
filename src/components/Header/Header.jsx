@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link }from 'gatsby'
 import Navbar from '../navbar/Navbar'
-import Search from '../search/Search';
+// import Search from '../search/Search';
 // import "./header.scss";
 
 const Header = () => {
@@ -11,7 +11,8 @@ const Header = () => {
 				<Link to="/">LJournal</Link>
 			</h1>
 			<Navbar />
-			<nav className="main">
+			{/* TODO: include search and menu */}
+			{/* <nav className="main">
 				<ul>
 					<li className="header-search">
 						<Search className='visible'/>
@@ -22,7 +23,7 @@ const Header = () => {
 						</a>
 					</li>
 				</ul>
-			</nav>
+			</nav> */}
 		</header>
 	)
 }

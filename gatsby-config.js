@@ -118,54 +118,55 @@ module.exports = {
 		// 		}
 		// 	}
 		// }
-		{
-			resolve: "gatsby-plugin-lunr",
-			options: {
-				languages: ['en'],
-				fields: [{
-					name: 'title',
-					store: true,
-					attributes: {
-						boost: 20
-					}
-				},
-				{
-					name: 'subtitle',
-					store: true,
-				},
-				{
-					name: "tags",
-					store: true,
-				},
-				{
-					name: "category",
-					store: true,
-				},
-				{
-					name: 'excerpt',
-					store: true
-				},
-				{
-					name: 'content',
-					store: true
-				},
-				{
-					name: 'url',
-					store: true
-				},
-				],
-				filterNodes: node => !isNil(node.frontmatter),
-				resolvers: {
-					MarkdownRemark: {
-						title: node => node.frontmatter.title,
-						tags: node => node.frontmatter.tags,
-						category: node => node.frontmatter.category,
-						excerpt: node => node.frontmatter.excerpt,
-						content: node => node.rawMarkdownBody,
-						url: (node) => node.frontmatter.path,
-					}
-				}
-			}
-		}
+		// {
+		// gatsby-plugin-lunr issues
+		// 	resolve: "gatsby-plugin-lunr",
+		// 	options: {
+		// 		languages: ['en'],
+		// 		fields: [{
+		// 			name: 'title',
+		// 			store: true,
+		// 			attributes: {
+		// 				boost: 20
+		// 			}
+		// 		},
+		// 		{
+		// 			name: 'subtitle',
+		// 			store: true,
+		// 		},
+		// 		{
+		// 			name: "tags",
+		// 			store: true,
+		// 		},
+		// 		{
+		// 			name: "category",
+		// 			store: true,
+		// 		},
+		// 		{
+		// 			name: 'excerpt',
+		// 			store: true
+		// 		},
+		// 		{
+		// 			name: 'content',
+		// 			store: true
+		// 		},
+		// 		{
+		// 			name: 'url',
+		// 			store: true
+		// 		},
+		// 		],
+		// 		filterNodes: node => !isNil(node.frontmatter),
+		// 		resolvers: {
+		// 			MarkdownRemark: {
+		// 				title: node => node.frontmatter.title,
+		// 				tags: node => node.frontmatter.tags,
+		// 				category: node => node.frontmatter.category,
+		// 				excerpt: node => node.frontmatter.excerpt,
+		// 				content: node => node.rawMarkdownBody,
+		// 				url: (node) => node.frontmatter.path,
+		// 			}
+		// 		}
+		// 	}
+		// }
 	],
 };
