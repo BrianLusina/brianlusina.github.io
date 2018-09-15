@@ -85,7 +85,7 @@ jobs:
 
                         - run:
                                 name: Publish to production
-                                command: ./scripts/deploy.sh
+                                command: ./deploy.sh
 
 workflows:
         version: 2
