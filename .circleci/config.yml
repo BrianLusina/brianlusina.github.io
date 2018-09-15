@@ -75,16 +75,19 @@ jobs:
                                 key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
                                 keys:
                                         - v1-dependencies-{{ checksum "package.json" }}
-
                         - run:
                                 name: Publish to production
-                                command: yarn publish:prod
+                                command: ./scripts/deploy-ghpages.sh
 
 workflows:
         version: 2
         build-test-deploy:
                 jobs:
-                        - build
+                        - build:
+                                filters:
+                                        branches:
+                                                ignore:
+                                                        - gh-pages
                         - test:
                                 requires:
                                         - build
@@ -97,6 +100,7 @@ workflows:
                                                         - develop
                                                 ignore:
                                                         - master
+                                                        - gh-pages
                                                         - /^feature/.*/
                                                         - /^bugfix/.*/
                                                         - /^hotfix/.*/
@@ -111,6 +115,7 @@ workflows:
                                                 ignore:
                                                         - develop
                                                         - staging
+                                                        - gh-pages
                                                         - /^feature/.*/
                                                         - /^bugfix/.*/
                                                         - /^hotfix/.*/
