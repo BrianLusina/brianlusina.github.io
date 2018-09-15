@@ -21,7 +21,7 @@ git config --global user.name "$GITHUB_USER_NAME" > /dev/null 2>&1
 git config --global user.email "$GITHUB_USER_EMAIL" > /dev/null 2>&1
 git init
 
-mkdir ~/.ssh/ && echo -e "Host github.com\n\t\StringHostKeyChecking no\n" > ~/.ssh/config
+# mkdir ~/.ssh/ && echo -e "Host github.com\n\t\StringHostKeyChecking no\n" > ~/.ssh/config
 
 git remote add --fetch origin "$remote"
 

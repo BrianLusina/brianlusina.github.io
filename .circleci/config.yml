@@ -76,6 +76,10 @@ jobs:
                                 keys:
                                         - v1-dependencies-{{ checksum "package.json" }}
                         - run:
+                                name: Github Known hosts
+                                command: |
+                                        mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+                        - run:
                                 name: Publish to production
                                 command: ./scripts/deploy.sh
 
