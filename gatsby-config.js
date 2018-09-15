@@ -121,7 +121,7 @@ module.exports = {
 		{
 			resolve: "gatsby-plugin-lunr",
 			options: {
-				languages: ["en"],
+				languages: ['en'],
 				fields: [{
 					name: 'title',
 					store: true,
