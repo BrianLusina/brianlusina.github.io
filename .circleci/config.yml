@@ -76,13 +76,8 @@ jobs:
                                 keys:
                                         - v1-dependencies-{{ checksum "package.json" }}
                         - run:
-                                name: Setup git user
-                                command: |
-                                        git config --global user.email $GITHUB_USER_EMAIL
-                                        git config --global user.name $GITHUB_USER_NAME
-                        - run:
                                 name: Publish to production
-                                command: yarn publish:prod
+                                command: ./scripts/deploy-ghpages.sh
 
 workflows:
         version: 2
