@@ -8,6 +8,7 @@ set -e
 
 # show where we are on the machine
 pwd
+
 remote=$(git config remote.origin.url)
 
 # make directory to put deploy branch in
@@ -40,13 +41,13 @@ fi
 cd .. && cd ..
 
 echo ">> Copying over new site ..."
-cp -a public/. scripts/$DIR_NAME .
+cp -a public/. scripts/$DIR_NAME/
 
 #Copying over circleci config to deploy branch ensures that once deployed to deploy, the build will not start again on circleci
 
 echo ">> Copying over CircleCi config file ..."
 mkdir -p scripts/$DIR_NAME/.circleci && cp -a .circleci/ scripts/$DIR_NAME/.circleci/
-cd scripts/$DIR_NAME
+cd scripts/$DIR_NAME/
 
 # stage any new changes and new files
 git add -A
@@ -57,6 +58,8 @@ git push --force --quiet origin $TARGET_BRANCH > /dev/null 2>&1
 
 # go back to where we started
 cd ..
+
+echo ">> Removing directory $DIR_NAME"
 rm -rf $DIR_NAME
 
 echo ">>> Finished Deployment :D <<<"
