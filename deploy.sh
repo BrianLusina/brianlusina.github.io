@@ -44,7 +44,7 @@ cp -a public/. $DIR_NAME/
 #Copying over circleci config to deploy branch ensures that once deployed to deploy, the build will not start again on circleci
 
 echo ">> Copying over CircleCi config file ..."
-mkdir -p $DIR_NAME/.circleci && cp -a .circleci/ $DIR_NAME/.circleci/
+cp -a .circleci/ $DIR_NAME/
 cd $DIR_NAME/
 
 # stage any new changes and new files

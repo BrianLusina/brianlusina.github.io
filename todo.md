@@ -23,3 +23,16 @@
 + [ ] Setup deployment process to deploy to Docker registry
 + [ ] Domain registration for hosting
 + [ ] Styles and animations for transitions between pages
++ [ ] Configure prettier linting
++ [ ] Configure automated creation of git tags on CI on successful production builds
+    References:
+        1. [ghr](https://github.com/tcnksm/ghr)
+        2. [circleCi automated releases](https://dzone.com/articles/automate-github-releases-with-circleci)
+        3. [Semantic Release](https://github.com/semantic-release/semantic-release)
++ [ ] Configure git hooks and commit messages using commitizen
+    + [ ] pre-commit should run tests
+    + [ ] pre-push should run lint
+    References:
+        1. [Proper git flow](https://hackernoon.com/15-tips-to-enhance-your-github-flow-6af7ceb0d8a3)
+        2. [commitizen](https://github.com/commitizen/cz-cli)
+        3. [commitlint](https://github.com/marionebl/commitlint)
