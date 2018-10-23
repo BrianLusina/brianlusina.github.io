@@ -5,7 +5,7 @@
 
 Personal blog built with [ReactJS](https://reactjs.org/) and [Gatsby](https://www.gatsbyjs.org/).
 
-__Why document and open source my blog site?__
+**Why document and open source my blog site?**
 
 Part of the belief that OSS is the future and also fosters a community of developers, on top of which not only allows growth, but learnings. And with any OSS, it is important that a document is created to allow contributors to jump on board easily.
 
@@ -28,11 +28,11 @@ A couple of things you will need to install in order to run this project:
 
 1. [Node and NPM](https://nodejs.org/en/)
 
-    Node is a JavaScript Runtime Environment. Installation instructions can be found in the link provided. By installing Node, you will also be installing npm. Node version used is __10.x__
+   Node is a JavaScript Runtime Environment. Installation instructions can be found in the link provided. By installing Node, you will also be installing npm. Node version used is **10.x**
 
 2. [Yarn](https://yarnpkg.com) - (Optional)
 
-    Yarn is an alternative package manager to npm. It is not necessary to use, but, if you prefer using yarn, then follow the instructions set out in the download section of the link provided. It is advised, that one package manager is picked due to how differently the  dependency graph is managed by both.
+   Yarn is an alternative package manager to npm. It is not necessary to use, but, if you prefer using yarn, then follow the instructions set out in the download section of the link provided. It is advised, that one package manager is picked due to how differently the dependency graph is managed by both.
 
 ## Installing
 
@@ -72,11 +72,11 @@ The pipeline set here is to deploy this to a seperate static server when in deve
 
 Tools used for deployment:
 
-+ [Docker](https://www.docker.com/)
+- [Docker](https://www.docker.com/)
 
   There is a [Dockerfile](./Dockerfile) available at the root of the project. Which entails instructions on how to deploy this to a system/server that supports running dockerized applications.
 
-+ [Surge](https://surge.sh)
+- [Surge](https://surge.sh)
 
   Surge is a static hosting site and is used when deploying in development. In order to use this, ensure that you have an account with surge and have the necessary credentials in order to deployto a static site. In its place, any other static hosting site can be used, e.g. [Netlify](https://www.netlify.com/).
 
@@ -88,7 +88,7 @@ Tools used for deployment:
 
   > this will run a build and then publish to surge, ensure you change the domain name to something else though :)
 
-+ [Github Pages](https://pages.github.com/)
+- [Github Pages](https://pages.github.com/)
 
   Github Pages has been used as the production site for the blog. This can be changed to something else however. In its place, anything else can be used.
   To publish to github pages, you can run the following command:
@@ -100,6 +100,21 @@ Tools used for deployment:
   > this runs a buld and publishes to github pages.
 
   > NB: Ensure that you change the [homepage](./package.json#homepage) attribute in the [package.json](./package.json) file to something else however.
+
+  You may add a Google Analytics Tracking ID, however,this is not necessary. To do so you will need to add it as an environment variable ANALYTICS_TRACKING_ID in any of the `.env.<ENVIRONMENT>` of your choice. Sample environments have been provided to give more context:
+
+  ```plain
+  .
+  ├── .env.development.sample
+  ├── .env.production.sample
+  ├── .env.staging.sample
+  └── .env.testing.sample
+  ```
+  > Some of the environments available
+
+  In order to use any of them, simply rename the file you intend to use by removing the `.sample` suffix.
+
+  The environment variables will be picked up at build time.
 
 ## Built With
 

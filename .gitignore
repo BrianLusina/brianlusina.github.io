@@ -37,6 +37,9 @@ yarn-error.log
 .env.test.local
 .env.production.local
 .env
+.env.production
+.env.development
+.env.staging
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

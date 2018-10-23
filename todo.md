@@ -36,3 +36,4 @@
         1. [Proper git flow](https://hackernoon.com/15-tips-to-enhance-your-github-flow-6af7ceb0d8a3)
         2. [commitizen](https://github.com/commitizen/cz-cli)
         3. [commitlint](https://github.com/marionebl/commitlint)
++ [] Configure custom 404 page

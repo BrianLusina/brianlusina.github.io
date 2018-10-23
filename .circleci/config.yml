@@ -76,6 +76,11 @@ jobs:
                                 keys:
                                         - v1-dependencies-{{ checksum "package.json" }}
                         - run:
+                                name: Setup Google Analytics Tracking
+                                command: |
+                                        touch .env.production
+                                        echo ANALYTICS_TRACKING_ID="$ANALYTICS_TRACKING_ID" > .env.production
+                        - run:
                                 name: Github Known hosts
                                 command: |
                                         mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config

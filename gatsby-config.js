@@ -1,4 +1,7 @@
 const isNil = require("lodash/isNil");
+require("dotenv").config({
+	path: `.env.${process.NODE_ENV}`,
+})
 
 module.exports = {
 	siteMetadata: {
@@ -8,6 +11,18 @@ module.exports = {
 	plugins: [
 		"gatsby-plugin-react-helmet",
 		"gatsby-plugin-sass",
+		{
+			resolve: "gatsby-plugin-manifest",
+			options: {
+				name: `LJournal`,
+				short_name: `LJournal`,
+				start_url: `/`,
+				background_color: `#f7f7f7`,
+				theme_color: `#191919`,
+				display: `minimal-ui`,
+				icon: "src/assets/favicon.png"
+			}
+		},
 		"gatsby-plugin-offline",
 		"gatsby-transformer-remark",
 		{
@@ -25,23 +40,10 @@ module.exports = {
 				path: `${__dirname}/src/data`
 			}
 		},
-		"gatsby-plugin-offline",
 		{
-			resolve: "gatsby-plugin-manifest",
-			options: {
-				name: `LJournal`,
-				short_name: `LJournal`,
-				start_url: `/`,
-				background_color: `#f7f7f7`,
-				theme_color: `#191919`,
-				display: `minimal-ui`,
-			}
-		},
-		{
-			// TODO: get google analytics tracking id
 			resolve: "gatsby-plugin-google-analytics",
 			options: {
-				trackingId: ""
+				trackingId: process.env.ANALYTICS_TRACKING_ID
 			}
 		},
 		{
