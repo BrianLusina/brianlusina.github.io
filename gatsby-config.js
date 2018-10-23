@@ -20,7 +20,7 @@ module.exports = {
 				background_color: `#f7f7f7`,
 				theme_color: `#191919`,
 				display: `minimal-ui`,
-				icon: "src/asserts/favicon.ico"
+				icon: "src/assets/favicon.png"
 			}
 		},
 		"gatsby-plugin-offline",
