@@ -8,11 +8,11 @@ WORKDIR /usr/share/app
 ENV PATH /usr/share/app/node_modules/.bin:$PATH
 
 COPY . /usr/share/app
-RUN yarn install
+RUN yarn install --production
 RUN yarn build
 
 # production
-FROM nginx:latest
+FROM nginx:1.15.5-alpine
 
 # Create a non-privilleged user that we'll use to run nginx during the build
 RUN adduser -D user

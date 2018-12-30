@@ -49,7 +49,26 @@ jobs:
                                 name: Run tests
                                 command: yarn test
 
-        build:
+        build_staging:
+                executor: node-executor
+                steps:
+                        - attach_workspace:
+                                at: .
+
+                        - restore_cache:
+                                key: LJournal-{{ checksum "package.json"  }}-{{ .Branch }}
+                                keys:
+                                        - LJ-{{ checksum "package.json" }}
+
+                        - run:
+                                name: Build application
+                                command: yarn build
+
+                        - persist_to_workspace:
+                                root: .
+                                paths: .
+
+        build_production:
                 executor: node-executor
                 environment:
                         GA_ANALYTICS: $GA_ANALYTICS
@@ -61,6 +80,11 @@ jobs:
                                 key: LJournal-{{ checksum "package.json"  }}-{{ .Branch }}
                                 keys:
                                         - LJ-{{ checksum "package.json" }}
+                        - run:
+                                name: Setup Google Analytics Tracking
+                                command: |
+                                        touch .env.production
+                                        echo ANALYTICS_TRACKING_ID="$ANALYTICS_TRACKING_ID" > .env.production
                         
                         - run:
                                 name: Build application
@@ -69,8 +93,8 @@ jobs:
                         - persist_to_workspace:
                                 root: .
                                 paths: .
-        
-        build_docker_image:
+               
+        build_docker_image_staging:
                 executor: docker-executor
                 steps:
                         - setup_remote_docker
@@ -81,6 +105,29 @@ jobs:
                                 name: Build application Docker image
                                 command: |
                                         docker build -f Dockerfile -t thelusina/ljournal:$CIRCLE_SHA1 .
+
+                        - run:
+                                name: Save application Docker image
+                                command: |
+                                        mkdir -p /tmp/image
+                                        docker save -o /tmp/image/ljournal-image.tar thelusina/ljournal:$CIRCLE_SHA1
+
+                        - persist_to_workspace:
+                                root: /tmp
+                                paths:
+                                        - image
+
+        build_docker_image_production:
+                executor: docker-executor
+                steps:
+                        - setup_remote_docker
+                        - attach_workspace:
+                                at: .
+                        
+                        - run:
+                                name: Build application Docker image
+                                command: |
+                                        docker build -t thelusina/ljournal:$CIRCLE_SHA1 .
 
                         - run:
                                 name: Save application Docker image
@@ -156,8 +203,6 @@ jobs:
         
         deploy_production:
                 executor: node-executor
-                environment:
-                        GA_ANALYTICS: $GA_ANALYTICS
                 steps:
                         - attach_workspace:
                                 at: .
@@ -167,17 +212,9 @@ jobs:
                                 keys:
                                         - LJ-{{ checksum "package.json" }}
                         - run:
-                                name: Setup Google Analytics Tracking
-                                command: |
-                                        touch .env.production
-                                        echo ANALYTICS_TRACKING_ID="$ANALYTICS_TRACKING_ID" > .env.production
-                        - run:
                                 name: Github Known hosts
                                 command: |
                                         mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
-                        - run:
-                                name: Create Production build
-                                command: yarn build:gatsby
 
                         - run:
                                 name: Publish to production
@@ -215,26 +252,54 @@ workflows:
                         - test:
                                 requires:
                                         - dependencies
-                        - build:
+                        - build_staging:
                                 requires:
                                         - test
                                 filters:
                                         branches:
+                                                only:
+                                                        - staging
                                                 ignore:
                                                         - gh-pages
                                                         - master
-
-                        - build_docker_image:
+                        - build_production:
                                 requires:
-                                        - build
+                                        - test
                                 filters:
                                         branches:
                                                 only:
-                                                        - staging
                                                         - production
                                                 ignore:
                                                         - gh-pages
                                                         - master
+
+                        - build_docker_image_staging:
+                                requires:
+                                        - build_staging
+                                filters:
+                                        branches:
+                                                only:
+                                                        - staging
+                                                ignore:
+                                                        - gh-pages
+                                                        - master
+                                                        - production
+                                                        - /^feature/.*/
+                                                        - /^bugfix/.*/
+                                                        - /^hotfix/.*/
+                                                        - /^release/.*/
+
+                        - build_docker_image_production:
+                                requires:
+                                        - build_staging
+                                filters:
+                                        branches:
+                                                only:
+                                                        - production
+                                                ignore:
+                                                        - gh-pages
+                                                        - master
+                                                        - staging
                                                         - /^feature/.*/
                                                         - /^bugfix/.*/
                                                         - /^hotfix/.*/
@@ -247,7 +312,7 @@ workflows:
                                                 only:
                                                         - staging
                                 requires:
-                                        - build_docker_image
+                                        - build_docker_image_staging
 
                         - push_production:
                                 context: thelusina-context
@@ -256,11 +321,11 @@ workflows:
                                                 only:
                                                         - production
                                 requires:
-                                        - build_docker_image
+                                        - build_docker_image_production
 
                         - deploy_staging:
                                 requires:
-                                        - build
+                                        - build_staging
                                 filters:
                                         branches:
                                                 only:
@@ -275,7 +340,7 @@ workflows:
                                                         - /^release/.*/
                         - deploy_production:
                                 requires:
-                                        - build
+                                        - build_production
                                 filters:
                                         branches:
                                                 only:
