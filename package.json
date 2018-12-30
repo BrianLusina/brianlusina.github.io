@@ -17,7 +17,8 @@
     "prepublish:prod": "npm run build",
     "publish:prod": "gh-pages -d public",
     "prepublish:staging": "npm run build",
-    "publish:staging": "surge --project ./public --domain ljournal.surge.sh"
+    "publish:staging": "surge --project ./public --domain ljournal.surge.sh",
+    "serve": "http-server ./public -p 8080"
   },
   "dependencies": {
     "gatsby": "^2.0.78",
@@ -73,6 +74,7 @@
     "expect": "^23.6.0",
     "faker": "^4.1.0",
     "gatsby-cli": "^2.4.8",
+    "http-server": "^0.11.1",
     "husky": "^1.3.1",
     "identity-obj-proxy": "^3.0.0",
     "imagemin-lint-staged": "^0.3.0",

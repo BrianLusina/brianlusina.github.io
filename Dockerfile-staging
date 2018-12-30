@@ -5,9 +5,11 @@ RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
 
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
+ENV PATH /usr/share/app/node_modules/.bin:$PATH
 
 COPY . /usr/src/app
+RUN yarn install
+RUN yarn build
 
 # production
 FROM nginx:1.15.5-alpine
