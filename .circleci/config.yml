@@ -230,10 +230,6 @@ jobs:
                                 key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
                                 keys:
                                         - LJ-{{ checksum "package.json" }}
-            
-                        - run:
-                                name: Configure SSH for github
-                                command: ./release-github.sh       
 
                         - run:
                                 name: Install semantic release
