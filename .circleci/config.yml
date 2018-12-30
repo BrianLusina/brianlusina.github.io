@@ -233,12 +233,7 @@ jobs:
             
                         - run:
                                 name: Configure SSH for github
-                                command: |
-                                        openssl aes-256-cbc -d -K $REPO_ENC_KEY -iv $REPO_ENC_IV -in git_deploy_key.enc -out /tmp/git_deploy_key
-                                        chmod 600 /tmp/git_deploy_key
-                                        echo 'echo ${SSH_PASSPHRASE}' > /tmp/askpass && chmod +x /tmp/askpass
-                                        eval "$(ssh-agent -s)"
-                                        DISPLAY=":0.0" SSH_ASKPASS="/tmp/askpass" setsid ssh-add /tmp/git_deploy_key </dev/null                
+                                command: ./release-github.sh       
 
                         - run:
                                 name: Install semantic release
@@ -248,7 +243,12 @@ workflows:
         version: 2
         dependencies-test-build-deploy:
                 jobs:
-                        - dependencies
+                        - dependencies:
+                                filters:
+                                        branches:
+                                                ignore:
+                                                        - gh-pages
+                                                        - master
                         - test:
                                 requires:
                                         - dependencies
@@ -291,7 +291,7 @@ workflows:
 
                         - build_docker_image_production:
                                 requires:
-                                        - build_staging
+                                        - build_production
                                 filters:
                                         branches:
                                                 only:
