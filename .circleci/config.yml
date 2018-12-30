@@ -1,38 +1,41 @@
-version: 2
+version: 2.1
+executors:
+    node-executor:
+        docker:
+            - image: node:10
+        working_directory: ~/ljournal
+    
+    docker-executor:
+        docker:
+            - image: docker:17.05.0-ce-git
+        working_directory: ~/ljournal
+
 jobs:
-        build:
-                working_directory: ~/ljournal
-                environment:
-                        GA_ANALYTICS: $GA_ANALYTICS
-                docker:
-                        - image: node:10
+        dependencies:
+                executor: node-executor
                 steps:
                         - checkout
                         - restore_cache:
-                                key: LJournal-{{ checksum "package.json"  }}-{{ .Branch }}
+                                key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
                                 keys:
-                                        - v1-dependencies-{{ checksum "package.json" }}
-                                        # fallback to using the latest cache if no exact match is found 
-                                        - v1-dependencies-
-                        - run: 
+                                        - LJ-{{ checksum "package.json" }}
+                        
+                        - run:
                                 name: Download dependencies
-                                command: yarn install
-
+                                command: npm install
+            
                         - save_cache:
                                 key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
-                                paths:
-                                        - node_modules
+                                paths: ~/node_modules
                                 keys:
-                                        - v1-dependencies-{{ checksum "package.json" }}
-
+                                        - LJ-{{ checksum "package.json" }}
+            
                         - persist_to_workspace:
                                 root: .
                                 paths: .
-
+        
         test:
-                working_directory: ~/ljournal
-                docker:
-                        - image: node:10
+                executor: node-executor
                 steps:
                         - attach_workspace:
                                 at: .
@@ -40,16 +43,104 @@ jobs:
                         - restore_cache:
                                 key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
                                 keys:
-                                        - v1-dependencies-{{ checksum "package.json" }}
+                                        - LJ-{{ checksum "package.json" }}
 
                         - run:
                                 name: Run tests
                                 command: yarn test
 
-        deployStaging:
-                working_directory: ~/ljournal
-                docker:
-                        - image: node:10
+        build:
+                executor: node-executor
+                environment:
+                        GA_ANALYTICS: $GA_ANALYTICS
+                steps:
+                        - attach_workspace:
+                                at: .
+
+                        - restore_cache:
+                                key: LJournal-{{ checksum "package.json"  }}-{{ .Branch }}
+                                keys:
+                                        - LJ-{{ checksum "package.json" }}
+                        
+                        - run:
+                                name: Build application
+                                command: yarn build
+
+                        - persist_to_workspace:
+                                root: .
+                                paths: .
+        
+        build_docker_image:
+                executor: docker-executor
+                steps:
+                        - setup_remote_docker
+                        - attach_workspace:
+                                at: .
+                        
+                        - run:
+                                name: Build application Docker image
+                                command: |
+                                        docker build -f Dockerfile -t thelusina/ljournal:$CIRCLE_SHA1 .
+
+                        - run:
+                                name: Save application Docker image
+                                command: |
+                                        mkdir -p /tmp/image
+                                        docker save -o /tmp/image/ljournal-image.tar thelusina/ljournal:$CIRCLE_SHA1
+
+                        - persist_to_workspace:
+                                root: /tmp
+                                paths:
+                                        - image
+
+        push_latest:
+                executor: docker-executor
+                steps:
+                        - setup_remote_docker
+                        - attach_workspace:
+                                at: /tmp
+
+                        - run:
+                                name: Load application Docker image
+                                command: |
+                                        docker load --input /tmp/image/ljournal-image.tar
+           
+                        - run:
+                                name: Tag docker image
+                                command: |
+                                        docker tag thelusina/ljournal:$CIRCLE_SHA1 thelusina/ljournal:latest
+           
+                        - run:
+                                name: Push application Docker image
+                                command: |
+                                        docker login -u $DOCKER_USER -p $DOCKER_PASS
+                                        docker push thelusina/ljournal:latest
+        
+        push_production:
+                executor: docker-executor
+                steps:
+                        - setup_remote_docker
+                        - attach_workspace:
+                                at: /tmp
+
+                        - run:
+                                name: Load application Docker image
+                                command: |
+                                        docker load --input /tmp/image/ljournal-image.tar
+           
+                        - run:
+                                name: Tag docker image
+                                command: |
+                                        docker tag thelusina/ljournal:$CIRCLE_SHA1 thelusina/ljournal:production
+           
+                        - run:
+                                name: Push application Docker image
+                                command: |
+                                        docker login -u $DOCKER_USER -p $DOCKER_PASS
+                                        docker push thelusina/ljournal:production
+
+        deploy_staging:
+                executor: node-executor
                 steps:
                         - attach_workspace:
                                 at: .
@@ -57,16 +148,16 @@ jobs:
                         - restore_cache:
                                 key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
                                 keys:
-                                        - v1-dependencies-{{ checksum "package.json" }}
+                                        - LJ-{{ checksum "package.json" }}
 
                         - run:
                                 name: Publish to staging environment
                                 command: yarn publish:staging
         
-        deployProd:
-                working_directory: ~/ljournal
-                docker:
-                        - image: node:10
+        deploy_production:
+                executor: node-executor
+                environment:
+                        GA_ANALYTICS: $GA_ANALYTICS
                 steps:
                         - attach_workspace:
                                 at: .
@@ -74,7 +165,7 @@ jobs:
                         - restore_cache:
                                 key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
                                 keys:
-                                        - v1-dependencies-{{ checksum "package.json" }}
+                                        - LJ-{{ checksum "package.json" }}
                         - run:
                                 name: Setup Google Analytics Tracking
                                 command: |
@@ -91,23 +182,85 @@ jobs:
                         - run:
                                 name: Publish to production
                                 command: ./deploy.sh
+        
+        publish_release:
+                executor: node-executor
+                steps:
+                        - attach_workspace:
+                                at: .
+
+                        - restore_cache:
+                                key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
+                                keys:
+                                        - LJ-{{ checksum "package.json" }}
+            
+                        - run:
+                                name: Configure SSH for github
+                                command: |
+                                        openssl aes-256-cbc -d -K $REPO_ENC_KEY -iv $REPO_ENC_IV -in git_deploy_key.enc -out /tmp/git_deploy_key
+                                        chmod 600 /tmp/git_deploy_key
+                                        echo 'echo ${SSH_PASSPHRASE}' > /tmp/askpass && chmod +x /tmp/askpass
+                                        eval "$(ssh-agent -s)"
+                                        DISPLAY=":0.0" SSH_ASKPASS="/tmp/askpass" setsid ssh-add /tmp/git_deploy_key </dev/null                
+
+                        - run:
+                                name: Install semantic release
+                                command: npx semantic-release
 
 workflows:
         version: 2
-        build-test-deploy:
+        dependencies-test-build-deploy:
                 jobs:
-                        - build:
-                                filters:
-                                        branches:
-                                                ignore:
-                                                        - gh-pages
-                                                        - master
+                        - dependencies
                         - test:
                                 requires:
+                                        - dependencies
+                        - build:
+                                requires:
+                                        - test
+                                filters:
+                                        branches:
+                                                ignore:
+                                                        - gh-pages
+                                                        - master
+
+                        - build_docker_image:
+                                requires:
                                         - build
-                        - deployStaging:
+                                filters:
+                                        branches:
+                                                only:
+                                                        - staging
+                                                        - production
+                                                ignore:
+                                                        - gh-pages
+                                                        - master
+                                                        - /^feature/.*/
+                                                        - /^bugfix/.*/
+                                                        - /^hotfix/.*/
+                                                        - /^release/.*/
+                        
+                        - push_latest:
+                                context: thelusina-context
+                                filters:
+                                        branches:
+                                                only:
+                                                        - staging
                                 requires:
-                                        - test
+                                        - build_docker_image
+
+                        - push_production:
+                                context: thelusina-context
+                                filters:
+                                        branches:
+                                                only:
+                                                        - production
+                                requires:
+                                        - build_docker_image
+
+                        - deploy_staging:
+                                requires:
+                                        - build
                                 filters:
                                         branches:
                                                 only:
@@ -120,9 +273,9 @@ workflows:
                                                         - /^bugfix/.*/
                                                         - /^hotfix/.*/
                                                         - /^release/.*/
-                        - deployProd:
+                        - deploy_production:
                                 requires:
-                                        - test
+                                        - build
                                 filters:
                                         branches:
                                                 only:
@@ -135,3 +288,12 @@ workflows:
                                                         - /^bugfix/.*/
                                                         - /^hotfix/.*/
                                                         - /^release/.*/
+                        
+                        - publish_release:
+                                context: thelusina-context
+                                filters:
+                                        branches:
+                                                only:
+                                                        - production
+                                requires:
+                                        - deploy_production
