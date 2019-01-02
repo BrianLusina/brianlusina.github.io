@@ -1,65 +1,108 @@
 import React from 'react'
-import { blogPropType } from '../propTypes';
-import { graphql } from "gatsby"
-import { func } from "prop-types";
-import { withGraphQLSubscription } from '../components/hoc/withGraphQLPostData';
-
-export const ProjectsPage = ({data, renderPosts }) => (
-	<section>{renderPosts(data)}</section>
-)
-
-ProjectsPage.propTypes = {
-	data: blogPropType,
-	renderPosts: func,
-}
-
-ProjectsPage.defaultProps = {
-	data: {
-		allMarkdownRemark: { edges : [] },
-	},
-}
+import { Query } from 'react-apollo'
+import gql from 'graphql-tag'
+import MainLayoutWrapper from '../layouts/MainLayout'
+import ProjectItem from '../components/posts/ProjectItem'
 
 // eslint-disable-next-line no-undef
-export const query = graphql`
-	query ProjectsPageQuery {
-		allMarkdownRemark(
-			filter: { frontmatter: { category: { eq: "projects" } } }
-			sort: { fields: [frontmatter___date], order: DESC }
-		) {
-			edges {
-				node {
-					frontmatter {
-						title
-						subtitle
-						excerpt
-						path
-						date(formatString: "MMMM DD, YYYY")
-						author {
+const query = gql`
+	{
+		viewer {
+			repositories(first: 100) {
+				edges {
+					repository: node {
+						id
+						owner {
+							avatarUrl
+							url
+						}
+						name
+						url
+						description
+						forks(first: 5) {
+							totalCount
+						}
+						repositoryTopics(first: 10) {
+							nodes {
+								topic {
+									id
+									name
+								}
+								url
+							}
+						}
+						primaryLanguage {
 							name
-							link
-							avatar
 						}
-						image {
-							feature
-							thumbnail
-							teaser
-							credit
-							creditlink
+						updatedAt
+						stargazers {
+							totalCount
 						}
-						tags
+						pullRequests {
+							totalCount
+						}
+						issues {
+							totalCount
+						}
 					}
-					excerpt
-					timeToRead
-					html
 				}
 			}
 		}
 	}
 `
 
-const page = {
-	title: "Projects",
-	description: "Sample Open Source projects, because we love free stuff."
-}
+export const ProjectsPage = () => (
+	<MainLayoutWrapper
+		page={{
+			title: 'Projects',
+			description: 'Sample Open Source projects, because we love open source.',
+		}}
+	>
+		<section>
+			<Query query={query}>
+				{({ loading, error, data }) => {
+					if (loading) return <p>Loading...</p>
+					if (error) return <p>Error :(</p>
+					const repositories = data.viewer.repositories.edges
 
-export default withGraphQLSubscription(ProjectsPage, page);
+					return repositories.map(
+						({
+							repository: {
+								id,
+								name,
+								url,
+								updatedAt,
+								description,
+								owner: { avatarUrl, url: ownerUrl },
+								forks: { totalCount: forkCount },
+								repositoryTopics: { nodes: topics },
+								stargazers: { totalCount: stars },
+								pullRequests: { totalCount: pulls },
+								issues: { totalCount: issueCount },
+							},
+						}) => (
+							<ProjectItem
+								key={id}
+								name={name}
+								url={url}
+								owner={{
+									avatarUrl,
+									ownerUrl,
+								}}
+								description={description}
+								updateDate={updatedAt}
+								topics={topics}
+								stargazers={stars}
+								forks={forkCount}
+								issues={issueCount}
+								pullRequests={pulls}
+							/>
+						)
+					)
+				}}
+			</Query>
+		</section>
+	</MainLayoutWrapper>
+)
+
+export default ProjectsPage

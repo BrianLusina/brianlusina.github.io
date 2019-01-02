@@ -1,15 +1,19 @@
 import React from "react";
 import { Provider } from "react-redux";
+import { ApolloProvider } from "react-apollo";
 import configureStore from "./src/store/configureStore";
+import graphQlService from "./src/api/GraphQlService";
 
+// eslint-disable-next-line react/prop-types
 export const wrapRootElement = ({ element }) => {
 	const store = configureStore();
+	const client = graphQlService.getClient();
 
-	const ConnectedRootElement = (
+	return (
 		<Provider store={store}>
-			{element}
+			<ApolloProvider client={client}>
+				{element}
+			</ApolloProvider>
 		</Provider>
 	);
-
-	return ConnectedRootElement
 };

@@ -23,8 +23,8 @@
 + [ ] Setup deployment process to deploy to Docker registry
 + [ ] Domain registration for hosting
 + [ ] Styles and animations for transitions between pages
-+ [ ] Configure prettier linting
-+ [ ] Configure automated creation of git tags on CI on successful production builds
++ [x] Configure prettier linting
++ [x] Configure automated creation of git tags on CI on successful production builds
     References:
         1. [ghr](https://github.com/tcnksm/ghr)
         2. [circleCi automated releases](https://dzone.com/articles/automate-github-releases-with-circleci)
