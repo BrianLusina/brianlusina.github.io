@@ -8,49 +8,48 @@ import ErrorPage from './ErrorPage';
 
 // eslint-disable-next-line no-undef
 const query = gql`
-	{
-		viewer {
-			repositories(first: 100) {
-				edges {
-					repository: node {
-						id
-						owner {
-							avatarUrl
-							url
-						}
-						name
-						url
-						description
-						forks(first: 5) {
-							totalCount
-						}
-						repositoryTopics(first: 10) {
-							nodes {
-								topic {
-									id
-									name
-								}
-								url
-							}
-						}
-						primaryLanguage {
-							name
-						}
-						updatedAt
-						stargazers {
-							totalCount
-						}
-						pullRequests {
-							totalCount
-						}
-						issues {
-							totalCount
-						}
-					}
-				}
+{
+	viewer {
+	  repositories(first: 100) {
+		nodes {
+		  id
+		  owner {
+			  login
+			  avatarUrl
+			  url
+		  }
+		  name
+		  url
+		  description
+		  forks(first: 5) {
+			totalCount
+		  }
+		  repositoryTopics(first: 10) {
+			nodes {
+			  topic {
+				id
+				name
+			  }
+			  url
 			}
+		  }
+		  primaryLanguage {
+			name
+		  }
+		  updatedAt
+		  stargazers {
+			totalCount
+		  }
+		  pullRequests {
+			totalCount
+		  }
+		  issues {
+			totalCount
+		  }
 		}
+	  }
 	}
+  }  
 `
 
 const ProjectsPage = () => (
@@ -69,7 +68,7 @@ const ProjectsPage = () => (
 					if (error) 
 						return <ErrorPage />
 					
-					const repositories = data.viewer.repositories.edges
+					const repositories = data.viewer.repositories.nodes
 
 					return (
 						<ProjectList repositories={repositories} />
