@@ -21,6 +21,7 @@
     "serve": "http-server ./public -p 8080"
   },
   "dependencies": {
+    "apollo-boost": "^0.1.23",
     "gatsby": "^2.0.78",
     "gatsby-plugin-google-analytics": "^2.0.8",
     "gatsby-plugin-manifest": "2.0.13",
@@ -35,6 +36,7 @@
     "moment": "^2.23.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
+    "react-apollo": "^2.3.3",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "react-markdown": "^4.0.4",
@@ -62,6 +64,7 @@
     "chai": "^4.2.0",
     "codecov": "^3.1.0",
     "commitizen": "^3.0.5",
+    "dotenv-expand": "^4.2.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "eslint": "5.11.1",

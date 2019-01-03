@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import MainLayoutWrapper from '../layouts/MainLayout';
+import MainLayoutWrapper from '../../layouts/MainLayout';
 import { graphql, withPrefix } from 'gatsby';
 import { string, shape,arrayOf} from "prop-types";
-import Footer from '../components/Footer/Footer';
+import Footer from '../../components/Footer/Footer';
 
 const AboutPage = ({ data: { allAuthorsJson: { edges: authors } }}) => {
 	return (

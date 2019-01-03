@@ -2,8 +2,8 @@ import React from 'react';
 import { shape, string, arrayOf, number} from "prop-types"
 import kebabCase from "lodash/kebabCase"
 import { Link, graphql } from "gatsby"
-import MainLayoutWrapper from '../layouts/MainLayout';
-import defaultMiniPic from '../assets/images/default_mini_pic.jpg'
+import MainLayoutWrapper from '../../layouts/MainLayout';
+import defaultMiniPic from '../../assets/images/default_mini_pic.jpg'
 
 
 const TagsPage = ({

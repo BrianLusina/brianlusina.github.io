@@ -1,23 +1,23 @@
 import React from 'react'
-import { blogPropType } from '../propTypes';
-import { withGraphQLSubscription } from '../components/hoc/withGraphQLPostData';
-import { graphql } from "gatsby"
+import { blogPropType } from '../../propTypes';
 import { func } from "prop-types";
+import { graphql } from "gatsby"
+import {withGraphQLSubscription} from '../../components/hoc/withGraphQLPostData';
 
-export const LifePage =({data, renderPosts}) => (
+export const TechPage =({data, renderPosts }) => (
 	<section>{renderPosts(data)}</section>
 )
 
-LifePage.propTypes = {
+TechPage.propTypes = {
 	data: blogPropType,
 	renderPosts: func,
 }
 
 // eslint-disable-next-line no-undef
 export const query = graphql`
-	query LifePageQuery {
+	query TechPageQuery {
 		allMarkdownRemark(
-			filter: { frontmatter: { category: { eq: "life" } } }
+			filter: { frontmatter: { category: { eq: "tech" } } }
 			sort: { fields: [frontmatter___date], order: DESC }
 		) {
 			edges {
@@ -50,9 +50,10 @@ export const query = graphql`
 		}
 	}
 `
-const page = {
-	title: "Life",
-	description: "Life is really simple, but we insist on making it complicated."
-}
 
-export default withGraphQLSubscription(LifePage, page);
+const page = {
+	title: "Tech",
+	description: "The technology keeps moving forward, which makes it easier for the artists to tell their stories and paint the pictures they want."
+};
+
+export default withGraphQLSubscription(TechPage, page);

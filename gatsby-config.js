@@ -1,4 +1,3 @@
-const isNil = require("lodash/isNil");
 require("dotenv").config({
 	path: `.env.${process.NODE_ENV}`,
 })
