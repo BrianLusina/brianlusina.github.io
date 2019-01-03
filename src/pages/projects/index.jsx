@@ -1,8 +1,10 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import MainLayoutWrapper from '../layouts/MainLayout'
-import ProjectItem from '../components/posts/ProjectItem'
+import MainLayoutWrapper from '../../layouts/MainLayout'
+import ProjectList from './ProjectList';
+import LoadingPage from './LoadingPage';
+import ErrorPage from './ErrorPage';
 
 // eslint-disable-next-line no-undef
 const query = gql`
@@ -51,7 +53,7 @@ const query = gql`
 	}
 `
 
-export const ProjectsPage = () => (
+const ProjectsPage = () => (
 	<MainLayoutWrapper
 		page={{
 			title: 'Projects',
@@ -61,44 +63,17 @@ export const ProjectsPage = () => (
 		<section>
 			<Query query={query}>
 				{({ loading, error, data }) => {
-					if (loading) return <p>Loading...</p>
-					if (error) return <p>Error :(</p>
+					if (loading) 
+						return <LoadingPage />
+					
+					if (error) 
+						return <ErrorPage />
+					
 					const repositories = data.viewer.repositories.edges
 
-					return repositories.map(
-						({
-							repository: {
-								id,
-								name,
-								url,
-								updatedAt,
-								description,
-								owner: { avatarUrl, url: ownerUrl },
-								forks: { totalCount: forkCount },
-								repositoryTopics: { nodes: topics },
-								stargazers: { totalCount: stars },
-								pullRequests: { totalCount: pulls },
-								issues: { totalCount: issueCount },
-							},
-						}) => (
-							<ProjectItem
-								key={id}
-								name={name}
-								url={url}
-								owner={{
-									avatarUrl,
-									ownerUrl,
-								}}
-								description={description}
-								updateDate={updatedAt}
-								topics={topics}
-								stargazers={stars}
-								forks={forkCount}
-								issues={issueCount}
-								pullRequests={pulls}
-							/>
-						)
-					)
+					return (
+						<ProjectList repositories={repositories} />
+					);
 				}}
 			</Query>
 		</section>

@@ -1,5 +1,6 @@
+/* eslint-disable no-undef */
 import React from 'react';
-import {DesignPage} from './design';
+import {DesignPage} from '.';
 import { shallow, mount } from "enzyme";
 import faker from "faker";
 

@@ -1,22 +1,22 @@
 import React from 'react'
-import { blogPropType } from '../propTypes';
+import { blogPropType } from '../../propTypes';
 import { func } from "prop-types";
 import { graphql } from "gatsby"
-import {withGraphQLSubscription} from '../components/hoc/withGraphQLPostData';
+import {withGraphQLSubscription} from '../../components/hoc/withGraphQLPostData';
 
-export const FinancePage = ({data, renderPosts}) => (
+export const DesignPage = ({ data, renderPosts }) => (
 	<section>{renderPosts(data)}</section>
 )
 
-FinancePage.propTypes = {
+DesignPage.propTypes = {
 	data: blogPropType,
 	renderPosts: func,
 }
 
 export const query = graphql`
-	query FinancePageQuery {
+	query DesignPageQuery {
 		allMarkdownRemark(
-			filter: { frontmatter: { category: { eq: "finance" } } }
+			filter: { frontmatter: { category: { eq: "design" } } }
 			sort: { fields: [frontmatter___date], order: DESC }
 		) {
 			edges {
@@ -51,8 +51,8 @@ export const query = graphql`
 `
 
 const page = {
-	title: "Finance",
-	description :"I believe that through knowledge and discipline, financial peace is possible for all of us.",
-}
+	title: "Design", 
+	description: "Good design goes to heaven and bad design goes everywhere." 
+};
 
-export default withGraphQLSubscription(FinancePage, page)
+export default withGraphQLSubscription(DesignPage, page);
