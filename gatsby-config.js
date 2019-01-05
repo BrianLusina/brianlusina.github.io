@@ -99,6 +99,18 @@ module.exports = {
 				}]
 			}
 		},
+		{
+			resolve: "gatsby-source-graphql",
+			options: {
+				typeName: "Github",
+				fieldName: "viewer",
+				url: "https://api.github.com/graphql",
+				headers: {
+					authorization: `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`
+				}
+
+			}
+		},
 		// Until this PR (https://github.com/andrew-codes/gatsby-plugin-elasticlunr-search/pull/14) is closed
 		// this shall be a pending feature until there is support for Gatsby v2
 		// {
