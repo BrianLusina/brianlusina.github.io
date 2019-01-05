@@ -63,7 +63,7 @@ jobs:
                         - run:
                                 name: Setup environment
                                 command: |
-                                        echo GITHUB_PERSONAL_ACCESS_TOKEN="$GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN" >> .env.staging
+                                        echo GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN="$GITHUB_PERSONAL_ACCESS_TOKEN" >> .env.staging
 
                         - run:
                                 name: Build application
@@ -91,7 +91,7 @@ jobs:
                                 command: |
                                         touch .env.production
                                         echo ANALYTICS_TRACKING_ID="$ANALYTICS_TRACKING_ID" > .env.production
-                                        echo GITHUB_PERSONAL_ACCESS_TOKEN="$GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN" >> .env.production
+                                        echo GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN="$GITHUB_PERSONAL_ACCESS_TOKEN" >> .env.production
                         
                         - run:
                                 name: Build application
