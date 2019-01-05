@@ -63,7 +63,7 @@ jobs:
                         - run:
                                 name: Setup environment
                                 command: |
-                                        echo GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN="$GITHUB_PERSONAL_ACCESS_TOKEN" >> .env.staging
+                                        echo GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN="$GITHUB_TOKEN" >> .env.staging
 
                         - run:
                                 name: Build application
@@ -77,7 +77,6 @@ jobs:
                 executor: node-executor
                 environment:
                         GA_ANALYTICS: $GA_ANALYTICS
-                        GITHUB_PERSONAL_ACCESS_TOKEN: GITHUB_PERSONAL_ACCESS_TOKEN
                 steps:
                         - attach_workspace:
                                 at: .
@@ -91,7 +90,7 @@ jobs:
                                 command: |
                                         touch .env.production
                                         echo ANALYTICS_TRACKING_ID="$ANALYTICS_TRACKING_ID" > .env.production
-                                        echo GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN="$GITHUB_PERSONAL_ACCESS_TOKEN" >> .env.production
+                                        echo GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN="$GITHUB_TOKEN" >> .env.production
                         
                         - run:
                                 name: Build application
