@@ -8,7 +8,6 @@
   "homepage": "https://brianlusina.github.io",
   "scripts": {
     "commit": "git-cz",
-    "gatsby-new": "gatsby new --",
     "build": "gatsby build",
     "start": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
@@ -30,8 +29,10 @@
     "gatsby-plugin-react-helmet": "3.0.5",
     "gatsby-plugin-sass": "2.0.7",
     "gatsby-source-filesystem": "^2.0.12",
+    "gatsby-source-graphql": "^2.0.8",
     "gatsby-transformer-json": "^2.1.6",
     "gatsby-transformer-remark": "^2.1.17",
+    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
     "prop-types": "^15.6.2",

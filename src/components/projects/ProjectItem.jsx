@@ -69,11 +69,17 @@ const ProjectItem = ({
 				</ul>
 				<ul className="stats">
 					<li>
-						{topics.map(({ topic: { id, name }, url }) => (
-							<a key={id} to={url}>
-								{kebabCase(name)} |{' '}
-							</a>
-						))}
+						{
+							topics.map((
+								{ 
+									topic: { id, name }, 
+									url 
+								}) => (
+								<a key={id} to={url}>
+									{kebabCase(name)} |{' '}
+								</a>
+							))
+						}
 					</li>
 					<li>
 						<a
