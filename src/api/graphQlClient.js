@@ -1,7 +1,7 @@
 import ApolloClient from "apollo-boost";
 import fetch from "isomorphic-fetch"
 
-const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN;
+const token = process.env.GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN;
 
 const graphQlClient = new ApolloClient(
 	{

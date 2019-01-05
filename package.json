@@ -8,14 +8,15 @@
   "homepage": "https://brianlusina.github.io",
   "scripts": {
     "commit": "git-cz",
-    "build": "gatsby build",
+    "build:prod": "NODE_ENV=production gatsby build",
+    "build:staging":"NODE_ENV=staging gatsby build",
     "start": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "node scripts/test.js --env=jsdom",
     "test:cover": "npm run test -- --coverage",
-    "prepublish:prod": "npm run build",
+    "prepublish:prod": "npm run build:prod",
     "publish:prod": "gh-pages -d public",
-    "prepublish:staging": "npm run build",
+    "prepublish:staging": "npm run build:staging",
     "publish:staging": "surge --project ./public --domain ljournal.surge.sh",
     "serve": "http-server ./public -p 8080"
   },
