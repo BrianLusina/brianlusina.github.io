@@ -8,6 +8,8 @@ WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
 COPY . /usr/src/app
+RUN yarn install
+RUN yarn build:prod
 
 # production
 FROM nginx:1.15.5-alpine

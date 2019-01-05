@@ -9,7 +9,7 @@ ENV PATH /usr/share/app/node_modules/.bin:$PATH
 
 COPY . /usr/src/app
 RUN yarn install
-RUN yarn build
+RUN yarn build:staging
 
 # production
 FROM nginx:1.15.5-alpine
