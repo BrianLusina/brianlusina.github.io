@@ -9,7 +9,7 @@
   "scripts": {
     "commit": "git-cz",
     "build:prod": "NODE_ENV=production gatsby build",
-    "build:staging":"NODE_ENV=staging gatsby build",
+    "build:staging": "NODE_ENV=staging gatsby build",
     "start": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "node scripts/test.js --env=jsdom",
@@ -60,6 +60,7 @@
     "@commitlint/config-conventional": "^7.1.2",
     "babel-core": "^7.0.0-0",
     "babel-jest": "^23.6.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
