@@ -1,12 +1,18 @@
-// import React from "react";
-// import { Provider } from "react-redux";
-// import { renderToString } from "react-dom/server";
-// import configureStore from "./src/store/configureStore";
+import React from "react";
+import { Provider } from "react-redux";
+import { ApolloProvider } from "react-apollo";
+import configureStore from "./src/store/configureStore";
+import graphQlClient from "./src/api/graphQlClient";
 
-// exports.replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
-// 	const store = configureStore();
+// eslint-disable-next-line react/prop-types
+export const wrapRootElement = ({ element }) => {
+	const store = configureStore();
 
-// 	replaceBodyHTMLString(
-// 		renderToString(<Provider store={store}>{bodyComponent}</Provider>)
-// 	);
-// };
+	return (
+		<Provider store={store}>
+			<ApolloProvider client={graphQlClient}>
+				{element}
+			</ApolloProvider>
+		</Provider>
+	);
+};

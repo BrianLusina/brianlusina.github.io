@@ -1,10 +1,10 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import { shallow, mount } from "enzyme";
 import faker from "faker";
-import {ProjectsPage} from './projects';
+import {FinancePage} from '.';
 
-
-describe('ProjectsPage', () => {
+describe('FinancePage', () => {
 	let wrapper;
 	const props = {
 		data: {
@@ -44,11 +44,11 @@ describe('ProjectsPage', () => {
 	};
 
 	beforeEach(() => {
-		wrapper = shallow(<ProjectsPage {...props}/>);
+		wrapper = shallow(<FinancePage {...props}/>);
 	});
     
 	it("should be able to mount", () => {
-		mount(<ProjectsPage {...props}/>);
+		mount(<FinancePage {...props}/>);
 	});
     
 	it("should have 1 section element", () => {
