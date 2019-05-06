@@ -6,7 +6,7 @@
   + [x] Miniposts Tags on sidebar when a tag is selected
 + [x] Paginate Home page
 + [x] Miniposts on pages
-+ [ ] Integrate [Github GraphQL API](https://developer.github.com/v4/) to allow querying of projects worked on and currently working on
++ [x] Integrate [Github GraphQL API](https://developer.github.com/v4/) to allow querying of projects worked on and currently working on
 + [ ] Integrate Search functionality to allow for searching for tags and blogs.
     References:
     1. [Gatsby Search](https://www.gatsbyjs.org/docs/adding-search/)
@@ -23,8 +23,8 @@
 + [ ] Setup deployment process to deploy to Docker registry
 + [ ] Domain registration for hosting
 + [ ] Styles and animations for transitions between pages
-+ [ ] Configure prettier linting
-+ [ ] Configure automated creation of git tags on CI on successful production builds
++ [x] Configure prettier linting
++ [x] Configure automated creation of git tags on CI on successful production builds
     References:
         1. [ghr](https://github.com/tcnksm/ghr)
         2. [circleCi automated releases](https://dzone.com/articles/automate-github-releases-with-circleci)

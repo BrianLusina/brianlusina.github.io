@@ -61,8 +61,13 @@ jobs:
                                         - LJ-{{ checksum "package.json" }}
 
                         - run:
+                                name: Setup environment
+                                command: |
+                                        echo GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN="$GITHUB_TOKEN" >> .env.staging
+
+                        - run:
                                 name: Build application
-                                command: yarn build
+                                command: yarn build:staging
 
                         - persist_to_workspace:
                                 root: .
@@ -85,10 +90,11 @@ jobs:
                                 command: |
                                         touch .env.production
                                         echo ANALYTICS_TRACKING_ID="$ANALYTICS_TRACKING_ID" > .env.production
+                                        echo GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN="$GITHUB_TOKEN" >> .env.production
                         
                         - run:
                                 name: Build application
-                                command: yarn build
+                                command: yarn build:prod
 
                         - persist_to_workspace:
                                 root: .
@@ -245,10 +251,13 @@ workflows:
                                                 ignore:
                                                         - gh-pages
                                                         - master
+
                         - test:
                                 requires:
                                         - dependencies
+
                         - build_staging:
+                                context: thelusina-context
                                 requires:
                                         - test
                                 filters:
@@ -258,7 +267,9 @@ workflows:
                                                 ignore:
                                                         - gh-pages
                                                         - master
+
                         - build_production:
+                                context: thelusina-context
                                 requires:
                                         - test
                                 filters:
@@ -334,6 +345,7 @@ workflows:
                                                         - /^bugfix/.*/
                                                         - /^hotfix/.*/
                                                         - /^release/.*/
+
                         - deploy_production:
                                 requires:
                                         - build_production
