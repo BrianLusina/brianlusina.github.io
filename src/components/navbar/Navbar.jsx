@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-// import "./navbar.scss";
+import "./navbar.scss";
 
 const Navbar = () => (
 	<nav className="links">
@@ -17,9 +17,9 @@ const Navbar = () => (
 			<li>
 				<Link to="/life">Life</Link>
 			</li>
-			<li>
+			{/* <li>
 				<Link to="/projects">Projects</Link>
-			</li>
+			</li> */}
 			<li>
 				<Link to="/about">About</Link>
 			</li>
