@@ -4,7 +4,7 @@ executors:
         docker:
             - image: node:10
         working_directory: ~/ljournal
-    
+
     docker-executor:
         docker:
             - image: docker:17.05.0-ce-git
@@ -19,27 +19,27 @@ jobs:
                                 key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
                                 keys:
                                         - LJ-{{ checksum "package.json" }}
-                        
+
                         - run:
                                 name: Download dependencies
                                 command: npm install
-            
+
                         - save_cache:
                                 key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
                                 paths: ~/node_modules
                                 keys:
                                         - LJ-{{ checksum "package.json" }}
-            
+
                         - persist_to_workspace:
                                 root: .
                                 paths: .
-        
+
         test:
                 executor: node-executor
                 steps:
                         - attach_workspace:
                                 at: .
-                        
+
                         - restore_cache:
                                 key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
                                 keys:
@@ -59,11 +59,6 @@ jobs:
                                 key: LJournal-{{ checksum "package.json"  }}-{{ .Branch }}
                                 keys:
                                         - LJ-{{ checksum "package.json" }}
-
-                        - run:
-                                name: Setup environment
-                                command: |
-                                        echo GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN="$GITHUB_TOKEN" >> .env.staging
 
                         - run:
                                 name: Build application
@@ -90,8 +85,7 @@ jobs:
                                 command: |
                                         touch .env.production
                                         echo ANALYTICS_TRACKING_ID="$ANALYTICS_TRACKING_ID" > .env.production
-                                        echo GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN="$GITHUB_TOKEN" >> .env.production
-                        
+
                         - run:
                                 name: Build application
                                 command: yarn build:prod
@@ -99,14 +93,14 @@ jobs:
                         - persist_to_workspace:
                                 root: .
                                 paths: .
-               
+
         build_docker_image_staging:
                 executor: docker-executor
                 steps:
                         - setup_remote_docker
                         - attach_workspace:
                                 at: .
-                        
+
                         - run:
                                 name: Build application Docker image
                                 command: |
@@ -129,7 +123,7 @@ jobs:
                         - setup_remote_docker
                         - attach_workspace:
                                 at: .
-                        
+
                         - run:
                                 name: Build application Docker image
                                 command: |
@@ -157,18 +151,18 @@ jobs:
                                 name: Load application Docker image
                                 command: |
                                         docker load --input /tmp/image/ljournal-image.tar
-           
+
                         - run:
                                 name: Tag docker image
                                 command: |
                                         docker tag thelusina/ljournal:$CIRCLE_SHA1 thelusina/ljournal:latest
-           
+
                         - run:
                                 name: Push application Docker image
                                 command: |
                                         docker login -u $DOCKER_USER -p $DOCKER_PASS
                                         docker push thelusina/ljournal:latest
-        
+
         push_production:
                 executor: docker-executor
                 steps:
@@ -180,12 +174,12 @@ jobs:
                                 name: Load application Docker image
                                 command: |
                                         docker load --input /tmp/image/ljournal-image.tar
-           
+
                         - run:
                                 name: Tag docker image
                                 command: |
                                         docker tag thelusina/ljournal:$CIRCLE_SHA1 thelusina/ljournal:production
-           
+
                         - run:
                                 name: Push application Docker image
                                 command: |
@@ -197,7 +191,7 @@ jobs:
                 steps:
                         - attach_workspace:
                                 at: .
-                        
+
                         - restore_cache:
                                 key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
                                 keys:
@@ -206,13 +200,13 @@ jobs:
                         - run:
                                 name: Publish to staging environment
                                 command: yarn publish:staging
-        
+
         deploy_production:
                 executor: node-executor
                 steps:
                         - attach_workspace:
                                 at: .
-                        
+
                         - restore_cache:
                                 key: LJournal-{{ checksum "package.json" }}-{{ .Branch }}
                                 keys:
@@ -225,7 +219,7 @@ jobs:
                         - run:
                                 name: Publish to production
                                 command: ./deploy.sh
-        
+
         publish_release:
                 executor: node-executor
                 steps:
@@ -311,7 +305,7 @@ workflows:
                                                         - /^bugfix/.*/
                                                         - /^hotfix/.*/
                                                         - /^release/.*/
-                        
+
                         - push_latest:
                                 context: thelusina-context
                                 filters:
@@ -361,7 +355,7 @@ workflows:
                                                         - /^bugfix/.*/
                                                         - /^hotfix/.*/
                                                         - /^release/.*/
-                        
+
                         - publish_release:
                                 context: thelusina-context
                                 filters:
