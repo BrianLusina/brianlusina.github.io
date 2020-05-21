@@ -1,10 +1,10 @@
 ---
-path: "/life/education-and-academics"
-title: Tools to a successful Career in Software Development
+path:  "/life/career-development-in-software"
+title: Tools to a Successful Career in Software Development
 subtitle: Growing a career in software development
-excerpt: Growing a successful career in software development is not easy. Here is my take on it.
-date: '2020-05-21'
-tags: [education, software, technology, life]
+excerpt: Growing a successful career in software development is not easy & involves a lot hurdles with ups and downs & a little surfing if you are up for it. The point is, it is not a walk in the park & always requires constant reinventint of oneself. Here is my take on it.
+date: '2020-05-21T12:00:00+00:00'
+tags: [Education, Software, Technology, Life]
 category: life
 author:
   name: Brian Lusina
