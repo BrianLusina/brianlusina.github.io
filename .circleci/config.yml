@@ -251,7 +251,7 @@ workflows:
                                         - dependencies
 
                         - build_staging:
-                                context: thelusina-context
+                                context: github-context
                                 requires:
                                         - test
                                 filters:
@@ -263,7 +263,7 @@ workflows:
                                                         - master
 
                         - build_production:
-                                context: thelusina-context
+                                context: github-context
                                 requires:
                                         - test
                                 filters:
@@ -307,7 +307,7 @@ workflows:
                                                         - /^release/.*/
 
                         - push_latest:
-                                context: thelusina-context
+                                context: docker-context
                                 filters:
                                         branches:
                                                 only:
@@ -316,7 +316,7 @@ workflows:
                                         - build_docker_image_staging
 
                         - push_production:
-                                context: thelusina-context
+                                context: docker-context
                                 filters:
                                         branches:
                                                 only:
@@ -357,7 +357,7 @@ workflows:
                                                         - /^release/.*/
 
                         - publish_release:
-                                context: thelusina-context
+                                context: github-context
                                 filters:
                                         branches:
                                                 only:

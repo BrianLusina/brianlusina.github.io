@@ -1,0 +1,57 @@
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    jest: true,
+    es6: true,
+    node: true,
+  },
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  parserOptions: {
+    ecmaFeatures: {
+      experimentalObjectRestSpread: true,
+      jsx: true,
+    },
+    sourceType: 'module',
+  },
+  plugins: ['react'],
+  rules: {
+    'no-unused-vars': [
+      'error',
+      {
+        vars: 'all',
+        args: 'after-used',
+        ignoreRestSiblings: false,
+        varsIgnorePattern: 'error',
+        argsIgnorePattern: '^own[p|P]rops$|^prev[s|S]tate$',
+      },
+    ],
+    // indent: ['error', 'tab'],
+    'linebreak-style': ['error', 'unix'],
+    //    "quotes": [
+    //      "error",
+    //      "double",
+    //      "single"
+    //    ],
+    'react/jsx-uses-react': 'error',
+    'react/jsx-uses-vars': 'error',
+    '@typescript-eslint/object-curly-spacing': ['error', 'always'],
+    '@typescript-eslint/indent': ['error', 2, { SwitchCase: 1 }],
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'capitalized-comments': 'off',
+    'comma-dangle': ['error', 'always-multiline'],
+    'react/jsx-tag-spacing': 'off',
+    'react/prop-types': 'off',
+    'no-warning-comments': 'off',
+    complexity: 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
+    '@typescript-eslint/no-unnecessary-condition': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off',
+    '@typescript-eslint/prefer-readonly-parameter-types': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
+    '@typescript-eslint/comma-dangle': 'off',
+    '@typescript-eslint/no-confusing-void-expression': 'off',
+  },
+}
