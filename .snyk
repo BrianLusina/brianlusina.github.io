@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.14.1
+version: v1.22.1
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -1239,6 +1239,44 @@ patch:
         patched: '2020-05-21T20:07:24.663Z'
     - node-sass > gaze > globule > lodash:
         patched: '2020-05-21T20:07:24.663Z'
+    - gatsby-cli > gatsby-telemetry > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - gatsby-cli > gatsby-recipes > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - jsdoc > catharsis > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - jsdoc > requizzle > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - babel-jest > @jest/transform > @babel/core > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - gatsby-cli > gatsby-recipes > @babel/core > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - commitizen > cz-conventional-changelog > @commitlint/load > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - commitizen > cz-conventional-changelog > commitizen > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - http-server > portfinder > async > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - babel-jest > @jest/transform > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - gatsby-cli > gatsby-recipes > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - jest > jest-cli > jest-config > @babel/core > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - commitizen > cz-conventional-changelog > @commitlint/load > @commitlint/resolve-extends > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - jest > jest-cli > @jest/core > jest-snapshot > @babel/types > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - jest > jest-cli > jest-config > jest-jasmine2 > @babel/traverse > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - jest > jest-cli > jest-config > @babel/core > @babel/helper-module-transforms > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - gatsby-cli > gatsby-recipes > babel-preset-gatsby > @babel/preset-env > @babel/plugin-transform-block-scoping > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - jest > jest-cli > jest-config > jest-jasmine2 > @babel/traverse > @babel/generator > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
+    - gatsby-cli > gatsby-recipes > babel-preset-gatsby > @babel/preset-env > @babel/plugin-transform-classes > @babel/helper-define-map > lodash:
+        patched: '2021-10-25T22:45:58.877Z'
   'npm:lodash:20180130':
     - surge > cli-table2 > lodash:
         patched: '2020-05-21T20:07:24.663Z'
