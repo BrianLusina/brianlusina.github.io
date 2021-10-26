@@ -48,7 +48,7 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "snyk": "^1.323.2"
+    "snyk": "^1.744.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
