@@ -1,10 +1,10 @@
 import React from 'react'
 import { arrayOf, object, string, shape } from 'prop-types'
-import Footer from './Footer/Footer'
-import Contact from './contact/Contact'
-import Intro from './Intro/Intro'
+import Footer from './footer'
+import Contact from './contact'
+import Intro from './Intro'
 import MiniPosts from './posts/MiniPosts'
-import AboutBlurb from './AboutBlurb/AboutBlurb'
+import AboutBlurb from './AboutBlurb'
 
 const Sidebar = ({ miniPosts, tag, about, socialLinks, pageDesc, contact : { town, country, email, emailAlias }}) => (
 	<section id="sidebar">

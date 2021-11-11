@@ -1,10 +1,10 @@
 import React from 'react'
 import { oneOfType, array, object, bool, shape, string, arrayOf } from "prop-types";
 import Helmet from 'react-helmet'
-import Header from '../components/Header/Header';
-import Menu from '../components/menu/Menu';
-import Sidebar from '../components/Sidebar';
-import favicon from '../assets/favicon.png'
+import Header from '@components/header';
+import Menu from '@components/menu/Menu';
+import Sidebar from '@components/Sidebar';
+import favicon from '@assets/icons/favicon.png'
 
 
 const LayoutWrapper = (

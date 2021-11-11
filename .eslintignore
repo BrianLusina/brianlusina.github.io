@@ -60,3 +60,7 @@ typings/
 .env
 src/resources/
 __tests__/
+scripts/
+config/
+server/
+*.d.ts

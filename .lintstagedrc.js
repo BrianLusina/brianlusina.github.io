@@ -1,4 +1,5 @@
 module.exports = {
-  '*.{js,jsx}': ['eslint --fix', 'git add'],
-  '*.{png,jpeg,jpg,gif,svg}': ['imagemin-lint-staged', 'git add'],
-}
+  '*.{js,jsx,ts,tsx}': ['eslint --fix'],
+  '*.{js,jsx,tsx,ts,scss,sass}': ["stylelint 'src/**/*.{js,jsx,ts,tsx,scss,sass}'", 'git add'],
+  '*.{png,jpeg,jpg,gif,svg}': ['imagemin-lint-staged'],
+};

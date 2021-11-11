@@ -9,9 +9,7 @@ delete require.cache[require.resolve('./paths')];
 
 const NODE_ENV = process.env.NODE_ENV;
 if (!NODE_ENV) {
-  throw new Error(
-    'The NODE_ENV environment variable is required but was not specified.'
-  );
+  throw new Error('The NODE_ENV environment variable is required but was not specified.');
 }
 
 // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
@@ -35,7 +33,7 @@ dotenvFiles.forEach(dotenvFile => {
     require('dotenv-expand')(
       require('dotenv').config({
         path: dotenvFile,
-      })
+      }),
     );
   }
 });
@@ -90,7 +88,21 @@ function getClientEnvironment(publicUrl) {
         // which is why it's disabled by default.
         // It is defined here so it is available in the webpackHotDevClient.
         FAST_REFRESH: process.env.FAST_REFRESH !== 'false',
-      }
+
+        CMS_GRAPHQL_URL: process.env.CMS_GRAPHQL_URL,
+        CMS_REST_API_URL: process.env.CMS_REST_API_URL,
+        CMS_TOKEN: process.env.CMS_TOKEN,
+        CMS_SPACE_ID: process.env.CMS_SPACE_ID,
+        NAME: process.env.NAME,
+        TITLE: process.env.TITLE,
+        SENTRY_DSN: process.env.SENTRY_DSN,
+        AUTH_DOMAIN: process.env.AUTH_DOMAIN,
+        PROJECT_ID: process.env.PROJECT_ID,
+        STORAGE_BUCKET: process.env.STORAGE_BUCKET,
+        MESSAGING_SENDER_ID: process.env.MESSAGING_SENDER_ID,
+        APP_ID: process.env.APP_ID,
+        MEASUREMENT_ID: process.env.MEASUREMENT_ID,
+      },
     );
   // Stringify all values so we can feed into webpack DefinePlugin
   const stringified = {

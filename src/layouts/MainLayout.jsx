@@ -1,7 +1,7 @@
 import React from 'react'
 import { object, string, bool, shape, oneOfType, array } from 'prop-types'
 import { StaticQuery, graphql } from "gatsby"
-import '../styles/scss/main.scss'
+import '@scss/main.scss'
 import LayoutWrapper from './LayoutWrapper';
 
 const MainLayout = ({children, displaySidebar, page: { title, description }, tag}) => (
