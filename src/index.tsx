@@ -1,4 +1,3 @@
-  
 import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -6,8 +5,8 @@ import { Helmet } from 'react-helmet';
 import { initializeMonitoring } from '@monitoring';
 import config from '@config';
 import ErrorBoundary from '@components/errors/PageErrorBoundary';
-import GraphqlProvider from './providers/graphql/GraphqlProvider';
-import GraphqlClient from './api/graphql/GraphqlClient';
+import GraphqlProvider from './providers/graphql/GraphQlProvider';
+import GraphqlClient from './api/graphql/GraphQlClient';
 import App from './app';
 import reportWebVitals from './reportWebVitals';
 import '@scss/main.scss';
