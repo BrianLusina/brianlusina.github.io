@@ -7,8 +7,8 @@ type LinkProps = RouterProps & {
   rest: any;
 };
 
-const Link: FunctionComponent<LinkProps> = ({ link, text, ...rest }: LinkProps) => (
-  <RouterLink to={link} className="button large" {...rest}>
+const Link: FunctionComponent<LinkProps> = ({ text, ...rest }: LinkProps) => (
+  <RouterLink className="button large" {...rest}>
     {text}
   </RouterLink>
 );

@@ -3,7 +3,6 @@ import Header from '@components/Header';
 import Footer from '@components/Footer';
 import MainLayout from '@layouts/MainLayout';
 import PageLoader from '@components/loaders/PageLoader';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { withProfiler } from '@sentry/react';
 import config from '@config';
 import { AppWrapper } from './styles';
@@ -17,11 +16,7 @@ const App: FunctionComponent = () => {
         <Header />
         <MainLayout>
           <Suspense fallback={<PageLoader />}>
-            <TransitionGroup>
-              <CSSTransition key="" classNames="fade" timeout={300}>
-                <Intro />
-              </CSSTransition>
-            </TransitionGroup>
+            <Intro />
           </Suspense>
         </MainLayout>
         <Footer />

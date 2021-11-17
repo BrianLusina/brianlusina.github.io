@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { initializeMonitoring } from '@monitoring';
 import config from '@config';
-import ErrorBoundary from '@components/errors/PageErrorBoundary';
+import ErrorBoundary from '@components/Errors/PageErrorBoundary';
 import GraphqlProvider from './providers/graphql/GraphQlProvider';
 import GraphqlClient from './api/graphql/GraphQlClient';
 import App from './app';

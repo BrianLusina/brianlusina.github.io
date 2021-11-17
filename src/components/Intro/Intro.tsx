@@ -4,7 +4,7 @@ const Intro: FunctionComponent = () => (
   <article id="intro">
     <h2 className="major">Intro</h2>
     <span className="image main">
-      <img src="images/pic01.jpg" alt="" />
+      <img src="@images/pic01.jpg" alt="" />
     </span>
     <p>
       Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante
