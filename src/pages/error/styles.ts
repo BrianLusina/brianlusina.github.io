@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StyledH1, StyledText } from '@styled';
+import { StyledH1, StyledText } from '@styled/text';
 
 export const ErrorPageContainer = styled.div``;
 

@@ -1,32 +1,25 @@
-import { Suspense, FunctionComponent } from 'react';
-import { Switch, useLocation } from 'react-router-dom';
-import Menu from '@components/menu';
+import { Suspense, FunctionComponent, lazy } from 'react';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import MainLayout from '@layouts/MainLayout';
 import PageLoader from '@components/loaders/PageLoader';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import ScrollToTop from '@components/scrolltotop';
 import { withProfiler } from '@sentry/react';
 import config from '@config';
-import AppRoutes from '../routes/AppRoutes';
 import { AppWrapper } from './styles';
 
-const App: FunctionComponent = () => {
-  const location = useLocation();
+const Intro = lazy(() => import('@components/Intro'));
 
+const App: FunctionComponent = () => {
   return (
     <>
       <AppWrapper id="wrapper">
         <Header />
         <MainLayout>
-          <ScrollToTop />
           <Suspense fallback={<PageLoader />}>
             <TransitionGroup>
-              <CSSTransition key={location.pathname} classNames="fade" timeout={300}>
-                <Switch location={location}>
-                  <AppRoutes />
-                </Switch>
+              <CSSTransition key="" classNames="fade" timeout={300}>
+                <Intro />
               </CSSTransition>
             </TransitionGroup>
           </Suspense>
