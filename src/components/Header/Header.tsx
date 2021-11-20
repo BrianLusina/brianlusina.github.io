@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
+import { HeaderProps } from './Header.types';
 
-const Header: FunctionComponent = () => {
+const Header: FunctionComponent<HeaderProps> = ({ navItems }) => {
   return (
     <header id="header">
       <div className="logo">
@@ -15,15 +16,11 @@ const Header: FunctionComponent = () => {
       </div>
       <nav>
         <ul>
-          <li>
-            <a href="#intro">Intro</a>
-          </li>
-          <li>
-            <a href="#work">Work</a>
-          </li>
-          <li>
-            <a href="#about">About</a>
-          </li>
+          {navItems.map(({ title }) => (
+            <li key={title}>
+              <a href={`#${title}`}>{title}</a>
+            </li>
+          ))}
           <li>
             <a href="#contact">Contact</a>
           </li>

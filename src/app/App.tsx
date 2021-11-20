@@ -5,18 +5,21 @@ import MainLayout from '@layouts/MainLayout';
 import PageLoader from '@components/loaders/PageLoader';
 import { withProfiler } from '@sentry/react';
 import config from '@config';
+import data from '../data/meta';
 import { AppWrapper } from './styles';
 
-const Intro = lazy(() => import('@components/Intro'));
+const Blurb = lazy(() => import('@components/Blurb'));
 
 const App: FunctionComponent = () => {
   return (
     <>
       <AppWrapper id="wrapper">
-        <Header />
+        <Header navItems={data.map(({ title }) => ({ title: title.toLowerCase() }))} />
         <MainLayout>
           <Suspense fallback={<PageLoader />}>
-            <Intro />
+            {data.map(({ title, description }) => (
+              <Blurb key={title} title={title} description={description} />
+            ))}
           </Suspense>
         </MainLayout>
         <Footer />
