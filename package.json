@@ -1,9 +1,9 @@
 {
-  "name": "ljournal",
+  "name": "lusina",
   "version": "2.0.0",
   "private": true,
-  "description": "Blog and Journal Site",
-  "author": "Brian Lusina <lusinabrian@gmail.com>",
+  "description": "Lusina's Site",
+  "author": "Brian Lusina <12752833+BrianLusina@users.noreply.github.com>",
   "license": "The MIT License (MIT)",
   "homepage": "https://brianlusina.github.io",
   "scripts": {
