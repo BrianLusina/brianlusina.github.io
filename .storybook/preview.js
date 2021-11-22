@@ -1,7 +1,6 @@
 import { ThemeProvider } from 'styled-components';
 import MockAppWithRouter from '@testUtils/MockAppWithRouter';
-import '@css/index.css';
-import '@css/noscript.css';
+import '@scss/main.scss';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -14,7 +13,7 @@ export const parameters = {
 };
 
 export const decorators = [
-  Story => (
+  (Story) => (
     <ThemeProvider theme={{ main: 'default' }}>
       <MockAppWithRouter>
         <Story />

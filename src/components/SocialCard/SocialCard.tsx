@@ -1,23 +1,15 @@
 import { FunctionComponent } from 'react';
+import { SocialCardProps } from './SocialCard.types';
+import SocialCardItem from './SocialCardItem';
 
-const SocialCard: FunctionComponent = () => {
+const SocialCard: FunctionComponent<SocialCardProps> = ({ items }) => {
   return (
     <ul className="icons">
-      <li>
-        <a href="#" className="icon fa-twitter">
-          <span className="label">Twitter</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" className="icon fa-instagram">
-          <span className="label">Instagram</span>
-        </a>
-      </li>
-      <li>
-        <a href="#" className="icon fa-github">
-          <span className="label">GitHub</span>
-        </a>
-      </li>
+      {items.map(({ iconName, label, link }) => (
+        <li key={label}>
+          <SocialCardItem iconName={iconName} link={link} label={label} />
+        </li>
+      ))}
     </ul>
   );
 };

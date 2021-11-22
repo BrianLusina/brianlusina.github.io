@@ -5,22 +5,34 @@ import MainLayout from '@layouts/MainLayout';
 import PageLoader from '@components/loaders/PageLoader';
 import Blurb from '@components/Blurb';
 import { withProfiler } from '@sentry/react';
-import Contact from '@components/Contact';
+import Contact from '@components/ContactForm';
 import config from '@config';
-import data from '../data/meta';
+import SocialCard from '@components/SocialCard';
+import meta from '../data/meta';
 import { AppWrapper } from './styles';
+import socialItems from '../data/social';
+
+const { pages, siteDescription } = meta;
 
 const App: FunctionComponent = () => {
   return (
     <>
       <AppWrapper id="wrapper">
-        <Header navItems={data.map(({ title }) => ({ title: title.toLowerCase() }))} />
+        <Header
+          title={config.title}
+          description={siteDescription}
+          navItems={pages.map(({ title }) => ({ title: title.toLowerCase() }))}
+        />
         <MainLayout>
           <Suspense fallback={<PageLoader />}>
-            {data.map(({ title, description }) => (
+            {pages.map(({ title, description }) => (
               <Blurb key={title} title={title} description={description} />
             ))}
-            <Contact />
+            <article id="contact">
+              <h2 className="major">Contact</h2>
+              <Contact />
+              <SocialCard items={socialItems} />
+            </article>
           </Suspense>
         </MainLayout>
         <Footer />

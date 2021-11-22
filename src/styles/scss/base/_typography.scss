@@ -138,6 +138,9 @@
 		border-left: solid (_size(border-width) * 4) _palette(border);
 		font-style: italic;
 		margin: 0 0 _size(element-margin) 0;
+		// FIXME:
+		// Deprecation Warning: Using / for division is deprecated and will be removed in Dart Sass 2.0.0
+		// Recommendation: math.div(_size(element-margin), 4)
 		padding: (_size(element-margin) / 4) 0 (_size(element-margin) / 4) _size(element-margin);
 	}
 
