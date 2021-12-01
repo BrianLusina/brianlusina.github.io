@@ -8,6 +8,7 @@ import { withProfiler } from '@sentry/react';
 import Contact from '@components/ContactForm';
 import config from '@config';
 import SocialCard from '@components/SocialCard';
+import usePageViews from '@hooks/analytics/usePageView';
 import meta from '../data/meta';
 import { AppWrapper } from './styles';
 import socialItems from '../data/social';
@@ -15,6 +16,8 @@ import socialItems from '../data/social';
 const { pages, siteDescription } = meta;
 
 const App: FunctionComponent = () => {
+  usePageViews();
+
   return (
     <>
       <AppWrapper id="wrapper">

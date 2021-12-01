@@ -64,3 +64,4 @@ scripts/
 config/
 server/
 *.d.ts
+jest.config.js

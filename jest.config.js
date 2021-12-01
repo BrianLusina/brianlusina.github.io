@@ -1,3 +1,6 @@
+const { pathsToModuleNameMapper } = require('ts-jest/utils');
+const { compilerOptions } = require('./tsconfig.json');
+
 module.exports = {
   roots: ['<rootDir>/src'],
   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts'],
@@ -103,6 +106,7 @@ module.exports = {
   moduleNameMapper: {
     '^react-native$': 'react-native-web',
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+    ...pathsToModuleNameMapper(compilerOptions.paths),
     '^@assets/(.*)$': '<rootDir>/src/assets/$1',
     '^@icons/(.*)$': '<rootDir>/src/assets/icons/$1',
     '^@images/(.*)$': '<rootDir>/src/assets/images/$1',
@@ -122,6 +126,7 @@ module.exports = {
     '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
     '^@services/(.*)$': '<rootDir>/src/services/$1',
     '^@monitoring': '<rootDir>/src/services/monitoring/index.ts',
+    '^@analytics': '<rootDir>/src/services/analytics/index.ts',
     '^@testUtils/(.*)$': '<rootDir>/src/test/$1',
     '^@styles/(.*)$': '<rootDir>/src/styles/$1',
     '^@styled/(.*)$': '<rootDir>/src/styles/ts/$1',

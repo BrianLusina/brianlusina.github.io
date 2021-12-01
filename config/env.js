@@ -28,7 +28,7 @@ const dotenvFiles = [
 // that have already been set.  Variable expansion is supported in .env files.
 // https://github.com/motdotla/dotenv
 // https://github.com/motdotla/dotenv-expand
-dotenvFiles.forEach(dotenvFile => {
+dotenvFiles.forEach((dotenvFile) => {
   if (fs.existsSync(dotenvFile)) {
     require('dotenv-expand')(
       require('dotenv').config({
@@ -50,8 +50,8 @@ dotenvFiles.forEach(dotenvFile => {
 const appDirectory = fs.realpathSync(process.cwd());
 process.env.NODE_PATH = (process.env.NODE_PATH || '')
   .split(path.delimiter)
-  .filter(folder => folder && !path.isAbsolute(folder))
-  .map(folder => path.resolve(appDirectory, folder))
+  .filter((folder) => folder && !path.isAbsolute(folder))
+  .map((folder) => path.resolve(appDirectory, folder))
   .join(path.delimiter);
 
 // Grab NODE_ENV and REACT_APP_* environment variables and prepare them to be
@@ -60,7 +60,7 @@ const REACT_APP = /^REACT_APP_/i;
 
 function getClientEnvironment(publicUrl) {
   const raw = Object.keys(process.env)
-    .filter(key => REACT_APP.test(key))
+    .filter((key) => REACT_APP.test(key))
     .reduce(
       (env, key) => {
         env[key] = process.env[key];
@@ -96,12 +96,14 @@ function getClientEnvironment(publicUrl) {
         NAME: process.env.NAME,
         TITLE: process.env.TITLE,
         SENTRY_DSN: process.env.SENTRY_DSN,
-        AUTH_DOMAIN: process.env.AUTH_DOMAIN,
-        PROJECT_ID: process.env.PROJECT_ID,
-        STORAGE_BUCKET: process.env.STORAGE_BUCKET,
-        MESSAGING_SENDER_ID: process.env.MESSAGING_SENDER_ID,
-        APP_ID: process.env.APP_ID,
-        MEASUREMENT_ID: process.env.MEASUREMENT_ID,
+        SENTRY_TRACES_SAMPLE_RATE: process.env.SENTRY_TRACES_SAMPLE_RATE,
+        FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+        FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
+        FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
+        FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
+        FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
+        FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
+        FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID,
       },
     );
   // Stringify all values so we can feed into webpack DefinePlugin

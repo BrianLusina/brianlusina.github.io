@@ -8,18 +8,20 @@ declare namespace NodeJS {
     readonly NODE_ENV: 'development' | 'staging' | 'production' | 'test';
     readonly PUBLIC_URL: string;
     readonly SENTRY_DSN: string;
-    readonly API_KEY: string;
-    readonly AUTH_DOMAIN: string;
-    readonly PROJECT_ID: string;
-    readonly STORAGE_BUCKET: string;
-    readonly MESSAGING_SENDER_ID: string;
-    readonly APP_ID: string;
+    readonly SENTRY_TRACES_SAMPLE_RATE: string;
     readonly CMS_GRAPHQL_URL: string;
     readonly CMS_REST_API_URL: string;
     readonly CMS_TOKEN: string;
     readonly CMS_SPACE_ID: string;
     readonly NAME: string;
     readonly TITLE: string;
+    readonly FIREBASE_API_KEY: string;
+    readonly FIREBASE_AUTH_DOMAIN: string;
+    readonly FIREBASE_PROJECT_ID: string;
+    readonly FIREBASE_STORAGE_BUCKET: string;
+    readonly FIREBASE_MESSAGING_SENDER_ID: string;
+    readonly FIREBASE_APP_ID: string;
+    readonly FIREBASE_MEASUREMENT_ID: string;    
   }
 }
 
