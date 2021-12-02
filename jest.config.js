@@ -4,6 +4,10 @@ const { compilerOptions } = require('./tsconfig.json');
 module.exports = {
   roots: ['<rootDir>/src'],
   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts'],
+  displayName: {
+    name: 'fenestra',
+    color: 'yellow',
+  },
   coveragePathIgnorePatterns: [
     '/node_modules/',
     '/__generated__/',
