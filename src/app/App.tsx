@@ -18,6 +18,11 @@ const { pages, siteDescription } = meta;
 const App: FunctionComponent = () => {
   usePageViews();
 
+  const onSubmitContact = (data: { name: string; email: string; message: string }) => {
+    // TODO: send email
+    console.log(data);
+  };
+
   return (
     <>
       <AppWrapper id="wrapper">
@@ -33,7 +38,7 @@ const App: FunctionComponent = () => {
             ))}
             <article id="contact">
               <h2 className="major">Contact</h2>
-              <Contact />
+              <Contact onSubmit={onSubmitContact} />
               <SocialCard items={socialItems} />
             </article>
           </Suspense>

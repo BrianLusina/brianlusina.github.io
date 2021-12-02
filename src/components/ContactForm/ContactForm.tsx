@@ -1,17 +1,18 @@
 import { FunctionComponent, FormEvent, useState } from 'react';
-import { isEmailValid } from '@utils';
+import { isEmailValid } from '../../utils/utils';
+import { ContactFormProps } from './ContactForm.types';
 
 /**
  * ContactForm Stateless component
  */
-const ContactForm: FunctionComponent = () => {
+const ContactForm: FunctionComponent<ContactFormProps> = ({ onSubmit }) => {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [message, setMessage] = useState<string>('');
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: submit form data
+    onSubmit({ name, email, message });
   };
 
   const handleReset = () => {
@@ -37,7 +38,7 @@ const ContactForm: FunctionComponent = () => {
       <div className="field half">
         <label htmlFor="email">Email</label>
         <input
-          type="text"
+          type="email"
           name="email"
           id="email"
           value={email}

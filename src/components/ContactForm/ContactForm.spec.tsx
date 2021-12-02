@@ -5,7 +5,8 @@ import ContactForm from './ContactForm';
 
 describe('ContactForm', () => {
   it('should render', () => {
-    render(<ContactForm />);
+    const onSubmit = jest.fn();
+    render(<ContactForm onSubmit={onSubmit} />);
   });
 
   it('should not be able to submit form with missing values', () => {
