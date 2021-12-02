@@ -3,19 +3,13 @@ name: Danger CI
 on:
   pull_request:
     branches:
-      - 'develop'
+      - 'staging'
 
 jobs:
   test:
     name: Danger CI
 
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [16.x]
-
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
@@ -24,8 +18,8 @@ jobs:
     - name: Use NodeJS ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
-
+        node-version: 16.x
+        
     - name: Get yarn cache directory path
       id: cache-dir-path
       run: echo "::set-output name=dir::$(yarn cache dir)"

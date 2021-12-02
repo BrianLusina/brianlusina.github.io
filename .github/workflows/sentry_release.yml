@@ -3,20 +3,14 @@ name: Sentry Release
 on: 
   push:
     branches:
-      - 'develop'
-      - 'main'
+      - 'staging'
+      - 'production'
 
 jobs:
   release:
     name: Sentry Release
 
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [16.x]
-
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
@@ -25,7 +19,7 @@ jobs:
     - name: Use NodeJS ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 16.x
 
     - name: Get yarn cache directory path
       id: cache-dir-path
@@ -47,7 +41,7 @@ jobs:
       run: yarn install
 
     - name: Run Staging Build
-      if: github.ref_name == 'develop'
+      if: github.ref_name == 'staging'
       run: yarn build --if-present
       env:
         SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
@@ -62,7 +56,7 @@ jobs:
         FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
 
     - name: Create Sentry Staging release
-      if: github.ref_name == 'develop'
+      if: github.ref_name == 'staging'
       uses: getsentry/action-release@v1
       env:
         SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
@@ -73,7 +67,7 @@ jobs:
         sourcemaps: ./build/static/js
 
     - name: Run Production Build
-      if: github.ref_name == 'main'
+      if: github.ref_name == 'production'
       run: yarn build --if-present
       env:
         SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
@@ -88,7 +82,7 @@ jobs:
         FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
 
     - name: Create Sentry Production release
-      if: github.ref_name == 'main'
+      if: github.ref_name == 'production'
       uses: getsentry/action-release@v1
       env:
         SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}

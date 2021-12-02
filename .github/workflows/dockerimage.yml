@@ -8,10 +8,10 @@ on:
     types:
       - completed
     branches:
-      - "main"
-      - "develop"
+      - 'staging'
+      - 'production'
   push:
-    branches: [ main, develop ]
+    branches: [ production, staging ]
 
 jobs:
   push_to_docker_registries:

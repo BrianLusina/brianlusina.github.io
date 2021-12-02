@@ -3,20 +3,14 @@ name: Deploy
 on:
   push:
     branches:
-      - 'develop'
-      - 'main'
+      - 'staging'
+      - 'production'
 
 jobs:
   deploy:
     name: Deploy
 
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest]
-        node-version: [16.x]
-
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout
@@ -25,7 +19,7 @@ jobs:
     - name: Use NodeJS ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 16.x
 
     - name: Get yarn cache directory path
       id: cache-dir-path
@@ -47,7 +41,7 @@ jobs:
       run: yarn install
 
     - name: Build Staging
-      if: github.ref == 'refs/heads/develop'
+      if: github.ref == 'refs/heads/staging'
       run: yarn build
       env:
         SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
@@ -62,11 +56,11 @@ jobs:
         FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
 
     - name: Deploy Staging
-      if: github.ref == 'refs/heads/develop'
+      if: github.ref == 'refs/heads/staging'
       run: yarn deploy:staging -- --token ${{ secrets.SURGE_TOKEN }}
 
     - name: Build Production
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/production'
       run: |
         yarn build
         mv build docs
@@ -83,7 +77,7 @@ jobs:
         FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
 
     - name: Push Production
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/production'
       run: |
         git config --global user.name github-actions
         git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'      
