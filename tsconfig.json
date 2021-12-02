@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
-    "target": "es5",
+    "baseUrl": "./src",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
@@ -48,7 +48,10 @@
       "@css/*": ["styles/css/*"]
     }
   },
-  "include": [
-    "src"
+  "exclude": [
+    "src/**/*.story.mdx",
+    "src/**/*.story.@(js|jsx|ts|tsx)",
+    "src/**/*.stories.mdx",
+    "src/**/*.stories.@(js|jsx|ts|tsx)"
   ]
 }
