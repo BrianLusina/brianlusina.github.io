@@ -17,7 +17,7 @@ const pages = [
 ];
 
 const siteDescription =
-  '<p>/fɪˈnɛstrə/<br/>Window in Latin <br /> <br /> Welcome! <br /> <br />. Window into where I doodle, color and build engines with legos and sometimes crayons</p>';
+  '<p>/fɪˈnɛstrə/<br/>Window in Latin <br /> <br /> Welcome! <br /> <br />Window into where I doodle, color and build engines with legos and sometimes crayons</p>';
 
 const meta = { pages, siteDescription };
 

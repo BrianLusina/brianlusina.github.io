@@ -12,7 +12,7 @@ module.exports = {
   addons: ['@storybook/addon-links', '@storybook/addon-essentials', '@storybook/preset-scss'],
   // Extend Webpack config
   // Reference: https://storybook.js.org/docs/riot/configure/webpack
-  webpackFinal: config => {
+  webpackFinal: (config) => {
     const appWebPack = custom('development');
     return {
       ...config,
@@ -20,6 +20,11 @@ module.exports = {
         ...config.resolve,
         alias: appWebPack.resolve.alias,
       },
+      module: {
+        ...config.module,
+        ...appWebPack.module,
+      },
+      ...appWebPack,
     };
   },
 };
