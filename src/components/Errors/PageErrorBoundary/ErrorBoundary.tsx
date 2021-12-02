@@ -1,6 +1,6 @@
 import { Component, ReactChildren, ReactElement, ErrorInfo, ReactNode } from 'react';
 import { captureAndLogError } from '@monitoring';
-import ErrorPage from '@pages/error';
+import AppError from '../AppError';
 import { ErrorBoundaryState, ErrorBoundaryProps } from './ErrorBoundary.interface';
 
 /**
@@ -33,7 +33,7 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
     const { error, hasError } = this.state;
 
     if (error && hasError) {
-      return <ErrorPage />;
+      return <AppError />;
     }
     return children;
   }
