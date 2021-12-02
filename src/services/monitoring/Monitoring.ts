@@ -14,9 +14,13 @@ import * as Sentry from '@sentry/react';
 import { ErrorInfo } from 'react';
 import { Scope } from '@sentry/react';
 import { Integrations } from '@sentry/tracing';
+import config from '@config';
 // import log from '@log';
 
-const { NODE_ENV, SENTRY_DSN, ENV } = process.env;
+const {
+  sentry: { sentryDsn: SENTRY_DSN, tracesSampleRate },
+  env: { nodeEnv: NODE_ENV, env: ENV, debug },
+} = config;
 
 /**
  * Initializes monitoring service
@@ -30,8 +34,8 @@ export const initializeMonitoring = (): void => {
       // eslint-disable-next-line no-underscore-dangle
       dsn: SENTRY_DSN,
       integrations: [new Integrations.BrowserTracing()],
-      tracesSampleRate: 0.3,
-      debug: process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test',
+      tracesSampleRate: tracesSampleRate as number,
+      debug,
       beforeSend(event: Sentry.Event): Sentry.Event | null {
         // Modify the event here
         if (event.user) {

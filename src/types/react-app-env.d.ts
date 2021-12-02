@@ -8,7 +8,7 @@ declare namespace NodeJS {
     readonly NODE_ENV: 'development' | 'staging' | 'production' | 'test';
     readonly PUBLIC_URL: string;
     readonly SENTRY_DSN: string;
-    readonly SENTRY_TRACES_SAMPLE_RATE: string;
+    readonly SENTRY_TRACES_SAMPLE_RATE: number;
     readonly CMS_GRAPHQL_URL: string;
     readonly CMS_REST_API_URL: string;
     readonly CMS_TOKEN: string;

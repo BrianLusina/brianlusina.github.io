@@ -10,7 +10,8 @@ const Header: FunctionComponent<HeaderProps> = ({ title, description, navItems }
       <div className="content">
         <div className="inner">
           <h1>{title}</h1>
-          <p>{description}</p>
+          {/* eslint-disable-next-line react/no-danger */}
+          <div dangerouslySetInnerHTML={{ __html: description as string }} />
         </div>
       </div>
       <nav>

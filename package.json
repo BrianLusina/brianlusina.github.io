@@ -32,7 +32,8 @@
     "postinstall": "husky install",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "serve": "serve -s build"
+    "serve": "serve -s build",
+    "deploy:staging": "surge build --domain fenestra.surge.sh"
   },
   "dependencies": {
     "@apollo/client": "^3.4.16",
@@ -112,6 +113,7 @@
     "camelcase": "^6.1.0",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
     "css-loader": "4.3.0",
+    "danger": "^10.7.1",
     "depcheck": "^1.4.2",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",

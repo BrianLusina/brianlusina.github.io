@@ -7,7 +7,8 @@ const Blurb: FunctionComponent<BlurbProps> = ({ title, image, description }) => 
     <span className="image main">
       <img src={image || '@images/pic01.jpg'} alt="" />
     </span>
-    {description}
+    {/* eslint-disable-next-line react/no-danger */}
+    <div dangerouslySetInnerHTML={{ __html: description as string }} />
   </article>
 );
 
