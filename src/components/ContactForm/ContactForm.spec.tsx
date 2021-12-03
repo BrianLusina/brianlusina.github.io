@@ -6,12 +6,12 @@ import ContactForm from './ContactForm';
 describe('ContactForm', () => {
   it('should render', () => {
     const onSubmit = jest.fn();
-    render(<ContactForm onSubmit={onSubmit} />);
+    render(<ContactForm onSubmit={onSubmit} loading={false} />);
   });
 
   it('should not be able to submit form with missing values', () => {
     const onSubmit = jest.fn();
-    const { container } = render(<ContactForm onSubmit={onSubmit} />);
+    const { container } = render(<ContactForm onSubmit={onSubmit} loading={false} />);
 
     const submitButton = container.querySelector('input[type=submit]') as Element;
     userEvent.click(submitButton);
@@ -21,7 +21,7 @@ describe('ContactForm', () => {
 
   it('should be able to submit form with valid values', () => {
     const onSubmit = jest.fn();
-    const { container } = render(<ContactForm onSubmit={onSubmit} />);
+    const { container } = render(<ContactForm onSubmit={onSubmit} loading={false} />);
 
     const emailText = faker.internet.email();
     const messageText = faker.lorem.paragraph();
@@ -46,9 +46,40 @@ describe('ContactForm', () => {
     });
   });
 
+  // FIXME: failure to reset form for some reason
+  xit('should be able to clear form when reset button is clicked', () => {
+    const onSubmit = jest.fn();
+    const { container } = render(<ContactForm onSubmit={onSubmit} loading={false} />);
+
+    const emailText = faker.internet.email();
+    const messageText = faker.lorem.paragraph();
+    const nameText = faker.name.firstName();
+
+    const nameInputField = container.querySelector('input[name=name]');
+    const emailInputField = container.querySelector('input[type=email]');
+    const messageTextAreaField = container.querySelector('textarea[name=message]');
+
+    userEvent.type(nameInputField, nameText);
+    userEvent.type(emailInputField, emailText);
+    userEvent.type(messageTextAreaField, messageText);
+
+    expect(nameInputField).toHaveValue(nameText);
+    expect(emailInputField).toHaveValue(emailText);
+    expect(messageTextAreaField).toHaveValue(messageText);
+
+    const clearButton = container.querySelector('input[type=reset]');
+    userEvent.click(clearButton);
+
+    expect(onSubmit).not.toHaveBeenCalled();
+
+    expect(nameInputField).toHaveValue('');
+    expect(emailInputField).toHaveValue('');
+    expect(messageTextAreaField).toHaveValue('');
+  });
+
   describe('should not be able to submit form with invalid', () => {
     const onSubmit = jest.fn();
-    const { container } = render(<ContactForm onSubmit={onSubmit} />);
+    const { container } = render(<ContactForm onSubmit={onSubmit} loading={false} />);
 
     const nameInputField = container.querySelector('input[name=name]') as Element;
     const emailInputField = container.querySelector('input[type=email]') as Element;

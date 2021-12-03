@@ -5,5 +5,6 @@ type ContactFormValues = {
 };
 
 export type ContactFormProps = {
+  loading?: boolean;
   onSubmit: (e: ContactFormValues) => void;
 };

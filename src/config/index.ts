@@ -5,7 +5,7 @@ import sentry from './sentry';
 
 export default {
   api,
-  name: process.env.NAME || 'Lusina',
+  name: process.env.NAME || 'Fenestra',
   title: process.env.TITLE || 'Fenestra',
   env,
   firebase,

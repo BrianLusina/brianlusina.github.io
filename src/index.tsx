@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet';
 import { initializeMonitoring } from '@monitoring';
 import config from '@config';
 import ErrorBoundary from '@components/Errors/PageErrorBoundary';
+import NotificationContainer from '@components/Messaging/Notification';
 import GraphqlProvider from './providers/graphql/GraphQlProvider';
 import GraphqlClient from './api/graphql/GraphQlClient';
 import App from './app';
@@ -18,6 +19,7 @@ ReactDOM.render(
     <GraphqlProvider client={GraphqlClient}>
       <Helmet titleTemplate={`${config.title} | %s `} defaultTitle={`${config.title}`} />
       <ErrorBoundary>
+        <NotificationContainer />
         <Router>
           <App />
         </Router>

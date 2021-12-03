@@ -12,7 +12,7 @@
 
 import * as Sentry from '@sentry/react';
 import { ErrorInfo } from 'react';
-import { Scope } from '@sentry/react';
+import { Scope, Breadcrumb, Severity } from '@sentry/react';
 import { Integrations } from '@sentry/tracing';
 import config from '@config';
 // import log from '@log';
@@ -75,3 +75,9 @@ export const captureException = (
   Sentry.captureMessage(errorMessage, scope);
   Sentry.captureException(error);
 };
+
+export const captureScope = (data: Breadcrumb, level: Severity): Scope => {
+  return new Scope().setTag('env', NODE_ENV).setLevel(level).addBreadcrumb(data);
+};
+
+export const Levels = Severity;

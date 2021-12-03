@@ -10,15 +10,22 @@ const ContactForm: FunctionComponent<ContactFormProps> = ({ onSubmit }) => {
   const [email, setEmail] = useState<string>('');
   const [message, setMessage] = useState<string>('');
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    onSubmit({ name, email, message });
-  };
-
-  const handleReset = () => {
+  const resetFormValues = () => {
     setName('');
     setEmail('');
     setMessage('');
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onSubmit({ name, email, message });
+    resetFormValues();
+  };
+
+  // FIXME: failure to reset form for some reason
+  const handleReset = (e: FormEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    resetFormValues();
   };
 
   const isValid = name !== '' && isEmailValid(email) && message !== '';
