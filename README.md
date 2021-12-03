@@ -90,16 +90,11 @@ Tools used for deployment:
   yarn deploy:staging
   ```
 
-  > this will run a build and then publish to surge, ensure you change the domain name to something else though :)
+  > this will run a build and then publish to surge, ensure you change the domain name to something else though :). Current Staging URL is [here](https://fenestra.surge.sh/)
 
 - [Github Pages](https://pages.github.com/)
 
   Github Pages has been used as the production site for the blog. This can be changed to something else however. In its place, anything else can be used.
-  To publish to github pages, you can run the following command:
-
-  ```bash
-  yarn publish:prod
-  ```
 
   > this runs a buld and publishes to github pages.
   > NB: Ensure that you change the [homepage](./package.json#homepage) attribute in the [package.json](./package.json) file to something else however.
