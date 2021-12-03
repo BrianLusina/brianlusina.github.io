@@ -83,5 +83,5 @@ jobs:
         git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'      
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
         git add docs
-        git commit -am "updating docs" ||  true
+        git commit -am "ci(github): publish site ${GITHUB_SHA}" || true
         git push --force origin refs/heads/gh-pages || true
