@@ -76,12 +76,13 @@ jobs:
         FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
         FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
 
-    - name: Push Production
-      if: github.ref == 'refs/heads/production'
-      run: |
-        git config --global user.name github-actions
-        git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'      
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-        git add docs
-        git commit -am "ci(github): publish site ${GITHUB_SHA}" || true
-        git push --force origin refs/heads/gh-pages || true
+# Not being deployed to production, as this might expose sensitive data in the minified build
+    # - name: Push Production
+    #   if: github.ref == 'refs/heads/production'
+    #   run: |
+    #     git config --global user.name github-actions
+    #     git config --global user.email '${GITHUB_ACTOR}@users.noreply.github.com'      
+    #     git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+    #     git add docs
+    #     git commit -am "ci(github): publish site ${GITHUB_SHA}" || true
+    #     git push --force origin refs/heads/production || true
