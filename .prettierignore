@@ -1,0 +1,5 @@
+build/
+coverage/
+keys/
+node_modules/
+*.md

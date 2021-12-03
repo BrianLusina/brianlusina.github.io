@@ -1,0 +1,60 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "es6",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "@assets/*": ["assets/*"],
+      "@icons/*": ["assets/icons/*"],
+      "@images/*": ["assets/images/*"],
+      "@fonts/*": ["assets/fonts/*"],
+      "@app": ["app/index.ts"],
+      "@config": ["config/index.ts"],
+      "@apiConfig": ["config/api.ts"],
+      "@routes": ["config/routes.ts"],
+      "@graphQl/*": ["api/graphql/*"],
+      "@graphQlClient": ["api/graphql/GraphqlClient.ts"],
+      "@providers/*": ["providers/*"],
+      "@components/*": ["components/*"],
+      "@containers/*": ["containers/*"],
+      "@pages/*": ["pages/*"],
+      "@layouts/*": ["layouts/*"],
+      "@utils": ["utils/utils.ts"],
+      "@timeUtils": ["utils/time/timeUtils.ts"],
+      "@libs/*": ["libs/*"],
+      "@notification": ["libs/notification/index.ts"],
+      "@hooks/*": ["hooks/*"],
+      "@services/*": ["services/*"],
+      "@monitoring": ["services/monitoring/index.ts"],
+      "@analytics": ["services/analytics/index.ts"],
+      "@testUtils/*": ["test/*"],
+      "@styles/*": ["styles/*"],
+      "@styled/*": ["styles/ts/*"],
+      "@scss/*": ["styles/scss/*"],
+      "@css/*": ["styles/css/*"]
+    }
+  },
+  "exclude": [
+    "src/**/*.story.mdx",
+    "src/**/*.story.@(js|jsx|ts|tsx)",
+    "src/**/*.stories.mdx",
+    "src/**/*.stories.@(js|jsx|ts|tsx)"
+  ]
+}
