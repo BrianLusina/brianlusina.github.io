@@ -1,12 +1,15 @@
-# LJournal
+# Fenestra
 
-[![CircleCI](https://circleci.com/gh/BrianLusina/brianlusina.github.io.svg?style=svg)](https://circleci.com/gh/BrianLusina/brianlusina.github.io)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![Tests](https://github.com/BrianLusina/brianlusina.github.io/actions/workflows/tests.yml/badge.svg)](https://github.com/BrianLusina/brianlusina.github.io/actions/workflows/tests.yml)
+[![codecov](https://codecov.io/gh/BrianLusina/brianlusina.github.io/branch/staging/graph/badge.svg?token=4rhyJnYoKO)](https://codecov.io/gh/BrianLusina/brianlusina.github.io)
+[![Lint](https://github.com/BrianLusina/brianlusina.github.io/actions/workflows/lint.yml/badge.svg)](https://github.com/BrianLusina/brianlusina.github.io/actions/workflows/lint.yml)
+[![Build](https://github.com/BrianLusina/brianlusina.github.io/actions/workflows/build_app.yml/badge.svg)](https://github.com/BrianLusina/brianlusina.github.io/actions/workflows/build_app.yml)
 
-Personal blog built with [ReactJS](https://reactjs.org/) and [Gatsby](https://www.gatsbyjs.org/).
+Personal site built with [ReactJS](https://reactjs.org/).
 
-**Why document and open source my blog site?**
+**Why document and open source my site?**
 
 Part of the belief that OSS is the future and also fosters a community of developers, on top of which not only allows growth, but learnings. And with any OSS, it is important that a document is created to allow contributors to jump on board easily.
 
@@ -49,7 +52,7 @@ This should set you up to install the dependencies as needed and get you running
 
 ## Running tests
 
-Tests have been written with [Jest](https://facebook.github.io/jest/) and [Enzyme](https://github.com/airbnb/enzyme). Running the tests can be done as follows:
+Tests have been written with [Jest](https://facebook.github.io/jest/). Running the tests can be done as follows:
 
 ```bash
 yarn test
@@ -60,9 +63,9 @@ npm run test
 To generate a coverate report:
 
 ```bash
-yarn test:cover
+yarn test:coverage
 # or
-npm run test:cover
+npm run test:coverage
 ```
 
 ## Deployment
@@ -84,46 +87,34 @@ Tools used for deployment:
   To publish directly, you can use:
 
   ```bash
-  yarn publish:staging
+  yarn deploy:staging
   ```
 
-  > this will run a build and then publish to surge, ensure you change the domain name to something else though :)
+  > this will run a build and then publish to surge, ensure you change the domain name to something else though :). Current Staging URL is [here](https://fenestra.surge.sh/)
 
 - [Github Pages](https://pages.github.com/)
 
   Github Pages has been used as the production site for the blog. This can be changed to something else however. In its place, anything else can be used.
-  To publish to github pages, you can run the following command:
-
-  ```bash
-  yarn publish:prod
-  ```
 
   > this runs a buld and publishes to github pages.
-
   > NB: Ensure that you change the [homepage](./package.json#homepage) attribute in the [package.json](./package.json) file to something else however.
 
   You may add a Google Analytics Tracking ID, however,this is not necessary. To do so you will need to add it as an environment variable ANALYTICS_TRACKING_ID in any of the `.env.<ENVIRONMENT>` of your choice. Sample environments have been provided to give more context:
 
   ```plain
   .
-  ├── .env.development.sample
-  ├── .env.production.sample
-  ├── .env.staging.sample
-  └── .env.testing.sample
+  └── .env.sample
   ```
-  > Some of the environments available
 
-  In order to use any of them, simply rename the file you intend to use by removing the `.sample` suffix.
+  In order to use the sample, simply rename the file by removing the `.sample` suffix.
 
   The environment variables will be picked up at build time.
 
 ## Built With
 
 1. [JavaScript Language](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript) - Programming language
-2. [ReactJS](https://reactjs.org/) - JavaScript library for building UI.
-3. [Gatsby](https://www.gatsbyjs.org/) - Static site generator
-4. [Redux](https://redux.js.org/) - Predictable State container for JS apps.
-5. [React-Redux](https://github.com/reduxjs/react-redux) - React Bindings for Redux
+2. [TypeScript](https://www.typescriptlang.org/) - Programming language
+3. [ReactJS](https://reactjs.org/) - JavaScript library for building declarative UI.
 
 ## Versioning
 

@@ -1,10 +1,10 @@
-// skel.scss v3.0.2-dev | (c) skel.io | MIT licensed */
+// skel.scss v3.0.1 | (c) skel.io | MIT licensed */
 
 // Vars.
 
 	/// Breakpoints.
 	/// @var {list}
-	$breakpoints: () !global;
+	$breakpoints: ();
 
 	/// Vendor prefixes.
 	/// @var {list}
@@ -42,8 +42,6 @@
 		'flex-shrink',
 		'flex-wrap',
 		'justify-content',
-		'object-fit',
-		'object-position',
 		'order',
 		'perspective',
 		'pointer-events',
@@ -573,7 +571,7 @@
 			}
 
 		// Expand just the value?
-			@elseif $expandValue {
+			@else if $expandValue {
 			    @each $vendor in $vendor-prefixes {
 			        #{$property}: #{str-replace-all($value, '-prefix-', $vendor)};
 			    }
