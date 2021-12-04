@@ -6,4 +6,6 @@ import {
   Levels,
 } from './Monitoring';
 
-export { initializeMonitoring, captureAndLogError, captureException, captureScope, Levels };
+export { initializeMonitoring, captureAndLogError, captureException, captureScope };
+
+export type { Levels };
