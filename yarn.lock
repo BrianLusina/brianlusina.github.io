@@ -169,26 +169,12 @@
     lodash "^4.17.13"
     source-map "^0.5.0"
 
-"@babel/helper-annotate-as-pure@^7.12.13":
-  version "7.12.13"
-  resolved "https://registry.yarnpkg.com/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.12.13.tgz#0f58e86dfc4bb3b1fcd7db806570e177d439b6ab"
-  integrity sha512-7YXfX5wQ5aYM/BOlbSccHDbuXXFPxeoUmfWtz8le2yTkTZc+BxsiEnENFoi2SlmA8ewDkG2LgIMIVzzn2h8kfw==
-  dependencies:
-    "@babel/types" "^7.12.13"
-
-"@babel/helper-annotate-as-pure@^7.15.4", "@babel/helper-annotate-as-pure@^7.16.0":
+"@babel/helper-annotate-as-pure@^7.12.13", "@babel/helper-annotate-as-pure@^7.15.4", "@babel/helper-annotate-as-pure@^7.16.0", "@babel/helper-annotate-as-pure@^7.8.3":
   version "7.16.0"
   resolved "https://registry.yarnpkg.com/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.16.0.tgz#9a1f0ebcda53d9a2d00108c4ceace6a5d5f1f08d"
   integrity sha512-ItmYF9vR4zA8cByDocY05o0LGUkp1zhbTQOH1NFyl5xXEqlTJQCEJjieriw+aFpxo16swMxUnUiKS7a/r4vtHg==
   dependencies:
     "@babel/types" "^7.16.0"
-
-"@babel/helper-annotate-as-pure@^7.8.3":
-  version "7.8.3"
-  resolved "https://registry.yarnpkg.com/@babel/helper-annotate-as-pure/-/helper-annotate-as-pure-7.8.3.tgz#60bc0bc657f63a0924ff9a4b4a0b24a13cf4deee"
-  integrity sha512-6o+mJrZBxOoEX77Ezv9zwW7WV8DdluouRKNY/IR5u/YTMuKHgugHOzYWlYvYLpLA9nPsQCAAASpCIbjI9Mv+Uw==
-  dependencies:
-    "@babel/types" "^7.8.3"
 
 "@babel/helper-builder-binary-assignment-operator-visitor@^7.16.5":
   version "7.16.5"
@@ -814,17 +800,7 @@
     "@babel/helper-create-class-features-plugin" "^7.16.5"
     "@babel/helper-plugin-utils" "^7.16.5"
 
-"@babel/plugin-proposal-private-property-in-object@^7.14.5":
-  version "7.16.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-private-property-in-object/-/plugin-proposal-private-property-in-object-7.16.0.tgz#69e935b2c5c79d2488112d886f0c4e2790fee76f"
-  integrity sha512-3jQUr/HBbMVZmi72LpjQwlZ55i1queL8KcDTQEkAHihttJnAPrcvG9ZNXIfsd2ugpizZo595egYV6xy+pv4Ofw==
-  dependencies:
-    "@babel/helper-annotate-as-pure" "^7.16.0"
-    "@babel/helper-create-class-features-plugin" "^7.16.0"
-    "@babel/helper-plugin-utils" "^7.14.5"
-    "@babel/plugin-syntax-private-property-in-object" "^7.14.5"
-
-"@babel/plugin-proposal-private-property-in-object@^7.16.5":
+"@babel/plugin-proposal-private-property-in-object@^7.14.5", "@babel/plugin-proposal-private-property-in-object@^7.16.5":
   version "7.16.5"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-private-property-in-object/-/plugin-proposal-private-property-in-object-7.16.5.tgz#a42d4b56005db3d405b12841309dbca647e7a21b"
   integrity sha512-+YGh5Wbw0NH3y/E5YMu6ci5qTDmAEVNoZ3I54aB6nVEOZ5BQ7QJlwKq5pYVucQilMByGn/bvX0af+uNaPRCabA==
