@@ -1719,9 +1719,9 @@
     stack-generator "^2.0.3"
 
 "@bugsnag/plugin-react@^7.14.0":
-  version "7.16.4"
-  resolved "https://registry.yarnpkg.com/@bugsnag/plugin-react/-/plugin-react-7.16.4.tgz#b9df78fcdb719c26f99985afdc0525ceaa8bf9ff"
-  integrity sha512-7YCSAMVGW0P/9NDu0sPINoYuDwfy+cGbQvxGna6KviH2+i0FCqULNCm0+9OB8T8uLcszhj1DMkHEy3e6qyNkGQ==
+  version "7.16.5"
+  resolved "https://registry.yarnpkg.com/@bugsnag/plugin-react/-/plugin-react-7.16.5.tgz#ed0298e5ce5621d436339c977bdf89cbaacde4a2"
+  integrity sha512-GTBT+yV9kOZ3mv8ECcw21udEH/DjTs4LAz6sEfs9RXvE/tFfffjjBzarvvQsWQ9jqlW7q6KggVKmQQhNGgqGCg==
 
 "@bugsnag/safe-json-stringify@^6.0.0":
   version "6.0.0"
