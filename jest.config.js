@@ -131,6 +131,7 @@ module.exports = {
     '^@pages/(.*)$': '<rootDir>/src/pages/$1',
     '^@layouts/(.*)$': '<rootDir>/src/layouts/$1',
     '^@routes': '<rootDir>/src/config/routes.ts',
+    '^@notification': '<rootDir>/src/libs/notification/index.ts',
     '^@utils': '<rootDir>/src/utils/utils.ts',
     '^@timeUtils': '<rootDir>/src/utils/timeUtils.ts',
     '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
