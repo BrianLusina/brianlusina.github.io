@@ -80,6 +80,6 @@ export const captureSentryScope = (data: Breadcrumb, level: Severity): Scope => 
   return new Scope().setTag('env', NODE_ENV).setLevel(level).addBreadcrumb(data);
 };
 
-export type SentryLevels = Severity;
+export { Severity as SentryLevels };
 export type SentryBreadcrumb = Breadcrumb;
 export type SentryScope = Scope;

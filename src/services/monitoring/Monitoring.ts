@@ -4,7 +4,7 @@ import {
   captureAndLogSentryError,
   captureSentryException,
   captureSentryScope,
-  SentryLevels,
+  SentryLevels as Levels,
   SentryBreadcrumb,
   SentryScope,
 } from './sentry';
@@ -41,8 +41,6 @@ export const captureException = (
   captureBugSnagError(error);
 };
 
-export const captureScope = (data: SentryBreadcrumb, level: SentryLevels): SentryScope => {
+export const captureScope = (data: SentryBreadcrumb, level: Levels): SentryScope => {
   return captureSentryScope(data, level);
 };
-
-export type Levels = SentryLevels;
