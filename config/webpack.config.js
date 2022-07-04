@@ -330,7 +330,7 @@ module.exports = function (webpackEnv) {
         '@layouts': path.resolve('src/layouts/'),
         '@routes': path.resolve('src/config/routes.ts'),
         '@utils': path.resolve('src/utils/utils.ts'),
-        '@timeUtils': path.resolve('src/utils/time/timeUtils.ts'),
+        '@timeUtils': path.resolve('src/utils/timeUtils.ts'),
         '@libs': path.resolve('src/libs/'),
         '@notification': path.resolve('src/libs/notification/index.ts'),
         '@hooks': path.resolve('src/hooks/'),

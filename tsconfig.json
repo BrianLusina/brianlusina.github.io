@@ -37,7 +37,7 @@
       "@pages/*": ["pages/*"],
       "@layouts/*": ["layouts/*"],
       "@utils": ["utils/utils.ts"],
-      "@timeUtils": ["utils/time/timeUtils.ts"],
+      "@timeUtils": ["utils/timeUtils.ts"],
       "@libs/*": ["libs/*"],
       "@notification": ["libs/notification/index.ts"],
       "@hooks/*": ["hooks/*"],
