@@ -91,8 +91,11 @@ function getClientEnvironment(publicUrl) {
 
         CMS_GRAPHQL_URL: process.env.CMS_GRAPHQL_URL,
         CMS_REST_API_URL: process.env.CMS_REST_API_URL,
-        CMS_TOKEN: process.env.CMS_TOKEN,
+        CMS_API_KEY: process.env.CMS_API_KEY,
         CMS_SPACE_ID: process.env.CMS_SPACE_ID,
+        CMS_PREVIEW_REST_API_URL: process.env.CMS_PREVIEW_REST_API_URL,
+        CMS_ENVIRONMENT: process.env.CMS_ENVIRONMENT,
+        CMS_PREVIEW: process.env.CMS_PREVIEW,
         NAME: process.env.NAME,
         TITLE: process.env.TITLE,
         SENTRY_DSN: process.env.SENTRY_DSN,
