@@ -13,7 +13,10 @@ import meta from '../data/meta';
 import { AppWrapper } from './styles';
 
 // TODO: move this to a CMS to be able to change the data dynamically
-const { pages, siteDescription } = meta;
+const { pages } = meta;
+
+const siteDescription =
+  '<p>/fɪˈnɛstrə/<br/>Window in Latin <br /> <br /> Welcome! <br /> <br />Window into where I doodle, color and build engines with legos and sometimes crayons</p>';
 
 const App: FunctionComponent = () => {
   usePageViews();
@@ -28,9 +31,7 @@ const App: FunctionComponent = () => {
         />
         <MainLayout>
           <Suspense fallback={<PageLoader />}>
-            {pages.map(({ title, image, description }) => (
-              <Blurb key={title} title={title} image={image} description={description} />
-            ))}
+            <Blurb />
             <article id="contact">
               <h2 className="major">Contact</h2>
               <ContactForm />

@@ -12,12 +12,15 @@ export const GET_SOCIAL_INFO_QUERY = gql`
 `;
 
 export const GET_BLURBS_QUERY = gql`
-  query GetBlurbsQuery {
-    blurbsCollection {
-      items {
-        name
-        link
-      }
-    }
+  query GetAllBlurbs {
+	  blurbCollection {
+		  items {
+			  description 
+			  image {
+				  url
+			  }
+			  title
+		  }
+	  }
   }
 `;

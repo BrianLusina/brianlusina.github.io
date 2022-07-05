@@ -1,15 +1,27 @@
+import { GET_BLURBS_QUERY } from '@graphQl/queries';
 import { FunctionComponent } from 'react';
-import { BlurbProps } from './Blurb.types';
+import { useQuery } from '@apollo/client';
+import { captureException, captureScope, Levels } from '@monitoring';
+import BlurbItem from './BlurbItem';
 
-const Blurb: FunctionComponent<BlurbProps> = ({ title, image, description }) => (
-  <article id={title.toLowerCase()}>
-    <h2 className="major">{title}</h2>
-    <span className="image main">
-      <img src={image} alt="" />
-    </span>
-    {/* eslint-disable-next-line react/no-danger */}
-    <div dangerouslySetInnerHTML={{ __html: description as string }} />
-  </article>
-);
+const Blurb: FunctionComponent = () => {
+  const { loading, error, data } = useQuery<BlurbCollection>(GET_BLURBS_QUERY);
+  
+  if (loading) return <div>Loading...</div>
+
+  if (error) {
+    captureException(
+      error,
+      captureScope({ type: 'component', data: { component: 'Blurb' } }, Levels.Error),
+    );
+    return <p>Yikes! Something terrible has happened. Looking into this :)</p>;
+  }
+  
+  const blurbs = data ? data.blurbCollection.items : [];
+
+  return {blurbs.map(({ title, image: { url }, description }) => (
+    <BlurbItem key={title} title={title} image={url} description={description} />
+  ))}
+};
 
 export default Blurb;

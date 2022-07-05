@@ -12,7 +12,7 @@ const SocialCard: FunctionComponent = () => {
   if (error) {
     captureException(
       error,
-      captureScope({ type: 'component', data: { component: 'Blurb' } }, Levels.Error),
+      captureScope({ type: 'component', data: { component: 'SocialCard' } }, Levels.Error),
     );
     return <p>Yikes! Something terrible has happened. Looking into this :)</p>;
   }
