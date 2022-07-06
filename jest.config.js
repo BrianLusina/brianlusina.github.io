@@ -134,7 +134,7 @@ module.exports = {
     '^@notification': '<rootDir>/src/libs/notification/index.ts',
     '^@utils': '<rootDir>/src/utils/utils.ts',
     '^@timeUtils': '<rootDir>/src/utils/timeUtils.ts',
-    '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
+    '^@hooks/(.*)$': '<rootDir>/src/libs/hooks/$1',
     '^@services/(.*)$': '<rootDir>/src/services/$1',
     '^@monitoring': '<rootDir>/src/services/monitoring/index.ts',
     '^@analytics': '<rootDir>/src/services/analytics/index.ts',
