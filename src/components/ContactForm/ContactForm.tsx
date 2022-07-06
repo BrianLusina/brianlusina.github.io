@@ -37,9 +37,6 @@ const ContactForm: FunctionComponent<ContactFormProps> = () => {
     try {
       setLoading(true);
 
-      // TODO: send email
-      console.log(data);
-
       analytics.logEvent('contact_form_submit', {
         name,
         email,

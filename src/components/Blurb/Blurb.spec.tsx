@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import faker from 'faker';
-import BlurbItem from './BlurbItem';
+import BlurbItem from './Blurb';
 
 describe('BlurbItem', () => {
   const props = {

@@ -9,29 +9,29 @@ import ContactForm from '@components/ContactForm';
 import config from '@config';
 import SocialCard from '@components/SocialCard';
 import usePageViews from '@hooks/analytics/usePageView';
-import meta from '../data/meta';
+import useGetBlurbs from '@hooks/useGetBlurbs';
 import { AppWrapper } from './styles';
-
-// TODO: move this to a CMS to be able to change the data dynamically
-const { pages } = meta;
-
-const siteDescription =
-  '<p>/fɪˈnɛstrə/<br/>Window in Latin <br /> <br /> Welcome! <br /> <br />Window into where I doodle, color and build engines with legos and sometimes crayons</p>';
 
 const App: FunctionComponent = () => {
   usePageViews();
+  const { loading, data: blurbs } = useGetBlurbs();
 
   return (
     <>
       <AppWrapper id="wrapper">
         <Header
           title={config.title}
-          description={siteDescription}
-          navItems={pages.map(({ title }) => ({ title: title.toLowerCase() }))}
+          navItems={blurbs.map(({ title }) => ({ title: title.toLocaleLowerCase() }))}
         />
         <MainLayout>
           <Suspense fallback={<PageLoader />}>
-            <Blurb />
+            {loading ? (
+              <p>Loading...</p>
+            ) : (
+              blurbs.map(({ title, image: { url }, description }) => (
+                <Blurb key={title} title={title} image={url} description={description} />
+              ))
+            )}
             <article id="contact">
               <h2 className="major">Contact</h2>
               <ContactForm />

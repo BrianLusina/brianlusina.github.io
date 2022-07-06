@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export type BlurbItemProps = {
+export type BlurbProps = {
   title: string;
   image: string;
   description: ReactNode;
