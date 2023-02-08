@@ -26,6 +26,10 @@ declare namespace NodeJS {
     readonly FIREBASE_APP_ID: string;
     readonly FIREBASE_MEASUREMENT_ID: string;
     readonly BUGSNAG_API_KEY: string; 
+    readonly EMAILJS_BASE_URL: string;
+    readonly EMAILJS_SERVICE_ID: string;
+    readonly EMAILJS_TEMPLATE_ID: string;
+    readonly EMAILJS_USER_ID: string;    
   }
 }
 

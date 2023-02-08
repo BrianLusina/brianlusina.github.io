@@ -10,7 +10,7 @@ import config from '@config';
 import SocialCard from '@components/SocialCard';
 import usePageViews from '@hooks/analytics/usePageView';
 import useGetBlurbs from '@hooks/useGetBlurbs';
-import { AppWrapper } from './styles';
+import { AppWrapper, Article } from './styles';
 
 const App: FunctionComponent = () => {
   usePageViews();
@@ -29,14 +29,16 @@ const App: FunctionComponent = () => {
               <p>Loading...</p>
             ) : (
               blurbs.map(({ title, image: { url }, description }) => (
-                <Blurb key={title} title={title} image={url} description={description} />
+                <Article key={title} id={title.toLowerCase()}>
+                  <Blurb key={title} title={title} image={url} description={description} />
+                </Article>
               ))
             )}
-            <article id="contact">
+            <Article id="contact">
               <h2 className="major">Contact</h2>
               <ContactForm />
               <SocialCard />
-            </article>
+            </Article>
           </Suspense>
         </MainLayout>
         <Footer />

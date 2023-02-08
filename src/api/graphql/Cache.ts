@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { InMemoryCache } from '@apollo/client';
 
-export default new InMemoryCache({
+const inMemoryCache = new InMemoryCache({
   typePolicies: {
     User: {
       keyFields: ['login', 'avatarUrl'],
@@ -26,3 +26,5 @@ export default new InMemoryCache({
     },
   },
 });
+
+export default inMemoryCache;

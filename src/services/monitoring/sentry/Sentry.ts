@@ -72,8 +72,10 @@ export const captureSentryException = (
   scope?: Scope,
   errorMessage = 'Error Caught',
 ): void => {
-  Sentry.captureMessage(errorMessage, scope);
-  Sentry.captureException(error);
+  if (NODE_ENV === 'production' || ENV === 'production') {
+    Sentry.captureMessage(errorMessage, scope);
+    Sentry.captureException(error);
+  }
 };
 
 export const captureSentryScope = (data: Breadcrumb, level: Severity): Scope => {

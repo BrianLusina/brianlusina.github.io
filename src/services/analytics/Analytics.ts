@@ -24,4 +24,6 @@ export class Analytics {
   }
 }
 
-export default new Analytics();
+const analytics = new Analytics();
+
+export default analytics;

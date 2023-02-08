@@ -108,6 +108,11 @@ function getClientEnvironment(publicUrl) {
         FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
         FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID,
         BUGSNAG_API_KEY: process.env.BUGSNAG_API_KEY,
+        EMAILJS_BASE_URL: process.env.EMAILJS_BASE_URL,
+        EMAILJS_SERVICE_ID: process.env.EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID: process.env.EMAILJS_TEMPLATE_ID,
+        EMAILJS_USER_ID: process.env.EMAILJS_USER_ID,
+        EMAILJS_ACCESS_TOKEN: process.env.EMAILJS_ACCESS_TOKEN,
       },
     );
   // Stringify all values so we can feed into webpack DefinePlugin

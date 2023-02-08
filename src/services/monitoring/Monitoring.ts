@@ -8,14 +8,14 @@ import {
   SentryBreadcrumb,
   SentryScope,
 } from './sentry';
-import { inititializeBugSnag, captureBugSnagError } from './bugsnag';
+import { initializeBugSnag, captureBugSnagError } from './bugsnag';
 
 /**
  * Initializes monitoring service
  */
 export const initializeMonitoring = (): void => {
   initializeSentry();
-  inititializeBugSnag();
+  initializeBugSnag();
 };
 
 /**

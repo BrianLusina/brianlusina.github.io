@@ -1,3 +1,3 @@
-import { inititializeBugSnag, captureBugSnagError } from './BugSnag';
+import { initializeBugSnag, captureBugSnagError } from './BugSnag';
 
-export { inititializeBugSnag, captureBugSnagError };
+export { initializeBugSnag, captureBugSnagError };
