@@ -5,7 +5,12 @@ import {
   EventParams,
   CustomEventName,
 } from 'firebase/analytics';
+import config from '@config';
 import firebaseApp from '@services/firebase';
+
+const {
+  env: { nodeEnv },
+} = config;
 
 /**
  * Analytics Service.
@@ -20,7 +25,9 @@ export class Analytics {
   }
 
   logEvent(eventName: CustomEventName<string>, eventParams?: EventParams): void {
-    logEvent(this.analytics, eventName, eventParams);
+    if (nodeEnv === 'production') {
+      logEvent(this.analytics, eventName, eventParams);
+    }
   }
 }
 
