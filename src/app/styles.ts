@@ -10,3 +10,5 @@ type ArticleProps = {
 export const Article = styled.article<ArticleProps>(({ visible = false }) => ({
   display: visible ? 'block' : 'none',
 }));
+
+export const ArticleCard = styled(Article)``;
