@@ -2005,10 +2005,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bugsnag/browser@^7.20.2":
-  version "7.20.2"
-  resolved "https://registry.yarnpkg.com/@bugsnag/browser/-/browser-7.20.2.tgz#1db0c52fbe6b90217c4efd7ac79e16ccb7336b78"
-  integrity sha512-4J4s53ZpYr3hHA+QjxUjOI6U+A8+XuUVH45UshE87Jp2Y4mV8ML2DovejqJS8J8yjdbnh2z1Wtg/v3WUNt4ayQ==
+"@bugsnag/browser@^7.21.0":
+  version "7.21.0"
+  resolved "https://registry.yarnpkg.com/@bugsnag/browser/-/browser-7.21.0.tgz#ee623ffa57c0fe2e2e4644a24bfc2008f18f83ef"
+  integrity sha512-mJ6r6SXpts+hdSnDNmTR35lZ+95BthqXpgBrDwquDCoY++zQ4OuzrkA/HZYD/rfpdSpgb7lO+AAlD7qrd9IylA==
   dependencies:
     "@bugsnag/core" "^7.19.0"
 
@@ -2029,11 +2029,11 @@
   integrity sha512-LOt8aaBI+KvOQGneBtpuCz3YqzyEAehd1f3nC5yr9TIYW1+IzYKa2xWS4EiMz5pPOnRPHkyyS5t/wmSmN51Gjg==
 
 "@bugsnag/js@^7.14.1":
-  version "7.20.2"
-  resolved "https://registry.yarnpkg.com/@bugsnag/js/-/js-7.20.2.tgz#218ec77d1df8b70d9353d4f2f2ccd3e51a331786"
-  integrity sha512-Q08k0h0h6NFwFGkFmib39Uln2WpvJdqT1EGF1JlyYiGW03Y+VopVb9r37pZrRrN9IY08mxaIEO8la5xeaWAs6A==
+  version "7.21.0"
+  resolved "https://registry.yarnpkg.com/@bugsnag/js/-/js-7.21.0.tgz#0a8a9a61a43cf9b552dc70341ed49ee9da46a8f3"
+  integrity sha512-fFTR7cRBSlLtwa1wPTse92igZUEX2V95KyGGCXq2qb2F2w6hJ6oJDxA0BMPS8qqsciYXRjbfn8HX+TFgO1oErg==
   dependencies:
-    "@bugsnag/browser" "^7.20.2"
+    "@bugsnag/browser" "^7.21.0"
     "@bugsnag/node" "^7.19.0"
 
 "@bugsnag/node@^7.19.0":
