@@ -8633,9 +8633,9 @@ delegates@^1.0.0:
   integrity sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=
 
 depcheck@^1.4.2:
-  version "1.4.5"
-  resolved "https://registry.yarnpkg.com/depcheck/-/depcheck-1.4.5.tgz#f71bc6bd97707384dfd1fda40f2834f3de308f66"
-  integrity sha512-bgt8SfRJ5UQi+uieuTnx6Vd++xJaP7g28FwxM8pZlXHAVXe6mKfSyDDtTfKpF5PS5S6PrgW/o13CYn8YuWDnbQ==
+  version "1.4.6"
+  resolved "https://registry.yarnpkg.com/depcheck/-/depcheck-1.4.6.tgz#36e3d67d44f862131e84fa27f7ee0d3396635370"
+  integrity sha512-Jxy9+u1DE+Svj2N0V/ueEQiOgH2X3KRPAsBfM0m/vCtuiG5QSC//b1mt0rbN/u3BFFEzXqpHzYiwDjmvAydEsw==
   dependencies:
     "@babel/parser" "7.22.5"
     "@babel/traverse" "7.22.5"
@@ -8658,7 +8658,6 @@ depcheck@^1.4.2:
     require-package-name "^2.0.1"
     resolve "^1.18.1"
     resolve-from "^5.0.0"
-    sass "^1.50.1"
     semver "^7.3.2"
     yargs "^16.1.0"
 
@@ -18829,7 +18828,7 @@ sass-loader@^10.0.5:
     schema-utils "^3.0.0"
     semver "^7.3.2"
 
-sass@^1.35.2, sass@^1.50.1:
+sass@^1.35.2:
   version "1.66.1"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.66.1.tgz#04b51c4671e4650aa393740e66a4e58b44d055b1"
   integrity sha512-50c+zTsZOJVgFfTgwwEzkjA3/QACgdNsKueWPyAR0mRINIvLAStVQBbPg14iuqEQ74NPDbXzJARJ/O4SI1zftA==
