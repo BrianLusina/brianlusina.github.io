@@ -4764,9 +4764,9 @@
     "@types/react" "*"
 
 "@types/react-select-country-list@^2.2.0":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@types/react-select-country-list/-/react-select-country-list-2.2.1.tgz#ba42ee969302055ccf8f2925882c8a4f2b7126f1"
-  integrity sha512-Ixc9Vk+X+7P5KEEOK22ASf3y2McupLTfjQwhCUYUzlj00AgkDiERxT3t6Iv9MYkXQxkNx3pi+w8z/u7hdT3khg==
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@types/react-select-country-list/-/react-select-country-list-2.2.2.tgz#323600cf56fd82ab206ece8ec53300f17aae0640"
+  integrity sha512-BPyIilxX0zY8f7DZMeHd3PTEj1j6F5wY3f9U+i0PwVv1Yk25C1AyXsKPH05N2wJ/g0arXNVOH7ai7riNmOa4LA==
 
 "@types/react-test-renderer@>=16.9.0":
   version "17.0.1"
