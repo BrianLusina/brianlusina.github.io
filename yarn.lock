@@ -4769,9 +4769,9 @@
     "@types/react" "*"
 
 "@types/react-phone-number-input@^3.0.11":
-  version "3.0.16"
-  resolved "https://registry.yarnpkg.com/@types/react-phone-number-input/-/react-phone-number-input-3.0.16.tgz#8b366e3a0f8f431375e9ceea60865d05b35f3356"
-  integrity sha512-sMSW0nCf2QmzUUPxdbEgXx07EelUUSqaK4iDrQ/rfi3EwPGeP0rHujUVQZMtG03jUqaf2OHVqs2Jtv6buddT9Q==
+  version "3.0.17"
+  resolved "https://registry.yarnpkg.com/@types/react-phone-number-input/-/react-phone-number-input-3.0.17.tgz#aadecfe727191d980909533eef307aceb5d7e747"
+  integrity sha512-idVINQW6dPxKStbp/XZ+CPrmNzI6KQXqk+dMDrf/at4KewIkyYWJnxQd1/jyjiFRFuumFvYWIzyBmazOjOZo2A==
   dependencies:
     "@types/react" "*"
 
