@@ -2013,9 +2013,9 @@
   integrity sha512-LOt8aaBI+KvOQGneBtpuCz3YqzyEAehd1f3nC5yr9TIYW1+IzYKa2xWS4EiMz5pPOnRPHkyyS5t/wmSmN51Gjg==
 
 "@bugsnag/js@^7.14.1":
-  version "7.21.0"
-  resolved "https://registry.yarnpkg.com/@bugsnag/js/-/js-7.21.0.tgz#0a8a9a61a43cf9b552dc70341ed49ee9da46a8f3"
-  integrity sha512-fFTR7cRBSlLtwa1wPTse92igZUEX2V95KyGGCXq2qb2F2w6hJ6oJDxA0BMPS8qqsciYXRjbfn8HX+TFgO1oErg==
+  version "7.22.2"
+  resolved "https://registry.yarnpkg.com/@bugsnag/js/-/js-7.22.2.tgz#4cd91c77e9e4657b8a952fad34eee40382753c81"
+  integrity sha512-HgKzjkwzMQKyokIFnyRMChONxM9AoR24Sk76tWcqIdFagE0bhnTgSn3qYT2bRVNODtWyQHiW6qjOOpgOM3Mjlw==
   dependencies:
     "@bugsnag/browser" "^7.21.0"
     "@bugsnag/node" "^7.19.0"
