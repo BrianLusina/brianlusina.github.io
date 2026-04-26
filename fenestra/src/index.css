@@ -206,7 +206,7 @@
     min-width: 0;
   }
 
-  /* Fenestra: Organic button styling */
+  /* Fenestra: Organic button styling - Desktop */
   .btn-organic {
     @apply px-8 py-3 rounded-full font-medium text-sm;
     @apply bg-primary-foreground text-primary;
@@ -220,9 +220,27 @@
     transform: translateY(-2px) scale(1.05);
   }
 
+  /* Fenestra: Organic button styling - Mobile (2x2 Grid) */
+  .btn-organic-mobile {
+    @apply px-6 py-4 rounded-full font-medium text-base;
+    @apply bg-primary-foreground text-primary;
+    @apply shadow-xl shadow-primary/30;
+    @apply hover:shadow-2xl hover:shadow-primary/40 hover:scale-105;
+    @apply active:scale-95;
+    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-organic-mobile:hover {
+    transform: translateY(-2px) scale(1.05);
+  }
+
   /* Organic section divider */
   .divider-organic {
-    @apply relative w-full h-24 -my-1;
+    @apply relative w-full h-16 sm:h-24 -my-1;
   }
 
   .divider-organic img {
@@ -257,6 +275,25 @@
 
   .fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  /* Mobile-specific responsive adjustments */
+  @media (max-width: 640px) {
+    h1 {
+      @apply text-4xl;
+    }
+
+    h2 {
+      @apply text-3xl;
+    }
+
+    h3 {
+      @apply text-xl;
+    }
+
+    p {
+      @apply text-base;
+    }
   }
 
   @media (min-width: 640px) {
